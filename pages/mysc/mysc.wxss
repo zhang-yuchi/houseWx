@@ -1,0 +1,173 @@
+/* pages/myorder/myorder.wxss */
+page {
+  height: 100%;
+}
+
+.container {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+.selectItem{
+  width:100%;
+  height:50px;
+  box-shadow: 0 0 10px rgb(240,240,240);
+}
+.selectItem_son{
+  width:50%;
+  height:100%;
+  float:left;
+}
+.son_text{
+  width:100%;
+  height:30px;
+  text-align: center;
+  line-height: 30px;
+  font-size:15px;
+  color:#333333;
+  letter-spacing: 1px;
+  font-weight: 800;
+  margin-top:7px;
+}
+.son_textC{
+  width:100%;
+  height:30px;
+  text-align: center;
+  line-height: 30px;
+  font-size:15px;
+  color:gray;
+  letter-spacing: 1px;
+  font-weight: 800;
+  margin-top:7px;
+}
+.son_text::after{
+  content:"";
+  width:20px;
+  height:4px;
+  display: block;
+  background:rgb(255,217,62);
+  position:relative;
+  top:2px;
+  left:50%;
+  margin-left:-10px;
+  border-radius: 2px;
+}
+.infoBox {
+  width: 95%;
+  height: 130px;
+  margin: 0 auto;
+  margin-top:10px;
+  margin-bottom:10px;
+  /* background: green; */
+}
+
+.infoBox_son_pic {
+  width: 37%;
+  height: 130px;
+  display: block;
+  float: left;
+  
+}
+
+.infoBox_text {
+  width: 60%;
+  height: 130px;
+  float: right;
+  /* background: orange; */
+}
+
+.name {
+  width: 100%;
+  height: 30px;
+  /* background: red; */
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 30px;
+}
+
+.price {
+  width: 100%;
+  height: 30px;
+  /* background: green; */
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 30px;
+  color:red;
+}
+.dis {
+  width: 100%;
+  height: 20px;
+  /* background: pink; */
+  font-size: 9px;
+  line-height: 20px;
+  color: rgb(140, 140, 140);
+}
+.sx {
+  width: 100%;
+  height: 50px;
+  /* background: red; */
+}
+.sx_son{
+  height:17px;
+  /* background: orange; */
+  border:1px solid rgb(140, 140, 140);
+  border-radius: 17px;
+  color:rgb(140, 140, 140);
+  line-height: 17px;
+  float:left;
+  margin-top:17px;
+  font-size:9px;
+  text-align: center;
+  letter-spacing: 2px;
+}
+
+.teseBox{
+  width:96%;
+  height:120px;
+  /* background: red; */
+  overflow: hidden;
+  margin:0 auto;
+}
+.scrollX{
+  height:120px;
+  width: 100%;
+  white-space: nowrap;
+}
+.teseBox_son{
+  width:33.3%;
+  height:100%;
+  float:left;
+}
+/* .teseBox_son_pic{
+  width:80px;
+  height:80px;
+  margin: 0 auto;
+  margin-top:10px;
+  border-radius: 80px;
+  display: block;
+} */
+.teseBox_son_pic{
+width:96%;
+  height:96%;
+  border-radius: 5px;
+  display: block;
+  margin:0 auto;
+}
+.teseBox_text{
+  width:100%;
+  height:20px;
+  text-align: center;
+  line-height: 20px;
+  font-size: 14px;
+  color:#101010;
+}
+.teseBoxTitle{
+  width: 90%;
+  height: 25px;
+  margin: 0 auto;
+  font-size: 18px;
+  font-weight: 900;
+  line-height: 25px;
+  margin-top:30px;
+  margin-bottom:10px;
+}

@@ -1,0 +1,176 @@
+/* pages/fd_cz/fdcz.wxss */
+page{
+  height:100%;
+  background: rgb(248,248,248);
+}
+.container{
+  width:100%;
+  height:100%;
+  background: rgb(248,248,248);
+  overflow: hidden
+}
+.topPic{
+  width:82%;
+  margin:0 auto;
+  margin-top:30px;
+  display:block;
+  height:3.5%;
+}
+.topFont{
+  width:100%;
+  height:20px;
+}
+.one{
+  width:33.3%;
+  height:20px;
+  float:left;
+  text-align: center;
+  line-height: 20px;
+  font-weight: 300;
+  font-size: 12px;
+  color:#333333;
+  letter-spacing: .5px;
+}
+.title{
+  width:100%;
+  height:40px;
+  font-size:19px;
+  font-weight: 900;
+  text-align: left;
+  text-indent: 20px;
+  color:#333333;
+  margin-top:30px;
+  letter-spacing: 1px;
+}
+.sigleInput{
+  width:90%;
+  height:70px;
+  margin:0 auto;
+  border-bottom:1px solid rgb(234,234,234);
+}
+.left{
+  width:30%;
+  height:40px;
+  margin-top:15px;
+  float:left;
+  text-align: left;
+  font-size: 16px;
+  color:#333333;
+  letter-spacing: 1px;
+  /* background:yellow; */
+  line-height: 40px;
+  font-weight: 700;
+}
+.right{
+  width:70%;
+  height:40px;
+  float:left;
+  margin-top:15px;
+  overflow: hidden;
+}
+.input{
+  outline: none;
+  background: none;
+  display:block;
+  width:95%;
+  height:38px;
+  font-size:15px;
+  /* background:red; */
+}
+.middle{
+  width:50%;
+  height:100%;
+  float:left;
+  /* background:red; */
+}
+.new_right{
+  width:20%;
+  height:100%;
+  float:left;
+  /* background:red; */
+}
+.newRightPic{
+  width:15px;
+  height:15px;
+  float:right;
+  margin-top:27.5px;
+}
+.picker{
+  width:100%;
+  height:40px;
+  margin-top:15px;
+  text-align: left;
+  line-height: 40px;
+  font-size:15px;
+  /* background:red; */
+  color:rgb(147,134,130);
+}
+
+.jjBox{
+  width:95%;
+  height:70px;
+  margin:0 auto;
+}
+.jjBox_son{
+  width:20%;
+  height:100%;
+  float:left;
+}
+.jjBox_son_pic{
+  width:30px;
+  height:30px;
+  margin:0 auto;
+  margin-top:10px;
+  display: block;
+}
+.jjBox_son_text{
+  width:100%;
+  height:20px;
+  text-align: center;
+  line-height: 20px;
+  color:#101010;
+  font-size:12px;
+}
+.jjBox_son_textC{
+  width:100%;
+  height:20px;
+  text-align: center;
+  line-height: 20px;
+  color:rgb(255,217,62);
+  font-size:12px;
+}
+.otherInput{
+  width:90%;
+  height:150px;
+  display: block;
+  margin:10px auto;
+  outline: none;
+  background:rgb(240,240,240);
+  border-radius: 4px;
+}
+.btn{
+  width:88%;
+  height:50px;
+  background: rgb(255,217,62);
+  letter-spacing: 1px;
+  text-align: center;
+  line-height: 50px;
+  font-size:15px;
+  font-weight: 699;
+  border-radius: 3px;
+  margin:30px auto;
+}
+.picBox{
+  width:90%;
+  height:200px;
+  margin:0 auto;
+  border-radius: 3px;
+  background:rgb(240,240,240);
+}
+.picBox_pic{
+  position: relative;
+  width:100%;
+  height:100%;
+  display: block;
+  
+}

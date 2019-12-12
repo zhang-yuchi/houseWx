@@ -1,0 +1,25 @@
+<!--pages/msg/msg.wxml-->
+<View class="container">
+<View wx:for="{{systemMsgs}}" wx:key="systemMsgs">
+  <View class="infoBox" id="{{item.id}}" bindtap="todetail">
+    <image src="../../images/chat_2.png" class="infoBox_pic"/>
+    <View class="middleBox">
+      <View class="title">系统通知</View>
+      <View class="content">{{item.con}}</View>
+    </View>
+    <View class="rightBox">5:09</View>
+  </View>
+  <View style="width:90%;margin:10px auto;margin-top:20px;height:1px;background:#E0E0E0;"></View>
+  </View>
+  
+
+  <View class="infoBox">
+    <image src="../../images/chat_1.png" class="infoBox_pic"/>
+    <View class="middleBox">
+      <View class="title">用户沟通</View>
+      <View class="content">这是大概内容</View>
+    </View>
+    <View class="rightBox">5:09</View>
+  </View>
+  <View style="width:90%;margin:10px auto;margin-top:20px;height:1px;background:#E0E0E0;"></View>
+</View>

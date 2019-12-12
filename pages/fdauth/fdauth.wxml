@@ -1,0 +1,17 @@
+<!--pages/fdauth/fdauth.wxml-->
+<View class="container">
+  <View class="picBox" style="margin-top:60px;">
+    <image src="../../images/camera.png" class="picBox_icon" />
+    <View class="picBox_font">点击上传身份证正面</View>
+  </View>
+
+  <View class="picBox" style="margin-top:20px;">
+    <image src="../../images/camera.png" class="picBox_icon" />
+    <View class="picBox_font">点击上传身份证正面</View>
+  </View>
+
+
+</View>
+
+
+<View class="btn" style="left:{{btnLeft}}">确定</View>

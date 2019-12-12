@@ -1,0 +1,165 @@
+/* pages/new_mime/new_mime.wxss */
+page {
+  height: 100%;
+}
+.container {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+.topBox{
+  width:100%;
+  height:120px;
+  background:#ffc000;
+}
+.nameBox{
+  width:100%;
+  height:25px;
+  font-size:20px;
+  text-align: center;
+  line-height: 25px;
+  color:#333333;
+  margin-top:35px;
+}
+.telBox{
+  width:100%;
+  height:24px;
+  font-size:17px;
+  text-align: center;
+  line-height: 24spx;
+  color:#c6c6c6;
+}
+.headPic{
+  width:80px;
+  height:80px;
+  position: fixed;
+  top:60px;
+  border:10px solid white;
+  border-radius: 100px;
+}
+.barBox{
+  width:90%;
+  height:120px;
+  margin: 0 auto;
+  margin-top:20px;
+  box-shadow: 0 2px 5px rgb(240,240,240);
+}
+.barBox_son{
+  width:33.3%;
+  height:100%;
+  float:left;
+  
+}
+.barBox_son_pic{
+  width:60px;
+  height:60px;
+  margin: 0 auto;
+  margin-top:20px;
+  display: block;
+}
+.barBox_son_font{
+  width:100%;
+  height:20px;
+  text-align: center;
+  line-height: 20px;
+  margin-top:10px;
+  font-size:14px;
+  color:#4d4d4c;
+  letter-spacing: 0.5px;
+}
+.btnBox{
+  width:90%;
+  height:200px;
+  margin:0 auto;
+  margin-top:20px;
+  box-shadow: 0 2px 5px rgb(240,240,240);
+}
+.btnBox_son{
+  width:90%;
+  margin:0 auto;
+  height:60px;
+}
+.btnBox_son_font{
+  width:50%;
+  height:60px;
+  color:#333333;
+  font-weight: 14px;
+  letter-spacing: 1px;
+  line-height: 60px;
+  float:left;
+}
+.btnBox_son_pic{
+  width:16px;
+  height:16px;
+  float:right;
+  margin-top:22px;
+}
+
+/* 联系客服弹窗css代码 */
+.concatBox{
+  width:100%;
+  height:100%;
+  background: rgba(187, 187, 187, 0.31);
+  position: fixed;
+  top:0;
+  left:0;
+  z-index: 100
+}
+.concatBox_sonBox{
+  width:280px;
+  height:146px;
+  /* background: red; */
+  margin:0 auto;
+  background: white;
+  border-radius: 4px;
+}
+.concatBox_sonBox_top{
+  width:100%;
+  height:106px;
+  border-radius: 4px 4px 0 0;
+  overflow: hidden;
+}
+.concatBox_sonBox_bottom{
+  width:100%;
+  height:40px;
+  /* background: green; */
+  border-radius: 0 0 4px 4px;
+}
+.concatBox_sonBox_top_top{
+  width:100%;
+  height:26px;
+  line-height: 26px;
+  text-align: center;
+  color:#000000;
+  font-size:18px;
+  margin-top:24px;
+}
+.concatBox_sonBox_top_bottom{
+  width:100%;
+  height:26px;
+  line-height: 26px;
+  text-align: center;
+  color:#888888;
+  font-size:15px;
+}
+.concatBox_sonBox_bottom_left{
+  width:139px;
+  height:39px;
+  border-top:1px solid rgba(187, 187, 187, 0.31);
+  border-right:1px solid rgba(187, 187, 187, 0.31);
+  font-size:18px;
+  text-align: center;
+  line-height: 39px;
+  color:black;
+  float:left;
+}
+.concatBox_sonBox_bottom_right{
+  width:140px;
+  height:39px;
+  border-top:1px solid rgba(187, 187, 187, 0.31);
+  font-size:18px;
+  text-align: center;
+  line-height: 39px;
+  color:#02BB00;
+  float:left;
+}

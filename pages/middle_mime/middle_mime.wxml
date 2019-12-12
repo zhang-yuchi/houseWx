@@ -1,0 +1,2 @@
+<!--pages/middle_mime/middle_mime.wxml-->
+<View class="btn" bindtap="go"  style="left:{{btnLeft}}">点击跳转</View>

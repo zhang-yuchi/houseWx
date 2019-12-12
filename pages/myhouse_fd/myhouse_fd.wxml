@@ -1,0 +1,25 @@
+<!--pages/myorder/myorder.wxml-->
+<View class="container">
+  <View class="selectItem">
+    <View class="selectItem_son" wx:for="{{barArr}}" wx:key="barArr" bindtap="changeBar" id="{{item.id}}">
+      <View class="{{item.className}}">{{item.name}}</View>
+    </View>
+  </View>
+
+  <scroll-view scroll-y="true" class="scrollView" style="width:100%;height:{{scrollViewHeight}}">
+    <View class="infoBox" wx:for="{{houseSets}}" wx:key="houseSets"  id="{{item.id}}" bindtap="tohousedetail">
+      <image src="{{requestHost+item.imageindex}}" mode="aspectFit" class="infoBox_son_pic"/>
+      <View class="infoBox_text">
+        <View class="name">{{item.houseinfo.addr}}</View>
+        <View class="dis">125m | {{item.houseinfo.caox}} | 东莞大道</View>
+        <View class="sx">
+          <View class="sx_son" style="width:{{sx_son_width}};margin-right:5px;">精选房源</View>
+          <View class="sx_son" style="width:{{sx_son_width}};margin-right:5px">{{item.houseinfo.cashType}}</View>
+          <View class="sx_son" style="width:{{sx_son_width}};margin-right:5px">南北通透</View>
+          <View class="sx_son" style="width:{{sx_son_width}}">配套齐全</View>
+        </View>
+        <View class="price">{{item.houseinfo.cash}}元/月</View>
+      </View>
+    </View>
+  </scroll-view>
+</View>

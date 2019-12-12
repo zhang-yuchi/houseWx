@@ -1,0 +1,37 @@
+<!--pages/myorder/myorder.wxml-->
+<View class="container">
+  <View class="selectItem">
+    <View class="selectItem_son" wx:for="{{barArr}}" wx:key="barArr" bindtap="changeBar" id="{{item.id}}">
+      <View class="{{item.className}}">{{item.name}}</View>
+    </View>
+  </View>
+
+  <scroll-view scroll-y="true" class="scrollView" style="width:100%;height:{{scrollViewHeight}}">
+    <View class="infoBox">
+      <View class="left">
+        <image src="../../images/water.png" class="pic"/>
+        <View class="font">水电</View>
+      </View>
+      <View class="right">
+        <View class="right_son" style="margin-top:20px;">东泰花园</View>
+        <View class="right_son" style="color:gray"></View>
+        <View class="right_son" style="color:gray">日期：2019/10/10</View>
+      </View>
+      <View class="right_right">3000<Text style="font-size:12px;">元</Text></View>
+    </View>
+
+
+    <View class="infoBox">
+      <View class="left">
+        <image src="../../images/cash.png" class="pic"/>
+        <View class="font">租金</View>
+      </View>
+      <View class="right">
+        <View class="right_son" style="margin-top:20px;">东泰花园</View>
+        <View class="right_son" style="color:gray"></View>
+        <View class="right_son" style="color:gray">日期：2019/10/10</View>
+      </View>
+      <View class="right_right">3000<Text style="font-size:12px;">元</Text></View>
+    </View>
+  </scroll-view>
+</View>

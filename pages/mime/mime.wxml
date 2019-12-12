@@ -1,0 +1,59 @@
+<!--pages/mime/mime.wxml-->
+<View class="container">
+  <View class="headPicBox">
+    <image src="../../images/sx.png" class="headPicBox_pic"/>
+    <View class="nameBox" style="width:{{nameBoxWidth}}">
+      <View class="name">柳博文</View>
+      <View class="tel">18089598383</View>
+    </View>
+  </View>
+
+  <View style="width:100%;height:16px;background:#F8F8F8;margin-bottom:10px;"></View>
+
+  <View class="btnBox" bindtap="tomyorder">
+    <image src="../../images/left.png" class="btnBoxLeft_pic"/>
+    <View class="text">我的租房</View>
+    <image src="../../images/right.png" class="btnBoxRight_pic"/>
+  </View>
+  <View class="btnBox" bindtap="tomyordercash">
+    <image src="../../images/left.png" class="btnBoxLeft_pic"/>
+    <View class="text">我的账单</View>
+    <image src="../../images/right.png" class="btnBoxRight_pic"/>
+  </View>
+  <View class="btnBox" bindtap="tomyfixed">
+    <image src="../../images/left.png" class="btnBoxLeft_pic"/>
+    <View class="text">我的报修</View>
+    <image src="../../images/right.png" class="btnBoxRight_pic"/>
+  </View>
+  <View class="btnBox" bindtap="tosc">
+    <image src="../../images/left.png" class="btnBoxLeft_pic"/>
+    <View class="text">我的收藏</View>
+    <image src="../../images/right.png" class="btnBoxRight_pic"/>
+  </View>
+  <View class="btnBox" bindtap="tosurf">
+    <image src="../../images/left.png" class="btnBoxLeft_pic"/>
+    <View class="text">我的浏览</View>
+    <image src="../../images/right.png" class="btnBoxRight_pic"/>
+  </View>
+  <View class="btnBox" bindtap="showConcatBox">
+    <image src="../../images/left.png" class="btnBoxLeft_pic"/>
+    <View class="text">联系客服</View>
+    <image src="../../images/right.png" class="btnBoxRight_pic"/>
+  </View>
+
+  <View class="other" style="margin-top:50px;">切换查看房东端</View>
+  <View class="other">个人中心</View>
+</View>
+
+<View class="concatBox" style="display:{{concatBoxDisplay}}">
+  <View class="concatBox_sonBox" style="margin-top:{{concatBox_sonBoxwidth}}">
+    <View class="concatBox_sonBox_top">
+      <View class="concatBox_sonBox_top_top">拨打客服电话</View>
+      <View class="concatBox_sonBox_top_bottom">020-202525562</View>
+    </View>
+    <View class="concatBox_sonBox_bottom">
+      <View class="concatBox_sonBox_bottom_left" bindtap="cancel">取消</View>
+      <View class="concatBox_sonBox_bottom_right">拨通</View>
+    </View>
+  </View>
+</View>

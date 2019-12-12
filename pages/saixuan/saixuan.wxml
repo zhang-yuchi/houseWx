@@ -1,0 +1,44 @@
+<!--pages/saixuan/saixuan.wxml-->
+<View class="container">
+  <!-- 中部条件筛选 -->
+  <View class="middle_check">
+    <View class="middle_check_son" style="width:{{middle_check_sonwidth}}">
+        <View class="middle_check_son_text" style="margin-left:{{middle_check_son_textleft}}">区域</View>
+        <image src="../../images/indexdown.png" class="middle_check_son_pic" />
+    </View>
+    <View class="middle_check_son" style="width:{{middle_check_sonwidth}}">
+        <View class="middle_check_son_text" style="margin-left:{{middle_check_son_textleft}}">租金</View>
+        <image src="../../images/indexdown.png" class="middle_check_son_pic" />
+    </View>
+    <View class="middle_check_son" style="width:{{middle_check_sonwidth}}">
+        <View class="middle_check_son_text" style="margin-left:{{middle_check_son_textleft}}">户型</View>
+        <image src="../../images/indexdown.png" class="middle_check_son_pic" />
+    </View>
+    <View class="middle_check_son" style="width:{{middle_check_sonwidth}}">
+        <View class="middle_check_son_text" style="margin-left:{{middle_check_son_textleft}}">筛选</View>
+        <image src="../../images/indexdown.png" class="middle_check_son_pic" />
+    </View>
+    <View class="middle_check_son" style="width:{{middle_check_sonwidth}}">
+        <image src="../../images/sx.png" class="middle_check_son_sx" />
+    </View>
+  </View>
+  
+  <View style="width:100%;height:30px;"></View>
+
+  <View style="width:90%;height:20px;font-size:14px;line-height:20px;margin-top:20px;margin:0 auto;font-weight:700">朝向</View>
+
+  <View style="overflow:hidden">
+  <View  wx:for="{{cx}}" wx:key="cx" id="{{item.id}}" catchtap="sxBind" class="{{item.className}}" >{{item.name}}</View>
+  </View>
+
+
+  <View style="width:90%;height:20px;font-size:14px;line-height:20px;margin-top:20px;margin:0 auto;font-weight:700;margin-top:30px;">住房条件</View>
+  <View  wx:for="{{zf}}" wx:key="cx" id="{{item.id}}" catchtap="zfBind" class="{{item.className}}" >{{item.name}}</View>
+</View>
+
+<View class="btnBox">
+  <View class="btn" bindtap="sx"  style="left:{{btnLeft}}">确定</View>
+</View>
+
+
+

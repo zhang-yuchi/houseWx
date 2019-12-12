@@ -1,0 +1,7 @@
+<!--pages/fdAuth_check/fdAuth_check.wxml-->
+<View class="container">
+  <image src="/images/fdAuth_check.png" class="img"></image>
+  <View class="font">已经收到您的房源，请等待管理员审核</View>
+  <View class="font">审核通过后，在个人中心--我的房源查看</View>
+</View>
+<View class="submit" bindtap="to">确定</View>

@@ -1,0 +1,5 @@
+<!--pages/msgdetail/msgdetail.wxml-->
+<View class="container">
+  <image src="{{pic}}" class="pic"/>
+  <View class="font">{{font}}</View>
+</View>

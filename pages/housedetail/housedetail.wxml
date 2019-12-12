@@ -1,0 +1,127 @@
+<!--pages/housedetail/housedetail.wxml-->
+<View class="container">
+<scroll-view scroll-y="true" class="scrollView" style="width:100%;height:{{scrollViewHeight}}">
+  <!-- <view class="banner"> -->
+    <!-- <view class="banner_son"> -->
+      <!--滚动图  -->
+      <!-- <swiper class="swiper" indicator-dots="true" autoplay="true" interval="5000" duration="1000"> -->
+        <!-- <block wx:for="{{movies}}" wx:for-index="index" wx:key="test">
+          <swiper-item> -->
+            <!-- <image src="{{item.url}}" class="slide-image" mode="aspectFill" />
+          </swiper-item> -->
+        <!-- </block> -->
+      <!-- </swiper> -->
+    <!-- </view> -->
+  <!-- </view> -->
+<image src="{{host+obj.imageindex}}" class="topPic" mode="aspectFill" />
+
+  <!-- 新UI的介绍 -->
+  <View class="new_box">
+    <View class="left">
+      <View class="left_top">
+        {{obj.houseinfo.addr}}
+      </View>
+      <View class="left_bottom">
+        {{obj.houseinfo.cashType}}
+      </View>
+    </View>
+    <View class="right" bindtap="sc">
+      <image src="../../images/sc.png" class="right_top" mode="aspectFill" />
+      <View class="right_bottom">收藏</View>
+    </View>
+  </View>
+
+  <View class="price_new">￥ {{obj.houseinfo.cash}}元/月</View>
+
+  <View class="new_info_box">
+    <View class="new_info_box_first">
+      <View class="firstBox">
+        <View class="firstBox_top">朝向-{{obj.houseinfo.caox}}</View>
+        <View class="firstBox_bottom">{{obj.houseinfo.areaWidth}}m</View>
+      </View>
+      <View class="firstBox">
+        <View class="firstBox_top">2室1厅1卫</View>
+        <View class="firstBox_bottom">有家电</View>
+      </View>
+      <View class="firstBox">
+        <View class="firstBox_top">{{obj.houseinfo.floor}}层</View>
+        <View class="firstBox_bottom">{{obj.houseinfo.diant}}电梯</View>
+      </View>
+    </View>
+    <View class="new_info_box_second">
+      <View class="second_left">
+        <View class="left_left" style="color:gray">装修</View>
+        <View class="left_left" style="text-align:left">豪华装修</View>
+      </View>
+      <View class="second_left">
+        <View class="left_left" style="color:gray">入住</View>
+        <View class="left_left" style="text-align:left">2019.08.22</View>
+      </View>
+    </View>
+    <View class="new_info_box_third">
+    <View class="second_left">
+        <View class="left_left" style="color:gray">看房</View>
+        <View class="left_left" style="text-align:left">{{obj.houseinfo.looktime}}</View>
+      </View>
+      <View class="second_left">
+        <View class="left_left" style="color:gray">采光</View>
+        <View class="left_left" style="text-align:left">{{obj.houseinfo.caig}}</View>
+      </View>
+    </View>
+  </View>
+
+  <!-- <View class="nameBox">
+    <View class="nameBox_left">东泰花园 两房一厅</View>
+    <View class="nameBox_right">￥2500/月</View>
+  </View>
+
+  <View class="nameBox">
+    <View class="nameBox_left" style="font-size:14px;">两房一厅/5楼/建筑面积约85m</View>
+    <View class="nameBox_right" style="font-size:12px;">押一付一</View>
+  </View>
+
+  <View class="titleB">其它情况</View>
+  <View class="nameBox">
+    <View class="nameBox_left" style="font-size:14px;width:30%;font-weight:100">朝向：南北</View>
+    <View class="nameBox_right" style="font-size:14px;width:30%;float:left;font-weight:100">电梯：有</View>
+  </View>
+  <View class="nameBox" style="margin-top:0">
+    <View class="nameBox_left" style="font-size:14px;width:30%;font-weight:100">看房：随时</View>
+    <View class="nameBox_right" style="font-size:14px;width:60%;float:left;font-weight:100">入住：2019.08.08</View>
+  </View> -->
+
+
+  <View class="titleB">地理位置</View>
+  <map id="map" longitude="113.324520" latitude="23.099994" scale="14" controls="{{controls}}" bindcontroltap="controltap" markers="{{markers}}" bindmarkertap="markertap" polyline="{{polyline}}" bindregionchange="regionchange" show-location style="width: 95%; height: 100px;margin:0 auto;"></map>
+
+<View class="titleB">家具配套</View>
+<View class="jjBox">
+  <View class="jjBox_son" wx:for="{{firstLevel}}" wx:key="firstLevel" id="{{item.id}}" bindtap="getId">
+    <image src="{{item.url}}" class="jjBox_son_pic" />
+    <View class="{{item.className}}">{{item.name}}</View>
+  </View>
+</View>
+
+<View class="jjBox">
+  <View class="jjBox_son" wx:for="{{secondLevel}}" wx:key="secondLevel" id="{{item.id}}" bindtap="getSecond">
+    <image src="{{item.url}}" class="jjBox_son_pic" />
+    <View class="{{item.className}}">{{item.name}}</View>
+  </View>
+</View>
+
+
+ <View class="titleB">其他描述</View>
+<View class="con">{{obj.houseinfo.textarea}}</View>
+</scroll-view>
+</View>
+
+<View class="btnBox">
+  <View class="btnBox_son">
+    <View class="btnBox_son_left">
+      <image src="../../images/share.png" class="btnBox_son_left_pic" />
+      <View class="btnBox_son_left_text">分享</View>
+    </View>
+  </View>
+  <View class="btnBox_son_te" style="background:rgb(255,166,62);margin-right:2%">在线咨询</View>
+  <View bindtap="touserSign" class="btnBox_son_te" style="background:rgb(255,217,62)">立即签约</View>
+</View>

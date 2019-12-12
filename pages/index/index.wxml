@@ -1,0 +1,119 @@
+<!--pages/index/index.wxml-->
+
+<view class="container">
+<scroll-view scroll-y="true" class="scrollView" style="width:100%;height:100%">
+  <!-- 顶部搜索组件 -->
+  <View class="searchBox">
+    <View class="city" bindtap="toCity">东莞</View>
+    <View class="cityIcon">
+      <image src="../../images/indexdown.png" class="indexdown" />
+    </View>
+    <View class="searchBox_input" style="width:{{searchBoxInputWidth}}">
+      <image src="../../images/SEARCH.png" class="searchpic" />
+      <input placeholder="请输入小区或者地址" class="input" style="width:{{inputWidth}}"  bindinput="check"/>
+    </View>
+  </View>
+  <view class="banner">
+    <view class="banner_son">
+      <!--滚动图  -->
+      <swiper class="swiper" indicator-dots="true" autoplay="true" interval="5000" duration="1000">
+        <block wx:for="{{movies}}" wx:for-index="index" wx:key="test">
+          <swiper-item>
+            <image src="{{requestHost+item.imageindex}}" class="slide-image" mode="aspectFill" />
+          </swiper-item>
+        </block>
+      </swiper>
+    </view>
+  </view>
+
+  <View class="itembox">
+    <View class="itembox_son" style="width:{{itembox_sonwidth}}"  bindtap="toupfix">
+      <image src="../../images/index_1.png" class="itembox_son_pic" />
+      <View class="itembox_son_text">故障报修</View>
+    </View>
+
+    <View class="itembox_son" style="width:{{itembox_sonwidth}}" bindtap="tofdauth">
+      <image src="../../images/index_3.png" class="itembox_son_pic" />
+      <View class="itembox_son_text">我要出租</View>
+    </View>
+
+    <View class="itembox_son" style="width:{{itembox_sonwidth}}" bindtap="toliveserver">
+      <image src="../../images/index_1.png" class="itembox_son_pic" />
+      <View class="itembox_son_text">生活服务</View>
+    </View>
+  </View>
+  <!-- 特色推荐 -->
+  <View class="teseBoxTitle">特色推荐</View>
+  <View class="teseBox">
+    <scroll-view class="scrollX" scroll-x='true'>
+      <!-- <View class="teseBox_son">
+      <image src="../../images/sx.png" class="teseBox_son_pic" />
+      <View class="teseBox_text">情侣抢先看</View>
+    </View>
+    <View class="teseBox_son">
+      <image src="../../images/sx.png" class="teseBox_son_pic" />
+      <View class="teseBox_text">一人安心住</View>
+    </View>
+    <View class="teseBox_son">
+      <image src="../../images/sx.png" class="teseBox_son_pic" />
+      <View class="teseBox_text">转租好房源</View>
+    </View>
+    <View class="teseBox_son">
+      <image src="../../images/sx.png" class="teseBox_son_pic" />
+      <View class="teseBox_text">转租好房源</View>
+    </View> -->
+    <View class="teseBox_son">
+    <image src="../../images/index_1.jpg" mode="aspectFit" class="teseBox_son_pic" /></View>
+    <View class="teseBox_son">
+    <image src="../../images/index_2.jpg" mode="aspectFit" class="teseBox_son_pic" /></View>
+    <View class="teseBox_son">
+    <image src="../../images/index_3.jpg" mode="aspectFit" class="teseBox_son_pic" /></View>
+    </scroll-view>
+  </View>
+
+  <View class="empty" style="width:100%;height:8px;background:#F8F8F8"></View>
+
+  <!-- 中部条件筛选 -->
+  <View class="middle_check">
+    <View class="middle_check_son" style="width:{{middle_check_sonwidth}}">
+        <View class="middle_check_son_text" style="margin-left:{{middle_check_son_textleft}}">区域</View>
+        <image src="../../images/indexdown.png" class="middle_check_son_pic" />
+    </View>
+    <View class="middle_check_son" style="width:{{middle_check_sonwidth}}" bindtap="toPrice">
+        <View class="middle_check_son_text" style="margin-left:{{middle_check_son_textleft}}">租金</View>
+        <image src="../../images/indexdown.png" class="middle_check_son_pic" />
+    </View>
+    <View class="middle_check_son" style="width:{{middle_check_sonwidth}}" bindtap="toHx">
+        <View class="middle_check_son_text" style="margin-left:{{middle_check_son_textleft}}">户型</View>
+        <image src="../../images/indexdown.png" class="middle_check_son_pic" />
+    </View>
+    <View class="middle_check_son" style="width:{{middle_check_sonwidth}}" bindtap="tosaixuan">
+        <View class="middle_check_son_text" style="margin-left:{{middle_check_son_textleft}}">筛选</View>
+        <image src="../../images/indexdown.png" class="middle_check_son_pic" />
+    </View>
+    <View class="middle_check_son" style="width:{{middle_check_sonwidth}}">
+        <image src="../../images/sx.png" class="middle_check_son_sx" bindtap="reverse"/>
+    </View>
+  </View>
+
+
+
+  <!-- 中部广告条 -->
+
+
+    <View class="infoBox" wx:for="{{houseSets}}" wx:key="houseSets"  id="{{item.id}}" bindtap="tohousedetail">
+      <image src="{{requestHost+item.imageindex}}" mode="aspectFit" class="infoBox_son_pic"/>
+      <View class="infoBox_text">
+        <View class="name">{{item.houseinfo.addr}}</View>
+        <View class="dis">125m | {{item.houseinfo.caox}} | 东莞大道</View>
+        <View class="sx">
+          <View class="sx_son" style="width:{{sx_son_width}};margin-right:5px;">精选房源</View>
+          <View class="sx_son" style="width:{{sx_son_width}};margin-right:5px">{{item.houseinfo.cashType}}</View>
+          <View class="sx_son" style="width:{{sx_son_width}};margin-right:5px">南北通透</View>
+          <View class="sx_son" style="width:{{sx_son_width}}">配套齐全</View>
+        </View>
+        <View class="price">{{item.houseinfo.cash}}元/月</View>
+      </View>
+    </View>
+  </scroll-view>
+</view>

@@ -1,0 +1,41 @@
+<!--pages/price/price.wxml-->
+<View class="container">
+  <!-- 中部条件筛选 -->
+  <View class="middle_check">
+    <View class="middle_check_son" style="width:{{middle_check_sonwidth}}">
+        <View class="middle_check_son_text" style="margin-left:{{middle_check_son_textleft}}">区域</View>
+        <image src="../../images/indexdown.png" class="middle_check_son_pic" />
+    </View>
+    <View class="middle_check_son" style="width:{{middle_check_sonwidth}}">
+        <View class="middle_check_son_text" style="margin-left:{{middle_check_son_textleft}}">租金</View>
+        <image src="../../images/indexdown.png" class="middle_check_son_pic" />
+    </View>
+    <View class="middle_check_son" style="width:{{middle_check_sonwidth}}">
+        <View class="middle_check_son_text" style="margin-left:{{middle_check_son_textleft}}">户型</View>
+        <image src="../../images/indexdown.png" class="middle_check_son_pic" />
+    </View>
+    <View class="middle_check_son" style="width:{{middle_check_sonwidth}}">
+        <View class="middle_check_son_text" style="margin-left:{{middle_check_son_textleft}}">筛选</View>
+        <image src="../../images/indexdown.png" class="middle_check_son_pic" />
+    </View>
+    <View class="middle_check_son" style="width:{{middle_check_sonwidth}}">
+        <image src="../../images/sx.png" class="middle_check_son_sx" />
+    </View>
+  </View>
+
+  <View class="priceList">不限</View>
+  <View class="priceList">价格由低到高</View>
+  <View class="priceList">价格由高到低</View>
+  <View class="priceList">时间由新到旧</View>
+  <!-- <View class="inputBox">
+    <View class="inputBox_left">最低价格</View>
+    <View class="inputBox_right">最高价格</View>
+  </View>
+  <View class="inputBox1">
+    <input placeholder="单行输入" class="inputb"/>
+    <View class="inputBox1_middle">至</View>
+    <input placeholder="单行输入" class="inputb"/>
+  </View> -->
+</View>
+
+<!-- <View class="btn" style="left:{{btnLeft}}">确定</View> -->

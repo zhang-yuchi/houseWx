@@ -1,0 +1,35 @@
+<!--pages/housedetail/housedetail.wxml-->
+<View class="container">
+<scroll-view scroll-y="true" class="scrollView" style="width:100%;height:{{scrollViewHeight}}">
+<image src="../../images/index_1.jpg" class="topPic" mode="aspectFill" />
+
+  <!-- 新UI的介绍 -->
+  <View class="new_box">
+    <View class="left">
+      <View class="left_top">
+        {{obj.houseinfo.addr}}
+      </View>
+      <View class="left_bottom">
+        {{obj.houseinfo.cashType}}
+      </View>
+    </View>
+    <View class="right">
+      <image src="../../images/sc.png" class="right_top" mode="aspectFill" />
+      <View class="right_bottom">收藏</View>
+    </View>
+  </View>
+
+<image src="../../images/index_3.jpg" class="topPic" mode="aspectFill" />
+<image src="../../images/index_1.jpg" class="topPic" mode="aspectFill" />
+
+
+</scroll-view>
+</View>
+
+<View class="bottomBtn">
+  <View class="bottom_left">
+    <image src="../../images/share.png" class="bottom_left_pic" mode="aspectFill" />
+    <View class="bottom_left_font">分享</View>
+  </View>
+  <View class="bottom_right">一键联系</View>
+</View>

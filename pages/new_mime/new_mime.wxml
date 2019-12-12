@@ -1,0 +1,53 @@
+<!--pages/new_mime/new_mime.wxml-->
+<View class="container">
+  <View class="topBox"></View>
+  <!-- <image src="{{imagePic}}" class="topBox"></image> -->
+  <View class="nameBox">{{name}}</View>
+  <View class="telBox">18089598383</View>
+  <View class="barBox">
+    <View class="barBox_son"  bindtap="tomyorder">
+      <image src="../../images/bar_1.png" class="barBox_son_pic"></image>
+      <View class="barBox_son_font">我的租房</View>
+    </View>
+    <View class="barBox_son"  bindtap="tomyordercash">
+      <image src="../../images/bar_2.png" class="barBox_son_pic"></image>
+      <View class="barBox_son_font">我的账单</View>
+    </View>
+    <View class="barBox_son" bindtap="tomyfixed">
+      <image src="../../images/bar_3.png" class="barBox_son_pic"></image>
+      <View class="barBox_son_font">我的报修</View>
+    </View>
+  </View>
+
+  <View class="btnBox">
+    <View class="btnBox_son"  bindtap="tomysc">
+      <View class="btnBox_son_font">我的收藏</View>
+      <image src="../../images/right.png" class="btnBox_son_pic"></image>
+    </View>
+    <View class="btnBox_son" bindtap="tosurf">
+      <View class="btnBox_son_font">我的浏览</View>
+      <image src="../../images/right.png" class="btnBox_son_pic"></image>
+    </View>
+    <View class="btnBox_son"  bindtap="showConcatBox">
+      <View class="btnBox_son_font">联系客服</View>
+      <image src="../../images/right.png" class="btnBox_son_pic"></image>
+    </View>
+  </View>
+
+</View>
+
+<image src="{{imagePic}}" class="headPic" style="left:{{headPicLeft}}"></image>
+
+
+<View class="concatBox" style="display:{{concatBoxDisplay}}">
+  <View class="concatBox_sonBox" style="margin-top:{{concatBox_sonBoxwidth}}">
+    <View class="concatBox_sonBox_top">
+      <View class="concatBox_sonBox_top_top">拨打客服电话</View>
+      <View class="concatBox_sonBox_top_bottom">020-202525562</View>
+    </View>
+    <View class="concatBox_sonBox_bottom">
+      <View class="concatBox_sonBox_bottom_left" bindtap="cancel">取消</View>
+      <View class="concatBox_sonBox_bottom_right" bindtap="call">拨通</View>
+    </View>
+  </View>
+</View>

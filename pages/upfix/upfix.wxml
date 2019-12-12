@@ -1,0 +1,44 @@
+<!--pages/fd_cz/fdcz.wxml-->
+<View class="container">
+<scroll-view scroll-y="true" class="scrollView" style="width:100%;height:100%">
+
+  <!-- picker -->
+  <View class="sigleInput">
+    <View class="left">选择房源</View>
+    <View class="middle">
+      <picker class="picker" mode="selector" bindchange="bindCashPickerChange"  range="{{cashArray}}">
+  {{cashType}}
+      </picker>
+    </View>
+    <View class="new_right">
+      <image src="../../images/right.png" class="newRightPic" />
+    </View>
+  </View>
+
+  <View class="sigleInput">
+    <View class="left">联系电话</View>
+    <View class="right">
+      <input placeholder="单行输入" class="input" bindinput="areaWidth"/>
+    </View>
+  </View>
+  <View class="sigleInput">
+    <View class="left">维修时间</View>
+    <View class="right">
+      <input placeholder="单行输入" class="input" bindinput="getFloor"/>
+    </View>
+  </View>
+
+<View class="title">维修内容</View>
+<textarea class="otherInput" bindinput="getTextArea"></textarea>
+
+
+<!-- 添加一张照片 -->
+<View class="title">点击选择上传照片</View>
+<View class="picBox" bindtap="choseImg">
+
+  <image src="{{imageSrc[0]}}" class="picBox_pic"  mode="aspectFit"/>
+</View>
+<View class="btn" bindtap="submit">确定</View>
+<View style="width:100%;height:50px;"></View>
+</scroll-view>
+</View>

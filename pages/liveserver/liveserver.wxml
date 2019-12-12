@@ -1,0 +1,38 @@
+<!--pages/liveserver/liveserver.wxml-->
+<View class="container">
+  <!-- <View class="searchBox">
+      <image src="../../images/SEARCH.png" class="searchpic" />
+      <input placeholder="请输入小区或者地址" class="input" style="width:{{inputWidth}}" />
+  </View>
+  <View class="itemBox">
+    <View class="itemBox_son">房屋租赁</View>
+    <View class="itemBox_son">餐饮美食</View>
+    <View class="itemBox_son">零售便利</View>
+    <View class="itemBox_son">美容美发</View>
+    <View class="itemBox_son">家庭维修</View>
+  </View>
+  <scroll-view scroll-y="true" class="scrollView" style="width:100%;height:{{scrollViewHeight}}">
+  </scroll-view> -->
+  <View class="searchBox">
+      <image src="../../images/SEARCH.png" class="searchpic" />
+      <input placeholder="请输入小区或者地址" class="input" style="width:{{inputWidth}}" />
+  </View>
+  <View class="barBox">
+    <View wx:for="{{barArr}}" wx:key="barArr" id="{{item.id}}"  class="{{item.className}}" bindtap="getBar">
+      <View class="barBox_son_font">{{item.name}}</View>
+    </View>
+  </View>
+
+  <scroll-view scroll-y="true" class="scrollView" style="width:100%;height:{{scrollViewHeight}}">
+  <View class="box" bindtap="toliveserverdetail">
+    <View class="left">
+      <image src="../../images/index_3.jpg" class="left_pic" />
+    </View>
+    <View class="right">
+      <View class="right_first">美宜佳</View>
+      <View class="right_second">零售便利</View>
+      <View class="right_third">东莞市雨城区大道</View>
+    </View>
+  </View>
+  </scroll-view>
+</View>

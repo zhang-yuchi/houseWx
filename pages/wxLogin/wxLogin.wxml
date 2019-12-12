@@ -1,0 +1,18 @@
+<view style='display:flex;justify-content:center;flex-flow:column'>
+  <!--头部-->
+  <view class='head'>"线租房"，您身边的租房专家~</view>
+
+
+  <!--提示--> 
+  <view class="alert">
+    <view class="alert-title">尊敬的用户，请确认授权以下信息</view>
+    <view class="alert-desc">
+      <view class="alert-text">获得你的公开信息（昵称、头像等）</view>
+    </view>
+  </view>
+
+  <!--点击授权-->
+    <button open-type="getUserInfo" bindgetuserinfo="getUserInfo" class="btn" style="display:{{authShow}}"> 点击授权 </button>
+    <button class="btn" style="display:{{loginShow}}" bindtap='login'> 登录 </button>
+
+</view>

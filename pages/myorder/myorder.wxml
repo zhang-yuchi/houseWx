@@ -1,0 +1,21 @@
+<!--pages/myorder/myorder.wxml-->
+<View class="container">
+  <View class="selectItem">
+    <View class="selectItem_son" wx:for="{{barArr}}" wx:key="barArr" bindtap="changeBar" id="{{item.id}}">
+      <View class="{{item.className}}">{{item.name}}</View>
+    </View>
+  </View>
+
+  <scroll-view scroll-y="true" class="scrollView" style="width:100%;height:{{scrollViewHeight}}">
+    <View class="infoBox">
+      <View class="left">
+        <image src="../../images/index_2.jpg" class="pic"/>
+      </View>
+      <View class="right">
+        <View class="right_son">东泰花园</View>
+        <View class="right_son" style="color:gray">有效期：1年</View>
+        <View class="right_son" style="color:gray">签约时间：2019/10/10</View>
+      </View>
+    </View>
+  </scroll-view>
+</View>

@@ -1,0 +1,146 @@
+/* pages/liveserver/liveserver.wxss */
+page {
+  height: 100%;
+}
+
+.container {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.searchBox{
+  width:94%;
+  height:60px;
+  margin:0 auto;
+  box-shadow: 0 0 10px rgb(240,240,240);
+  border-radius: 3px;
+}
+.searchpic{
+  width:20px;
+  height:20px;
+  display: block;
+  margin-top:20px;
+  margin-left:15px;
+  float:left;
+}
+.input{
+  height:40px;
+  display: block;
+  outline: none;
+  font-size:14px;
+  font-weight: 500;
+  background: none;
+  float:left;
+  margin-top:10px;
+  padding-left:15px;
+  letter-spacing: .5px;
+}
+.barBox{
+  width:94%;
+  height:60px;
+  margin:0 auto;
+  border-bottom:1px solid rgb(240,240,240)
+}
+.barBox_son{
+  width:20%;
+  height:30px;
+  /* background: red; */
+  float:left;
+  margin-top:15px;
+  font-size:14px;
+  letter-spacing: 1px;
+  color:rgb(153,153,153);
+  text-align: center;
+  line-height: 30px;
+}
+/* .barBox_son:after{
+  width:20px;
+  height:3px;
+  background:rgb(255,217,62);
+  content:"";
+  display: block;
+  margin:0 auto;
+  margin-top:2px;
+  border-radius: 1px;
+} */
+.barBox_sonC{
+  width:20%;
+  height:30px;
+  /* background: red; */
+  float:left;
+  margin-top:15px;
+  font-size:14px;
+  letter-spacing: 1px;
+  color:black;
+  text-align: center;
+  line-height: 30px;
+}
+.barBox_sonC:after{
+  width:20px;
+  height:3px;
+  background:rgb(255,217,62);
+  content:"";
+  /* position: relative;
+  top:45px; */
+  display: block;
+  margin:0 auto;
+  margin-top:2px;
+  border-radius: 1px;
+}
+.scrollView{
+  /* background:red; */
+}
+.box{
+  width:94%;
+  height:150px;
+  /* background:yellow; */
+  margin:0 auto;
+}
+.left{
+  width:130px;
+  height:130px;
+  float:left;
+  margin-top:10px;
+}
+.left_pic{
+  width:100%;
+  height:100%;
+  display: block;
+  border-radius: 4px;
+}
+.right{
+  height:100%;
+  float:left;
+}
+.right_first{
+  height:30px;
+  font-size:15px;
+  color:#333333;
+  text-align: left;
+  text-indent: 15px;
+  line-height: 30px;
+  letter-spacing: 1px;
+  margin-top:10px;
+}
+.right_second{
+  width:70px;
+  height:30px;
+  background:rgb(255,242,191);
+  font-size:16px;
+  color:rgb(207,182,92);
+  text-align: left;
+  line-height: 30px;
+  margin-top:10px;
+  border-radius: 5px;
+  margin-left:15px;
+}
+.right_third{
+  height:40px;
+  font-size:20px;
+  text-align: left;
+  line-height: 40px;
+  letter-spacing: 1px;
+  text-indent: 15px;
+  margin-top:10px;
+}

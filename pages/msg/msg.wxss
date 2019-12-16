@@ -10,44 +10,44 @@ page {
 }
 .infoBox{
   width:90%;
-  height:50px;
+  height:100rpx;
   /* background: red; */
   margin:0 auto;
 }
 .infoBox_pic{
-  width:40px;
-  height:40px;
-  margin-top:5px;
+  width:80rpx;
+  height:80rpx;
+  margin-top:10rpx;
   display: block;
   float:left;
 }
 .rightBox{
-  width:60px;
-  height:40px;
-  font-size:12px;
-  line-height: 40px;
+  width:120rpx;
+  height:80rpx;
+  font-size:24rpx;
+  line-height: 80rpx;
   text-align: center;
   color:rgba(0, 0, 0, .54);
   float:right;
-  margin-top:5px;
+  margin-top:10rpx;
 }
 .middleBox{
-  width:100px;
-  height:50px;
+  width:200rpx;
+  height:100rpx;
   /* background: yellow; */
   float:left;
-  margin-left:10px;
+  margin-left:20rpx;
 }
 .title{
-  height:25px;
-  font-size:15px;
+  height:50rpx;
+  font-size:30rpx;
   color:#101010;
   font-weight: 800;
 
 }
 .content{
-  height:25px;
-  font-size:15px;
+  height:50rpx;
+  font-size:30rpx;
   color:#101010;
   font-weight: 800;
 }

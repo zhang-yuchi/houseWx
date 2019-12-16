@@ -10,7 +10,7 @@ page {
 }
 .selectItem{
   width:100%;
-  height:50px;
+  height:100rpx;
   box-shadow: 0 0 10px rgb(240,240,240);
 }
 .selectItem_son{
@@ -20,71 +20,71 @@ page {
 }
 .son_text{
   width:100%;
-  height:30px;
+  height:60rpx;
   text-align: center;
-  line-height: 30px;
-  font-size:15px;
+  line-height: 60rpx;
+  font-size:30rpx;
   color:#333333;
-  letter-spacing: 1px;
+  letter-spacing: 2rpx;
   font-weight: 800;
-  margin-top:7px;
+  margin-top:14rpx;
 }
 .son_textC{
   width:100%;
-  height:30px;
+  height:60rpx;
   text-align: center;
-  line-height: 30px;
-  font-size:15px;
+  line-height: 60rpx;
+  font-size:30rpx;
   color:gray;
-  letter-spacing: 1px;
+  letter-spacing: 2rpx;
   font-weight: 800;
-  margin-top:7px;
+  margin-top:14rpx;
 }
 .son_text::after{
   content:"";
-  width:20px;
-  height:4px;
+  width:40rpx;
+  height:8rpx;
   display: block;
   background:rgb(255,217,62);
   position:relative;
-  top:2px;
+  top:4rpx;
   left:50%;
-  margin-left:-10px;
-  border-radius: 2px;
+  margin-left:-20rpx;
+  border-radius: 4rpx;
 }
 .infoBox{
   width:94%;
-  height:150px;
+  height:300rpx;
   margin:0 auto;
   /* background:green; */
-  border-bottom:1px solid rgb(240,240,240)
+  border-bottom:2rpx solid rgb(240,240,240)
 }
 .left{
-  width:130px;
-  height:130px;
+  width:260rpx;
+  height:260rpx;
   /* background:red; */
-  margin-top:10px;
+  margin-top:20rpx;
   float:left;
 }
 .pic{
   display: block;
   width:100%;
   height:100%;
-  border-radius: 5px;
+  border-radius: 10rpx;
 }
 .right{
-  height:130px;
-  margin-top:10px;
+  height:260rpx;
+  margin-top:20rpx;
   float:left;
 }
 .right_son{
-  height:30px;
-  font-size:16px;
+  height:60rpx;
+  font-size:32rpx;
   font-weight: 800;
   color:#333333;
   text-align: left;
-  margin-left:10px;
-  line-height: 30px;
-  margin-top:12px;
-  letter-spacing: 1px;
+  margin-left:20rpx;
+  line-height: 60rpx;
+  margin-top:24rpx;
+  letter-spacing: 2rpx;
 }

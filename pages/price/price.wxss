@@ -12,114 +12,114 @@ page {
 
 .middle_check {
   width: 95%;
-  height: 45px;
+  height: 90rpx;
   margin: 0 auto;
-  border-bottom: 1px solid rgb(245, 245, 245);
+  border-bottom: 2rpx solid rgb(245, 245, 245);
 }
 
 .middle_check_son {
-  height: 45px;
+  height: 90rpx;
   float: left;
   /* background: red; */
 }
 
 .middle_check_son_text {
-  height: 45px;
-  width: 25px;
+  height: 90rpx;
+  width: 50rpx;
   float: left;
-  font-size: 12px;
+  font-size: 24rpx;
   font-weight: 700;
-  line-height: 45px;
+  line-height: 90rpx;
   color:rgb(85,85,85);
 }
 
 .middle_check_son_pic {
   display: block;
-  width: 8px;
-  height: 8px;
-  margin-top: 18.5px;
+  width: 16rpx;
+  height: 16rpx;
+  margin-top: 38rpx;
   float: left;
 }
 
 .middle_check_son_sx {
-  width: 15px;
-  height: 15px;
+  width: 30rpx;
+  height: 30rpx;
   display: block;
-  margin: 15px auto;
+  margin: 30rpx auto;
 }
 .priceList{
   width:100%;
-  height:20px;
-  font-size:16px;
+  height:40rpx;
+  font-size:32rpx;
   color:rgb(85,85,85);
   text-align: center;
-  line-height: 20px;
+  line-height: 40rpx;
   font-weight: 800;
-  margin-top:30px;
-  letter-spacing: 2px;
+  margin-top:60rpx;
+  letter-spacing: 4rpx;
 }
 .inputBox{
   width:80%;
-  height:20px;
+  height:40rpx;
   margin:0 auto;
-  margin-top:20px;
+  margin-top:40rpx;
   /* background: red; */
 }
 .inputBox_left{
   width:40%;
-  height:20px;
-  line-height: 20px;
+  height:40rpx;
+  line-height: 40rpx;
   font-weight: 800;
-  font-size:14px;
+  font-size:28rpx;
   color:#101010;
   text-align: left;
   float:left;
 }
 .inputBox_right{
   width:40%;
-  height:20px;
-  line-height: 20px;
+  height:40rpx;
+  line-height: 40rpx;
   font-weight: 800;
-  font-size:14px;
+  font-size:28rpx;
   color:#101010;
   text-align: right;
   float:right;
 }
 .inputBox1{
   width:80%;
-  height:30px;
+  height:60rpx;
   margin:0 auto;
 }
 .inputb{
   width:32.5%;
-  height:28px;
+  height:56px;
   display: block;
   float:left;
-  border:1px solid #888888;
-  font-size: 14px;
+  border:2rpx solid #888888;
+  font-size: 28px;
   
 }
 .inputBox1_middle{
   width:33%;
-  height:30px;
-  line-height: 30px;
+  height:60rpx;
+  line-height: 60rpx;
   font-weight: 800;
-  font-size:14px;
+  font-size:28rpx;
   color:#101010;
   text-align: center;
   float:left;
 }
 .btn{
-  width:311px;
-  height:55px;
-  border:1px solid #BBBBBB;
-  font-size:14px;
+  width:622px;
+  height:110px;
+  border:2rpx solid #BBBBBB;
+  font-size:28rpx;
   font-weight: 800;
   text-align: center;
-  line-height:55px;
+  line-height:110rpx;
   position: fixed;
-  bottom:20px;
+  bottom:40rpx;
   margin:0 auto;
-  border-radius: 4px;
+  border-radius: 8rpx;
   font-family: PingFang SC;
 }

@@ -10,16 +10,16 @@ page {
 }
 .pic{
   width:94%;
-  height:200px;
+  height:400rpx;
   display: block;
-  margin:40px auto;
+  margin:80rpx auto;
 }
 .font{
   width:94%;
-  padding:10px 0 10px 0;
-  font-size:15px;
+  padding:20rpx 0 20rpx 0;
+  font-size:30rpx;
   font-weight: 800;
   text-align: justify;
-  margin:10px auto;
-  letter-spacing: 1px;
+  margin:20rpx auto;
+  letter-spacing: 2rpx;
 }

@@ -1,5 +1,10 @@
 {
   "pages": [
+
+    "pages/liveserver_detial/liveserver_detial",
+        
+    "pages/new_mime/new_mime",
+    "pages/price/price",
     "pages/upfix/upfix",
     "pages/uploadSign/uploadSign",
     "pages/userSign/userSign",
@@ -22,14 +27,13 @@
     "pages/myorder/myorder",
     "pages/saixuan/saixuan",
     "pages/hx/hx",
-    "pages/price/price",
-    "pages/mime/mime",
-    "pages/new_mime/new_mime",
+    
+    
+    
     "pages/msg/msg",
     "pages/index/index",
     
     "pages/city/city",
-    "pages/liveserver_detial/liveserver_detial",
     
     "pages/fd_cz/fd_cz",
     "pages/myhouse_fd/myhouse_fd",

@@ -10,7 +10,7 @@ page {
 }
 .selectItem{
   width:100%;
-  height:50px;
+  height:100rpx;
   box-shadow: 0 0 10px rgb(240,240,240);
 }
 .selectItem_son{
@@ -20,50 +20,50 @@ page {
 }
 .son_text{
   width:100%;
-  height:30px;
+  height:60rpx;
   text-align: center;
-  line-height: 30px;
-  font-size:15px;
+  line-height: 60rpx;
+  font-size:30rpx;
   color:#333333;
-  letter-spacing: 1px;
+  letter-spacing: 2rpx;
   font-weight: 800;
-  margin-top:7px;
+  margin-top:14rpx;
 }
 .son_textC{
   width:100%;
-  height:30px;
+  height:60rpx;
   text-align: center;
-  line-height: 30px;
-  font-size:15px;
+  line-height: 60rpx;
+  font-size:30rpx;
   color:gray;
-  letter-spacing: 1px;
+  letter-spacing: 2rpx;
   font-weight: 800;
-  margin-top:7px;
+  margin-top:14rpx;
 }
 .son_text::after{
   content:"";
-  width:20px;
-  height:4px;
+  width:40rpx;
+  height:8rpx;
   display: block;
   background:rgb(255,217,62);
   position:relative;
-  top:2px;
+  top:4rpx;
   left:50%;
-  margin-left:-10px;
-  border-radius: 2px;
+  margin-left:-20rpx;
+  border-radius: 4rpx;
 }
 .infoBox {
   width: 95%;
-  height: 130px;
+  height: 260rpx;
   margin: 0 auto;
-  margin-top:10px;
-  margin-bottom:10px;
+  margin-top:20rpx;
+  margin-bottom:20rpx;
   /* background: green; */
 }
 
 .infoBox_son_pic {
   width: 37%;
-  height: 130px;
+  height: 260rpx;
   display: block;
   float: left;
   
@@ -71,65 +71,65 @@ page {
 
 .infoBox_text {
   width: 60%;
-  height: 130px;
+  height: 260rpx;
   float: right;
   /* background: orange; */
 }
 
 .name {
   width: 100%;
-  height: 30px;
+  height: 60rpx;
   /* background: red; */
-  font-size: 14px;
+  font-size: 28rpx;
   font-weight: 700;
-  line-height: 30px;
+  line-height: 60rpx;
 }
 
 .price {
   width: 100%;
-  height: 30px;
+  height: 60rpx;
   /* background: green; */
-  font-size: 16px;
+  font-size: 32rpx;
   font-weight: 700;
-  line-height: 30px;
+  line-height: 60rpx;
   color:red;
 }
 .dis {
   width: 100%;
-  height: 20px;
+  height: 40rpx;
   /* background: pink; */
-  font-size: 9px;
-  line-height: 20px;
+  font-size: 18rpx;
+  line-height: 40rpx;
   color: rgb(140, 140, 140);
 }
 .sx {
   width: 100%;
-  height: 50px;
+  height: 100rpx;
   /* background: red; */
 }
 .sx_son{
-  height:17px;
+  height:34rpx;
   /* background: orange; */
-  border:1px solid rgb(140, 140, 140);
-  border-radius: 17px;
+  border:2rpx solid rgb(140, 140, 140);
+  border-radius: 34rpx;
   color:rgb(140, 140, 140);
-  line-height: 17px;
+  line-height: 34rpx;
   float:left;
-  margin-top:17px;
-  font-size:9px;
+  margin-top:34rpx;
+  font-size:18rpx;
   text-align: center;
-  letter-spacing: 2px;
+  letter-spacing: 4rpx;
 }
 
 .teseBox{
   width:96%;
-  height:120px;
+  height:240rpx;
   /* background: red; */
   overflow: hidden;
   margin:0 auto;
 }
 .scrollX{
-  height:120px;
+  height:240rpx;
   width: 100%;
   white-space: nowrap;
 }
@@ -149,25 +149,25 @@ page {
 .teseBox_son_pic{
 width:96%;
   height:96%;
-  border-radius: 5px;
+  border-radius: 10rpx;
   display: block;
   margin:0 auto;
 }
 .teseBox_text{
   width:100%;
-  height:20px;
+  height:40rpx;
   text-align: center;
-  line-height: 20px;
-  font-size: 14px;
+  line-height: 40rpx;
+  font-size: 28rpx;
   color:#101010;
 }
 .teseBoxTitle{
   width: 90%;
-  height: 25px;
+  height: 50rpx;
   margin: 0 auto;
-  font-size: 18px;
+  font-size: 36rpx;
   font-weight: 900;
-  line-height: 25px;
-  margin-top:30px;
-  margin-bottom:10px;
+  line-height: 50rpx;
+  margin-top:60rpx;
+  margin-bottom:20px;
 }

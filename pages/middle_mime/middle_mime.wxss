@@ -1,14 +1,14 @@
 /* pages/middle_mime/middle_mime.wxss */
 .btn{
   width:50%;
-  height:55px;
+  height:110rpx;
   background: rgb(255,217,62);
-  font-size:14px;
+  font-size:28rpx;
   font-weight: 800;
   text-align: center;
-  line-height:55px;
-  margin:100px auto;
-  border-radius: 4px;
+  line-height:110rpx;
+  margin:200rpx auto;
+  border-radius: 8rpx;
   font-family: PingFang SC;
-  letter-spacing: 1px;
+  letter-spacing: 2rpx;
 }

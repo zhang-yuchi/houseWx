@@ -18,7 +18,7 @@ page {
   margin: 0 auto;
   background: rgb(245, 245, 245);
   height: 25.5%;
-  margin-top: 3px;
+  margin-top: 6rpx;
 }
 
 .banner_son {
@@ -41,76 +41,76 @@ page {
 
 .searchBox {
   width: 100%;
-  height: 40px;
+  height: 80rpx;
   /* background: red; */
   overflow: hidden;
 }
 
 .city {
-  width: 80px;
-  height: 40px;
+  width: 160rpx;
+  height: 80rpx;
   float: left;
-  font-size: 17px;
+  font-size: 34rpx;
   font-weight: 800;
-  line-height: 40px;
+  line-height: 80rpx;
   text-align: center;
-  text-indent: 15px;
+  text-indent: 30rpx;
 }
 
 .cityIcon {
-  width: 40px;
-  height: 40px;
+  width: 80rpx;
+  height: 80rpx;
   float: left;
 }
 
 .searchBox_input {
-  height: 40px;
+  height: 80rpx;
   float: left;
   background: #f6f6f6;
-  border-radius: 40px;
+  border-radius: 80rpx;
 }
 
 .indexdown {
-  width: 14px;
-  height: 14px;
+  width: 28rpx;
+  height: 28rpx;
   display: block;
-  margin-top: 15px;
-  margin-left: 1px;
+  margin-top: 30rpx;
+  margin-left: 2rpx;
 }
 
 .searchpic {
-  width: 14px;
-  height: 14px;
+  width: 28rpx;
+  height: 28rpx;
   display: block;
-  margin-top: 13.5px;
-  margin-left: 10px;
+  margin-top: 27rpx;
+  margin-left: 20rpx;
   float: left;
 }
 
 .input {
-  height: 35px;
+  height: 70rpx;
   display: block;
   float: right;
-  margin-top: 2.5px;
-  font-size: 12px;
+  margin-top: 5rpx;
+  font-size: 24rpx;
 }
 
 .itembox {
   width: 100%;
-  height: 100px;
+  height: 200rpx;
   /* background: red; */
   overflow: hidden;
 }
 
 .itembox_son {
-  height: 90px;
+  height: 180rpx;
   float: left;
-  margin-top: 10px;
+  margin-top: 20rpx;
 }
 
 .itembox_son_pic {
-  width: 70px;
-  height: 70px;
+  width: 140rpx;
+  height: 140rpx;
   display: block;
   margin: 0 auto;
 }
@@ -123,66 +123,63 @@ page {
 
 .itembox_son_text {
   width: 100%;
-  height: 20px;
-  font-size: 12px;
+  height: 40rpx;
+  font-size: 24rpx;
   text-align: center;
-  line-height: 20px;
+  line-height: 40rpx;
   color: #a3a3a3;
 }
 
 .middle_check {
   width: 95%;
-  height: 45px;
+  height: 90rpx;
   margin: 0 auto;
-  border-bottom: 1px solid rgb(245, 245, 245);
+  border-bottom: 2rpx solid rgb(245, 245, 245);
 }
 
 .middle_check_son {
-  height: 45px;
+  height: 90rpx;
   float: left;
   /* background: red; */
 }
 
 .middle_check_son_text {
-  height: 45px;
-  width: 25px;
+  height: 90rpx;
+  width: 50rpx;
   float: left;
-  font-size: 12px;
+  font-size: 24rpx;
   font-weight: 700;
-  line-height: 45px;
+  line-height: 90rpx;
 }
 
 .middle_check_son_pic {
   display: block;
-  width: 8px;
-  height: 8px;
-  margin-top: 18.5px;
+  width: 16rpx;
+  height: 16rpx;
+  margin-top: 37rpx;
   float: left;
 }
 
 .middle_check_son_sx {
-  width: 15px;
-  height: 15px;
+  width: 30rpx;
+  height: 30rpx;
   display: block;
-  margin: 15px auto;
+  margin: 30rpx auto;
 }
 
-.scrollView {
-  /* background: red; */
-}
 
 .infoBox {
   width: 95%;
-  height: 130px;
+  height: 260rpx;
   margin: 0 auto;
-  margin-top:10px;
-  margin-bottom:10px;
+  margin-top:20rpx;
+  margin-bottom:20rpx;
   /* background: green; */
 }
 
 .infoBox_son_pic {
   width: 37%;
-  height: 130px;
+  height: 260rpx;
   display: block;
   float: left;
   
@@ -190,65 +187,65 @@ page {
 
 .infoBox_text {
   width: 60%;
-  height: 130px;
+  height: 260rpx;
   float: right;
   /* background: orange; */
 }
 
 .name {
   width: 100%;
-  height: 30px;
+  height: 60rpx;
   /* background: red; */
-  font-size: 14px;
+  font-size: 28rpx;
   font-weight: 700;
-  line-height: 30px;
+  line-height: 60rpx;
 }
 
 .price {
   width: 100%;
-  height: 30px;
+  height: 60rpx;
   /* background: green; */
-  font-size: 16px;
+  font-size: 32rpx;
   font-weight: 700;
-  line-height: 30px;
+  line-height: 60rpx;
   color:red;
 }
 .dis {
   width: 100%;
-  height: 20px;
+  height: 40rpx;
   /* background: pink; */
-  font-size: 9px;
-  line-height: 20px;
+  font-size: 18rpx;
+  line-height: 40rpx;
   color: rgb(140, 140, 140);
 }
 .sx {
   width: 100%;
-  height: 50px;
+  height: 100rpx;
   /* background: red; */
 }
 .sx_son{
-  height:17px;
+  height:34rpx;
   /* background: orange; */
-  border:1px solid rgb(140, 140, 140);
-  border-radius: 17px;
+  border:2rpx solid rgb(140, 140, 140);
+  border-radius: 34rpx;
   color:rgb(140, 140, 140);
-  line-height: 17px;
+  line-height: 34rpx;
   float:left;
-  margin-top:17px;
-  font-size:9px;
+  margin-top:34rpx;
+  font-size:18rpx;
   text-align: center;
-  letter-spacing: 2px;
+  letter-spacing: 4rpx;
 }
 
 .teseBox{
   width:96%;
-  height:120px;
+  height:240rpx;
   /* background: red; */
   overflow: hidden;
   margin:0 auto;
 }
 .scrollX{
-  height:120px;
+  height:240rpx;
   width: 100%;
   white-space: nowrap;
 }
@@ -257,36 +254,29 @@ page {
   height:100%;
   float:left;
 }
-/* .teseBox_son_pic{
-  width:80px;
-  height:80px;
-  margin: 0 auto;
-  margin-top:10px;
-  border-radius: 80px;
-  display: block;
-} */
+
 .teseBox_son_pic{
 width:96%;
   height:96%;
-  border-radius: 5px;
+  border-radius: 10rpx;
   display: block;
   margin:0 auto;
 }
 .teseBox_text{
   width:100%;
-  height:20px;
+  height:40rpx;
   text-align: center;
-  line-height: 20px;
-  font-size: 14px;
+  line-height: 40rpx;
+  font-size: 28rpx;
   color:#101010;
 }
 .teseBoxTitle{
   width: 90%;
-  height: 25px;
+  height: 50rpx;
   margin: 0 auto;
-  font-size: 18px;
+  font-size: 36rpx;
   font-weight: 900;
-  line-height: 25px;
-  margin-top:30px;
-  margin-bottom:10px;
+  line-height: 50rpx;
+  margin-top:60rpx;
+  margin-bottom:20rpx;
 }

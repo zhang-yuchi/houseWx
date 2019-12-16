@@ -63,7 +63,7 @@ Page({
           url: app.data.requestHost + '/wxLogin',
           method: 'POST',
           header: {
-            'content-type': 'application/json',
+            'content-type': 'application/x-www-form-urlencoded',
           },
           data: data,
           success: res => {

@@ -13,15 +13,15 @@ page{
   font-size:34rpx;
 }
 .alert {
-  margin: 20px 0 30px;
+  margin: 40rpx 0 60rpx;
   margin-left:120rpx;
 }
 
 .alert .alert-title {
   font-weight: 400;
-  font-size: 16px;
+  font-size: 32rpx;
   color: #000;
-  margin-bottom: 10px;
+  margin-bottom: 20rpx;
 }
 
 .alert-desc {
@@ -32,7 +32,7 @@ page{
 .alert .alert-text {
   display: list-item;
   text-align: -webkit-match-parent;
-  font-size: 14px;
+  font-size: 28rpx;
   color: #999;
 }
 .userinfo-avatar {
@@ -72,7 +72,7 @@ page{
 
 .btn{
   width:80%;
-  height:50px;
-  margin:10px auto;
+  height:100rpx;
+  margin:20rpx auto;
 }
 

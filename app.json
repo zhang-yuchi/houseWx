@@ -1,12 +1,15 @@
 {
   "pages": [
+    "pages/upfix/upfix",
+    "pages/uploadSign/uploadSign",
+    "pages/userSign/userSign",
     "pages/location/location",
     "pages/wxLogin/wxLogin",
     "pages/mysurf/mysurf",
     "pages/mysc/mysc",
-    "pages/uploadSign/uploadSign",
+    
     "pages/mywallet_fd/mywallet_fd",
-    "pages/upfix/upfix",
+    
     "pages/msgdetail/msgdetail",
     "pages/middle_mime/middle_mime",
     "pages/fd_mime/fd_mime",
@@ -24,10 +27,10 @@
     "pages/new_mime/new_mime",
     "pages/msg/msg",
     "pages/index/index",
-    "pages/userSign/userSign",
+    
     "pages/city/city",
     "pages/liveserver_detial/liveserver_detial",
-    "pages/sc/sc",
+    
     "pages/fd_cz/fd_cz",
     "pages/myhouse_fd/myhouse_fd",
     "pages/housedetail/housedetail"

@@ -11,60 +11,59 @@ page{
 .topPic{
   width:82%;
   margin:0 auto;
-  margin-top:30px;
+  margin-top:60rpx;
   display:block;
   height:3.5%;
 }
 .topFont{
   width:100%;
-  height:20px;
+  height:40rpx;
 }
 .one{
   width:33.3%;
-  height:20px;
+  height:40rpx;
   float:left;
   text-align: center;
-  line-height: 20px;
+  line-height: 40rpx;
   font-weight: 300;
-  font-size: 12px;
+  font-size: 24rpx;
   color:#333333;
-  letter-spacing: .5px;
+  letter-spacing: 1rpx;
 }
 .title{
   width:100%;
-  height:40px;
-  font-size:19px;
+  height:80rpx;
+  font-size:38rpx;
   font-weight: 900;
   text-align: left;
-  text-indent: 20px;
+  text-indent: 40rpx;
   color:#333333;
-  margin-top:30px;
-  letter-spacing: 1px;
+  margin-top:60rpx;
+  letter-spacing: 2rpx;
 }
 .sigleInput{
   width:90%;
-  height:70px;
+  height:140rpx;
   margin:0 auto;
-  border-bottom:1px solid rgb(234,234,234);
+  border-bottom:2rpx solid rgb(234,234,234);
 }
 .left{
   width:30%;
-  height:40px;
-  margin-top:15px;
+  height:80rpx;
+  margin-top:30rpx;
   float:left;
   text-align: left;
-  font-size: 16px;
+  font-size: 32rpx;
   color:#333333;
-  letter-spacing: 1px;
-  /* background:yellow; */
-  line-height: 40px;
+  letter-spacing: 2rpx;
+  line-height: 80rpx;
   font-weight: 700;
 }
 .right{
   width:70%;
-  height:40px;
+  height:80rpx;
   float:left;
-  margin-top:15px;
+  margin-top:30rpx;
   overflow: hidden;
 }
 .input{
@@ -72,42 +71,38 @@ page{
   background: none;
   display:block;
   width:95%;
-  height:38px;
-  font-size:15px;
-  /* background:red; */
+  height:76rpx;
+  font-size:30rpx;
 }
 .middle{
   width:50%;
   height:100%;
   float:left;
-  /* background:red; */
 }
 .new_right{
   width:20%;
   height:100%;
   float:left;
-  /* background:red; */
 }
 .newRightPic{
-  width:15px;
-  height:15px;
+  width:30rpx;
+  height:30rpx;
   float:right;
-  margin-top:27.5px;
+  margin-top:55rpx;
 }
 .picker{
   width:100%;
-  height:40px;
-  margin-top:15px;
+  height:80rpx;
+  margin-top:30rpx;
   text-align: left;
-  line-height: 40px;
-  font-size:15px;
-  /* background:red; */
+  line-height: 80rpx;
+  font-size:30rpx;
   color:rgb(147,134,130);
 }
 
 .jjBox{
   width:95%;
-  height:70px;
+  height:140rpx;
   margin:0 auto;
 }
 .jjBox_son{
@@ -116,54 +111,54 @@ page{
   float:left;
 }
 .jjBox_son_pic{
-  width:30px;
-  height:30px;
+  width:60rpx;
+  height:60rpx;
   margin:0 auto;
-  margin-top:10px;
+  margin-top:20rpx;
   display: block;
 }
 .jjBox_son_text{
   width:100%;
-  height:20px;
+  height:40rpx;
   text-align: center;
-  line-height: 20px;
+  line-height: 40rpx;
   color:#101010;
-  font-size:12px;
+  font-size:24rpx;
 }
 .jjBox_son_textC{
   width:100%;
-  height:20px;
+  height:40rpx;
   text-align: center;
-  line-height: 20px;
+  line-height: 40rpx;
   color:rgb(255,217,62);
-  font-size:12px;
+  font-size:24rpx;
 }
 .otherInput{
   width:90%;
-  height:150px;
+  height:300rpx;
   display: block;
-  margin:10px auto;
+  margin:20rpx auto;
   outline: none;
   background:rgb(240,240,240);
-  border-radius: 4px;
+  border-radius: 8rpx;
 }
 .btn{
   width:88%;
-  height:50px;
-  margin:40px auto;
+  height:100rpx;
+  margin:80rpx auto;
   background: rgb(255,217,62);
-  letter-spacing: 1px;
+  letter-spacing: 2rpx;
   text-align: center;
-  line-height: 50px;
-  font-size:15px;
+  line-height: 100rpx;
+  font-size:30rpx;
   font-weight: 699;
-  border-radius: 3px;
+  border-radius: 6rpx;
 }
 .picBox{
   width:90%;
-  height:200px;
+  height:400rpx;
   margin:0 auto;
-  border-radius: 3px;
+  border-radius: 6rpx;
   background:rgb(240,240,240);
 }
 .picBox_pic{

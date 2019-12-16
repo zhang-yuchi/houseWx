@@ -11,17 +11,17 @@ page {
 /* 滚动图样式 */
 .topPic{
   width:95%;
-  height:200px;
+  height:400rpx;
   display:block;
-  margin:10px auto;
-  border-radius: 10px;
+  margin:20rpx auto;
+  border-radius: 20rpx;
 }
 .banner {
   width: 100%;
   margin: 0 auto;
   background: rgb(245, 245, 245);
-  height: 200px;
-  margin-top: 3px;
+  height: 400rpx;
+  margin-top: 6rpx;
 }
 
 .banner_son {
@@ -41,43 +41,42 @@ page {
 }
 .nameBox{
   width:95%;
-  height:30px;
-  /* background: red; */
+  height:60rpx;
   margin:0 auto;
-  margin-top:10px;
+  margin-top:20rpx;
 }
 .nameBox_left{
   width:70%;
-  height:30px;
+  height:60rpx;
   float:left;
-  font-size:20px;
-  line-height: 30px;
+  font-size:40rpx;
+  line-height: 60rpx;
   font-weight: 800;
   color:#101010;
 }
 .nameBox_right{
   width:30%;
-  height:30px;
+  height:60rpx;
   float:right;
-  font-size:18px;
-  line-height: 30px;
+  font-size:36rpx;
+  line-height: 60rpx;
   font-weight: 700;
   color:#101010;
 }
 .titleB{
   width:95%;
-  height:25px;
-  font-size:16px;
+  height:50rpx;
+  font-size:32rpx;
   color:#101010;
   font-weight: 900;
-  line-height: 25px;
+  line-height: 50rpx;
   margin:0 auto;
-  margin-top:10px;
-  margin-bottom:20px;
+  margin-top:20rpx;
+  margin-bottom:40rpx;
 }
 .jjBox{
   width:95%;
-  height:70px;
+  height:140rpx;
   margin:0 auto;
 }
 .jjBox_son{
@@ -86,40 +85,40 @@ page {
   float:left;
 }
 .jjBox_son_pic{
-  width:30px;
-  height:30px;
+  width:60rpx;
+  height:60rpx;
   margin:0 auto;
-  margin-top:10px;
+  margin-top:20rpx;
   display: block;
 }
 .jjBox_son_text{
   width:100%;
-  height:20px;
+  height:40rpx;
   text-align: center;
-  line-height: 20px;
+  line-height: 40rpx;
   color:#101010;
-  font-size:12px;
+  font-size:24rpx;
 }
 .con{
+  box-sizing: border-box;
   width:92%;
   margin:0 auto;
-  font-size:14px;
+  font-size:28rpx;
   color:#101010;
-  padding:5px 20px 30px;
+  padding:10rpx 40rpx 60rpx;
   text-align: justify;
 }
 .btnBox{
   position:fixed;
   bottom:0;
   width:100%;
-  height:50px;
+  height:100rpx;
   left:0;
   background: white;
 }
 .btnBox_son{
   width:20%;
-  height:45px;
-  /* background: yellow; */
+  height:90rpx;
   float:left;
 }
 .btnBox_son_left{
@@ -128,19 +127,19 @@ page {
   float:left;
 }
 .btnBox_son_left_pic{
-  width:20px;
-  height:20px;
+  width:40rpx;
+  height:40rpx;
   margin:0 auto;
-  margin-top:7px;
+  margin-top:14rpx;
   display: block;
 }
 .btnBox_son_left_text{
   width:100%;
-  height:15px;
-  font-size:12px;
+  height:30rpx;
+  font-size:24rpx;
   color:#A3A3A3;
   text-align: center;
-  line-height: 15px;
+  line-height: 30rpx;
 }
 .btnBox_son_right{
   width:50%;
@@ -148,126 +147,124 @@ page {
   float:right;
 }
 .btnBox_son_right_pic{
-  width:20px;
-  height:20px;
+  width:40rpx;
+  height:40rpx;
   margin:0 auto;
-  margin-top:5px;
+  margin-top:10rpx;
   display: block;
 }
 .btnBox_son_right_text{
   width:100%;
-  height:15px;
-  font-size:12px;
+  height:30rpx;
+  font-size:24rpx;
   color:#A3A3A3;
   text-align: center;
-  line-height: 15px;
+  line-height: 30rpx;
 }
 .btnBox_son_te{
   width:38%;
-  height:40px;
-  /* background: yellow; */
+  height:80rpx;
   float:left;
-  font-size:14px;
+  font-size:28rpx;
   text-align: center;
-  line-height: 40px;
-  border-radius: 2px;
+  line-height: 80rpx;
+  border-radius: 4rpx;
   color:#101010;
-  margin-top:5px;
+  margin-top:10rpx;
 }
 
 .new_box{
   width:95%;
-  height:60px;
+  height:120rpx;
   margin:0 auto;
 }
 .left{
   width:65%;
-  height:60px;
+  height:120rpx;
   float:left;
 }
 .left_top{
   width:100%;
-  height:40px;
-  font-size:18px;
+  height:80rpx;
+  font-size:36rpx;
   text-align: left;
-  line-height: 40px;
+  line-height: 80rpx;
 }
 .left_bottom{
   width:100%;
-  height:20px;
-  font-size:12px;
+  height:40rpx;
+  font-size:24rpx;
   text-align: left;
-  line-height: 10px;
+  line-height: 20rpx;
   color:gainsboro;
 }
 .right{
-  width:40px;
-  height:40px;
+  width:80rpx;
+  height:80rpx;
   float:left;
   margin-left:20%;
 }
 .right_top{
-  width:23px;
-  height:20px;
+  width:46rpx;
+  height:40rpx;
   display: block;
-  margin-top:10px;
+  margin-top:20rpx;
 }
 .right_bottom{
-  width:25px;
-  height:20px;
-  font-size:12px;
+  width:50rpx;
+  height:40rpx;
+  font-size:24rpx;
   text-align: center;
-  line-height: 20px;
+  line-height: 40rpx;
   color:gainsboro;
 }
 .price_new{
   width:95%;
-  height:40px;
-  font-size:19px;
+  height:80rpx;
+  font-size:38rpx;
   font-weight: 800;
   color:red;
   text-align: left;
-  line-height: 40px;
+  line-height: 80rpx;
   margin:0 auto;
-  margin-bottom:20px;
+  margin-bottom:20rpx;
 }
 
 .new_info_box{
   width:95%;
-  height:120px;
+  height:220rpx;
   background:white;
-  border-radius: 10px;
-  box-shadow: 0 0 10px rgb(245,245,245);
+  border-radius: 20rpx;
+  box-shadow: 0 0 20rpx rgb(245,245,245);
   margin:0 auto;
-  margin-bottom:40px;
+  margin-bottom:40rpx;
 }
 .new_info_box_first{
   width:100%;
-  height:49px;
-  /* background:red; */
-  border-bottom:1px solid rgb(245, 245, 245);
+  height:98rpx;
+  border-bottom:2rpx solid rgb(245, 245, 245);
 }
 .firstBox{
   width:33%;
-  height:40px;
-  margin-top:5px;
+  height:80rpx;
+  margin-top:10rpx;
   float:left;
-  border-right:1px solid rgb(240, 240, 240);
+  border-right:2rpx solid rgb(240, 240, 240);
 }
 .firstBox_top{
   width:100%;
-  height:26px;
-  font-size:16px;
+  height:52rpx;
+  font-size:32rpx;
   text-align: center;
-  line-height: 26px;
+  line-height: 52rpx;
   font-weight: 600;
 }
 .firstBox_bottom{
   width:100%;
-  height:14px;
-  font-size:12px;
+  height:28rpx;
+  font-size:24rpx;
   text-align: center;
-  line-height: 14px;
+  line-height: 28rpx;
   font-weight: 300;
   color:gray;
 }
@@ -276,13 +273,12 @@ page {
 }
 .new_info_box_second{
   width:100%;
-  height:25px;
-  /* background:green; */
+  height:50rpx;
+  padding-top: 20rpx;
 }
 .new_info_box_third{
   width:100%;
-  height:25px;
-  /* background:pink; */
+  height:50rpx;
 }
 .second_left{
   width:50%;
@@ -293,15 +289,15 @@ page {
   width:50%;
   height:100%;
   float:left;
-  font-size:13px;
+  font-size:26rpx;
   text-align: center;
-  line-height: 20px;
+  line-height: 40rpx;
 }
 .jjBox_son_textC{
   width:100%;
-  height:20px;
+  height:40rpx;
   text-align: center;
-  line-height: 20px;
+  line-height: 40rpx;
   color:rgb(255,217,62);
-  font-size:12px;
+  font-size:24rpx;
 }

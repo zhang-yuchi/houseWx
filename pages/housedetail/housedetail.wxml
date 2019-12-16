@@ -96,7 +96,7 @@
 
 <View class="titleB">家具配套</View>
 <View class="jjBox">
-  <View class="jjBox_son" wx:for="{{firstLevel}}" wx:key="firstLevel" id="{{item.id}}" bindtap="getId">
+  <View class="jjBox_son" wx:for="{{firstLevel}}" wx:key="firstLevel" bindtap="getId">
     <image src="{{item.url}}" class="jjBox_son_pic" />
     <View class="{{item.className}}">{{item.name}}</View>
   </View>

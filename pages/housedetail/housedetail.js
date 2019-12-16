@@ -13,7 +13,7 @@ Page({
     topPic:"https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=3140560614,3641376433&fm=26&gp=0.jpg",
     scrollViewHeight:"",
     markers: [{
-      iconPath: "/resources/others.png",
+      iconPath: "",//地图图片路径
       id: 0,
       latitude: 23.099994,
       longitude: 113.324520,
@@ -46,19 +46,20 @@ Page({
     obj:{},
     host:app.data.requestHost,
     firstLevel: [
-      { name: "电视", url: "../../images/电视.png", id: 0, selected: false, className: "jjBox_son_text" },
-      { name: "冰箱", url: "../../images/冰箱.png", id: 1, selected: false, className: "jjBox_son_text" },
-      { name: "洗衣机", url: "../../images/洗衣机.png", id: 2, selected: false, className: "jjBox_son_text" },
-      { name: "空调", url: "../../images/空调.png", id: 3, selected: false, className: "jjBox_son_text" },
-      { name: "热水器", url: "../../images/热水器.png", id: 4, selected: false, className: "jjBox_son_text" },
+      { name: "电视", url: "../../images/dianshi.png", id: 0, selected: false, className: "jjBox_son_text" },
+      { name: "冰箱", url: "../../images/bingxiang.png", id: 1, selected: false, className: "jjBox_son_text" },
+      { name: "洗衣机", url: "../../images/xiyiji.png", id: 2, selected: false, className: "jjBox_son_text" },
+      { name: "空调", url: "../../images/kongtiao.png", id: 3, selected: false, className: "jjBox_son_text" },
+      { name: "热水器", url: "../../images/reshuiqi.png", id: 4, selected: false, className: "jjBox_son_text" },
     ],
     secondLevel: [
-      { name: "床", url: "../../images/床.png", id: 0, selected: false, className: "jjBox_son_text" },
-      { name: "暖气", url: "../../images/暖气.png", id: 1, selected: false, className: "jjBox_son_text" },
-      { name: "宽带", url: "../../images/宽带.png", id: 2, selected: false, className: "jjBox_son_text" },
-      { name: "衣柜", url: "../../images/衣柜.png", id: 3, selected: false, className: "jjBox_son_text" },
-      { name: "天然气", url: "../../images/煤气.png", id: 4, selected: false, className: "jjBox_son_text" },
-    ]
+      { name: "床", url: "../../images/chuang.png", id: 0, selected: false, className: "jjBox_son_text" },
+      { name: "暖气", url: "../../images/nuanqi.png", id: 1, selected: false, className: "jjBox_son_text" },
+      { name: "宽带", url: "../../images/kuandai.png", id: 2, selected: false, className: "jjBox_son_text" },
+      { name: "衣柜", url: "../../images/yigui.png", id: 3, selected: false, className: "jjBox_son_text" },
+      { name: "天然气", url: "../../images/meiqi.png", id: 4, selected: false, className: "jjBox_son_text" },
+    ],
+    
   },
 
   /**
@@ -71,8 +72,10 @@ Page({
     wx.setStorageSync('currentHouseInfo', obj);
     that.setData({
       obj:JSON.parse(obj),
-      firstLevel: JSON.parse(obj).houseinfo.jj_1,
-      secondLevel: JSON.parse(obj).houseinfo.jj_2
+      // firstLevel: JSON.parse(obj).houseinfo.jj_1,
+      firstLevel: firstLevel,
+      // secondLevel: JSON.parse(obj).houseinfo.jj_2
+      secondLevel: secondLevel
     })
     //上传浏览记录
     var id = wx.getStorageSync('id');

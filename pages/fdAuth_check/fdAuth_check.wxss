@@ -11,31 +11,31 @@ page {
 .img{
   width:60%;
   display: block;
-  margin:30px auto;
+  margin:60rpx auto;
 }
 .font{
   width:70%;
   color:rgb(93,85,53);
   text-align: center;
-  margin-top:5px;
+  margin-top:10rpx;
   margin:10px auto;
-  font-size:14px;
+  font-size:28rpx;
 }
 .submit{
     width:80%;
-    height:60px;
+    height:120rpx;
     position: fixed;
     left:10%;
-    bottom:30px;
-    margin:20px auto;
+    bottom:60rpx;
+    margin:40rpx auto;
     margin-bottom:0;
     background: rgb(255,217,62);
     color:black;
     text-align: center;
-    line-height:60px;
-    font-size:18px;
-    letter-spacing: 2px;
-    border-radius: 3px;
-    margin-top:40px;
+    line-height:120rpx;
+    font-size:36rpx;
+    letter-spacing: 4rpx;
+    border-radius: 6rpx;
+    margin-top:80rpx;
 
 }

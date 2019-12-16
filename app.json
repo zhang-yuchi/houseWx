@@ -1,31 +1,29 @@
 {
   "pages": [
+    "pages/location/location",
     "pages/wxLogin/wxLogin",
-    
     "pages/mysurf/mysurf",
-    
-"pages/mysc/mysc",
-"pages/uploadSign/uploadSign",
-"pages/mywallet_fd/mywallet_fd",
-"pages/upfix/upfix",
-"pages/msgdetail/msgdetail",
-"pages/middle_mime/middle_mime",
-"pages/fd_mime/fd_mime",
-"pages/fdAuth_check/fdAuth_check",
-"pages/fdAuth_new/fdAuth_new",
-"pages/fdauth/fdauth",
-"pages/liveserver/liveserver",
-"pages/myordercash/myordercash",
-"pages/myfixed/myfixed",
-"pages/myorder/myorder",
-"pages/saixuan/saixuan",
-"pages/hx/hx",
-"pages/price/price",
-"pages/mime/mime",
-  "pages/new_mime/new_mime",
+    "pages/mysc/mysc",
+    "pages/uploadSign/uploadSign",
+    "pages/mywallet_fd/mywallet_fd",
+    "pages/upfix/upfix",
+    "pages/msgdetail/msgdetail",
+    "pages/middle_mime/middle_mime",
+    "pages/fd_mime/fd_mime",
+    "pages/fdAuth_check/fdAuth_check",
+    "pages/fdAuth_new/fdAuth_new",
+    "pages/fdauth/fdauth",
+    "pages/liveserver/liveserver",
+    "pages/myordercash/myordercash",
+    "pages/myfixed/myfixed",
+    "pages/myorder/myorder",
+    "pages/saixuan/saixuan",
+    "pages/hx/hx",
+    "pages/price/price",
+    "pages/mime/mime",
+    "pages/new_mime/new_mime",
     "pages/msg/msg",
     "pages/index/index",
-    
     "pages/userSign/userSign",
     "pages/city/city",
     "pages/liveserver_detial/liveserver_detial",
@@ -33,6 +31,7 @@
     "pages/fd_cz/fd_cz",
     "pages/myhouse_fd/myhouse_fd",
     "pages/housedetail/housedetail"
+    
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -64,6 +63,11 @@
     "backgroundColor": "#FFFFFF",
     "color": "#A3A3A3",
     "selectedColor": "#FF9800"
+  },
+  "permission": {
+    "scope.userLocation": {
+      "desc": "你的位置信息将用于小程序位置接口的效果展示"
+    }
   },
   "sitemapLocation": "sitemap.json"
 }

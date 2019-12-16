@@ -1,0 +1,11 @@
+<!--pages/location/location.wxml-->
+<map class="location" show-location scale="14" latitude="{{latitude}}" longitude="{{longitude}}"  markers="{{markers}}" style="width:100%;height:100%;" >
+  <cover-view class="controler">
+    <cover-view class="info">
+      <cover-view class="title">{{title}}</cover-view>
+      <cover-view class="addr">{{addr}}</cover-view>
+    </cover-view>
+    
+    <cover-image  class="daohang" bindtap="loactionto" src="../../images/icon-navi.png"></cover-image>
+  </cover-view>
+</map>

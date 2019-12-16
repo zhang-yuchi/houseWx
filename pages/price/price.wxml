@@ -7,7 +7,7 @@
         <image src="../../images/indexdown.png" class="middle_check_son_pic" />
     </View>
     <View class="middle_check_son" style="width:{{middle_check_sonwidth}}">
-        <View class="middle_check_son_text" style="margin-left:{{middle_check_son_textleft}}">租金</View>
+        <View class="middle_check_son_text selected-bar" style="margin-left:{{middle_check_son_textleft}}">租金</View>
         <image src="../../images/indexdown.png" class="middle_check_son_pic" />
     </View>
     <View class="middle_check_son" style="width:{{middle_check_sonwidth}}">

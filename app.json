@@ -1,10 +1,12 @@
 {
   "pages": [
+    "pages/price/price",
+    "pages/saixuan/saixuan",
+
 
     "pages/liveserver_detial/liveserver_detial",
-        
     "pages/new_mime/new_mime",
-    "pages/price/price",
+    
     "pages/upfix/upfix",
     "pages/uploadSign/uploadSign",
     "pages/userSign/userSign",
@@ -25,7 +27,7 @@
     "pages/myordercash/myordercash",
     "pages/myfixed/myfixed",
     "pages/myorder/myorder",
-    "pages/saixuan/saixuan",
+    
     "pages/hx/hx",
     
     

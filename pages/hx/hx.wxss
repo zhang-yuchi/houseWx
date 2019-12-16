@@ -1,52 +1,6 @@
 /* pages/hx/hx.wxss */
-page {
-  height: 100%;
-}
+@import "../../public/wxss/shaixuanbar.wxss";
 
-.container {
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
-}
-
-
-.middle_check {
-  width: 95%;
-  height: 90rpx;
-  margin: 0 auto;
-  border-bottom: 2rpx solid rgb(245, 245, 245);
-}
-
-.middle_check_son {
-  height: 90rpx;
-  float: left;
-  /* background: red; */
-}
-
-.middle_check_son_text {
-  height: 90rpx;
-  width: 50rpx;
-  float: left;
-  font-size: 24rpx;
-  font-weight: 700;
-  line-height: 90rpx;
-  color:rgb(85,85,85);
-}
-
-.middle_check_son_pic {
-  display: block;
-  width: 16rpx;
-  height: 16rpx;
-  margin-top: 37rpx;
-  float: left;
-}
-
-.middle_check_son_sx {
-  width: 30rpx;
-  height: 30rpx;
-  display: block;
-  margin: 30rpx auto;
-}
 .priceList{
   width:100%;
   height:40rpx;

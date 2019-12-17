@@ -1,0 +1,97 @@
+.moneybar{ 
+  display: flex; 
+  padding: 20rpx 50rpx; 
+  justify-content: space-between; 
+  background-color: white; 
+  border-bottom: 1rpx solid #f1f1f1; 
+} 
+.bar-name{ 
+  position: relative; 
+  padding: 10rpx; 
+  font-size: 30rpx; 
+  color: rgb(174, 174, 174) 
+} 
+.active{ 
+  color: rgb(255, 86, 0) 
+} 
+.active::after{ 
+  position: absolute; 
+  content: ""; 
+  height: 4rpx; 
+  background-color: rgb(255, 86, 0); 
+  width: 30rpx; 
+  bottom: 0; 
+  left: 50%; 
+  transform: translateX(-50%); 
+} 
+.content-block{ 
+  border-bottom: 1rpx solid #f1f1f1; 
+  padding: 50rpx 40rpx; 
+  display: flex; 
+  justify-content: space-between; 
+} 
+.details{ 
+  display: flex; 
+  flex-direction: column; 
+  justify-content: space-between; 
+} 
+.info{ 
+  display: flex; 
+} 
+.sign{ 
+  margin-right: 20rpx; 
+  display: flex; 
+  flex-direction: column; 
+  justify-content: center; 
+  align-items: center; 
+} 
+.sign image{ 
+  width: 100rpx; 
+  height: 100rpx; 
+  margin-bottom: 10rpx; 
+} 
+.sign>view{ 
+  font-size: 26rpx; 
+  color: rgb(187, 187, 187); 
+} 
+.price{ 
+  display: flex; 
+  flex-direction: column; 
+  justify-content: space-between; 
+  color: red; 
+} 
+.process{ 
+  font-size: 30rpx; 
+  text-align: right; 
+} 
+.num{ 
+  font-size: 38rpx; 
+} 
+.num text{ 
+  font-size: 28rpx; 
+} 
+.title{ 
+  font-size: 30rpx; 
+  font-weight: 600; 
+} 
+.date{ 
+  font-size: 30rpx; 
+  color: gray; 
+} 
+.nothing{ 
+  position: absolute; 
+  left: 50%; 
+  top: 35%; 
+  transform: translate(-50%,-50%); 
+} 
+.nothing image{ 
+  width: 400rpx; 
+  height: 400rpx; 
+} 
+.nothing view{ 
+  color: rgb(187, 187, 187); 
+  font-size: 30rpx; 
+  font-weight: bold; 
+  letter-spacing: 5rpx; 
+  text-align: center; 
+}

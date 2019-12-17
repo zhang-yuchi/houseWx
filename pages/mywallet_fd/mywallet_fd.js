@@ -5,9 +5,66 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    tipshow:"none",
+    cards:[
+      {
+        cardnum:"2133",
+        type:"gongshang",
+        checked:false,
+      },
+      {
+        cardnum: "2134",
+        type: "jianshe",
+        checked: false,
+      },
+      {
+        cardnum: "2133",
+        type: "zhongguo",
+        checked: false,
+      }
+    ]
   },
-
+  select(e){
+    var index = e.currentTarget.dataset.id
+    for(var item of this.data.cards){
+      item.checked = false
+      
+    }
+    this.data.cards[index].checked = true
+    this.setData({
+      cards:this.data.cards
+    })
+  },
+  toaddCard(){
+    //跳转到银行卡付款页面
+    wx.navigateTo({
+      url: '../bindcard/bindcard',
+    })
+  },
+  tomoneydetails(){
+    //跳转到金额明细
+    wx.navigateTo({
+      url: '../moneydetails/moneydetails',
+    })
+  },
+  topulldetails(){
+    //跳转到提现明细
+    wx.navigateTo({
+      url: '../pulldetails/pulldetails',
+    })
+  },
+  tocash(){
+    //经过一系列判断后:
+    
+    this.setData({
+      tipshow:"block"  
+    })
+  },
+  sure(){
+    this.setData({
+      tipshow: "none" 
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */

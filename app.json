@@ -1,10 +1,10 @@
 {
   "pages": [
     "pages/liveserver/liveserver",
-    "pages/hx/hx",
     "pages/fd_mime/fd_mime",
     "pages/price/price",
     "pages/saixuan/saixuan",
+    "pages/pulldetails/pulldetails",
     "pages/liveserver_detial/liveserver_detial",
     "pages/new_mime/new_mime",
     "pages/upfix/upfix",
@@ -15,6 +15,7 @@
     "pages/mysurf/mysurf",
     "pages/mysc/mysc",
     "pages/mywallet_fd/mywallet_fd",
+
     "pages/msgdetail/msgdetail",
     "pages/middle_mime/middle_mime",
     "pages/fdAuth_check/fdAuth_check",
@@ -23,13 +24,19 @@
     "pages/myordercash/myordercash",
     "pages/myfixed/myfixed",
     "pages/myorder/myorder",
-    
+
+    "pages/hx/hx",
+
     "pages/msg/msg",
     "pages/index/index",
     "pages/city/city",
     "pages/fd_cz/fd_cz",
     "pages/myhouse_fd/myhouse_fd",
-    "pages/housedetail/housedetail"
+    "pages/housedetail/housedetail",
+    
+    "pages/moneydetails/moneydetails"
+    
+    
     
   ],
   "window": {

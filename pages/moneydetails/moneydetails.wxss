@@ -1,0 +1,8 @@
+/* pages/moneydetails/moneydetails.wxss */
+@import "../../public/wxss/moneybar.wxss";
+page{
+  background-color: rgb(250, 250, 250);
+}
+.price{
+  flex-direction: column-reverse;
+}

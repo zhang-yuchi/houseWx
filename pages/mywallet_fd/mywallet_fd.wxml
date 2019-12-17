@@ -1,2 +1,29 @@
 <!--pages/mywallet_fd/mywallet_fd.wxml-->
-<text>pages/mywallet_fd/mywallet_fd.wxml</text>
+<view class="money-show">
+  <view><text>可提现金额</text><text>￥100.00</text></view>
+  <view><text>成功提现金额</text><text>￥500.00</text></view>
+</view>
+<view class="money-pull"><text>提现金额:</text><input type="number" placeholder="请输入您要提现的金额" /></view>
+<view class="money-controls">
+  <view class="left" bindtap="tomoneydetails">
+    <image src="../../images/icon_money.png"></image>
+    <text>金额明细</text>
+  </view>
+  <view class="right" bindtap="topulldetails">
+    <image src="../../images/icon_withdrawal.png"></image>
+    <text>提现明细</text>
+  </view>
+</view>
+<view class="submit-controls">
+  <view class="submit-btn" bindtap="tocash">立即提现</view>
+</view>
+<view class="tips-cover" style="display:{{tipshow}}" >
+  <view class="tips-window">
+    <image src="../../images/pop.png"></image>
+    <view class="tips-info">
+      <text>请等待管理员审核</text>
+    </view>
+    <view class="tips-btn" bindtap="sure">确定</view>
+  </view>
+  
+</view>

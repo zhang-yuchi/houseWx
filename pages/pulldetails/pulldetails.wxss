@@ -1,0 +1,5 @@
+/* pages/pulldetails/pulldetails.wxss */
+@import "../../public/wxss/moneybar";
+page{
+  background-color: rgb(250, 250, 250);
+}

@@ -13,6 +13,8 @@ page {
   height:100rpx;
   /* background: red; */
   margin:0 auto;
+  padding: 20rpx 0;
+  border-bottom: 1rpx solid #f1f1f1;
 }
 .infoBox_pic{
   width:80rpx;
@@ -32,11 +34,16 @@ page {
   margin-top:10rpx;
 }
 .middleBox{
-  width:200rpx;
+  /* width:200rpx; */
+  width: 400rpx;
+  /* width: 70%; */
   height:100rpx;
   /* background: yellow; */
   float:left;
   margin-left:20rpx;
+  overflow: hidden;
+  text-overflow:ellipsis;
+  white-space: nowrap;
 }
 .title{
   height:50rpx;
@@ -47,7 +54,10 @@ page {
 }
 .content{
   height:50rpx;
-  font-size:30rpx;
-  color:#101010;
-  font-weight: 800;
+  font-size:28rpx;
+  color:rgb(181, 181, 181);
+  /* font-weight: 800; */
+  overflow: hidden;
+  text-overflow:ellipsis;
+  white-space: nowrap;
 }

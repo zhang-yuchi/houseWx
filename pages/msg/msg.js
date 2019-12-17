@@ -42,19 +42,20 @@ Page({
    */
   onShow: function () {
     var that = this;
-    wx.request({
-      url: app.data.requestHost + '/getAllMsg',
-      header: {
-        'content-type': 'application/json'
-      },
-      method: "GET",
-      success: function (res) {
-        var result = res.data;
-        that.setData({
-          systemMsgs: JSON.parse(result.data)
-        })
-      },
-    });
+    // wx.request({
+    //   url: app.data.requestHost + '/getAllMsg',
+    //   header: {
+    //     'content-type': 'application/json'
+    //   },
+    //   method: "GET",
+    //   success: function (res) {
+    //     var result = res.data;
+    //     console.log(res)
+    //     that.setData({
+    //       systemMsgs: JSON.parse(result.data)
+    //     })
+    //   },
+    // });
   },
 
   /**

@@ -1,9 +1,14 @@
 {
   "pages": [
+    "pages/mysurf/mysurf",
+    "pages/mysc/mysc",
+    "pages/fd_mime/fd_mime",
+    "pages/wxLogin/wxLogin",
+    "pages/msg/msg",
     "pages/talk/talk",
     "pages/mywallet_fd/mywallet_fd",
     "pages/liveserver/liveserver",
-    "pages/fd_mime/fd_mime",
+    
     "pages/price/price",
     "pages/saixuan/saixuan",
     "pages/pulldetails/pulldetails",
@@ -13,9 +18,9 @@
     "pages/uploadSign/uploadSign",
     "pages/userSign/userSign",
     "pages/location/location",
-    "pages/wxLogin/wxLogin",
-    "pages/mysurf/mysurf",
-    "pages/mysc/mysc",
+    
+    
+    
     "pages/msgdetail/msgdetail",
     "pages/middle_mime/middle_mime",
     "pages/fdAuth_check/fdAuth_check",
@@ -25,7 +30,7 @@
     "pages/myfixed/myfixed",
     "pages/myorder/myorder",
     "pages/hx/hx",
-    "pages/msg/msg",
+    
     "pages/index/index",
     "pages/city/city",
     "pages/fd_cz/fd_cz",

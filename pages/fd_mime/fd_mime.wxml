@@ -42,8 +42,8 @@
     <image src="../../images/right.png" class="otherBox_pic" />
   </View>
 
-  <View class="otherBox"   bindtap="showConcatBox">
-    <image src="../../images/sc.png" class="otherBox_pic" />
+  <View class="otherBox" bindtap="showConcatBox">
+    <image src="../../images/person.png" class="otherBox_pic" />
     <View class="otherBox_font">联系客服</View>
     <image src="../../images/right.png" class="otherBox_pic" />
   </View>

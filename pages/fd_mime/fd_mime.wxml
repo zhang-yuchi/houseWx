@@ -10,23 +10,24 @@
 
   <View class="title" style="margin-bottom:15px;">我的小鱼</View>
   <View class="cardBox">
-    <View class="cardBox_son" style="background: rgb(252,210,76);" bindtap="tomywallet">
-      <image src="../../images/index_1.png" class="cardBox_son_pic" />
+   <View class="cardBox_son" style="background: rgb(253, 211, 77);" bindtap="tomyhouse_fd">
+      <image src="../../images/bar_2.png" class="cardBox_son_pic" />
+      <View class="cardBox_son_z">我的房源</View>
+      <View class="cardBox_son_y">My housing</View>
+    </View>
+
+    <View class="cardBox_son" style="background: rgb(119, 180, 255);" bindtap="tomywallet">
+      <image src="../../images/bar_1.png" class="cardBox_son_pic" />
       <View class="cardBox_son_z">我的钱包</View>
       <View class="cardBox_son_y">My wallet</View>
     </View>
 
-    <View class="cardBox_son" style="background: rgb(118,279,254);">
-      <image src="../../images/index_3.png" class="cardBox_son_pic" />
+    <View class="cardBox_son" style="background: rgb(156, 225, 171);">
+      <image src="../../images/bar_3.png" class="cardBox_son_pic" />
       <View class="cardBox_son_z">我的报修</View>
       <View class="cardBox_son_y">My service</View>
     </View>
 
-    <View class="cardBox_son" style="background: rgb(155 ,224,270);" bindtap="tomyhouse_fd">
-      <image src="../../images/index_1.png" class="cardBox_son_pic" />
-      <View class="cardBox_son_z">我的房源</View>
-      <View class="cardBox_son_y">My housing</View>
-    </View>
   </View>
   <View class="title" style="margin-top:30px;">其他服务</View>
   <View class="otherBox" bindtap="tomysc">

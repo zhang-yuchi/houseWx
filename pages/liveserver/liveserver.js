@@ -12,7 +12,7 @@ Page({
       { name: "房屋租赁", id: 0, className: "barBox_sonC"},
       { name: "餐饮美食", id: 1, className: "barBox_son" },
       { name: "零售便利", id: 2, className: "barBox_son" },
-      { name: "美容没法", id: 3, className: "barBox_son" },
+      { name: "美容美发", id: 3, className: "barBox_son" },
       { name: "家庭维修", id: 4, className: "barBox_son" },
     ]
   },

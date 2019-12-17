@@ -18,54 +18,54 @@ page{
   float:left;
 }
 .topBox_right{
-  width:80px;
-  height:80px;
+  width:160rpx;
+  height:160rpx;
   float:left;
-  margin-top:10px;
+  margin-top:20rpx;
   display: block;
-  border-radius: 80px;
-  margin-left:50px;
+  border-radius: 160rpx;
+  margin-left:100rpx;
 }
 .topBox_left_name{
   width:100%;
-  height:40px;
-  font-size:20px;
+  height:80rpx;
+  font-size:40rpx;
   text-align: left;
-  line-height: 40px;
+  line-height: 80rpx;
   color:#333333;
-  margin-top:10px;
-  text-indent: 10px;
+  margin-top:20rpx;
+  text-indent: 20rpx;
 }
 .topBox_left_tel{
   width:100%;
-  height:40px;
-  font-size:15px;
+  height:80rpx;
+  font-size:30rpx;
   text-align: left;
-  line-height: 40px;
+  line-height: 80rpx;
   color:#333333;
-  text-indent: 10px;
+  text-indent: 20rpx;
 }
 .title{
   width:100%;
-  height:30px;
-  font-size:18px;
+  height:60rpx;
+  font-size:36rpx;
   text-align: left;
-  line-height: 30px;
+  line-height: 60rpx;
   color:#333333;
-  text-indent: 10px;
+  text-indent: 20rpx;
   font-weight: 800;
-  letter-spacing: 2px;
-  margin-top:30px;
+  letter-spacing: 4rpx;
+  margin-top:60rpx;
 }
 .cardBox{
   width:100%;
-  height:180px;
+  height:360rpx;
 }
 .cardBox_son{
   width:32%;
   height:100%;
   float:left;
-  border-radius: 5px;
+  border-radius: 10rpx;
   
 }
 .cardBox_son:first-child{
@@ -77,60 +77,60 @@ page{
   margin-right:1%;
 }
 .cardBox_son_pic{
-  width:70px;
-  height:70px;
+  width:140rpx;
+  height:140rpx;
   display: block;
-  border-radius: 70px;
-  margin-top:10px;
-  margin-left:10px;
+  border-radius: 140rpx;
+  margin-top:20rpx;
+  margin-left:20rpx;
 }
 .cardBox_son_z{
   width:100%;
-  height:20px;
-  font-size:13px;
+  height:40rpx;
+  font-size:26rpx;
   text-align: left;
-  line-height: 30px;
+  line-height: 60rpx;
   color:white;
-  text-indent: 10px;
+  text-indent: 20rpx;
   font-weight: 600;
-  letter-spacing: 2px;
-  margin-top:15px;
+  letter-spacing: 4rpx;
+  margin-top:30rpx;
 }
 .cardBox_son_y{
   width:100%;
-  height:20px;
-  font-size:13px;
+  height:40rpx;
+  font-size:26rpx;
   text-align: left;
-  line-height: 30px;
+  line-height: 60rpx;
   color:white;
-  text-indent: 10px;
+  text-indent: 20rpx;
   font-weight: 600;
-  letter-spacing: 2px;
+  letter-spacing: 4rpx;
 }
 .otherBox{
   width:100%;
-  height:40px;
-  margin-top:15px;
+  height:80rpx;
+  margin-top:30rpx;
 }
 .otherBox_pic{
-  width:20px;
-  height:20px;
-  margin-top:10px;
+  width:40rpx;
+  height:40rpx;
+  margin-top:20rpx;
   display:block;
   float:left;
-  margin-left:30px;
+  margin-left:60rpx;
 }
 .otherBox_font{
   width:60%;
-  height:40px;
-  font-size:15px;
+  height:80rpx;
+  font-size:30rpx;
   text-align: left;
-  line-height: 40px;
+  line-height: 80rpx;
   color:#333333;
   font-weight: 600;
-  letter-spacing: 2px;
+  letter-spacing: 4rpx;
   float:left;
-  margin-left:15px;
+  margin-left:30rpx;
 }
 /* 联系客服弹窗css代码 */
 .concatBox{
@@ -143,60 +143,58 @@ page{
   z-index: 100
 }
 .concatBox_sonBox{
-  width:280px;
-  height:146px;
-  /* background: red; */
+  width:560rpx;
+  height:292rpx;
   margin:0 auto;
   background: white;
-  border-radius: 4px;
+  border-radius: 8rpx;
 }
 .concatBox_sonBox_top{
   width:100%;
-  height:106px;
-  border-radius: 4px 4px 0 0;
+  height:212rpx;
+  border-radius: 8rpx 8rpx 0 0;
   overflow: hidden;
 }
 .concatBox_sonBox_bottom{
   width:100%;
-  height:40px;
-  /* background: green; */
-  border-radius: 0 0 4px 4px;
+  height:80rpx;
+  border-radius: 0 0 8rpx 8rpx;
 }
 .concatBox_sonBox_top_top{
   width:100%;
-  height:26px;
-  line-height: 26px;
+  height:52rpx;
+  line-height: 52rpx;
   text-align: center;
   color:#000000;
-  font-size:18px;
-  margin-top:24px;
+  font-size:36rpx;
+  margin-top:48rpx;
 }
 .concatBox_sonBox_top_bottom{
   width:100%;
-  height:26px;
-  line-height: 26px;
+  height:52rpx;
+  line-height: 52rpx;
   text-align: center;
   color:#888888;
-  font-size:15px;
+  font-size:30rpx;
 }
 .concatBox_sonBox_bottom_left{
-  width:139px;
-  height:39px;
-  border-top:1px solid rgba(187, 187, 187, 0.31);
-  border-right:1px solid rgba(187, 187, 187, 0.31);
-  font-size:18px;
+  width:278rpx;
+  height:78rpx;
+  border-top:2rpx solid rgba(187, 187, 187, 0.31);
+  border-right:2rpx solid rgba(187, 187, 187, 0.31);
+  font-size:36rpx;
   text-align: center;
-  line-height: 39px;
+  line-height: 78rpx;
   color:black;
   float:left;
 }
 .concatBox_sonBox_bottom_right{
-  width:140px;
-  height:39px;
-  border-top:1px solid rgba(187, 187, 187, 0.31);
-  font-size:18px;
+  width:280rpx;
+  height:78rpx;
+  border-top:2rpx solid rgba(187, 187, 187, 0.31);
+  font-size:36rpx;
   text-align: center;
-  line-height: 39px;
+  line-height: 78rpx;
   color:#02BB00;
   float:left;
 }

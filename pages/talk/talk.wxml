@@ -1,0 +1,34 @@
+<!--pages/talk/talk.wxml-->
+<scroll-view class="talk" scroll-y="true" scroll-into-view="last">
+  <view class="mine">
+    <view class="user"><image src="../../images/water.png"></image></view>
+    <view class="mine-text-content">你好,什么时候方便去看房子你好,什么时候方便去看房子你好,什么时候方便去看房子</view>
+  </view>
+  <view class="timer"><text>09:18</text></view>
+  <view class="other">
+    <view class="user"><image src="../../images/water.png"></image></view>
+    <view class="other-text-content">随时都可以的</view>
+  </view>
+  <view class="other">
+    <view class="user"><image src="../../images/water.png"></image></view>
+    <view class="other-text-content">随时都可以的</view>
+  </view>
+  <view class="other">
+    <view class="user"><image src="../../images/water.png"></image></view>
+    <view class="other-text-content">随时都可以的</view>
+  </view>
+  <view class="mine">
+    <view class="user"><image src="../../images/water.png"></image></view>
+    <view class="mine-text-content">你好,什么时候方便去看房子你好,什么时候方便去看房子你好,什么时候方便去看房子</view>
+  </view>
+  <view class="timer"><text>11:18</text></view>
+  <view class="mine" id="last">
+    <view class="user"><image src="../../images/water.png"></image></view>
+    <view class="mine-text-content">你好,什么时候方便去看房子你好,什么时候方便去看房子你好,什么时候方便去看房子</view>
+  </view>
+</scroll-view>
+<view class="controls">
+  <!-- <image ></image> -->
+  <input class="" type="text" placeholder="请输入聊天内容"></input>
+  <text class="send">发送</text>
+</view>

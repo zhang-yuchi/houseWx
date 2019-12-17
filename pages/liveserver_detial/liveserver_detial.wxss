@@ -4,18 +4,59 @@ page {
 }
 
 .container {
-  width: 100%;
+  width: 95%;
   height: 100%;
   overflow: hidden;
+  margin: 0 auto;
 }
-/* 滚动图样式 */
+
 .topPic{
-  width:95%;
+  width:100%;
   height:480rpx;
   display:block;
   margin:20rpx auto;
   border-radius: 10rpx;
 }
+.shop-details-name{
+  position: relative;
+  font-weight: 600;
+  margin-top: 20rpx;
+}
+.right{
+  position: absolute;
+  right: 30rpx;
+  top: 0;
+}
+
+.right_top{
+  width:46rpx;
+  height:40rpx;
+  display: block;
+}
+.right_bottom{
+  width:50rpx;
+  height:40rpx;
+  font-size:24rpx;
+  text-align: center;
+  line-height: 40rpx;
+  color:rgb(129, 125, 125);
+}
+.shop-details-time{
+  color: rgb(129, 125, 125);
+  font-size: 28rpx;
+  margin-top: 40rpx;
+}
+.shop-details-addr{
+  width: 600rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: 28rpx;
+  color: rgb(129, 125, 125);
+  margin: 20rpx 0 40rpx 0;
+}
+
+
 .banner {
   width: 100%;
   margin: 0 auto;
@@ -199,26 +240,8 @@ page {
   line-height: 20rpx;
   color:gainsboro;
 }
-.right{
-  width:80rpx;
-  height:80rpx;
-  float:left;
-  margin-left:20%;
-}
-.right_top{
-  width:46rpx;
-  height:40rpx;
-  display: block;
-  margin-top:20rpx;
-}
-.right_bottom{
-  width:50rpx;
-  height:40rpx;
-  font-size:24rpx;
-  text-align: center;
-  line-height: 40rpx;
-  color:gainsboro;
-}
+
+
 .price_new{
   width:95%;
   height:80rpx;

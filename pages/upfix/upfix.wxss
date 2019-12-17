@@ -37,7 +37,7 @@ page{
   height:80rpx;
   font-size:38rpx;
   font-weight: 900;
-  text-align: left;
+  text-align: center;
   text-indent: 40rpx;
   color:#333333;
   margin-top:60rpx;
@@ -49,6 +49,11 @@ page{
   margin:0 auto;
   border-bottom:2rpx solid rgb(234,234,234);
 }
+
+#textArea-box {
+  height: 240rpx;
+}
+
 .left{
   width:30%;
   height:80rpx;
@@ -58,9 +63,12 @@ page{
   font-size: 32rpx;
   color:#333333;
   letter-spacing: 2rpx;
-  /* background:yellow; */
   line-height: 80rpx;
   font-weight: 700;
+}
+.left::before {
+  content: '*';
+  color: red;
 }
 .right{
   width:70%;
@@ -69,6 +77,18 @@ page{
   margin-top:30rpx;
   overflow: hidden;
 }
+#right-textArea{
+  height: 180rpx;
+  margin-left: -10px;
+}
+.right-button {
+  float: right;
+  margin-top: 30rpx;
+  color: rgb(173, 173, 173);
+  background-color: rgb(247, 247, 247);
+  font-size: 32rpx;
+}
+
 .input{
   outline: none;
   background: none;
@@ -76,7 +96,7 @@ page{
   width:95%;
   height:76rpx;
   font-size:30rpx;
-  /* background:red; */
+  color: rgb(183, 183, 183);
 }
 .middle{
   width:50%;
@@ -106,49 +126,19 @@ page{
   /* background:red; */
   color:rgb(147,134,130);
 }
-
-.jjBox{
-  width:95%;
-  height:140rpx;
-  margin:0 auto;
-}
-.jjBox_son{
-  width:20%;
-  height:100%;
-  float:left;
-}
-.jjBox_son_pic{
-  width:60rpx;
-  height:60rpx;
-  margin:0 auto;
-  margin-top:20rpx;
-  display: block;
-}
-.jjBox_son_text{
-  width:100%;
-  height:40rpx;
-  text-align: center;
-  line-height: 40rpx;
-  color:#101010;
-  font-size:24rpx;
-}
-.jjBox_son_textC{
-  width:100%;
-  height:40rpx;
-  text-align: center;
-  line-height: 40rpx;
-  color:rgb(255,217,62);
-  font-size:24rpx;
-}
 .otherInput{
   width:90%;
-  height:300rpx;
+  height:180rpx;
   display: block;
-  margin:20rpx auto;
+  margin:10rpx auto;
   outline: none;
-  background:rgb(240,240,240);
-  border-radius: 8rpx;
+  background:rgb(245, 245, 245);
+  border-radius: 10rpx;
+  font-size: 32rpx;
+  padding: 10rpx;
 }
+
+
 .btn{
   width:88%;
   height:100rpx;
@@ -159,14 +149,14 @@ page{
   font-size:30rpx;
   font-weight: 699;
   border-radius: 6rpx;
-  margin:60rpx auto;
+  margin:80rpx auto;
 }
 .picBox{
   width:90%;
   height:400rpx;
   margin:0 auto;
   border-radius: 6rpx;
-  background:rgb(240,240,240);
+  background:rgb(245, 245, 245);
 }
 .picBox_pic{
   position: relative;

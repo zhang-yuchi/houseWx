@@ -1,18 +1,20 @@
 {
   "pages": [
+    "pages/upfix/upfix",
+    "pages/liveserver/liveserver",
+    "pages/location/location",
     "pages/talk/talk",
     "pages/mywallet_fd/mywallet_fd",
-    "pages/liveserver/liveserver",
+    
     "pages/fd_mime/fd_mime",
     "pages/price/price",
     "pages/saixuan/saixuan",
     "pages/pulldetails/pulldetails",
     "pages/liveserver_detial/liveserver_detial",
     "pages/new_mime/new_mime",
-    "pages/upfix/upfix",
+    
     "pages/uploadSign/uploadSign",
     "pages/userSign/userSign",
-    "pages/location/location",
     "pages/wxLogin/wxLogin",
     "pages/mysurf/mysurf",
     "pages/mysc/mysc",

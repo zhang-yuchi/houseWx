@@ -24,20 +24,20 @@ Page({
     looktime: "",
     intime: "",
     textarea: "",
-    firstLevel: [
-      { name: "电视", url: "../../images/电视.png", id: 0, selected: false, className: "jjBox_son_text" },
-      { name: "冰箱", url: "../../images/冰箱.png", id: 1, selected: false, className: "jjBox_son_text" },
-      { name: "洗衣机", url: "../../images/洗衣机.png", id: 2, selected: false, className: "jjBox_son_text" },
-      { name: "空调", url: "../../images/空调.png", id: 3, selected: false, className: "jjBox_son_text" },
-      { name: "热水器", url: "../../images/热水器.png", id: 4, selected: false, className: "jjBox_son_text" },
-    ],
-    secondLevel: [
-      { name: "床", url: "../../images/床.png", id: 0, selected: false, className: "jjBox_son_text" },
-      { name: "暖气", url: "../../images/暖气.png", id: 1, selected: false, className: "jjBox_son_text" },
-      { name: "宽带", url: "../../images/宽带.png", id: 2, selected: false, className: "jjBox_son_text" },
-      { name: "衣柜", url: "../../images/衣柜.png", id: 3, selected: false, className: "jjBox_son_text" },
-      { name: "天然气", url: "../../images/煤气.png", id: 4, selected: false, className: "jjBox_son_text" },
-    ]
+    // firstLevel: [
+    //   { name: "电视", url: "../../images/电视.png", id: 0, selected: false, className: "jjBox_son_text" },
+    //   { name: "冰箱", url: "../../images/冰箱.png", id: 1, selected: false, className: "jjBox_son_text" },
+    //   { name: "洗衣机", url: "../../images/洗衣机.png", id: 2, selected: false, className: "jjBox_son_text" },
+    //   { name: "空调", url: "../../images/空调.png", id: 3, selected: false, className: "jjBox_son_text" },
+    //   { name: "热水器", url: "../../images/热水器.png", id: 4, selected: false, className: "jjBox_son_text" },
+    // ],
+    // secondLevel: [
+    //   { name: "床", url: "../../images/床.png", id: 0, selected: false, className: "jjBox_son_text" },
+    //   { name: "暖气", url: "../../images/暖气.png", id: 1, selected: false, className: "jjBox_son_text" },
+    //   { name: "宽带", url: "../../images/宽带.png", id: 2, selected: false, className: "jjBox_son_text" },
+    //   { name: "衣柜", url: "../../images/衣柜.png", id: 3, selected: false, className: "jjBox_son_text" },
+    //   { name: "天然气", url: "../../images/煤气.png", id: 4, selected: false, className: "jjBox_son_text" },
+    // ]
   },
 
   /**
@@ -46,26 +46,26 @@ Page({
   onLoad: function (options) {
 
   },
-  getId: function (e) {
-    var id = e.currentTarget.id;
-    var now = this.data.firstLevel;
-    for (var i = 0; i < now.length; i++) {
-      if (id == now[i].id) {
-        if (now[i].selected == true) {
-          now[i].selected = false;
-          now[i].className = "jjBox_son_text"
-        } else {
-          now[i].selected = true;
-          now[i].className = "jjBox_son_textC"
-        }
+  // getId: function (e) {
+  //   var id = e.currentTarget.id;
+  //   var now = this.data.firstLevel;
+  //   for (var i = 0; i < now.length; i++) {
+  //     if (id == now[i].id) {
+  //       if (now[i].selected == true) {
+  //         now[i].selected = false;
+  //         now[i].className = "jjBox_son_text"
+  //       } else {
+  //         now[i].selected = true;
+  //         now[i].className = "jjBox_son_textC"
+  //       }
 
 
-      }
-    }
-    this.setData({
-      firstLevel: now
-    })
-  },
+  //     }
+  //   }
+  //   this.setData({
+  //     firstLevel: now
+  //   })
+  // },
   getTextArea: function (e) {
     this.setData({
       textarea: e.detail.value
@@ -181,8 +181,9 @@ Page({
   choseImg: function (e) {
     var that = this;
     wx.chooseImage({
-      count: 1,
-      sizeType: ['compressed'],
+      count: 1,//选择图片的数量
+      sizeType: ['compressed'],//尺寸压缩图
+      sourceType:['album'],
       success: function (res) {
         var tempFilePaths1 = res.tempFilePaths;
         console.log("test:" + String(tempFilePaths1));

@@ -8,9 +8,51 @@ Page({
   data: {
     middle_check_sonwidth: "",
     middle_check_son_textleft:"",
-    btnLeft:""
+    btnLeft:"",
+    userselect:[
+      {
+        name:"不限",
+        classname:"active",
+      },
+      {
+        name: "价格由低到高",
+        classname: "",
+      },
+      {
+        name: "价格由高到低",
+        classname: "",
+      },
+      {
+        name: "时间由新到旧",
+        classname: "",
+      },
+    ]
   },
-
+  chooseprice(e){
+    let index = e.currentTarget.dataset.index
+    for(let item of this.data.userselect){
+      item.classname = ""
+    }
+    this.data.userselect[index-1].classname = "active"
+    this.setData({
+      userselect: this.data.userselect
+    })
+  },
+  tohx(){
+    wx.redirectTo({
+      url: '../hx/hx',
+    })
+  },
+  toshaixuan(){
+    wx.redirectTo({
+      url: '../saixuan/saixuan',
+    })
+  },
+  toarea(){
+    wx.redirectTo({
+      url: '../area/area',
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */

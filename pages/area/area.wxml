@@ -1,0 +1,60 @@
+<!--pages/area/area.wxml-->
+<View class="container">
+  <!-- 中部条件筛选 -->
+  <View class="middle_check">
+    <View class="middle_check_son" style="width:{{middle_check_sonwidth}}">
+        <View class="middle_check_son_text selected-bar" style="margin-left:{{middle_check_son_textleft}}">区域</View>
+        <image src="../../images/indexdown.png" class="middle_check_son_pic" />
+    </View>
+    <View class="middle_check_son" bindtap="toprice"  style="width:{{middle_check_sonwidth}}">
+        <View class="middle_check_son_text" style="margin-left:{{middle_check_son_textleft}}">租金</View>
+        <image src="../../images/indexdown.png" class="middle_check_son_pic" />
+    </View>
+    <View class="middle_check_son" bindtap="tohx" style="width:{{middle_check_sonwidth}}">
+        <View class="middle_check_son_text" style="margin-left:{{middle_check_son_textleft}}">户型</View>
+        <image src="../../images/indexdown.png" class="middle_check_son_pic" />
+    </View>
+    <View class="middle_check_son" bindtap="tosaixuan" style="width:{{middle_check_sonwidth}}">
+        <View class="middle_check_son_text" style="margin-left:{{middle_check_son_textleft}}">筛选</View>
+        <image src="../../images/indexdown.png" class="middle_check_son_pic" />
+    </View>
+    <View class="middle_check_son" style="width:{{middle_check_sonwidth}}">
+        <image src="../../images/sx.png" class="middle_check_son_sx" />
+    </View>
+  </View>
+
+  <view class="select-wrap">
+  <view class="select-btn">
+    <view bindtap="choosebtn" data-btnid="{{index}}" class="inner-btn {{item.classname}}" wx:key="{{item.index}}" wx:for="{{selectbtn}}">
+      {{item.name}}
+    </view>
+  </view>
+  <scroll-view class="select-content" scroll-y="true">
+    <view wx:if="{{!hasSub}}" class="not-have-sub">
+      <view class="inner-content {{item.classname}}" wx:key="{{item.index}}"  wx:for="{{nowlist}}" bindtap="chooseOptionNoSub" data-optionIndex="{{index}}">
+        {{item.name}}
+      </view>
+    </view>
+    
+    <view class="has-sub" wx:else>
+      <view class="sublist">
+        <view class="sub-block {{item.classname}}" bindtap="chooseSub" wx:key="{{item.index}}" wx:for="{{sublist.list}}" data-index="{{index}}">{{item.name}}</view>
+      </view>
+      <view class="select-content">
+        <view class="inner-content {{item.classname}}" bindtap="chooseOption" data-index="{{index}}" wx:key="{{item.index}}" wx:for="{{sublist.content}}">{{item.name}}</view>
+        
+      </view>
+    </view>
+    
+  </scroll-view>
+</view>
+
+
+</View>
+
+
+
+<!-- <View class="btn" style="left:{{btnLeft}}">确定</View> -->
+<View class="btnBox">
+  <View class="btn" bindtap="sx"  style="left:{{btnLeft}}">确定</View>
+</View>

@@ -6,16 +6,17 @@
     </View>
   </View>
 
-  <scroll-view scroll-y="true" class="scrollView" style="width:100%;height:{{scrollViewHeight}}">
-    <View class="infoBox">
-      <View class="left">
-        <image src="../../images/index_2.jpg" class="pic"/>
-      </View>
-      <View class="right">
-        <View class="right_son">东泰花园</View>
-        <View class="right_son" style="color:gray">有效期：1年</View>
-        <View class="right_son" style="color:gray">签约时间：2019/10/10</View>
-      </View>
-    </View>
-  </scroll-view>
+
+  <view class="box-wrap">
+    <view class="inner-block">
+      <image class="houseimg" src="../../images/index_2.jpg" />
+      <view class="house-info">
+        <view class="details-title">东泰花园 两房一厅</view>
+        <view class="details-date">有效期: 1年</view>
+        <view class="starttime">签订日期:2020-08-22</view>
+      </view>
+    </view>
+
+  </view>
+  
 </View>

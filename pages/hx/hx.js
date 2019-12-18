@@ -9,14 +9,28 @@ Page({
     middle_check_sonwidth: "",
     middle_check_son_textleft: "",
     btnLeft:"",
-    arr:[{ name: "不限", id: 0, className: "barBtnC" },
+    arr: [{ name: "不限", id: 0, className: "barBtn barBtnC" },
   { name: "一室", id: 1, className: "barBtn" },
   { name: "二室", id: 2, className: "barBtn" },
   { name: "三室", id: 3, className: "barBtn" }
   ],
     btnLeft: "",
   },
-
+  toarea(){
+    wx.redirectTo({
+      url: '../area/area',
+    })
+  },
+  tosaixuan(){
+    wx.redirectTo({
+      url: '../saixuan/saixuan',
+    })
+  },
+  toprice(){
+    wx.redirectTo({
+      url: '../price/price',
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */
@@ -32,7 +46,7 @@ Page({
     var cx = that.data.arr;
     for (var i = 0; i < cx.length; i++) {
       if (cx[i].id == id) {
-        cx[i].className = "barBtnC";
+        cx[i].className = "barBtn barBtnC";
       } else {
         cx[i].className = "barBtn";
       }

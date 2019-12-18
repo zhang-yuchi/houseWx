@@ -2,19 +2,19 @@
 <View class="container">
   <!-- 中部条件筛选 -->
   <View class="middle_check">
-    <View class="middle_check_son" style="width:{{middle_check_sonwidth}}">
+    <View class="middle_check_son" bindtap="toarea" style="width:{{middle_check_sonwidth}}">
         <View class="middle_check_son_text" style="margin-left:{{middle_check_son_textleft}}">区域</View>
         <image src="../../images/indexdown.png" class="middle_check_son_pic" />
     </View>
-    <View class="middle_check_son" style="width:{{middle_check_sonwidth}}">
-        <View class="middle_check_son_text" style="margin-left:{{middle_check_son_textleft}}">租金</View>
+    <View class="middle_check_son" bindtap="toprice" style="width:{{middle_check_sonwidth}}">
+        <View class="middle_check_son_text"  style="margin-left:{{middle_check_son_textleft}}">租金</View>
         <image src="../../images/indexdown.png" class="middle_check_son_pic" />
     </View>
     <View class="middle_check_son" style="width:{{middle_check_sonwidth}}">
         <View class="middle_check_son_text selected-bar" style="margin-left:{{middle_check_son_textleft}}">户型</View>
         <image src="../../images/indexdown.png" class="middle_check_son_pic" />
     </View>
-    <View class="middle_check_son" style="width:{{middle_check_sonwidth}}">
+    <View class="middle_check_son" bindtap="tosaixuan" style="width:{{middle_check_sonwidth}}">
         <View class="middle_check_son_text" style="margin-left:{{middle_check_son_textleft}}">筛选</View>
         <image src="../../images/indexdown.png" class="middle_check_son_pic" />
     </View>
@@ -22,7 +22,7 @@
         <image src="../../images/sx.png" class="middle_check_son_sx" />
     </View>
   </View>
-  <View style="width:100%;height:100px;"></View>
+  <View style="width:100%;height:100rpx;"></View>
 
   <View wx:for="{{arr}}" id="{{item.id}}" class="{{item.className}}" bindtap="sxBind">{{item.name}}</View>
 </View>

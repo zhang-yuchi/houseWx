@@ -1,6 +1,11 @@
 /* pages/price/price.wxss */
 @import "../../public/wxss/shaixuanbar.wxss";
-
+.priceList:first-of-type{
+  margin-top: 60rpx;
+}
+.active{
+  color: rgb(255, 217, 62) !important;
+}
 .priceList{
   width:100%;
   height:40rpx;
@@ -9,7 +14,7 @@
   text-align: center;
   line-height: 40rpx;
   font-weight: 800;
-  margin-top:60rpx;
+  padding: 30rpx 0;
   letter-spacing: 4rpx;
 }
 .inputBox{
@@ -76,4 +81,27 @@
   margin:0 auto;
   border-radius: 8rpx;
   font-family: PingFang SC;
+}
+.btn{
+  width:622rpx;
+  height:110rpx;
+  background: rgb(255,217,62);
+  font-size:28rpx;
+  font-weight: 800;
+  text-align: center;
+  line-height:110rpx;
+  position: fixed;
+  bottom:40rpx;
+  margin:0 auto;
+  border-radius: 8rpx;
+  font-family: PingFang SC;
+  letter-spacing: 2rpx;
+}
+.btnBox{
+  width:100%;
+  height:200rpx;
+  position: fixed;
+  bottom:0;
+  left:0;
+  box-shadow: 0 0 20rpx rgb(230,240,240)
 }

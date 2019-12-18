@@ -10,7 +10,11 @@
     "pages/saixuan/saixuan",
     "pages/price/price",
     "pages/upfix/upfix",
+    
+    "pages/myhouse_fd/myhouse_fd",
+    
     "pages/talk/talk",
+
     "pages/fd_mime/fd_mime",
     "pages/msg/msg",
     "pages/mywallet_fd/mywallet_fd",
@@ -18,9 +22,8 @@
         
     
     
-    
-    
     "pages/uploadSign/uploadSign",
+
     "pages/userSign/userSign",
     "pages/mysurf/mysurf",
     "pages/mysc/mysc",
@@ -31,12 +34,12 @@
     "pages/fdAuth_new/fdAuth_new",
     "pages/fdauth/fdauth",
     "pages/myordercash/myordercash",
+    
     "pages/myorder/myorder",
     "pages/hx/hx",
     
     
     "pages/city/city",
-    "pages/myhouse_fd/myhouse_fd",
     "pages/housedetail/housedetail",
     "pages/moneydetails/moneydetails"
     

@@ -1,4 +1,5 @@
 /* pages/myorder/myorder.wxss */
+@import "../../public/wxss/sc.wxss";
 page {
   height: 100%;
 }

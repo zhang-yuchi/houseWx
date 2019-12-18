@@ -33,5 +33,19 @@
       </View>
       <View class="right_right">3000<Text style="font-size:12px;">元</Text></View>
     </View>
+
+    <View class="infoBox">
+      <View class="left">
+        <image src="../../images/icon_qianbao.png" class="pic"/>
+        <View class="font">押金</View>
+      </View>
+      <View class="right">
+        <View class="right_son" style="margin-top:20px;">东泰花园</View>
+        <View class="right_son" style="color:gray"></View>
+        <View class="right_son" style="color:gray">日期：2019/10/10</View>
+      </View>
+      <View class="right_right">3000<Text style="font-size:12px;">元</Text></View>
+    </View>
+
   </scroll-view>
 </View>

@@ -1,25 +1,6 @@
 <!--pages/housedetail/housedetail.wxml-->
 <View class="container">
   <scroll-view scroll-y="true" class="scrollView" style="width:100%;height:{{scrollViewHeight}}">
-    <!-- <image src="../../images/index_1.jpg" class="topPic" mode="aspectFill" /> -->
-
-    <!-- 新UI的介绍 -->
-    <!-- <View class="new_box">
-    <View class="left">
-      <View class="left_top">
-        {{obj.houseinfo.addr}}
-      </View>
-      <View class="left_bottom">
-        {{obj.houseinfo.cashType}}
-      </View>
-    </View>
-    <View class="right">
-      <image src="../../images/sc.png" class="right_top" mode="aspectFill" />
-      <View class="right_bottom">收藏</View>
-    </View>
-  </View> -->
-
-
     <view class="shop-details-box">
       <image src="../../images/index_1.jpg" class="topPic" mode="aspectFill"></image>
       <view class="shop-details-name">
@@ -34,21 +15,18 @@
           营业时间：8:00-23:00
         </view>
         <view class="shop-details-addr">
-        地址：雨城区东城街道四川农业大学第二教学区第十二教学楼
+          地址：雨城区东城街道四川农业大学第二教学区第十二教学楼
         </view>
       </view>
-
     </view>
 
 
-
-
-
-
-    <image src="../../images/index_3.jpg" class="topPic" mode="aspectFill" />
-    <image src="../../images/index_1.jpg" class="topPic" mode="aspectFill" />
-
-
+    <view class="shop-details-box2">
+      <view class="shop-details-title">商家详情</view>
+      <!-- <image wx:for="{{}}"></image> -->
+      <image src="../../images/index_3.jpg" class="topPic" mode="aspectFill" />
+      <image src="../../images/index_1.jpg" class="topPic" mode="aspectFill" />
+    </view>
   </scroll-view>
 </View>
 

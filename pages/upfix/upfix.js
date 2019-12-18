@@ -123,7 +123,7 @@ Page({
     //                           looktime: "",
     //                             intime: "",
     //                               textarea: "",
-    if (that.data.addr != "" && that.data.cash != "" && that.data.time != "" && that.data.cashType != "" && that.data.areaWidth != "" && that.data.caig != "" && that.data.caox != "" && that.data.diant != "" && that.data.looktime != "" && that.data.intime != "" && that.data.textarea != "" && that.data.imageSrc != "" && that.data.floor != "") {
+    if (that.data.cashType != "" && that.data.areaWidth != "" && that.data.textarea != "" && that.data.imageSrc != "" && that.data.floor != "") {
       var dataObj = {};
       dataObj.addr = that.data.addr;
       dataObj.cash = that.data.cash;
@@ -137,8 +137,6 @@ Page({
       dataObj.intime = that.data.intime;
       dataObj.textarea = that.data.textarea;
       dataObj.floor = that.data.floor;
-      dataObj.jj_1 = that.data.firstLevel;
-      dataObj.jj_2 = that.data.secondLevel;
       var fdId = wx.getStorageSync('id');
       var token = wx.getStorageSync('token');
       //上传图片的同时将文字也进行上传
@@ -183,7 +181,7 @@ Page({
     wx.chooseImage({
       count: 1,//选择图片的数量
       sizeType: ['compressed'],//尺寸压缩图
-      sourceType:['album'],
+      sourceType:['camera'],
       success: function (res) {
         var tempFilePaths1 = res.tempFilePaths;
         console.log("test:" + String(tempFilePaths1));

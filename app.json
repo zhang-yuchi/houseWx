@@ -1,19 +1,12 @@
 {
   "pages": [
-
     "pages/area/area",
-    
-    
     "pages/fdAuth_new/fdAuth_new",
     "pages/fdAuth_check/fdAuth_check",
-    
     "pages/myorder/myorder",
     "pages/myordercash/myordercash",
-    
-
     "pages/fd_cz/fd_cz",
     "pages/myfixed/myfixed",
-    
     "pages/new_mime/new_mime",
     "pages/index/index",
     "pages/wxLogin/wxLogin",
@@ -21,26 +14,13 @@
     "pages/saixuan/saixuan",
     "pages/price/price",
     "pages/upfix/upfix",
-    
     "pages/myhouse_fd/myhouse_fd",
-    
-
     "pages/talk/talk",
     "pages/fd_mime/fd_mime",
     "pages/msg/msg",
     "pages/mywallet_fd/mywallet_fd",
-
     "pages/liveserver/liveserver",
-    
     "pages/liveserver_detial/liveserver_detial",
-    
-    
-
-    
-        
-    
-    
-
     "pages/uploadSign/uploadSign",
     "pages/userSign/userSign",
     "pages/mysurf/mysurf",
@@ -53,7 +33,6 @@
     "pages/city/city",
     "pages/housedetail/housedetail",
     "pages/moneydetails/moneydetails"
-    
   ],
   "window": {
     "backgroundTextStyle": "light",

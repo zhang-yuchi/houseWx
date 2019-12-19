@@ -28,6 +28,8 @@
     "pages/myhouse_fd/myhouse_fd",
     "pages/talk/talk",
     "pages/msg/msg",
+
+
     "pages/liveserver_detial/liveserver_detial",
     "pages/uploadSign/uploadSign",
     "pages/userSign/userSign",

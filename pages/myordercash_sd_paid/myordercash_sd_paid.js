@@ -1,4 +1,4 @@
-// pages/moneydetails_zujin/moneydetails_zujin.js
+// pages/myordercash_sj_paid/myordercash_sj_paid.js
 Page({
 
   /**

@@ -1,48 +1,44 @@
 {
   "pages": [
+    "pages/myordercash_zj_unpaid/myordercash_zj_unpaid",
+    "pages/myordercash_zj_paid/myordercash_zj_paid",
+    "pages/myordercash_sd_paid/myordercash_sd_paid",
+    "pages/myordercash_sd_unpaid/myordercash_sd_unpaid",
+    "pages/myordercash_yj_unpaid/myordercash_yj_unpaid",
+    "pages/myordercash/myordercash",
+    "pages/myordercash_yj_paid/myordercash_yj_paid",
     "pages/myfixed/myfixed",
+    "pages/myorder/myorder",
+    "pages/pulldetails/pulldetails",
+    "pages/new_mime/new_mime",
+    "pages/middle_mime/middle_mime",
     "pages/moneydetails/moneydetails",
-    "pages/moneydetails_yajin/moneydetails_yajin",
+    "pages/fd_mime/fd_mime",
     "pages/mywallet_fd/mywallet_fd",
     "pages/price/price",
     "pages/fd_cz/fd_cz",
     "pages/liveserver/liveserver",
-
     "pages/area/area",
-    
-    
     "pages/fdAuth_new/fdAuth_new",
     "pages/fdAuth_check/fdAuth_check",
-    
-
-    
-    "pages/new_mime/new_mime",
     "pages/index/index",
     "pages/wxLogin/wxLogin",
-    "pages/pulldetails/pulldetails",
     "pages/saixuan/saixuan",
     "pages/upfix/upfix",
     "pages/myhouse_fd/myhouse_fd",
     "pages/talk/talk",
-    "pages/fd_mime/fd_mime",
     "pages/msg/msg",
     "pages/liveserver_detial/liveserver_detial",
-
-    
     "pages/uploadSign/uploadSign",
     "pages/userSign/userSign",
     "pages/mysurf/mysurf",
     "pages/mysc/mysc",
     "pages/location/location",
     "pages/msgdetail/msgdetail",
-    "pages/middle_mime/middle_mime",
     "pages/fdauth/fdauth",
-    "pages/myordercash/myordercash",
-    "pages/myorder/myorder",
     "pages/hx/hx",
     "pages/city/city",
-    "pages/housedetail/housedetail",
-    "pages/moneydetails_zujin/moneydetails_zujin"
+    "pages/housedetail/housedetail"
   ],
   "window": {
     "backgroundTextStyle": "light",

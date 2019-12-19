@@ -1,29 +1,12 @@
-// pages/moneydetails/moneydetails.js
+// pages/moneydetails_zujin/moneydetails_zujin.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    list:[
-      {
-        
-      }
-    ]
-  },
-  //页面跳转
-  toMoneyDetails_yajin: function () {
-    wx.navigateTo({
-      url: '../moneydetails_yajin/moneydetails_yajin',
-    })
-  },
-  toMoneyDetails_zujin:function(){
-    wx.navigateTo({
-      url: '../moneydetails_zujin/moneydetails_zujin',
-    })
-  },
 
-
+  },
 
   /**
    * 生命周期函数--监听页面加载
@@ -38,6 +21,7 @@ Page({
   onReady: function () {
 
   },
+
   /**
    * 生命周期函数--监听页面显示
    */

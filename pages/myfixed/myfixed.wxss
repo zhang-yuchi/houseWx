@@ -52,47 +52,67 @@ page {
   margin-left:-20rpx;
   border-radius: 4rpx;
 }
+
+
+.container-list{
+  width: 95%;
+  height: 200rpx;
+  margin: 40rpx auto 0 auto;
+  border-bottom: 1px solid rgb(248, 248, 248);
+}
+
+
+
+
+
 .infoBox{
   width:94%;
-  height:280rpx;
+  height:240rpx;
   margin:0 auto;
-  /* background:green; */
-  border-bottom:2rpx solid rgb(240,240,240)
+  border-bottom:2rpx solid rgb(240,240,240);
 }
 .left{
   width:200rpx;
   height:200rpx;
-  /* background:red; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
   float:left;
-  margin-top:40rpx;
 }
 .font{
   width:160rpx;
   height:40rpx;
-  font-size:28rpx;
+  font-size:24rpx;
   color:gray;
   letter-spacing: 2rpx;
   text-align: center;
   line-height: 40rpx;
+  margin-top: 10rpx;
 }
 .pic{
   display: block;
-  width:160rpx;
-  height:160rpx;
+  width:110rpx;
+  height:110rpx;
   border-radius: 20rpx;
 }
 .right{
   height:200rpx;
   float:left;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
 }
 .right_son{
+  width: 380rpx;
   height:60rpx;
-  font-size:32px;
-  font-weight: 800;
-  color:#333333;
+  font-size:30rpx;
+  color:rgb(42, 42, 42);
   text-align: left;
-  margin-left:20rpx;
   line-height: 60rpx;
-  /* margin-top:18px; */
   letter-spacing: 2rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }

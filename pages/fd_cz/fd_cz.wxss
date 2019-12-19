@@ -57,6 +57,7 @@ page{
   letter-spacing: 2rpx;
   line-height: 80rpx;
   font-weight: 700;
+  margin-top:30rpx;
 }
 .right{
   width:70%;
@@ -171,6 +172,7 @@ page{
   color: rgb(173, 173, 173);
   background-color: rgb(247, 247, 247);
   font-size: 32rpx;
+  margin-top: 30rpx;
 }
 /* .house-source{
   text-indent: 40rpx;

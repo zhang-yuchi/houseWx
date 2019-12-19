@@ -1,7 +1,7 @@
 <!--pages/moneydetails/moneydetails.wxml-->
 <view class="content" wx:if="{{list.length>0}}">
 <!-- 押金 -->
-  <view class="content-block">
+  <view class="content-block" bindtap="toMoneyDetails_yajin">
     <view class="info">
       <view class="sign">
         <image src="../../images/icon_qianbao.png"></image>
@@ -18,7 +18,7 @@
     </view>
   </view>
 <!-- 租金 -->
-  <view class="content-block">
+  <view class="content-block" bindtap="toMoneyDetails_zujin">
     <view class="info">
       <view class="sign">
         <image src="../../images/cash.png"></image>

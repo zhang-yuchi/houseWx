@@ -55,3 +55,9 @@ page{
     margin-top:80rpx;
 
 }
+.tips{
+  text-align: center;
+  font-size: 30rpx;
+  margin-top: 10rpx;
+  color: rgb(169, 169, 169);
+}

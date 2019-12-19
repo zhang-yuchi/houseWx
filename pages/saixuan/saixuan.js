@@ -17,25 +17,32 @@ Page({
     middle_check_son_textleft: "",
     btnLeft: "",
     cx:[
-      { name: "东", id: 0, className:"barBtnC"},
+      { name: "东", id: 0, className:"barBtn barBtnC"},
       { name: "南", id: 1, className: "barBtn" },
       { name: "西", id: 2, className: "barBtn" },
       { name: "北", id: 3, className: "barBtn" },
       { name: "南北", id: 4, className: "barBtn" },
     ],
-    zf: [{ name: "押一付一", id: 0, className : "barBtnC"},
-      { name: "配套齐全", id: 1, className: "barBtn" },
-      { name: "可短租", id: 2, className: "barBtn" },
-      { name: "女生合租", id: 3, className: "barBtn" },
-      { name: "男生合租", id: 4, className: "barBtn" },
-      { name: "独立阳台", id: 5, className: "barBtn" },
+    zf: [
+      { name: "不限", id: 0, className: "barBtn barBtnC"},
+      { name: "押一付一", id: 1, className : "barBtn"},
+      { name: "配套齐全", id: 2, className: "barBtn" },
+      { name: "可短租", id: 3, className: "barBtn" },
+      { name: "女生合租", id: 4, className: "barBtn" },
+      { name: "男生合租", id: 5, className: "barBtn" },
+      { name: "独立阳台", id: 6, className: "barBtn" },
     ]
   },
-
+  toarea() {
+    wx.redirectTo({
+      url: '../area/area',
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+
   },
   /**
    * 生命周期函数--监听页面初次渲染完成
@@ -61,7 +68,7 @@ Page({
     var cx = that.data.cx;
     for(var i=0;i<cx.length;i++){
       if(cx[i].id == id){
-        cx[i].className = "barBtnC";
+        cx[i].className = "barBtn barBtnC";
       }else{
         cx[i].className = "barBtn";
       }
@@ -76,13 +83,24 @@ Page({
     var cx = that.data.zf;
     for (var i = 0; i < cx.length; i++) {
       if (cx[i].id == id) {
-        cx[i].className = "barBtnC";
+        cx[i].className = "barBtn barBtnC";
       } else {
         cx[i].className = "barBtn";
       }
     }
     that.setData({
       zf: cx
+    })
+  },
+  tomoney(){
+    wx.redirectTo({
+      url: '../price/price',
+    })
+    
+  },
+  tohx(){
+    wx.redirectTo({
+      url: '../hx/hx',
     })
   },
   /**

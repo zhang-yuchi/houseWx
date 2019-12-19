@@ -48,3 +48,47 @@ page {
   display: block;
   margin: 30rpx auto;
 }
+.btn{
+  width:622rpx;
+  height:110rpx;
+  background: rgb(255,217,62);
+  font-size:28rpx;
+  font-weight: 800;
+  text-align: center;
+  line-height:110rpx;
+  position: fixed;
+  bottom:40rpx;
+  margin:0 auto;
+  border-radius: 8rpx;
+  font-family: PingFang SC;
+  letter-spacing: 2rpx;
+}
+.btnBox{
+  width:100%;
+  height:200rpx;
+  position: fixed;
+  bottom:0;
+  left:0;
+  box-shadow: 0 0 20rpx rgb(230,240,240)
+}
+.barBtn{
+  margin-bottom: 10rpx;
+  width:200rpx;
+  height:60rpx;
+  font-size:28rpx;
+  line-height: 60rpx;
+  text-align: center;
+  font-weight: 700;
+  float:left;
+  color:rgb(86,86,86);
+  margin-left:40rpx;
+  border-radius: 8rpx;
+  margin-top:20rpx;
+  background: rgb(247,247,247);
+  box-sizing: border-box;
+}
+.barBtnC{
+  color:rgb(86,86,86);
+  background:rgb(255,249,224);
+  outline:2rpx solid rgb(255,233,144);
+}

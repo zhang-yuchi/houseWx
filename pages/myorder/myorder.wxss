@@ -80,11 +80,39 @@ page {
 .right_son{
   height:60rpx;
   font-size:32rpx;
-  font-weight: 800;
+  /* font-weight: 800; */
   color:#333333;
   text-align: left;
   margin-left:20rpx;
   line-height: 60rpx;
   margin-top:24rpx;
   letter-spacing: 2rpx;
+}
+.inner-block{
+  border-bottom: 1rpx solid #f1f1f1;
+  padding: 40rpx;
+  box-sizing: border-box;
+  display: flex;
+  /* justify-content: space-between; */
+}
+.houseimg{
+  margin-right: 30rpx;
+  width: 230rpx;
+  height: 200rpx;
+  border-radius: 10rpx;
+}
+.details-title{
+  /* color:; */
+  font-size: 34rpx;
+  margin-bottom: 30rpx;
+
+}
+.details-date{
+  font-size: 34rpx;
+  margin-bottom: 30rpx;
+  color: gray;
+}
+.starttime{
+  font-size: 34rpx;
+  color: gray;
 }

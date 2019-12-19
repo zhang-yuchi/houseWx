@@ -1,0 +1,58 @@
+/* pages/area/area.wxss */
+@import "../../public/wxss/shaixuanbar.wxss";
+.select-wrap{
+  display: flex;
+  height: 100%;
+}
+.select-btn{
+  background-color: rgb(249, 249, 249);
+  width: 300rpx;
+  text-align: center;
+  height: 100%;
+  font-size: 30rpx;
+}
+.inner-btn{
+  padding: 30rpx;
+}
+.active-btn{
+  position: relative;
+  background-color: white;
+}
+.active-btn::before{
+  content: "";
+  position: absolute;
+  height: 30rpx;
+  width: 10rpx;
+  background-color:rgb(255,217,62);
+  top: 50%;
+  left: 30%;
+  border-radius: 10rpx;
+  transform: translate(-50%,-50%);
+}
+.btnBox{
+  background-color: white;
+}
+.inner-content{
+  font-weight: 300;
+  padding: 30rpx;
+  font-size: 30rpx;
+  
+}
+.active-content{
+  color: rgb(255,217,62);
+  font-weight: 600 !important;
+}
+.has-sub{
+  display: flex;
+  height: 100%;
+}
+.sub-block{
+  text-align: center;
+  font-size: 30rpx;
+  padding: 30rpx;
+}
+.sublist{
+  height: 100%;
+  width: 200rpx;
+  border-right: 1rpx solid #f1f1f1;
+}

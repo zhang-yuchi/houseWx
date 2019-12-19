@@ -7,6 +7,15 @@
     "pages/price/price",
     "pages/fd_cz/fd_cz",
     "pages/liveserver/liveserver",
+
+    "pages/area/area",
+    
+    
+    "pages/fdAuth_new/fdAuth_new",
+    "pages/fdAuth_check/fdAuth_check",
+    
+
+    
     "pages/new_mime/new_mime",
     "pages/index/index",
     "pages/wxLogin/wxLogin",
@@ -18,6 +27,8 @@
     "pages/fd_mime/fd_mime",
     "pages/msg/msg",
     "pages/liveserver_detial/liveserver_detial",
+
+    
     "pages/uploadSign/uploadSign",
     "pages/userSign/userSign",
     "pages/mysurf/mysurf",
@@ -25,8 +36,6 @@
     "pages/location/location",
     "pages/msgdetail/msgdetail",
     "pages/middle_mime/middle_mime",
-    "pages/fdAuth_check/fdAuth_check",
-    "pages/fdAuth_new/fdAuth_new",
     "pages/fdauth/fdauth",
     "pages/myordercash/myordercash",
     "pages/myorder/myorder",

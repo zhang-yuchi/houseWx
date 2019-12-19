@@ -61,6 +61,7 @@
   text-align: center;
   float:left;
 }
+
 .btn{
   width:622rpx;
   height:110rpx;
@@ -115,3 +116,4 @@
   background:rgb(255,249,224);
   border:2rpx solid rgb(255,233,144);
 }
+

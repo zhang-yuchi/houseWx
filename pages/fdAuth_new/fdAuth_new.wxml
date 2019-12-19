@@ -1,13 +1,15 @@
 <view class="container">
+
 <view class="card id" bindtap="uploadIdcard">
 <image src="{{imageSrc1[0]}}" class="image" mode="aspectFit" style="display:{{Display1}}"></image>
 <image src="/images/faAuth_1.png" class="plusLogo" style="display:{{plusDisplay1}};"></image>
 </view>
+<view class="tips">点击上传身份证人像面</view>
 
 <view class="card id" bindtap="uploadTaskphoto">
 <image src="{{imageSrc2[0]}}" class="image" mode="aspectFit" style="display:{{Display2}}"></image>
 <image src="/images/faAuth_0.png" class="plusLogo" style="display:{{plusDisplay2}};"></image>
 </view>
-
+<view class="tips">点击上传身份证国徽面</view>
 <view class="submit" bindtap="upload">下一步</view>
 </view>

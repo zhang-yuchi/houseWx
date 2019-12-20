@@ -1,0 +1,26 @@
+<!--pages/myordercash_yj_unpaid/myordercash_yj_unpaid.wxml-->
+<view class="container">
+  <view class="content-payfor">
+    <view class="content-payfor-left">东泰花园 两房一厅</view>
+    <view class="content-payfor-right">
+        <image src="../../images/cash.png" class="content-payfor-pic"></image>
+        <view class="content-payfor-font">押金</view>
+    </view>
+  </view>
+  <view class="content-list2">
+    <view class="content-list-left" style="font-weight:600;font-size:30rpx">费用明细</view>
+  </view>
+  <view class="content-list2 padding-bottom">
+    <view class="content-list2-item" style="text-align:left">押金</view>
+    <view class="content-list2-item" style="color: rgb(140, 140, 140);text-align:right">2500元</view>
+  </view>
+  <view class="content-list2" style="padding-top:60rpx;border-top:1px solid rgb(230, 230, 230)">
+    <view  class="content-list-left">收费日期</view>
+    <view  class="content-list-right">2019-08-22</view>
+  </view>
+  <view class="content-list2">
+    <view  class="content-list-left">最迟缴费日期</view>
+    <view  class="content-list-right">2019-08-30</view>
+  </view>
+  <button class="pay-btn">支付</button>
+</view>

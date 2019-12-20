@@ -1,0 +1,40 @@
+<!--pages/myordercash_sd_unpaid/myordercash_sd_unpaid.wxml-->
+<view class="container">
+  <view class="content-payfor">
+    <view class="content-payfor-left">东泰花园 两房一厅</view>
+    <view class="content-payfor-right">
+        <image src="../../images/water.png" class="content-payfor-pic"></image>
+        <view class="content-payfor-font">水电</view>
+    </view>
+  </view>
+  <view class="content-list2">
+    <view class="content-list-left" style="font-weight:600;font-size:30rpx">费用明细</view>
+  </view>
+  <view class="content-list2 padding-bottom">
+    <view class="content-list2-item"></view>
+    <view class="content-list2-item" style="color: rgb(140, 140, 140);">用量</view>
+    <view class="content-list2-item" style="color: rgb(140, 140, 140);">单价</view>
+    <view class="content-list2-item" style="color: rgb(140, 140, 140);">合计</view>
+  </view>
+  <view class="content-list2">
+    <view class="content-list2-item">水费（7月）</view>
+    <view class="content-list2-item">2吨</view>
+    <view class="content-list2-item">2.07元</view>
+    <view class="content-list2-item">4.14元</view>
+  </view>
+  <view class="content-list2 padding-bottom">
+    <view class="content-list2-item">电费（7月）</view>
+    <view class="content-list2-item">300度</view>
+    <view class="content-list2-item">1.0元</view>
+    <view class="content-list2-item">300元</view>
+  </view>
+  <view class="content-list2" style="padding-top:60rpx;border-top:1px solid rgb(230, 230, 230)">
+    <view  class="content-list-left">收费日期</view>
+    <view  class="content-list-right">2019-08-22</view>
+  </view>
+  <view class="content-list2">
+    <view  class="content-list-left">最迟缴费日期</view>
+    <view  class="content-list-right">2019-08-30</view>
+  </view>
+  <button class="pay-btn">支付</button>
+</view>

@@ -5,78 +5,90 @@ Page({
    * 页面的初始数据
    */
   data: {
-    list:[
-      {
-        
-      }
-    ]
+    list: [{
+
+    }]
   },
   //页面跳转
-  toMoneyDetails_yajin: function () {
+  toMoneyDetails_yajin: function() {
     wx.navigateTo({
       url: '../moneydetails_yajin/moneydetails_yajin',
     })
   },
-  toMoneyDetails_zujin:function(){
-    wx.navigateTo({
-      url: '../moneydetails_zujin/moneydetails_zujin',
-    })
-  },
+  toMoneyDetails_zujin: function(e) {
+    // if(){
 
+    // }
+    // wx.navigateTo({
+    //   url: '../moneydetails_zujin/moneydetails_zujin',
+    // })
+    console.log(e)
+  },
+  toMoneyDetails_shuidian: function() {
+    if (paid) {
+      wx.navigateTo({
+        url: '../moneydetails_shuidian/moneydetails_shuidian_paid',
+      })
+    } else {
+      wx.navigateTo({
+        url: '../moneydetails_shuidian/moneydetails_shuidian',
+      })
+    }
+  },
 
 
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
+  onLoad: function(options) {
 
   },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
-  onReady: function () {
+  onReady: function() {
 
   },
   /**
    * 生命周期函数--监听页面显示
    */
-  onShow: function () {
+  onShow: function() {
 
   },
 
   /**
    * 生命周期函数--监听页面隐藏
    */
-  onHide: function () {
+  onHide: function() {
 
   },
 
   /**
    * 生命周期函数--监听页面卸载
    */
-  onUnload: function () {
+  onUnload: function() {
 
   },
 
   /**
    * 页面相关事件处理函数--监听用户下拉动作
    */
-  onPullDownRefresh: function () {
+  onPullDownRefresh: function() {
 
   },
 
   /**
    * 页面上拉触底事件的处理函数
    */
-  onReachBottom: function () {
+  onReachBottom: function() {
 
   },
 
   /**
    * 用户点击右上角分享
    */
-  onShareAppMessage: function () {
+  onShareAppMessage: function() {
 
   }
 })

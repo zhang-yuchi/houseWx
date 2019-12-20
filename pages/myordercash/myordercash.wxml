@@ -7,7 +7,7 @@
   </View>
 
   <scroll-view scroll-y="true" class="scrollView" style="width:100%;height:{{scrollViewHeight}}">
-    <View class="infoBox">
+    <View class="infoBox" bindtap="tomyordercash_sd">
       <View class="left">
         <image src="../../images/water.png" class="pic"/>
         <View class="font">水电</View>
@@ -21,7 +21,7 @@
     </View>
 
 
-    <View class="infoBox">
+    <View class="infoBox" bindtap="tomyordercash_zj">
       <View class="left">
         <image src="../../images/cash.png" class="pic"/>
         <View class="font">租金</View>
@@ -34,7 +34,7 @@
       <View class="right_right">3000<Text style="font-size:12px;">元</Text></View>
     </View>
 
-    <View class="infoBox">
+    <View class="infoBox" bindtap="tomyordercash_yj">
       <View class="left">
         <image src="../../images/icon_qianbao.png" class="pic"/>
         <View class="font">押金</View>

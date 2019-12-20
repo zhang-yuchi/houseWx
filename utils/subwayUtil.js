@@ -1,10 +1,10 @@
 var QQMapWX = require("./qqmap-wx-jssdk.min.js")
+let qqMap = new QQMapWX({
+  key: 'OVUBZ-MLPL6-MQPSJ-MR2KT-MWFIK-O6FUE' // 必填
+});
 module.exports = {
   arr: [],
   _getAllsubway: function (city, page) {
-    let qqMap = new QQMapWX({
-      key: 'OVUBZ-MLPL6-MQPSJ-MR2KT-MWFIK-O6FUE' // 必填
-    });
     // console.log(11)
     return new Promise((resolve, reject) => {
       qqMap.search({
@@ -31,9 +31,6 @@ module.exports = {
     })
   },
   calcCount: async function (city) {
-    let qqMap = new QQMapWX({
-      key: 'OVUBZ-MLPL6-MQPSJ-MR2KT-MWFIK-O6FUE' // 必填
-    });
     let page = 0
     return new Promise((resolve) => {
       qqMap.search({
@@ -51,9 +48,6 @@ module.exports = {
     })
   },
   getAllsubway: async function (city) {
-    let qqMap = new QQMapWX({
-      key: 'OVUBZ-MLPL6-MQPSJ-MR2KT-MWFIK-O6FUE' // 必填
-    });
     let that = this
     let page = 0
     //计算page
@@ -182,7 +176,7 @@ module.exports = {
   sendSubWay(city, callback) {
     //调用这个函数,阔以得到一个当前城市的所有地铁与地铁口列表,并存入缓存,名为subwayObject
     wx.showLoading({
-      title: '正在配置位置信息',
+      title: '加载中',
     })
     console.log(this.getAllsubway)
     this.getAllsubway(city).then(() => {
@@ -271,6 +265,7 @@ module.exports = {
       console.log(subObj)
       //分别录入subObj
       wx.setStorageSync("subwayObject", subObj)
+      
       wx.hideLoading()//关闭加载提示框
       callback()
     })

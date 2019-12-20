@@ -27,6 +27,11 @@ Page({
   binddetail(e) {
     console.log(e.detail)
     // 返回 例 :{name: "北京", key: "B", test: "testValue"}
+    wx.setStorageSync("citylist", {
+      city:e.detail.name
+    })
+    wx.setStorageSync("citychanges", true)
+    wx.navigateBack()
   }
 
 })

@@ -1,9 +1,6 @@
 {
   "pages": [
-
     "pages/index/index",
-    
-    
     "pages/wxLogin/wxLogin",
     "pages/fd_cz/fd_cz",
 
@@ -36,8 +33,6 @@
     "pages/area/area",
     "pages/fdAuth_new/fdAuth_new",
     "pages/fdAuth_check/fdAuth_check",
-    
-
     "pages/saixuan/saixuan",
     "pages/upfix/upfix",
     "pages/myhouse_fd/myhouse_fd",

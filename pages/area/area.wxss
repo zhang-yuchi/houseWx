@@ -1,5 +1,11 @@
 /* pages/area/area.wxss */
 @import "../../public/wxss/shaixuanbar.wxss";
+.select-content{
+  height: 910rpx;
+}
+.not-have-sub{
+  height: 910rpx;
+}
 .select-wrap{
   display: flex;
   height: 100%;
@@ -43,6 +49,7 @@
   font-weight: 600 !important;
 }
 .has-sub{
+
   display: flex;
   height: 100%;
 }

@@ -9,11 +9,7 @@ Page({
     middle_check_sonwidth: "",
     middle_check_son_textleft: "",
     btnLeft:"",
-    arr: [{ name: "不限", id: 0, className: "barBtn barBtnC" },
-  { name: "一室", id: 1, className: "barBtn" },
-  { name: "二室", id: 2, className: "barBtn" },
-  { name: "三室", id: 3, className: "barBtn" }
-  ],
+    arr: wx.getStorageSync("hxlist"),
     btnLeft: "",
   },
   toarea(){

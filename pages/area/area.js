@@ -39,52 +39,14 @@ Page({
       }
     ],
     selectcontent:[
-      [{
-        name: "不限",
-        select: false,
-        classname: ""
-      },
-        {
-          name: "1000m内",
-          select: false,
-          classname: ""
-        },
-        {
-          name: "3000m内",
-          select: false,
-          classname: ""
-        },
-        {
-          name: "5000m内",
-          select: false,
-          classname: ""
-        },
-        {
-          name: "10000m内",
-          select: false,
-          classname: ""
-        }],
+        wx.getStorageSync("fjlist"),
         [
           {
             name: "不限",
             select: false,
             classname: ""
           },
-          {
-            name: "南城区",
-            select: false,
-            classname: ""
-          },
-          {
-            name: "东城区",
-            select: false,
-            classname: ""
-          },
-          {
-            name: "万江城区",
-            select: false,
-            classname: ""
-          },
+          
         ],
         [
           {
@@ -108,6 +70,56 @@ Page({
           name:"东莞火车站",
           select:false,
           classname:""
+        },
+        {
+          name: "茶山",
+          select: false,
+          classname: ""
+        },
+        {
+          name: "东莞火车站",
+          select: false,
+          classname: ""
+        },
+        {
+          name: "茶山",
+          select: false,
+          classname: ""
+        },
+        {
+          name: "东莞火车站",
+          select: false,
+          classname: ""
+        },
+        {
+          name: "茶山",
+          select: false,
+          classname: ""
+        },
+        {
+          name: "东莞火车站",
+          select: false,
+          classname: ""
+        },
+        {
+          name: "茶山",
+          select: false,
+          classname: ""
+        },
+        {
+          name: "东莞火车站",
+          select: false,
+          classname: ""
+        },
+        {
+          name: "茶山",
+          select: false,
+          classname: ""
+        },
+        {
+          name: "东莞火车站",
+          select: false,
+          classname: ""
         },
         {
           name: "茶山",

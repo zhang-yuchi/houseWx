@@ -12,17 +12,13 @@ Page({
   //页面跳转
   toMoneyDetails_yajin: function() {
     wx.navigateTo({
-      url: '../moneydetails_yajin/moneydetails_yajin',
+      url: '../moneydetails_yj/moneydetails_yj',
     })
   },
   toMoneyDetails_zujin: function(e) {
-    // if(){
-
-    // }
-    // wx.navigateTo({
-    //   url: '../moneydetails_zujin/moneydetails_zujin',
-    // })
-    console.log(e)
+    wx.navigateTo({
+      url: '../moneydetails_zj/moneydetails_zj',
+    })
   },
   toMoneyDetails_shuidian: function() {
     if (paid) {

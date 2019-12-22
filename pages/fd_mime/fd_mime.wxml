@@ -22,7 +22,7 @@
       <View class="cardBox_son_y">My wallet</View>
     </View>
 
-    <View class="cardBox_son" style="background: rgb(156, 225, 171);">
+    <View bindtap="toFix" class="cardBox_son" style="background: rgb(156, 225, 171);">
       <image src="../../images/bar_3.png" class="cardBox_son_pic" />
       <View class="cardBox_son_z">我的报修</View>
       <View class="cardBox_son_y">My service</View>

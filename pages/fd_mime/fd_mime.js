@@ -66,7 +66,11 @@ Page({
       url: '../mywallet_fd/mywallet_fd',
     })
   },
-
+  toFix(){
+    wx.navigateTo({
+      url: '../myfixed/myfixed',
+    })
+  },
   /**
    * 生命周期函数--监听页面显示
    */

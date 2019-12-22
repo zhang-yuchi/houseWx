@@ -14,15 +14,15 @@ Page({
   onLoad: function (options) {
     var that = this;
     var isFd = wx.getStorageSync('isFd');
-    if (isFd == "no") {
-      wx.navigateTo({
-        url: '../new_mime/new_mime',
-      })
-    } else {
-      wx.navigateTo({
-        url: '../fd_mime/fd_mime',
-      })
-    }
+    // if (isFd == "no") {
+    //   wx.navigateTo({
+    //     url: '../new_mime/new_mime',
+    //   })
+    // } else {
+    //   wx.navigateTo({
+    //     url: '../fd_mime/fd_mime',
+    //   })
+    // }
   },
   go:function(){
     var that = this;
@@ -36,6 +36,16 @@ Page({
         url: '../fd_mime/fd_mime',
       })
     }
+  },
+  toyonghu(){
+    wx.navigateTo({
+      url: '../new_mime/new_mime',
+    })
+  },
+  tofangdong(){
+    wx.navigateTo({
+      url: '../fd_mime/fd_mime',
+    })
   },
   /**
    * 生命周期函数--监听页面初次渲染完成

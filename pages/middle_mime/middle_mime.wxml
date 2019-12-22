@@ -1,2 +1,4 @@
 <!--pages/middle_mime/middle_mime.wxml-->
 <View class="btn" bindtap="go"  style="left:{{btnLeft}}">点击跳转</View>
+<button bindtap="toyonghu">跳转用户</button>
+<button bindtap="tofangdong">跳转房东</button>

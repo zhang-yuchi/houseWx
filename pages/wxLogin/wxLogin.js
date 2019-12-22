@@ -9,33 +9,33 @@ Page({
   onLoad: function () {
     var that = this;
     var token = wx.getStorageSync('token');
-    if (token) {
-      //用户已有登录态，检查token是否过期，过期重新登录
-          wx.request({
-            url: app.data.requestHost + '/tokenCheck',
-            method: 'POST',
-            header: {
-              'content-type': 'application/json',
-            },
-            data: {token:token},
-            success: res => {
-              console.log(res.data);
-              if (res.data.data == "token未过期" && res.data.status== "200"){
-                wx.reLaunch({
-                  url: '../index/index',
-                })
-              }else{
+    // if (token) {
+    //   //用户已有登录态，检查token是否过期，过期重新登录
+    //       wx.request({
+    //         url: app.data.requestHost + '/tokenCheck',
+    //         method: 'POST',
+    //         header: {
+    //           'content-type': 'application/json',
+    //         },
+    //         data: {token:token},
+    //         success: res => {
+    //           console.log(res.data);
+    //           if (res.data.data == "token未过期" && res.data.status== "200"){
+    //             wx.reLaunch({
+    //               url: '../index/index',
+    //             })
+    //           }else{
 
-              }
-            },
-            fail: res => {
-              console.log("failed");
-            }
-          })
-    } else {
-      // 用户未登录,啥都不做，留在本页面进行微信授权登录
+    //           }
+    //         },
+    //         fail: res => {
+    //           console.log("failed");
+    //         }
+    //       })
+    // } else {
+    //   // 用户未登录,啥都不做，留在本页面进行微信授权登录
       
-    }
+    // }
   },
 
   // 点击按钮授权
@@ -77,6 +77,10 @@ Page({
   // 登陆
   login: function () {
     var that = this;
+    console.log(111)
+    wx.switchTab({
+      url: '../index/index',
+    })
     // wx.login({
     //   success: res => {
     //     var code = res.code;
@@ -114,6 +118,8 @@ Page({
     //     })
     //   }
     // })
+    
+    
   },
 
   // 获取code

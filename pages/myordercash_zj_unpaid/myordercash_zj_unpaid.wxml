@@ -7,14 +7,14 @@
         <view class="content-payfor-font">租金</view>
     </view>
   </view>
-  <view class="content-list2">
+  <view class="content-list2 padding-bottom">
     <view class="content-list-left" style="font-weight:600;font-size:30rpx">费用明细</view>
   </view>
-  <view class="content-list2 padding-bottom">
+  <view class="content-list2">
     <view class="content-list2-item" style="text-align:left">租金（7月）</view>
     <view class="content-list2-item" style="color: rgb(140, 140, 140);text-align:right">2300元</view>
   </view>
-  <view class="content-list2">
+  <view class="content-list2 padding-bottom">
     <view class="content-list2-item" style="text-align:left">管理费（7月）</view>
     <view class="content-list2-item"style="color: rgb(140, 140, 140);text-align:right">300元</view>
   </view>

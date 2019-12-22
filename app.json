@@ -1,18 +1,22 @@
 {
   "pages": [
     "pages/wxLogin/wxLogin",
+    "pages/moneydetails/moneydetails",
+
     "pages/index/index",
     
     "pages/fd_cz/fd_cz",
     "pages/myordercash_zj_unpaid/myordercash_zj_unpaid",
+    "pages/housedetail/housedetail",
     "pages/myordercash_zj_paid/myordercash_zj_paid",
     "pages/myordercash_sd_paid/myordercash_sd_paid",
+
+
     "pages/myordercash_sd_unpaid/myordercash_sd_unpaid",
     "pages/myordercash_yj_unpaid/myordercash_yj_unpaid",
     "pages/myordercash_yj_paid/myordercash_yj_paid",
     "pages/myfixed/myfixed",
     "pages/middle_mime/middle_mime",
-    "pages/moneydetails/moneydetails",
     "pages/fd_mime/fd_mime",
     "pages/mywallet_fd/mywallet_fd",
     "pages/price/price",
@@ -39,7 +43,8 @@
     "pages/fdauth/fdauth",
     "pages/hx/hx",
     "pages/city/city",
-    "pages/housedetail/housedetail"
+    "pages/moneydetails_zj/moneydetails_zj",
+    "pages/moneydetails_yj/moneydetails_yj"
   ],
   "window": {
     "backgroundTextStyle": "light",

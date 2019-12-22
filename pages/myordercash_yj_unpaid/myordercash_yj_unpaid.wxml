@@ -7,7 +7,7 @@
         <view class="content-payfor-font">押金</view>
     </view>
   </view>
-  <view class="content-list2">
+  <view class="content-list2 padding-bottom">
     <view class="content-list-left" style="font-weight:600;font-size:30rpx">费用明细</view>
   </view>
   <view class="content-list2 padding-bottom">

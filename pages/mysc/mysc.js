@@ -15,7 +15,11 @@ Page({
     houseSets: [],
     host: app.data.requestHost
   },
-
+  tohousedetails(){
+    wx.navigateTo({
+      url: '../housedetail/housedetail',
+    })
+  },
 
   /**
    * 生命周期函数--监听页面加载

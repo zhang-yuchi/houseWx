@@ -1,6 +1,6 @@
 <!--pages/myorder/myorder.wxml-->
 <view class="content">
-  <view class="content-block">
+  <view class="content-block" bindtap="tohousedetails">
     <view class="block-pic">
       <image src="../../images/index_1.jpg"></image>
     </view>

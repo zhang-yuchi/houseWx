@@ -35,6 +35,11 @@ Page({
       url: '../area/area',
     })
   },
+  tohousedetails(){
+    wx.navigateTo({
+      url: '../housedetail/housedetail',
+    })
+  },
   check:function(e){
     var value = e.detail.value;
     var arr = this.data.houseSets;

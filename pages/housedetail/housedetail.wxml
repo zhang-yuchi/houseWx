@@ -13,16 +13,16 @@
       <!-- </swiper> -->
     <!-- </view> -->
   <!-- </view> -->
-<image src="{{host+obj.imageindex}}" class="topPic" mode="aspectFill" />
+<image src="../../images/index_1.jpg" class="topPic" mode="aspectFill" />
 
   <!-- 新UI的介绍 -->
   <View class="new_box">
     <View class="left">
       <View class="left_top">
-        {{obj.houseinfo.addr}}
+        地址
       </View>
       <View class="left_bottom">
-        {{obj.houseinfo.cashType}}
+        押一付一
       </View>
     </View>
     <View class="right" bindtap="sc">
@@ -31,7 +31,7 @@
     </View>
   </View>
 
-  <View class="price_new">￥ {{obj.houseinfo.cash}}元/月</View>
+  <View class="price_new">￥ 3000元/月</View>
 
   <View class="new_info_box">
     <View class="new_info_box_first">

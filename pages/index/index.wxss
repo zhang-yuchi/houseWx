@@ -1,5 +1,5 @@
 /* pages/index/index.wxss */
-
+@import "../../public/wxss/sc.wxss";
 page {
   height: 100%;
 }

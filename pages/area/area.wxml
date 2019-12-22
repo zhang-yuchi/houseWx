@@ -37,13 +37,13 @@
     </view>
     
     <view class="has-sub" wx:else>
-      <view class="sublist">
+      <scroll-view class="sublist" scroll-y="true">
         <view class="sub-block {{item.classname}}" bindtap="chooseSub" wx:key="{{item.index}}" wx:for="{{sublist.list}}" data-index="{{index}}">{{item.name}}</view>
-      </view>
-      <view class="select-content">
-        <view class="inner-content {{item.classname}}" bindtap="chooseOption" data-index="{{index}}" wx:key="{{item.index}}" wx:for="{{sublist.content}}">{{item.name}}</view>
-        
-      </view>
+      </scroll-view>
+      <scroll-view class="select-content" scroll-y="true">
+        <view class="inner-content {{item.classname}}" bindtap="chooseOption" data-index="{{index}}" wx:key="{{item.index}}" wx:for="{{sublist.content}}">{{item.title}}</view>
+      
+      </scroll-view>
     </view>
     
   </scroll-view>

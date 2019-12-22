@@ -1,12 +1,5 @@
 // pages/hx/hx.js
 var app = getApp();
-var finalCx = [
-  { name: "东", id: 0, className: "barBtnC" },
-  { name: "南", id: 1, className: "barBtn" },
-  { name: "西", id: 2, className: "barBtn" },
-  { name: "北", id: 3, className: "barBtn" },
-  { name: "南北", id: 4, className: "barBtn" },
-];
 Page({
 
   /**
@@ -16,22 +9,8 @@ Page({
     middle_check_sonwidth: "",
     middle_check_son_textleft: "",
     btnLeft: "",
-    cx:[
-      { name: "东", id: 0, className:"barBtn barBtnC"},
-      { name: "南", id: 1, className: "barBtn" },
-      { name: "西", id: 2, className: "barBtn" },
-      { name: "北", id: 3, className: "barBtn" },
-      { name: "南北", id: 4, className: "barBtn" },
-    ],
-    zf: [
-      { name: "不限", id: 0, className: "barBtn barBtnC"},
-      { name: "押一付一", id: 1, className : "barBtn"},
-      { name: "配套齐全", id: 2, className: "barBtn" },
-      { name: "可短租", id: 3, className: "barBtn" },
-      { name: "女生合租", id: 4, className: "barBtn" },
-      { name: "男生合租", id: 5, className: "barBtn" },
-      { name: "独立阳台", id: 6, className: "barBtn" },
-    ]
+    cx:wx.getStorageSync("saixuanlist").cx,
+    zf: wx.getStorageSync("saixuanlist").zf
   },
   toarea() {
     wx.redirectTo({

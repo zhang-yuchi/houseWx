@@ -1,53 +1,38 @@
 // pages/index/index.js
 var app = getApp();
 var allArr = [];
+var subwayUtil = require('../../utils/subwayUtil.js')
+var utils = require('../../utils/utils.js')
+var QQMap = require('../../utils/qqmap-wx-jssdk.min.js')
+let qqMap = new QQMap({
+  key: "OVUBZ-MLPL6-MQPSJ-MR2KT-MWFIK-O6FUE"
+})
 Page({
-
   /**
    * 页面的初始数据
    */
   data: {
-    movies: [
-      { url: 'http://localhost:3000/swipper/IMG_7096(20190616-201311).jpg' },
-      { url: 'https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=3140560614,3641376433&fm=26&gp=0.jpg' },
-      { url: 'https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=3140560614,3641376433&fm=26&gp=0.jpg' },
-      { url: 'https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=3140560614,3641376433&fm=26&gp=0.jpg' }
-    ],
-    searchBoxInputWidth:"",
-    inputWidth:"",
-    itembox_sonwidth:"",
-    middle_check_sonwidth:"",
-    middle_check_son_textleft:"",
-    scrollViewHeight:"",
-    sx_son_width:"",
-    houseSets:[],
-    requestHost:app.data.requestHost
+    nowcity: wx.getStorageSync("citylist") ? wx.getStorageSync("citylist").city:""
   },
-
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    var that = this;
+    
+    
+    
     //获取轮播图
-    wx.request({
-      url: app.data.requestHost + '/getAllswipper',
-      header: {
-        'content-type': 'application/json'
-      },
-      method: "GET",
-      success: function (res) {
-        var result = res.data.data.houseData;
-        console.log(result);
-        that.setData({
-          movies:JSON.parse(result)
-        })
-      },
-    });
+
+
   },
   toPrice:function(){
     wx.navigateTo({
       url: '../price/price',
+    })
+  },
+  toarea(){
+    wx.navigateTo({
+      url: '../area/area',
     })
   },
   check:function(e){
@@ -92,31 +77,168 @@ Page({
       sx_son_width:(app.data.width*0.95*0.6/4-6)+"px",
     });
     //请求所有房间数据
-    wx.request({
-      url: app.data.requestHost + '/getAllHouse',
-      header: {
-        'content-type': 'application/json'
-      },
-      method: "GET",
-      success: function (res) {
-        var result = res.data;
-        if(result.status == "200" && result.code == "1"){
-          var arr = JSON.parse(result.data.houseData);
-          var newHouseSets = [];
-          for(var i=0;i<arr.length;i++){
-            var obj = {};
-            obj = arr[i];
-            obj.houseinfo = JSON.parse(arr[i].houseinfo);
-            newHouseSets.push(obj)
-          }
-          allArr = newHouseSets;
-          that.setData({
-            houseSets: newHouseSets
-          })
-          console.log(that.data.houseSets)
-        }
-      },
-    });
+
+
+    //获取权限
+    // wx.getSetting({
+    //   success(res) {
+    //     if (!res.authSetting['scope.userLocation']) {
+    //       wx.authorize({
+    //         scope: 'scope.userLocation',
+    //         success() {
+    //           // 用户已经同意小程序使用录音功能，后续调用 wx.startRecord 接口不会弹窗询问
+    //           wx.startRecord()
+    //           console.log(111)
+    //         },
+    //         fail(res) {
+    //           console.log(res)
+    //         }
+    //       })
+    //     }
+    //   }
+    // })
+    
+    // wx.setStorageSync('citylist', null)
+    if (!wx.getStorageSync('citylist')) {
+      // console.log("进入了")
+      //第一次配置
+      //配置租金,户型,筛选,附近 四个基本表
+      if (!wx.getStorageSync("fjlist")) {
+        wx.setStorageSync("fjlist", [
+          //没有这个列表则创建一个新的
+          {
+            name: "不限",
+            select: false,
+            classname: ""
+          },
+          {
+            name: "1000m内",
+            select: false,
+            classname: ""
+          },
+          {
+            name: "3000m内",
+            select: false,
+            classname: ""
+          },
+          {
+            name: "5000m内",
+            select: false,
+            classname: ""
+          },
+          {
+            name: "10000m内",
+            select: false,
+            classname: ""
+          }])
+      }
+      if (!wx.getStorageSync("pricelist")) {
+        wx.setStorageSync("pricelist", [
+          {
+            name: "不限",
+            classname: "active",
+            select: true,
+          },
+          {
+            name: "价格由低到高",
+            classname: "",
+            select: false,
+          },
+          {
+            name: "价格由高到低",
+            classname: "",
+            select: false,
+          },
+          {
+            name: "时间由新到旧",
+            classname: "",
+            select: false,
+          },
+        ])
+      }
+      if (!wx.getStorageSync("hxlist")) {
+        wx.setStorageSync("hxlist", [
+          { name: "不限", id: 0, className: "barBtn barBtnC", select: true },
+          { name: "一室", id: 1, className: "barBtn", select: false },
+          { name: "二室", id: 2, className: "barBtn", select: false },
+          { name: "三室", id: 3, className: "barBtn", select: false }
+        ])
+      }
+      if (!wx.getStorageSync("saixuanlist")) {
+        wx.setStorageSync("saixuanlist", {
+          cx: [
+            { name: "东", id: 0, className: "barBtn barBtnC", select: true },
+            { name: "南", id: 1, className: "barBtn", select: false },
+            { name: "西", id: 2, className: "barBtn", select: false },
+            { name: "北", id: 3, className: "barBtn", select: false },
+            { name: "南北", id: 4, className: "barBtn", select: false },
+          ],
+          zf: [
+            { name: "不限", id: 0, className: "barBtn barBtnC", select: true },
+            { name: "押一付一", id: 1, className: "barBtn", select: false },
+            { name: "配套齐全", id: 2, className: "barBtn", select: false },
+            { name: "可短租", id: 3, className: "barBtn", select: false },
+            { name: "女生合租", id: 4, className: "barBtn", select: false },
+            { name: "男生合租", id: 5, className: "barBtn", select: false },
+            { name: "独立阳台", id: 6, className: "barBtn", select: false },
+          ]
+        })
+      }
+
+      //获取用户位置来得到市区信息
+
+      new Promise((resolve, reject) => {
+        wx.getLocation({
+          success: function (res) {
+            qqMap.reverseGeocoder({
+              location: {
+                latitude: res.latitude,
+                longitude: res.longitude
+              },
+              success(res) {
+                let addr = res.result.address
+                let sheng = addr.indexOf('省')
+                let shi = addr.indexOf('市')
+                let checkSheng = addr.indexOf('省') != -1
+                let checkshi = addr.indexOf('市') != -1
+                let citylist = {
+                  provicename: "",
+                  city: "",
+                  same: false
+                }
+                if (checkSheng && checkshi) {
+                  //有省也有市
+                  citylist.city = addr.substring(sheng + 1, shi)
+                  citylist.provicename = addr.substring(0, sheng)
+                } else if (!checkSheng && checkshi) {
+                  //没有省只有市
+                  citylist.city = addr.substring(sheng + 1, shi)
+                  citylist.provicename = city
+                  citylist.same = true
+                }
+                wx.setStorageSync("citylist", citylist)
+                resolve()
+              }
+            })
+          },
+        })
+      }).then(() => {
+        let city = wx.getStorageSync("citylist").city
+
+        //获取城市地铁列表
+        utils.initIndex(city, that)
+      })
+    }
+    console.log(wx.getStorageSync("citychanges"))
+    if (wx.getStorageSync("citychanges")) {
+      //城市发生改变 重新获取地铁信息
+      let city = wx.getStorageSync("citylist").city
+      console.log(city)
+      utils.initIndex(city, that)
+      //更新完成后将flag变为false
+      console.log(wx.getStorageSync("arealist"))
+      wx.setStorageSync("citychange", false)
+    }
   },
   toCity:function(){
     wx.navigateTo({
@@ -178,7 +300,8 @@ Page({
    * 生命周期函数--监听页面隐藏
    */
   onHide: function () {
-
+    console.log(wx.getStorageSync("arealist"))
+    console.log(wx.getStorageSync("subwayObject"))
   },
 
   /**

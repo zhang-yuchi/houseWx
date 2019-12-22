@@ -39,95 +39,9 @@ Page({
       }
     ],
     selectcontent:[
-      [{
-        name: "不限",
-        select: false,
-        classname: ""
-      },
-        {
-          name: "1000m内",
-          select: false,
-          classname: ""
-        },
-        {
-          name: "3000m内",
-          select: false,
-          classname: ""
-        },
-        {
-          name: "5000m内",
-          select: false,
-          classname: ""
-        },
-        {
-          name: "10000m内",
-          select: false,
-          classname: ""
-        }],
-        [
-          {
-            name: "不限",
-            select: false,
-            classname: ""
-          },
-          {
-            name: "南城区",
-            select: false,
-            classname: ""
-          },
-          {
-            name: "东城区",
-            select: false,
-            classname: ""
-          },
-          {
-            name: "万江城区",
-            select: false,
-            classname: ""
-          },
-        ],
-        [
-          {
-            index:0,
-            name:"全城",
-            select:false,
-            classname:""
-          },
-          {
-            index: 1,
-            name: "2号线",
-            select: false,
-            classname: ""
-          }
-        ]
-      
+        
     ],
-    ditielist:[
-      [
-        {
-          name:"东莞火车站",
-          select:false,
-          classname:""
-        },
-        {
-          name: "茶山",
-          select: false,
-          classname: ""
-        },
-      ],
-      [
-        {
-          name: "流花公园",
-          select: false,
-          classname: ""
-        },
-        {
-          name: "下桥",
-          select: false,
-          classname: ""
-        },
-      ]
-    ]
+    ditielist:[]
   },
   chooseOptionNoSub(e){
     let index = e.currentTarget.dataset.optionindex
@@ -238,19 +152,14 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    let sublist = {
-      list: [],
-      content: []
-    }
-    sublist.list = this.data.selectcontent[this.data.selectbtn[2].listindex]
-    // sublist.content = this.data.ditielist[0]
-    
     this.setData({
-      nowlist:this.data.selectcontent[0],
-      hasSub:this.data.selectbtn[0].hasSub,
-      sublist:sublist
+      selectcontent: [
+        wx.getStorageSync("fjlist"),//附近 列表
+        wx.getStorageSync("arealist"),
+        wx.getStorageSync("subwayObject").subtitle
+      ],
+      ditielist: wx.getStorageSync("subwayObject").sublist
     })
-
   },
  
   /**
@@ -269,6 +178,19 @@ Page({
       middle_check_sonwidth: (app.data.width / 5 - 5) + "px",
       middle_check_son_textleft: (app.data.width / 5 - 37) / 2 + "px",
       btnLeft: (app.data.width - 311) / 2 + "px"
+    })
+    console.log(wx.getStorageSync("arealist"))
+    let sublist = {
+      list: [],
+      content: []
+    }
+    sublist.list = this.data.selectcontent[this.data.selectbtn[2].listindex]
+    // sublist.content = this.data.ditielist[0]
+
+    this.setData({
+      nowlist: this.data.selectcontent[0],
+      hasSub: this.data.selectbtn[0].hasSub,
+      sublist: sublist
     })
   },
   toprice(){

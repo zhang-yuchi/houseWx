@@ -4,7 +4,7 @@
 <scroll-view scroll-y="true" class="scrollView" style="width:100%;height:100%">
   <!-- 顶部搜索组件 -->
   <View class="searchBox">
-    <View class="city" bindtap="toCity">东莞</View>
+    <View class="city" bindtap="toCity">{{nowcity}}</View>
     <View class="cityIcon">
       <image src="../../images/indexdown.png" class="indexdown" />
     </View>
@@ -75,7 +75,7 @@
 
   <!-- 中部条件筛选 -->
   <View class="middle_check">
-    <View class="middle_check_son" style="width:{{middle_check_sonwidth}}">
+    <View class="middle_check_son" bindtap="toarea" style="width:{{middle_check_sonwidth}}">
         <View class="middle_check_son_text" style="margin-left:{{middle_check_son_textleft}}">区域</View>
         <image src="../../images/indexdown.png" class="middle_check_son_pic" />
     </View>

@@ -9,24 +9,7 @@ Page({
     middle_check_sonwidth: "",
     middle_check_son_textleft:"",
     btnLeft:"",
-    userselect:[
-      {
-        name:"不限",
-        classname:"active",
-      },
-      {
-        name: "价格由低到高",
-        classname: "",
-      },
-      {
-        name: "价格由高到低",
-        classname: "",
-      },
-      {
-        name: "时间由新到旧",
-        classname: "",
-      },
-    ]
+    userselect:wx.getStorageSync("pricelist")
   },
   chooseprice(e){
     let index = e.currentTarget.dataset.index

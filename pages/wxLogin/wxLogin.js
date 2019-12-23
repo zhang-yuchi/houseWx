@@ -36,6 +36,8 @@ Page({
   getUserInfo: function (e) {
     var that = this;
     console.log(e.detail.rawData)
+    wx.setStorageSync('userInfo', JSON.parse(e.detail.rawData))
+    console.log(wx.getStorageSync("userInfo"))
     that.setData({
       userInfo: e.detail.userInfo,
       authShow: "none",

@@ -47,6 +47,7 @@ Page({
       wx.getUserInfo({
         lang: "zh_CN",
         success(res) {
+          console.log("entry")
           app.data.userInfo = res.userInfo
           wx.setStorageSync('userInfo', res.userInfo)
           console.log(wx.getStorageSync("userInfo"))

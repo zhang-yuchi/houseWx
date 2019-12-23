@@ -10,6 +10,7 @@ module.exports = {
       wx.setStorageSync("citychanges", false)
       //获取用户选择
       wx.setStorageSync("userSelect", {
+        area:"",
         price: "",
         hx: "",
         saixuan: {

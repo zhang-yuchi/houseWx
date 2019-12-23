@@ -1,7 +1,8 @@
 module.exports = {
-  requestByGet(url,callback){
+  requestByGet(url,data,callback){
     wx.request({
       url: url,
+      data:data,
       header:{
         'content-type': 'application/x-www-form-urlencoded',
         "Authorization":wx.getStorageSync("token")
@@ -11,9 +12,10 @@ module.exports = {
       }
     })
   },
-  requestByPost(url,data){
+  requestByPost(url,data,callback){
     wx.request({
       url: url,
+      data:data,
       method:"POST",
       header: {
         'content-type': 'application/x-www-form-urlencoded',

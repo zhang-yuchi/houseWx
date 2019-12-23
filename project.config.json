@@ -19,16 +19,11 @@
 			"ignore": [],
 			"disablePlugins": [],
 			"outputPath": ""
-<<<<<<< HEAD
-		},
-		"enhance": true
-=======
 		}
->>>>>>> b1f29db393f5273dfb002d64cfe02faf38d141e1
 	},
 	"compileType": "miniprogram",
 	"libVersion": "2.0.4",
-	"appid": "wx1e55a5666300f7e0",
+	"appid": "wxf23c68d0aea36deb",
 	"projectname": "wxhouse",
 	"debugOptions": {
 		"hidedInDevtools": []

@@ -12,13 +12,15 @@ Page({
    * 页面的初始数据
    */
   data: {
-    nowcity: wx.getStorageSync("citylist") ? wx.getStorageSync("citylist").city:""
+    nowcity: wx.getStorageSync("citylist") ? wx.getStorageSync("citylist").city:"",
+    userselect:{}
   },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    
+    //获取房源信息
+
     
     
     //获取轮播图
@@ -305,8 +307,7 @@ Page({
    * 生命周期函数--监听页面隐藏
    */
   onHide: function () {
-    console.log(wx.getStorageSync("arealist"))
-    console.log(wx.getStorageSync("subwayObject"))
+
   },
 
   /**

@@ -23,21 +23,7 @@ Page({
     diant: "请选择是否有电梯",
     looktime: "",
     intime: "",
-    textarea: "",
-    // firstLevel: [
-    //   { name: "电视", url: "../../images/电视.png", id: 0, selected: false, className: "jjBox_son_text" },
-    //   { name: "冰箱", url: "../../images/冰箱.png", id: 1, selected: false, className: "jjBox_son_text" },
-    //   { name: "洗衣机", url: "../../images/洗衣机.png", id: 2, selected: false, className: "jjBox_son_text" },
-    //   { name: "空调", url: "../../images/空调.png", id: 3, selected: false, className: "jjBox_son_text" },
-    //   { name: "热水器", url: "../../images/热水器.png", id: 4, selected: false, className: "jjBox_son_text" },
-    // ],
-    // secondLevel: [
-    //   { name: "床", url: "../../images/床.png", id: 0, selected: false, className: "jjBox_son_text" },
-    //   { name: "暖气", url: "../../images/暖气.png", id: 1, selected: false, className: "jjBox_son_text" },
-    //   { name: "宽带", url: "../../images/宽带.png", id: 2, selected: false, className: "jjBox_son_text" },
-    //   { name: "衣柜", url: "../../images/衣柜.png", id: 3, selected: false, className: "jjBox_son_text" },
-    //   { name: "天然气", url: "../../images/煤气.png", id: 4, selected: false, className: "jjBox_son_text" },
-    // ]
+    textarea: ""
   },
 
   /**

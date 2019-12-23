@@ -1,53 +1,55 @@
-// pages/middle_mime/middle_mime.js
+// pages/change_infodetails/change_infodetails.js
+var ajax = require("../../utils/ajax.js")
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    nick_name:'',
+    gender:0,
+    genderArr:['未填写','男','女'],
+    country:'',
+    city: ''
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    var that = this;
-    var isFd = wx.getStorageSync('isFd');
-    // if (isFd == "no") {
-    //   wx.navigateTo({
-    //     url: '../new_mime/new_mime',
-    //   })
-    // } else {
-    //   wx.navigateTo({
-    //     url: '../fd_mime/fd_mime',
-    //   })
-    // }
-  },
-  go:function(){
-    var that = this;
-    var isFd = wx.getStorageSync('isFd');
-    if (isFd == "no") {
-      wx.navigateTo({
-        url: '../new_mime/new_mime',
-      })
-    } else {
-      wx.navigateTo({
-        url: '../fd_mime/fd_mime',
-      })
-    }
+    console.log(wx.getStorageSync("userInfo"));
+    console.log(wx.getStorageSync("userInfo").gender);
+    this.setData({
+      gender: wx.getStorageSync("userInfo").gender
+    })
   },
   
-  toyonghu(){
-    wx.navigateTo({
-      url: '../new_mime/new_mime',
+  bindGenderPickerChange: function(e){
+    // console.log(this.data.genderArr[e.detail.value]);
+    // console.log(e.detail.value)
+    this.setData({
+      gender: e.detail.value
     })
   },
-  tofangdong(){
+  toChooseCity:function(){
     wx.navigateTo({
-      url: '../fd_mime/fd_mime',
+      url: '../city2/city2',
     })
   },
+  smtChangeInfo:function(){
+    let that = this;
+    ajax.requestByGet('/user/info',{
+      city:that.data.city,
+      gender:that.data.gender
+    },function(){
+      wx.navigateBack({
+        delta:1
+      })
+    })
+
+  },
+
+
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
@@ -59,7 +61,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    
+
   },
 
   /**

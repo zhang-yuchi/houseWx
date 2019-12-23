@@ -1,0 +1,33 @@
+/* pages/change_infodetails/change_infodetails.wxss */
+.container{
+  width: 90%;
+  height: 100%;
+  margin: 20rpx auto 0 auto;
+  overflow: hidden;
+  font-size: 30rpx;
+}
+.list{
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid rgb(243, 243, 243);
+  padding: 20rpx;
+}
+input{
+  position: relative;
+}
+.right-img{
+  position: absolute;
+  right: 20rpx;
+  width: 50rpx;
+  height: 50rpx;
+}
+.btn{
+  width: 100%;
+  height: 80rpx;
+  margin-top: 60rpx;
+  text-align: center;
+  line-height: 80rpx;
+  background-color: rgb(255, 217, 62);
+  border-radius: 30rpx;
+  font-size: 30rpx;
+}

@@ -1,0 +1,18 @@
+<!--pages/myorder/myorder.wxml-->
+<View class="container">
+  <scroll-view scroll-y="true" class="scrollView" style="width:100%;height:{{scrollViewHeight}}">
+    <!-- <view class="list">
+      昵称：<input value=""></input>
+    </view> -->
+    <view class="list">
+      性别：<picker mode="selector" range="{{genderArr}}" bindchange="bindGenderPickerChange">{{genderArr[gender]}}</picker>
+    </view>
+    <view class="list" bindtap="toChooseCity">
+      城市：{{city}}<image src="../../images/right.png" class="right-img"></image>
+    </view>
+    <button class="btn" bindtap="smtChangeInfo">
+      保存
+    </button>
+  </scroll-view>
+</View>
+

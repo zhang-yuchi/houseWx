@@ -1,0 +1,4 @@
+<!--pages/city2/city2.wxml-->
+<View class='container'> 
+  <list-html data="{{city}}" my-city="" binddetail="binddetail" config="{{config}}"></list-html>
+</View> 

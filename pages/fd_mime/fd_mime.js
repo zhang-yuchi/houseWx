@@ -6,7 +6,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    name: "",
+    nickName: "",
     imagePic: "",
     concatBox_sonBoxwidth: "",
     concatBoxDisplay: "none",
@@ -16,12 +16,13 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    var that = this;
-    var userInfo = wx.getStorageSync('userInfo');
-    that.setData({
-      name: userInfo.nickName,
-      imagePic: userInfo.avatarUrl
-    })
+    // var that = this;
+    var userInfo = wx.getStorageSync("userInfo");
+    console.log(userInfo);
+    // this.setData({
+    //   nickName: userInfo.nickName,
+    //   imagePic: userInfo.avatarUrl
+    // })
   },
   call: function () {
     wx.makePhoneCall({
@@ -50,6 +51,11 @@ Page({
       concatBoxDisplay: "none"
     })
   },
+  toChangeInfodetails:function(){
+    wx.navigateTo({
+      url: '../change_infodetails/change_infodetails',
+    })
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
@@ -75,10 +81,10 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    var that = this;
-    that.setData({
-      concatBox_sonBoxwidth: (app.data.height - 146) / 2 + "px",
-    })
+    // var that = this;
+    // that.setData({
+    //   concatBox_sonBoxwidth: (app.data.height - 146) / 2 + "px",
+    // })
   },
 
   /**

@@ -21,7 +21,7 @@
     </View>
 
 
-    <View class="infoBox" bindtap="tomyordercash_zj">
+    <!-- <View class="infoBox" bindtap="tomyordercash_zj">
       <View class="left">
         <image src="../../images/cash.png" class="pic"/>
         <View class="font">租金</View>
@@ -45,7 +45,7 @@
         <View class="right_son" style="color:gray">日期：2019/10/10</View>
       </View>
       <View class="right_right">3000<Text style="font-size:12px;">元</Text></View>
-    </View>
+    </View> -->
 
   </scroll-view>
 </View>

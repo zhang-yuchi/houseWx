@@ -2,7 +2,7 @@
 <View class="container">
   <View class="topBox">
     <View class="topBox_left">
-      <View class="topBox_left_name">{{name}}</View>
+      <View class="topBox_left_name">{{nickName}}</View>
       <View class="topBox_left_tel">18089598383</View>
     </View>
     <image src="{{imagePic}}" class="topBox_right" />
@@ -41,7 +41,11 @@
     <View class="otherBox_font">我的浏览</View>
     <image src="../../images/right.png" class="otherBox_pic" />
   </View>
-
+  <View class="otherBox" bindtap="toChangeInfodetails">
+    <image src="../../images/person.png" class="otherBox_pic" />
+    <View class="otherBox_font">修改信息</View>
+    <image src="../../images/right.png" class="otherBox_pic" />
+  </View>
   <View class="otherBox" bindtap="showConcatBox">
     <image src="../../images/person.png" class="otherBox_pic" />
     <View class="otherBox_font">联系客服</View>

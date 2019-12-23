@@ -15,13 +15,22 @@ Page({
         id: 1,
         className: "son_textC"
       }
-    ]
+    ],
+    myordercash:[],
+    myordercashNow:[]
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
+
+    var arr = [];
+    this.setData({
+      myordercashNow:arr
+    })
+
+
 
   },
   changeBar: function(e) {
@@ -30,7 +39,7 @@ Page({
     var arr = that.data.barArr;
     for (var i = 0; i < arr.length; i++) {
       if (arr[i].id == id) {
-        arr[i].className = "son_text"
+        arr[i].className = "son_text";
       } else {
         arr[i].className = "son_textC"
       }

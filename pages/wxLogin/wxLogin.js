@@ -9,10 +9,11 @@ Page({
   },
   onLoad: function () {
     var that = this;
+    
     // wx.setStorageSync("token", null)//清除token
     var token = wx.getStorageSync('token');
     console.log(token)
-    if(token){
+    if(token&&wx.getStorageSync("userInfo")){
       wx.request({
         url: app.data.requestHost+'/user/token/'+token,
         header:{
@@ -43,7 +44,6 @@ Page({
       wx.getUserInfo({
         lang: "zh_CN",
         success(res) {
-          
           app.data.userInfo = res.userInfo
           wx.setStorageSync('userInfo', res.userInfo)
           console.log(wx.getStorageSync("userInfo"))
@@ -60,18 +60,6 @@ Page({
               })
             }
             resolve()
-          }
-        })
-      }).then(() => {
-        wx.getSetting({
-          success(res) {
-            if (!res.authSetting['scope.userLocation']) {
-              wx.openSetting({
-                success(res) {
-                  console.log(res.authSetting)
-                }
-              })
-            }
           }
         })
       })

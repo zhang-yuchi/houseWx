@@ -47,7 +47,6 @@ Page({
       
     }
     // wx.setStorageSync("userSelect", null)
-    
     //获取轮播图
 
 
@@ -66,7 +65,8 @@ Page({
     const id = e.currentTarget.dataset.id
     console.log(id)
     ajax.requestByGet(`/house/${id}`,{},(res)=>{
-      console.log(res.data.data)
+      // console.log(JSON.stringify(res.data.data))
+      // console.log(JSON.parse(JSON.stringify(res.data.data)))
       wx.navigateTo({
         url: `../housedetail/housedetail?obj=${JSON.stringify(res.data.data)}`,
       })
@@ -120,7 +120,6 @@ Page({
 
 
     //获取权限
-    
     // wx.setStorageSync('citylist', null)
     if (!wx.getStorageSync('citylist')) {
       // console.log("进入了")
@@ -247,7 +246,6 @@ Page({
         })
       }).then(() => {
         let city = wx.getStorageSync("citylist").city
-
         //获取城市地铁列表
         utils.initIndex(city, that)
       })

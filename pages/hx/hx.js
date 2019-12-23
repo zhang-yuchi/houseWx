@@ -9,7 +9,7 @@ Page({
     middle_check_sonwidth: "",
     middle_check_son_textleft: "",
     btnLeft:"",
-    arr: wx.getStorageSync("hxlist"),
+    arr: [],
     btnLeft: "",
   },
   toarea(){
@@ -33,7 +33,8 @@ Page({
   onLoad: function (options) {
     var that = this;
     that.setData({
-      btnLeft: (app.data.width - 311) / 2 + "px"
+      btnLeft: (app.data.width - 311) / 2 + "px",
+      arr: wx.getStorageSync("hxlist")
     })
   },
   sxBind: function (e) {

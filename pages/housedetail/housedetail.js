@@ -8,11 +8,13 @@ Page({
   data: {
     topPic:"../../images/index_1.jpg",
     scrollViewHeight:"",
+    lat:0,
+    lng:0,
     markers: [{
       iconPath: "",//地图图片路径
       id: 0,
-      latitude: 23.099994,
-      longitude: 113.324520,
+      latitude: 0,
+      longitude: 0,
       width: 50,
       height: 50
     }],
@@ -30,7 +32,7 @@ Page({
     }],
     controls: [{
       id: 1,
-      iconPath: '/resources/location.png',
+      iconPath: '',
       position: {
         left: 0,
         top: 300 - 50,
@@ -63,38 +65,62 @@ Page({
    */
   onLoad: function (options) {
     var that = this;
-    var obj = options.obj;
-    console.log(obj);
-    wx.setStorageSync('currentHouseInfo', obj);
-    that.setData({
-      obj:JSON.parse(obj),
-      // firstLevel: JSON.parse(obj).houseinfo.jj_1,
-      firstLevel: firstLevel,
-      // secondLevel: JSON.parse(obj).houseinfo.jj_2
-      secondLevel: secondLevel
+    const details = JSON.parse(options.obj)
+    let marker = this.data.markers[0]
+    new Promise(resolve=>{
+      wx.getLocation({
+        success: function (res) {
+          console.log(res)
+          let userlat = res.latitude
+          let userlng = res.longitude
+          // console.log(userlat)
+          let polyline = that.data.polyline[0]
+          polyline.points[0].longitude = userlng
+          polyline.points[0].latitude = userlat
+          polyline.points[1].longitude = details.lng
+          polyline.points[1].latitude = details.lat
+          // console.log(polyline)
+          that.setData({
+            polyline:[polyline]
+          })
+          resolve()
+        },
+      })
+    }).then(()=>{
+      marker.longitude = details.lng
+      marker.latitude = details.lat
+      this.setData({
+        obj: details,
+        markers: [marker],
+        lng: details.lng,
+        lat: details.lat
+      })
+      console.log(this.data.obj)
     })
+    
+
     //上传浏览记录
-    var id = wx.getStorageSync('id');
-    var token = wx.getStorageSync('token');
-    var houseId = that.data.obj.id;
-    wx.request({
-      url: app.data.requestHost + '/updateJoinPeople',
-      header: {
-        'content-type': 'application/json'
-      },
-      method: "POST",
-      data:{
-        id:id,
-        token:token,
-        houseId:houseId
-      },
-      success: function (res) {
-        var result = res.data;
-        if (result.status == "200" && result.code == "1") {
-          console.log(result);
-        }
-      },
-    });
+    // var id = wx.getStorageSync('id');
+    // var token = wx.getStorageSync('token');
+    // var houseId = that.data.obj.id;
+    // wx.request({
+    //   url: app.data.requestHost + '/updateJoinPeople',
+    //   header: {
+    //     'content-type': 'application/json'
+    //   },
+    //   method: "POST",
+    //   data:{
+    //     id:id,
+    //     token:token,
+    //     houseId:houseId
+    //   },
+    //   success: function (res) {
+    //     var result = res.data;
+    //     if (result.status == "200" && result.code == "1") {
+    //       console.log(result);
+    //     }
+    //   },
+    // });
   },
 sc:function(){
   var that = this;

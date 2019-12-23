@@ -9,8 +9,8 @@ Page({
     middle_check_sonwidth: "",
     middle_check_son_textleft: "",
     btnLeft: "",
-    cx:wx.getStorageSync("saixuanlist").cx,
-    zf: wx.getStorageSync("saixuanlist").zf
+    cx:[],
+    zf: []
   },
   toarea() {
     wx.redirectTo({
@@ -21,7 +21,11 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    this.setData({
+      cx: wx.getStorageSync("saixuanlist").cx,
+      zf: wx.getStorageSync("saixuanlist").zf
+    })
+    
   },
   /**
    * 生命周期函数--监听页面初次渲染完成

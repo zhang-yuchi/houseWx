@@ -9,7 +9,7 @@ Page({
     middle_check_sonwidth: "",
     middle_check_son_textleft:"",
     btnLeft:"",
-    userselect:wx.getStorageSync("pricelist")
+    userselect:[]
   },
   chooseprice(e){
     let index = e.currentTarget.dataset.index
@@ -40,7 +40,9 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    this.setData({
+      userselect: wx.getStorageSync("pricelist")
+    })
   },
 
   /**

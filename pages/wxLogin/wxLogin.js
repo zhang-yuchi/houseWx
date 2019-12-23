@@ -35,6 +35,7 @@ Page({
   // 点击按钮授权
   getUserInfo: function (e) {
     var that = this;
+    console.log(e.detail.rawData)
     that.setData({
       userInfo: e.detail.userInfo,
       authShow: "none",

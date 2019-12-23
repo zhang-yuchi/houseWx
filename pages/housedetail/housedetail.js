@@ -99,8 +99,14 @@ Page({
       console.log(this.data.obj)
     })
     //配套齐全
-    
+    let firLev = this.data.firstLevel
+    let secLev = this.data.secondLevel
+    for (let item of firLev){
+      console.log(item)
+    }
+    for (let item of secLev){
 
+    }
     //上传浏览记录
     // var id = wx.getStorageSync('id');
     // var token = wx.getStorageSync('token');

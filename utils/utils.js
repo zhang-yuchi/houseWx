@@ -9,20 +9,6 @@ module.exports = {
     subwayUtil.sendSubWay(city, function () {
       wx.setStorageSync("citychanges", false)
       //获取用户选择
-      wx.setStorageSync("userSelect", {
-        area:"",
-        price: "",
-        hx: "",
-        saixuan: {
-          direction: "",
-          condition: ""
-        },
-        area: {
-          fj: "",
-          dq: "",
-          subway: "",
-        }
-      })
       // wx.setStorageSync("citylist", null)
       that.setData({
         nowcity: city
@@ -70,13 +56,6 @@ module.exports = {
               arealist.push(content)
             }
             wx.setStorageSync("arealist", arealist)
-            // wx.setStorage({
-            //   key: 'arealist',
-            //   data: arealist,
-            //   success(){
-                
-            //   }
-            // })
             wx.getStorage({
               key: 'arealist',
               success: function (res) {
@@ -91,5 +70,29 @@ module.exports = {
         })
       }
     })
-  }
+  },
+  initSelect(callback){
+    wx.getLocation({
+      success: function (res) {
+        console.log(res)
+        wx.setStorageSync("userSelect", {
+          lat: res.latitude,
+          lng: res.longitude,
+          district: '',
+          houseType: '',
+          cashType: '',
+          girlShared: '',
+          boyShared: '',
+          hasBalcony: '',
+          rentType: '',
+          hasComplete: '',
+          shortRent: '',
+          cash: '',
+          latest:""
+        })
+        callback()
+      },
+    })
+  },
+
 }

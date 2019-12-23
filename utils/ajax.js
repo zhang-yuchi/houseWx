@@ -1,7 +1,8 @@
+const app = getApp()
 module.exports = {
   requestByGet(url,data,callback){
     wx.request({
-      url: url,
+      url: `${app.data.requestHost}${url}`,
       data:data,
       header:{
         'content-type': 'application/x-www-form-urlencoded',
@@ -14,7 +15,7 @@ module.exports = {
   },
   requestByPost(url,data,callback){
     wx.request({
-      url: url,
+      url: `${app.data.requestHost}${url}`,
       data:data,
       method:"POST",
       header: {

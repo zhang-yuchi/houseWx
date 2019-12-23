@@ -9,7 +9,7 @@ Page({
   },
   onLoad: function () {
     var that = this;
-    
+    // wx.setStorageSync("token", null)//清除token
     var token = wx.getStorageSync('token');
     console.log(token)
     if(token){
@@ -23,39 +23,12 @@ Page({
           console.log(res)
           if(res.data.status===1){
             wx.reLaunch({
-              url: '../index/index',
+              url: '../index/index?identify=1',
             })
           }
         }
       })
     }
-    // if (token) {
-    //   //用户已有登录态，检查token是否过期，过期重新登录
-    //       wx.request({
-    //         url: app.data.requestHost + '/tokenCheck',
-    //         method: 'POST',
-    //         header: {
-    //           'content-type': 'application/json',
-    //         },
-    //         data: {token:token},
-    //         success: res => {
-    //           console.log(res.data);
-    //           if (res.data.data == "token未过期" && res.data.status== "200"){
-    //             wx.reLaunch({
-    //               url: '../index/index',
-    //             })
-    //           }else{
-
-    //           }
-    //         },
-    //         fail: res => {
-    //           console.log("failed");
-    //         }
-    //       })
-    // } else {
-    //   // 用户未登录,啥都不做，留在本页面进行微信授权登录
-      
-    // }
   },
 
   // 点击按钮授权
@@ -66,35 +39,43 @@ Page({
       authShow: "none",
       loginShow: "block",
     })
-    app.data.userInfo = e.detail.userInfo;
-    wx.setStorageSync('userInfo', e.detail.userInfo)
-    new Promise((resolve)=>{
-      wx.getSetting({
-        success: res => {
-          if (!res.authSetting['scope.userLocation']) {
-            wx.authorize({
-              scope: 'scope.userLocation',
-            })
-          }
-          resolve()
-        }
-      })  
-    }).then(()=>{
-      wx.getSetting({
+    new Promise(resolve =>{
+      wx.getUserInfo({
+        lang: "zh_CN",
         success(res) {
-          if (!res.authSetting['scope.userLocation']) {
-            wx.openSetting({
-              success(res) {
-                console.log(res.authSetting)
-              }
-            })
+          
+          app.data.userInfo = res.userInfo
+          wx.setStorageSync('userInfo', res.userInfo)
+          console.log(wx.getStorageSync("userInfo"))
+          resolve()
+        },
+      })
+    }).then(()=>{
+      new Promise((resolve) => {
+        wx.getSetting({
+          success: res => {
+            if (!res.authSetting['scope.userLocation']) {
+              wx.authorize({
+                scope: 'scope.userLocation',
+              })
+            }
+            resolve()
           }
-        }
-      })  
+        })
+      }).then(() => {
+        wx.getSetting({
+          success(res) {
+            if (!res.authSetting['scope.userLocation']) {
+              wx.openSetting({
+                success(res) {
+                  console.log(res.authSetting)
+                }
+              })
+            }
+          }
+        })
+      })
     })
-    
-    
-    
   },
 
   // 登陆
@@ -144,7 +125,6 @@ Page({
                   })
                 }
               })
-              
             }else{
               //已注册,直接登录
               wx.setStorageSync("token", res.data.data)

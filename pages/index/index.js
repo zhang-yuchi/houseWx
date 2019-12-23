@@ -1,6 +1,7 @@
 // pages/index/index.js
 var app = getApp();
 var allArr = [];
+var ajax = require("../../utils/ajax.js")
 var subwayUtil = require('../../utils/subwayUtil.js')
 var utils = require('../../utils/utils.js')
 var QQMap = require('../../utils/qqmap-wx-jssdk.min.js')
@@ -13,15 +14,39 @@ Page({
    */
   data: {
     nowcity: wx.getStorageSync("citylist") ? wx.getStorageSync("citylist").city:"",
-    userselect:{}
+    houses:[]
   },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    //获取房源信息
+    const that = this
+    ajax.requestByGet('/user/info',{},function(res){
+      wx.setStorageSync("userInfo", res.data.data)
+      console.log(wx.getStorageSync("userInfo"))
+    })
 
+    //获取房源信息
     
+    if (!wx.getStorageSync("userSelect")){
+      utils.initSelect(function(){
+        ajax.requestByGet('/house', wx.getStorageSync("userSelect"), function (res) {
+          that.setData({
+            houses: res.data.data
+          })
+        })
+      })
+    }else{
+      console.log(wx.getStorageSync("userSelect"))
+      ajax.requestByGet('/house',wx.getStorageSync("userSelect"),function(res){
+        that.setData({
+          houses:res.data.data
+        })
+        console.log(that.data)
+      })
+      
+    }
+    // wx.setStorageSync("userSelect", null)
     
     //获取轮播图
 
@@ -37,10 +62,17 @@ Page({
       url: '../area/area',
     })
   },
-  tohousedetails(){
-    wx.navigateTo({
-      url: '../housedetail/housedetail',
+  tohousedetails(e){
+    const id = e.currentTarget.dataset.id
+    console.log(id)
+    ajax.requestByGet('/house',{
+      id:id
+    },(res)=>{
+      console.log(res)
     })
+    // wx.navigateTo({
+    //   url: '../housedetail/housedetail',
+    // })
   },
   check:function(e){
     var value = e.detail.value;
@@ -174,14 +206,14 @@ Page({
       if (!wx.getStorageSync("saixuanlist")) {
         wx.setStorageSync("saixuanlist", {
           cx: [
-            { name: "东", id: 0, className: "barBtn barBtnC", select: true },
-            { name: "南", id: 1, className: "barBtn", select: false },
-            { name: "西", id: 2, className: "barBtn", select: false },
-            { name: "北", id: 3, className: "barBtn", select: false },
-            { name: "南北", id: 4, className: "barBtn", select: false },
-          ],
-          zf: [
             { name: "不限", id: 0, className: "barBtn barBtnC", select: true },
+            { name: "东", id: 1, className: "barBtn", select: false },
+            { name: "南", id: 2, className: "barBtn", select: false },
+            { name: "西", id: 3, className: "barBtn", select: false },
+            { name: "北", id: 4, className: "barBtn", select: false },
+            { name: "南北", id: 5, className: "barBtn", select: false },
+          ],
+          zf: [//多选
             { name: "押一付一", id: 1, className: "barBtn", select: false },
             { name: "配套齐全", id: 2, className: "barBtn", select: false },
             { name: "可短租", id: 3, className: "barBtn", select: false },

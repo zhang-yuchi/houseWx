@@ -22,6 +22,7 @@ Page({
   onLoad: function (options) {
     const that = this
     ajax.requestByGet('/user/info',{},function(res){
+      console.log(res)
       wx.setStorageSync("userInfo", res.data.data)
       console.log(wx.getStorageSync("userInfo"))
     })

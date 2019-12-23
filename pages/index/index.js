@@ -25,7 +25,7 @@ Page({
       wx.setStorageSync("userInfo", res.data.data)
       console.log(wx.getStorageSync("userInfo"))
     })
-
+    console.log(wx.getStorageSync("userInfo"))
     //获取房源信息
     
     if (!wx.getStorageSync("userSelect")){

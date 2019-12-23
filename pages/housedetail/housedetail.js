@@ -20,11 +20,11 @@ Page({
     }],
     polyline: [{
       points: [{
-        longitude: 113.3245211,
-        latitude: 23.10229
+        longitude: 0,
+        latitude: 0
       }, {
-        longitude: 113.324520,
-        latitude: 23.21229
+        longitude: 0,
+        latitude: 0
       }],
       color: "#FF0000DD",
       width: 2,
@@ -67,6 +67,7 @@ Page({
     var that = this;
     const details = JSON.parse(options.obj)
     let marker = this.data.markers[0]
+    //坐标定位
     new Promise(resolve=>{
       wx.getLocation({
         success: function (res) {
@@ -97,6 +98,7 @@ Page({
       })
       console.log(this.data.obj)
     })
+    //配套齐全
     
 
     //上传浏览记录

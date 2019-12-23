@@ -6,11 +6,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    movies: [
-      { url: 'https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=3140560614,3641376433&fm=26&gp=0.jpg' },
-      { url: 'https://lbwl.wingstudio.org/public/images/2.jpg' }
-    ],
-    topPic:"https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=3140560614,3641376433&fm=26&gp=0.jpg",
+    topPic:"../../images/index_1.jpg",
     scrollViewHeight:"",
     markers: [{
       iconPath: "",//地图图片路径

@@ -65,10 +65,11 @@ Page({
   tohousedetails(e){
     const id = e.currentTarget.dataset.id
     console.log(id)
-    ajax.requestByGet('/house',{
-      id:id
-    },(res)=>{
-      console.log(res)
+    ajax.requestByGet(`/house/${id}`,{},(res)=>{
+      console.log(res.data.data)
+      wx.navigateTo({
+        url: `../housedetail/housedetail?obj=${JSON.stringify(res.data.data)}`,
+      })
     })
     // wx.navigateTo({
     //   url: '../housedetail/housedetail',
@@ -119,23 +120,6 @@ Page({
 
 
     //获取权限
-    // wx.getSetting({
-    //   success(res) {
-    //     if (!res.authSetting['scope.userLocation']) {
-    //       wx.authorize({
-    //         scope: 'scope.userLocation',
-    //         success() {
-    //           // 用户已经同意小程序使用录音功能，后续调用 wx.startRecord 接口不会弹窗询问
-    //           wx.startRecord()
-    //           console.log(111)
-    //         },
-    //         fail(res) {
-    //           console.log(res)
-    //         }
-    //       })
-    //     }
-    //   }
-    // })
     
     // wx.setStorageSync('citylist', null)
     if (!wx.getStorageSync('citylist')) {

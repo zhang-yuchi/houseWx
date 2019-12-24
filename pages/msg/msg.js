@@ -16,6 +16,11 @@ Page({
   onLoad: function (options) {
 
   },
+  toTalk(e){
+    wx.navigateTo({
+      url: '../talk/talk',
+    })
+  },
   todetail:function(e){
     var that = this;
     var id = e.currentTarget.id;

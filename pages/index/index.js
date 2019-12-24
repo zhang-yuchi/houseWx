@@ -14,7 +14,9 @@ Page({
    */
   data: {
     nowcity: wx.getStorageSync("citylist") ? wx.getStorageSync("citylist").city:"",
-    houses:[]
+    houses:[],
+    movies:[],
+    requestHost:app.data.requestHost
   },
   /**
    * 生命周期函数--监听页面加载
@@ -49,7 +51,13 @@ Page({
     }
     // wx.setStorageSync("userSelect", null)
     //获取轮播图
+  ajax.requestByGet('/banner',{},function(res){
+    console.log(res.data.data)
+    that.setData({
+      movies: res.data.data
+    })
 
+  })
 
   },
   toPrice:function(){

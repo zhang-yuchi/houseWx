@@ -38,16 +38,20 @@ Page({
     })
   },
   sxBind: function (e) {
+    // console.log(wx.getStorageSync("hxlist"))
     var that = this;
     var id = e.target.id;
     var cx = that.data.arr;
     for (var i = 0; i < cx.length; i++) {
       if (cx[i].id == id) {
         cx[i].className = "barBtn barBtnC";
+        cx[i].select = true
       } else {
         cx[i].className = "barBtn";
+        cx[i].select = false
       }
     }
+    console.log(cx)
     that.setData({
       arr: cx
     })

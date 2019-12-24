@@ -17,6 +17,7 @@ Page({
       item.classname = ""
     }
     this.data.userselect[index-1].classname = "active"
+    this.data.userselect[index-1].select = true
     this.setData({
       userselect: this.data.userselect
     })
@@ -44,7 +45,15 @@ Page({
       userselect: wx.getStorageSync("pricelist")
     })
   },
-
+  sx(){
+    console.log(this.data.userselect)
+    wx.setStorageSync("pricelist", this.data.userselect)
+    let select = wx.getStorageSync("userSelect")
+    console.log(select)
+    // wx.switchTab({
+    //   url: '../index/index',
+    // })
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

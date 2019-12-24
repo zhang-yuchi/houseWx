@@ -13,6 +13,7 @@ Page({
     // wx.setStorageSync("token", null)//清除token
     var token = wx.getStorageSync('token');
     console.log(token)
+    console.log(app.data.requestHost)
     if(token&&wx.getStorageSync("userInfo")){
       wx.request({
         url: app.data.requestHost+'/user/token/'+token,

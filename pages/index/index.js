@@ -31,24 +31,6 @@ Page({
     console.log(wx.getStorageSync("userInfo"))
     //获取房源信息
     
-    if (!wx.getStorageSync("userSelect")){
-      utils.initSelect(function(){
-        ajax.requestByGet('/house', wx.getStorageSync("userSelect"), function (res) {
-          that.setData({
-            houses: res.data.data
-          })
-        })
-      })
-    }else{
-      console.log(wx.getStorageSync("userSelect"))
-      ajax.requestByGet('/house',wx.getStorageSync("userSelect"),function(res){
-        that.setData({
-          houses:res.data.data
-        })
-        console.log(that.data)
-      })
-      
-    }
     // wx.setStorageSync("userSelect", null)
     //获取轮播图
   ajax.requestByGet('/banner',{},function(res){
@@ -74,8 +56,6 @@ Page({
     const id = e.currentTarget.dataset.id
     console.log(id)
     ajax.requestByGet(`/house/${id}`,{},(res)=>{
-      // console.log(JSON.stringify(res.data.data))
-      // console.log(JSON.parse(JSON.stringify(res.data.data)))
       wx.navigateTo({
         url: `../housedetail/housedetail?obj=${JSON.stringify(res.data.data)}`,
       })
@@ -115,6 +95,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
+    console.log("show")
     var that = this;
     that.setData({
       searchBoxInputWidth:(app.data.width-136)+"px",
@@ -126,7 +107,62 @@ Page({
       sx_son_width:(app.data.width*0.95*0.6/4-6)+"px",
     });
     //请求所有房间数据
+    wx.showLoading({
+      title: '请等候',
+    })
+    if (!wx.getStorageSync("userSelect")) {
+      utils.initSelect(function () {//新用户先初始化
+        ajax.requestByGet('/house', wx.getStorageSync("userSelect"), function (res) {
+          let houses = res.data.data
+          for (let item of houses) {
+            let tags = item.tags
+            console.log(tags)
+            tags = tags.replace("{", "")
+            tags = tags.replace("}", "")
 
+            tags = tags.split(',')
+            tags = tags.map((item, index) => {
+              item = item.replace('\"', '')
+              // console.log(item)
+              item = item.replace('\"', '')
+              console.log(item)
+              return item
+            })
+            item.tags = tags
+          }
+          wx.hideLoading()
+          that.setData({
+            houses: houses
+          })
+          console.log(that.data)
+        })
+      })
+    } else {
+      console.log(wx.getStorageSync("userSelect"))
+      ajax.requestByGet('/house', wx.getStorageSync("userSelect"), function (res) {
+        let houses = res.data.data
+        for (let item of houses) {
+          let tags = item.tags
+          console.log(tags)
+          tags = tags.replace("{", "")
+          tags = tags.replace("}", "")
+          tags = tags.split(',')
+          tags = tags.map((item, index) => {
+            item = item.replace('\"', '')
+            // console.log(item)
+            item = item.replace('\"', '')
+            // console.log(item)
+            return item
+          })
+          item.tags = tags
+        }
+        wx.hideLoading()
+        that.setData({
+          houses: houses
+        })
+        console.log(that.data)
+      })
+    }
 
     //获取权限
     // wx.setStorageSync('citylist', null)

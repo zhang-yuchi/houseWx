@@ -2,7 +2,7 @@
 App({
   data: {
     // requestHost: "https://lbwl.wingstudio.org",
-    requestHost: "http://nadev.xyz:8081",
+    requestHost: "https://nadev.xyz/house",
     isLogin: false,
     isBusiness: false,
     currentEmail: "",

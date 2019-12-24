@@ -65,7 +65,9 @@ Page({
    */
   onLoad: function (options) {
     var that = this;
+    console.log(options.obj)
     const details = JSON.parse(options.obj)
+    
     let marker = this.data.markers[0]
     //坐标定位
     new Promise(resolve=>{

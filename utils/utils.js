@@ -88,7 +88,7 @@ module.exports = {
           hasComplete: '',
           shortRent: '',
           cash: '',
-          latest:""
+          latest:''
         })
         callback()
       },

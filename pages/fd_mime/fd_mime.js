@@ -16,13 +16,13 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    // var that = this;
+    var that = this;
     var userInfo = wx.getStorageSync("userInfo");
     console.log(userInfo);
-    // this.setData({
-    //   nickName: userInfo.nickName,
-    //   imagePic: userInfo.avatarUrl
-    // })
+    that.setData({
+      nickName: userInfo.nickName,
+      imagePic: userInfo.authImgUrl
+    })
   },
   call: function () {
     wx.makePhoneCall({
@@ -54,6 +54,25 @@ Page({
   toChangeInfodetails:function(){
     wx.navigateTo({
       url: '../change_infodetails/change_infodetails',
+    })
+  },
+  toQuanxian:function(){
+    wx.getSetting({
+      success(res){
+        console.log(res.authSetting)
+        if(res.authSetting['scope.userInfo'] && res.authSetting['scope.userLocation']){
+          wx.showToast({
+            title: '已开启位置权限',
+            duration: 3000,
+            icon: 'none'
+          })
+        }else{
+          wx.openLocation({
+            latitude: '',
+            longitude: '',
+          })
+        }
+      }
     })
   },
   /**

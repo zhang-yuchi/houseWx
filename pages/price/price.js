@@ -14,7 +14,8 @@ Page({
   chooseprice(e){
     let index = e.currentTarget.dataset.index
     for(let item of this.data.userselect){
-      item.classname = ""
+      item.classname = "";
+      item.select = false
     }
     this.data.userselect[index-1].classname = "active"
     this.data.userselect[index-1].select = true
@@ -47,12 +48,32 @@ Page({
   },
   sx(){
     console.log(this.data.userselect)
-    wx.setStorageSync("pricelist", this.data.userselect)
+    let pricelist = this.data.userselect;
+    let index = 0;
+    for(let item of pricelist){
+      if(item.select){
+        break
+      }
+      index++;
+    }
     let select = wx.getStorageSync("userSelect")
+    if(index == 0){
+      select.cash = '';
+      select.latest = ''
+    }else if(index == 1){
+      select.cash = 0;
+      select.latest = ''
+    }else if(index == 2){
+      select.cash = 1;
+      select.latest = ''
+    }else if(index == 3){
+      select.cash = '';
+      select.latest = 1;
+    }
+    wx.setStorageSync("pricelist", this.data.userselect)
+    wx.setStorageSync("userSelect", select)
     console.log(select)
-    // wx.switchTab({
-    //   url: '../index/index',
-    // })
+    wx.navigateBack()
   },
   /**
    * 生命周期函数--监听页面初次渲染完成

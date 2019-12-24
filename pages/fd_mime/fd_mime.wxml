@@ -51,7 +51,7 @@
     <View class="otherBox_font">联系客服</View>
     <image src="../../images/right.png" class="otherBox_pic" />
   </View>
-  <View class="otherBox" bindtap="toQuanxian">
+  <View class="otherBox" bindtap="toQuanxian" style="margin-bottom:30rpx">
     <image src="../../images/chilun.png" class="otherBox_pic" />
     <View class="otherBox_font">开启权限</View>
     <image src="../../images/right.png" class="otherBox_pic" />

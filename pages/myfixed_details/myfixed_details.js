@@ -1,16 +1,11 @@
-// pages/myfixed/myfixed.js
-var app = getApp();
+// pages/myfixed_details/myfixed_details.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    scrollViewHeight: "",
-    barArr: [
-      { name: "待处理", id: 0, className: "son_text" },
-      { name: "已处理", id: 1, className: "son_textC" }
-    ]
+
   },
 
   /**
@@ -19,26 +14,7 @@ Page({
   onLoad: function (options) {
 
   },
-  changeBar: function (e) {
-    var that = this;
-    var id = e.currentTarget.id;
-    var arr = that.data.barArr;
-    for (var i = 0; i < arr.length; i++) {
-      if (arr[i].id == id) {
-        arr[i].className = "son_text"
-      } else {
-        arr[i].className = "son_textC"
-      }
-    }
-    that.setData({
-      barArr: arr
-    })
-  },
-  toFixedDetails(){
-    wx.navigateTo({
-      url: '../myfixed_details/myfixed_details',
-    })
-  },
+
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
@@ -50,10 +26,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    var that = this;
-    that.setData({
-      scrollViewHeight: (app.data.height - 30) + "px"
-    })
+
   },
 
   /**

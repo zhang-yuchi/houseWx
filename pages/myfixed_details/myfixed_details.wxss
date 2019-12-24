@@ -1,0 +1,46 @@
+/* pages/myfixed_details/myfixed_details.wxss */
+.container{
+  width: 100%;
+   font-size: 30rpx;
+}
+.list-title{
+  width: 100%;
+  height: 100rpx;
+  box-shadow: 0 0 20rpx rgb(240,240,240);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.list-title-font::after{
+  content: '';
+  display: block;
+  width: 40rpx;
+  height: 8rpx;
+  background:rgb(255,217,62);
+  position: absolute;
+  left: 50%;
+  margin-left: -20rpx;
+}
+.list{
+  width: 90%;
+  margin: 0 auto;
+  position: relative;
+}
+.list::after{
+  content: '';
+  display: block;
+  height: 0;
+  clear: both
+}
+.list-left{
+  width: 240rpx;
+  height: 100rpx;
+  line-height: 100rpx;
+  color: rgb(119, 119, 119);
+  float: left;
+}
+.list-right{
+  height: 100%;
+  line-height: 100rpx;
+  float: left;
+}

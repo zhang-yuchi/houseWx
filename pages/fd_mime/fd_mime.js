@@ -59,19 +59,8 @@ Page({
   toQuanxian:function(){
     wx.getSetting({
       success(res){
-        console.log(res.authSetting)
-        if(res.authSetting['scope.userInfo'] && res.authSetting['scope.userLocation']){
-          wx.showToast({
-            title: '已开启位置权限',
-            duration: 3000,
-            icon: 'none'
-          })
-        }else{
-          wx.openLocation({
-            latitude: '',
-            longitude: '',
-          })
-        }
+        
+        
       }
     })
   },

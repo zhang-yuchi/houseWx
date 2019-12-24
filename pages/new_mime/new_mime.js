@@ -24,7 +24,7 @@ Page({
     var userInfo = wx.getStorageSync('userInfo');
     that.setData({
       name: userInfo.nickName,
-      imagePic: userInfo.avatarUrl
+      imagePic: userInfo.authImgUrl
     })
   },
   

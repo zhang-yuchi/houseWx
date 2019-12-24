@@ -1,13 +1,13 @@
 <!--pages/housedetail/housedetail.wxml-->
 <View class="container">
 <scroll-view scroll-y="true" class="scrollView" style="width:100%;height:{{scrollViewHeight}}">
-<image src="../../images/index_1.jpg" class="topPic" mode="aspectFill" />
+<image src="{{obj.headingImg}}" class="topPic" mode="aspectFill" />
 
   <!-- 新UI的介绍 -->
   <View class="new_box">
     <View class="left">
-      <View class="left_top">
-        地址
+      <View class="left_top" style="overflow:hidden">
+        {{obj.title}}
       </View>
       <View class="left_bottom">
         {{obj.cashType}}
@@ -28,8 +28,8 @@
         <View class="firstBox_bottom">{{obj.area}}m^2</View>
       </View>
       <View class="firstBox">
-        <View class="firstBox_top">2室1厅1卫</View>
-        <View class="firstBox_bottom">有家电</View>
+        <View class="firstBox_top">{{obj.houseType}}</View>
+        <View class="firstBox_bottom">{{}}家电</View>
       </View>
       <View class="firstBox">
         <View class="firstBox_top">{{obj.floor}}层</View>
@@ -39,7 +39,7 @@
     <View class="new_info_box_second">
       <View class="second_left">
         <View class="left_left" style="color:gray">装修</View>
-        <View class="left_left" style="text-align:left">豪华装修</View>
+        <View class="left_left" style="text-align:left">{{obj.decoration}}</View>
       </View>
       <View class="second_left">
         <View class="left_left" style="color:gray">入住</View>
@@ -49,11 +49,11 @@
     <View class="new_info_box_third">
     <View class="second_left">
         <View class="left_left" style="color:gray">看房</View>
-        <View class="left_left" style="text-align:left">{{obj.houseinfo.looktime}}</View>
+        <View class="left_left" style="text-align:left">{{obj.inspection}}</View>
       </View>
       <View class="second_left">
         <View class="left_left" style="color:gray">采光</View>
-        <View class="left_left" style="text-align:left">{{obj.daylighting}}</View>
+        <View class="left_left" style="text-align:left">{{obj.daylighting?obj.daylighting:"暂无"}}</View>
       </View>
     </View>
   </View>
@@ -99,7 +99,7 @@
 
 
  <View class="titleB">其他描述</View>
-<View class="con">{{obj.houseinfo.textarea}}</View>
+<View class="con">{{obj.textarea?obj.textarea:"暂无"}}</View>
 </scroll-view>
 </View>
 

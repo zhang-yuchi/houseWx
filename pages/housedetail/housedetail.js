@@ -1,4 +1,5 @@
 // pages/housedetail/housedetail.js
+var ajax = require("../../utils/ajax.js")
 var app = getApp();
 Page({
 
@@ -65,50 +66,53 @@ Page({
    */
   onLoad: function (options) {
     var that = this;
-    console.log(options.obj)
-    const details = JSON.parse(options.obj)
-    
-    let marker = this.data.markers[0]
-    //坐标定位
-    new Promise(resolve=>{
-      wx.getLocation({
-        success: function (res) {
-          console.log(res)
-          let userlat = res.latitude
-          let userlng = res.longitude
-          // console.log(userlat)
-          let polyline = that.data.polyline[0]
-          polyline.points[0].longitude = userlng
-          polyline.points[0].latitude = userlat
-          polyline.points[1].longitude = details.lng
-          polyline.points[1].latitude = details.lat
-          // console.log(polyline)
-          that.setData({
-            polyline:[polyline]
-          })
-          resolve()
-        },
+    // console.log(options.obj)
+    // const details = JSON.parse(options.obj)
+    ajax.requestByGet(`/house/${options.obj}`, {}, (res) => {
+      const details = res.data.data
+      let marker = this.data.markers[0]
+      //坐标定位
+      new Promise(resolve => {
+        wx.getLocation({
+          success: function (res) {
+            console.log(res)
+            let userlat = res.latitude
+            let userlng = res.longitude
+            // console.log(userlat)
+            let polyline = that.data.polyline[0]
+            polyline.points[0].longitude = userlng
+            polyline.points[0].latitude = userlat
+            polyline.points[1].longitude = details.lng
+            polyline.points[1].latitude = details.lat
+            // console.log(polyline)
+            that.setData({
+              polyline: [polyline]
+            })
+            resolve()
+          },
+        })
+      }).then(() => {
+        marker.longitude = details.lng
+        marker.latitude = details.lat
+        this.setData({
+          obj: details,
+          markers: [marker],
+          lng: details.lng,
+          lat: details.lat
+        })
+        console.log(this.data.obj)
       })
-    }).then(()=>{
-      marker.longitude = details.lng
-      marker.latitude = details.lat
-      this.setData({
-        obj: details,
-        markers: [marker],
-        lng: details.lng,
-        lat: details.lat
-      })
-      console.log(this.data.obj)
-    })
-    //配套齐全
-    let firLev = this.data.firstLevel
-    let secLev = this.data.secondLevel
-    for (let item of firLev){
-      console.log(item)
-    }
-    for (let item of secLev){
+      //配套齐全
+      let firLev = this.data.firstLevel
+      let secLev = this.data.secondLevel
+      for (let item of firLev) {
+        console.log(item)
+      }
+      for (let item of secLev) {
 
-    }
+      }
+    })
+    
     //上传浏览记录
     // var id = wx.getStorageSync('id');
     // var token = wx.getStorageSync('token');

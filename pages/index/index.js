@@ -55,11 +55,10 @@ Page({
   tohousedetails(e){
     const id = e.currentTarget.dataset.id
     console.log(id)
-    ajax.requestByGet(`/house/${id}`,{},(res)=>{
-      wx.navigateTo({
-        url: `../housedetail/housedetail?obj=${JSON.stringify(res.data.data)}`,
-      })
+    wx.navigateTo({
+      url: `../housedetail/housedetail?obj=${id}`,
     })
+    
     // wx.navigateTo({
     //   url: '../housedetail/housedetail',
     // })
@@ -347,22 +346,7 @@ Page({
     }
     
   },
-  tohousedetail:function(e){
-    var that = this;
-    var id = e.currentTarget.id;
-    var arr = that.data.houseSets;
-    var obj = {};
-    for(var i=0;i<arr.length;i++){
-      if(arr[i].id == id){
-        obj = arr[i];
-        break;
-      }
-    }
-    // console.log(JSON.stringify(obj))
-    wx.navigateTo({
-      url: '../housedetail/housedetail?obj='+JSON.stringify(obj),
-    })
-  },
+
   /**
    * 生命周期函数--监听页面隐藏
    */

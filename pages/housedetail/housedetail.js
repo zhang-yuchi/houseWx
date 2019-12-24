@@ -135,30 +135,30 @@ sc:function(){
   var id = wx.getStorageSync('id');
   var token = wx.getStorageSync('token');
   var houseId = that.data.obj.id;
-  wx.request({
-    url: app.data.requestHost + '/updateScPeople',
-    header: {
-      'content-type': 'application/json'
-    },
-    method: "POST",
-    data: {
-      id: id,
-      token: token,
-      houseId: houseId
-    },
-    success: function (res) {
-      var result = res.data;
-      if (result.status == "200" && result.code == "1" && result.data == "") {
-        wx.showToast({
-          title: '收藏成功',
-        })
-      } else if (result.status == "200" && result.code == "1" && result.data == "already"){
-        wx.showToast({
-          title: '请勿重复收藏',
-        })
-      }else{}
-    },
-  });
+  // wx.request({
+  //   url: app.data.requestHost + '/updateScPeople',
+  //   header: {
+  //     'content-type': 'application/json'
+  //   },
+  //   method: "POST",
+  //   data: {
+  //     id: id,
+  //     token: token,
+  //     houseId: houseId
+  //   },
+  //   success: function (res) {
+  //     var result = res.data;
+  //     if (result.status == "200" && result.code == "1" && result.data == "") {
+  //       wx.showToast({
+  //         title: '收藏成功',
+  //       })
+  //     } else if (result.status == "200" && result.code == "1" && result.data == "already"){
+  //       wx.showToast({
+  //         title: '请勿重复收藏',
+  //       })
+  //     }else{}
+  //   },
+  // });
 },
   /**
    * 生命周期函数--监听页面初次渲染完成

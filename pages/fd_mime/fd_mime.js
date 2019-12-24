@@ -59,8 +59,35 @@ Page({
   toQuanxian:function(){
     wx.getSetting({
       success(res){
-        
-        
+        console.log(res.authSetting)
+        if(!res.authSetting['scope.userLocation']){
+          wx.showModal({
+            title: '提示',
+            content: '请求获取位置权限',
+            success:function(res){
+              if(res.confirm){
+                wx.openSetting({
+                  success:function(data){
+                    if(data.authSetting['scope.userLocation']===true){
+                      wx.showToast({
+                        title: '授权成功',
+                        icon: 'success',
+                        duration: 1000
+                      })
+                    }
+                  }
+                })
+              }
+            }
+          })
+        }else{
+          wx.showToast({
+            title: '您已授权成功',
+            icon:'none',
+            duration:1000
+          })
+          return false
+        }
       }
     })
   },

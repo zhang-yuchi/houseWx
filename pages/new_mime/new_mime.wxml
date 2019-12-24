@@ -1,15 +1,15 @@
 <!--pages/new_mime/new_mime.wxml-->
 <View class="container">
   <View class="topBox"></View>
-  <!-- <image src="{{imagePic}}" class="topBox"></image> -->
+  <image src="{{imagePic}}" class="headPic"></image>
   <View class="nameBox">{{name}}</View>
   <View class="telBox">18089598383</View>
   <View class="barBox">
-    <View class="barBox_son"  bindtap="tomyorder">
+    <View class="barBox_son" bindtap="tomyorder">
       <image src="../../images/bar_1.png" class="barBox_son_pic"></image>
       <View class="barBox_son_font">我的租房</View>
     </View>
-    <View class="barBox_son"  bindtap="tomyordercash">
+    <View class="barBox_son" bindtap="tomyordercash">
       <image src="../../images/bar_2.png" class="barBox_son_pic"></image>
       <View class="barBox_son_font">我的账单</View>
     </View>
@@ -20,7 +20,7 @@
   </View>
 
   <View class="btnBox">
-    <View class="btnBox_son"  bindtap="tomysc">
+    <View class="btnBox_son" bindtap="tomysc">
       <View class="btnBox_son_font">我的收藏</View>
       <image src="../../images/right.png" class="btnBox_son_pic"></image>
     </View>
@@ -28,16 +28,17 @@
       <View class="btnBox_son_font">我的浏览</View>
       <image src="../../images/right.png" class="btnBox_son_pic"></image>
     </View>
-    <View class="btnBox_son"  bindtap="showConcatBox">
+    <View class="btnBox_son" bindtap="showConcatBox">
       <View class="btnBox_son_font">联系客服</View>
+      <image src="../../images/right.png" class="btnBox_son_pic"></image>
+    </View>
+    <View class="btnBox_son" bindtap="toQuanxian">
+      <View class="btnBox_son_font">开启权限</View>
       <image src="../../images/right.png" class="btnBox_son_pic"></image>
     </View>
   </View>
 
 </View>
-
-<image src="{{imagePic}}" class="headPic" style="left:{{headPicLeft}}"></image>
-
 
 <View class="concatBox" style="display:{{concatBoxDisplay}}">
   <View class="concatBox_sonBox" style="margin-top:{{concatBox_sonBoxwidth}}">

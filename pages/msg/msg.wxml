@@ -13,7 +13,7 @@
   </View>
   
 
-  <View class="infoBox">
+  <View class="infoBox" bindtap="toTalk">
     <image src="../../images/chat_1.png" class="infoBox_pic"/>
     <View class="middleBox">
       <View class="title">用户沟通</View>

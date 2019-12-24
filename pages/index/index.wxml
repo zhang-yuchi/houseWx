@@ -19,7 +19,7 @@
       <swiper class="swiper" indicator-dots="true" autoplay="true" interval="5000" duration="1000">
         <block wx:for="{{movies}}" wx:for-index="index" wx:key="test">
           <swiper-item>
-            <image src="{{requestHost+item.imageindex}}" class="slide-image" mode="aspectFill" />
+            <image src="{{requestHost+'/'+item.imgUrl}}" class="slide-image" mode="aspectFill" />
           </swiper-item>
         </block>
       </swiper>
@@ -107,7 +107,7 @@
     </view>
     <view class="sc-details">
       <view class="sc-title">东泰花园 两房一厅</view>
-      <view class="sc-position">{{item.area}}m<text class="fenge">|</text>{{item.orientation}}<text class="fenge">|</text>{{item.street}}</view>
+      <view class="sc-position">{{item.area}}m^2<text class="fenge">|</text>{{item.orientation}}<text class="fenge">|</text>{{item.street}}</view>
       <view class="house-tag">
         <text class="tags-sign">精选房源</text>
         <text class="tags-sign">押一付一</text>

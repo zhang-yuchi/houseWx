@@ -86,7 +86,7 @@ Page({
           success(res){
             console.log(res)
             const userinfo = wx.getStorageSync("userInfo")
-            if(res.status==-1){
+            if(res.data.status==-1){
               console.log(wx.getStorageSync("userInfo"))
               wx.login({
                 success:res=>{
@@ -108,11 +108,11 @@ Page({
                       code: secCode
                     },
                     success(res) {
-                      console.log(res)
-                      
-                      wx.redirectTo({
-                        url: '../index/index',
+                      wx.showModal({
+                        title: '保存成功',
+                        content: '请重新登陆',
                       })
+                      
                     },
 
                   })

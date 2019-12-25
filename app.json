@@ -1,7 +1,7 @@
 {
   "pages": [
-    "pages/myfixed_details/myfixed_details",
     "pages/wxLogin/wxLogin",
+    "pages/myfixed_details/myfixed_details",
     "pages/fd_mime/fd_mime",
     "pages/index/index",
     "pages/change_infodetails/change_infodetails",

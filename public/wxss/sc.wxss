@@ -25,6 +25,9 @@
   width: 65%;
 }
 .sc-title{
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
   font-size: 34rpx;
   font-weight: bold;
   margin-bottom: 15rpx;

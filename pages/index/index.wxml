@@ -103,10 +103,10 @@
 <scroll-view class="content">
   <view class="content-block" data-id="{{item.id}}" wx:for="{{houses}}" wx:key="{{item.index}}" bindtap="tohousedetails">
     <view class="block-pic">
-      <image src="../../images/index_1.jpg"></image>
+      <image src="{{item.headingImg}}"></image>
     </view>
     <view class="sc-details">
-      <view class="sc-title">东泰花园 两房一厅</view>
+      <view class="sc-title">{{item.title}}</view>
       <view class="sc-position">{{item.area}}m^2<text class="fenge">|</text>{{item.orientation}}<text class="fenge">|</text>{{item.street}}</view>
       <view class="house-tag">
         <text class="tags-sign" wx:for="{{item.tags}}" wx:key="{{item.index}}">{{item}}</text>

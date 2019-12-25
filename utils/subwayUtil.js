@@ -181,7 +181,7 @@ module.exports = {
     console.log(this.getAllsubway)
     this.getAllsubway(city).then(() => {
       let subway = this.arr
-      console.log(subway)
+      // console.log(subway)
       let subwaynames = []
       for (let item of subway) {
         let addrarr = item.address
@@ -262,7 +262,7 @@ module.exports = {
         }
         subObj.sublist.push(arr)
       }
-      console.log(subObj)
+      // console.log(subObj)
       //分别录入subObj
       wx.setStorageSync("subwayObject", subObj)
       

@@ -10,7 +10,8 @@
     </View>
     <View class="searchBox_input" style="width:{{searchBoxInputWidth}}">
       <image src="../../images/SEARCH.png" class="searchpic" />
-      <input placeholder="请输入小区或者地址" class="input" style="width:{{inputWidth}}"  bindinput="check"/>
+      <input placeholder="请输入小区或者地址" class="input" style="width:{{inputWidth}}"  bindconfirm="search" confirm-type='search' name="search"/>
+      
     </View>
   </View>
   <view class="banner">

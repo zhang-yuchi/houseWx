@@ -1,0 +1,142 @@
+/* pages/liveserver/liveserver.wxss */
+page {
+  height: 100%;
+}
+
+.container {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.searchBox{
+  width:94%;
+  height:120rpx;
+  margin:0 auto;
+  box-shadow: 0 0 20rpx rgb(240,240,240);
+  border-radius: 6rpx;
+}
+.searchpic{
+  width:40rpx;
+  height:40rpx;
+  display: block;
+  margin-top:40rpx;
+  margin-left:30rpx;
+  float:left;
+}
+.input{
+  height:80rpx;
+  display: block;
+  outline: none;
+  font-size:28rpx;
+  font-weight: 500;
+  background: none;
+  float:left;
+  margin-top:20rpx;
+  padding-left:30rpx;
+  letter-spacing: 1rpx;
+}
+.barBox{
+  width:94%;
+  height:120rpx;
+  margin:0 auto;
+  border-bottom:2rpx solid rgb(240,240,240)
+}
+.barBox_son{
+  width:20%;
+  height:60rpx;
+  /* background: red; */
+  float:left;
+  margin-top:30rpx;
+  font-size:28rpx;
+  letter-spacing: 2rpx;
+  color:rgb(153,153,153);
+  text-align: center;
+  line-height: 60rpx;
+}
+/* .barBox_son:after{
+  width:20px;
+  height:3px;
+  background:rgb(255,217,62);
+  content:"";
+  display: block;
+  margin:0 auto;
+  margin-top:2px;
+  border-radius: 1px;
+} */
+.barBox_sonC{
+  width:20%;
+  height:60rpx;
+  float:left;
+  margin-top:30rpx;
+  font-size:28rpx;
+  letter-spacing: 2rpx;
+  color:black;
+  text-align: center;
+  line-height: 60rpx;
+}
+.barBox_sonC:after{
+  width:40rpx;
+  height:6rpx;
+  background:rgb(255,217,62);
+  content:"";
+  display: block;
+  margin:0 auto;
+  margin-top:4rpx;
+  border-radius: 2rpx;
+}
+.box{
+  width:94%;
+  height:180rpx;
+  margin:40rpx auto;
+}
+.left{
+  width:180rpx;
+  height:180rpx;
+  float:left;
+}
+.left_pic{
+  box-sizing: border-box;
+  width:100%;
+  height:100%;
+  display: block;
+  border-radius: 20rpx;
+}
+.right{
+  height:100%;
+  float:left;
+  margin-left: 30rpx
+}
+.right_first{
+  height:60rpx;
+  font-size:30rpx;
+  color:#333333;
+  text-align: left;
+  line-height: 60rpx;
+  letter-spacing: 2rpx;
+}
+.right_second{
+  width:140rpx;
+  height:40rpx;
+  background:rgb(255, 242, 191);
+  font-size:30rpx;
+  color:rgb(191, 160, 45);
+  line-height: 40rpx;
+  margin-top:20rpx;
+  border-radius: 8rpx;
+  padding: 0 10rpx;
+  text-align: center;
+}
+.right_third{
+  width: 450rpx;
+  height:40rpx;
+  font-size:26rpx;
+  text-align: left;
+  line-height: 40rpx;
+  letter-spacing: 2rpx;
+  margin-top:20rpx;
+  color: rgb(153,153,153);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}

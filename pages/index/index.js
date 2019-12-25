@@ -157,18 +157,21 @@ Page({
         let houses = res.data.data
         for (let item of houses) {
           let tags = item.tags
-          console.log(tags)
-          tags = tags.replace("{", "")
-          tags = tags.replace("}", "")
-          tags = tags.split(',')
-          tags = tags.map((item, index) => {
-            item = item.replace('\"', '')
-            // console.log(item)
-            item = item.replace('\"', '')
-            // console.log(item)
-            return item
-          })
-          item.tags = tags
+          if(tags){
+            console.log(tags)
+            tags = tags.replace("{", "")
+            tags = tags.replace("}", "")
+            tags = tags.split(',')
+            tags = tags.map((item, index) => {
+              item = item.replace('\"', '')
+              // console.log(item)
+              item = item.replace('\"', '')
+              // console.log(item)
+              return item
+            })
+            item.tags = tags
+          }
+          
         }
         // wx.hideLoading()
         that.setData({
@@ -365,6 +368,12 @@ Page({
       console.log(wx.getStorageSync("arealist"))
       wx.setStorageSync("citychange", false)
     }
+  },
+  search(){
+    //搜索
+    wx.navigateTo({
+      url: '../searchpage/searchpage',
+    })
   },
   toCity:function(){
     wx.navigateTo({

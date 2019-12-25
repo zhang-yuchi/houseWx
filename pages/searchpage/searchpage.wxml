@@ -1,4 +1,4 @@
-<!--pages/myorder/myorder.wxml-->
+<!--pages/searchpage/searchpage.wxml-->
 <scroll-view class="content" scroll-y="true">
   <view class="content-block" bindtap="tohousedetails">
     <view class="block-pic">

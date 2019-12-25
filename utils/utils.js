@@ -87,6 +87,8 @@ module.exports = {
           rentType: '',
           hasComplete: '',
           shortRent: '',
+          orientation:"",
+          price:"",
           cash: '',
           latest:''
         })

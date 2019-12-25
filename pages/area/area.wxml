@@ -18,7 +18,7 @@
         <View class="middle_check_son_text" style="margin-left:{{middle_check_son_textleft}}">筛选</View>
         <image src="../../images/indexdown.png" class="middle_check_son_pic" />
     </View>
-    <View class="middle_check_son" style="width:{{middle_check_sonwidth}}">
+    <View class="middle_check_son" bindtap="tosort" style="width:{{middle_check_sonwidth}}">
         <image src="../../images/sx.png" class="middle_check_son_sx" />
     </View>
   </View>
@@ -31,7 +31,7 @@
   </view>
   <scroll-view class="select-content" scroll-y="true">
     <view wx:if="{{!hasSub}}" class="not-have-sub">
-      <view class="inner-content {{item.classname}}" wx:key="{{item.index}}"  wx:for="{{nowlist}}" bindtap="chooseOptionNoSub" data-optionIndex="{{index}}">
+      <view class="inner-content {{item.classname}}" wx:key="{{item.index}}"  wx:for="{{nowlist}}" bindtap="choosearea" data-optionIndex="{{index}}">
         {{item.name}}
       </view>
     </view>

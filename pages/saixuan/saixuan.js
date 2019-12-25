@@ -17,6 +17,11 @@ Page({
       url: '../area/area',
     })
   },
+  tosort(){
+    wx.redirectTo({
+      url: '../price/price',
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */
@@ -52,8 +57,10 @@ Page({
     for(var i=0;i<cx.length;i++){
       if(cx[i].id == id){
         cx[i].className = "barBtn barBtnC";
+        cx[i].select = true
       }else{
         cx[i].className = "barBtn";
+        cx[i].select = false;
       }
     }
     that.setData({
@@ -66,10 +73,19 @@ Page({
     var cx = that.data.zf;
     for (var i = 0; i < cx.length; i++) {
       if (cx[i].id == id) {
-        cx[i].className = "barBtn barBtnC";
-      } else {
-        cx[i].className = "barBtn";
-      }
+        if (cx[i].className == 'barBtn'){
+          //选择
+          cx[i].className = "barBtn barBtnC";
+          cx[i].select = true
+        }else{
+          //取消
+          cx[i].className = "barBtn"
+          cx[i].select = false
+        }
+        
+        break
+      } 
+      
     }
     that.setData({
       zf: cx
@@ -77,13 +93,49 @@ Page({
   },
   tomoney(){
     wx.redirectTo({
-      url: '../price/price',
+      url: '../price2/price2',
     })
     
   },
   tohx(){
     wx.redirectTo({
       url: '../hx/hx',
+    })
+  },
+  tosort(){
+    wx.redirectTo({
+      url: '../price/price',
+    })
+  },
+  sx(){
+    let userselect = wx.getStorageSync("userSelect")
+    console.log(userselect)
+    let saixuanlist = wx.getStorageSync("saixuanlist")
+    let cx = this.data.cx
+    let zf = this.data.zf
+    saixuanlist.cx = cx
+    saixuanlist.zf = zf
+    wx.setStorageSync("saixuanlist", saixuanlist)
+    console.log(saixuanlist)
+    for(let item of cx){
+      //朝向
+      if(item.select){
+        userselect.orientation = item.value
+      }
+    }
+    for(let item of zf){
+      if(item.select){
+        //被选中的话
+        userselect[item.obj] = item.value
+      }else{
+        //没有被选中的需要在缓存中清空
+        userselect[item.obj] = ""
+      }
+    }
+    console.log(userselect)
+    wx.setStorageSync("userSelect", userselect)
+    wx.switchTab({
+      url: '../index/index',
     })
   },
   /**

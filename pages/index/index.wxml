@@ -91,7 +91,7 @@
         <View class="middle_check_son_text" style="margin-left:{{middle_check_son_textleft}}">筛选</View>
         <image src="../../images/indexdown.png" class="middle_check_son_pic" />
     </View>
-    <View class="middle_check_son" style="width:{{middle_check_sonwidth}}">
+    <View class="middle_check_son" bindtap="tosort" style="width:{{middle_check_sonwidth}}">
         <image src="../../images/sx.png" class="middle_check_son_sx" bindtap="reverse"/>
     </View>
   </View>

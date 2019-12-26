@@ -29,7 +29,7 @@
       </View>
       <View class="firstBox">
         <View class="firstBox_top">{{obj.houseType}}</View>
-        <View class="firstBox_bottom">{{}}家电</View>
+        <View class="firstBox_bottom">{{obj.jiadian==0?"无":"有"}}家电</View>
       </View>
       <View class="firstBox">
         <View class="firstBox_top">{{obj.floor}}层</View>

@@ -1,4 +1,5 @@
 // pages/msgdetail/msgdetail.js
+let ajax = require('../../utils/ajax.js')
 var app = getApp();
 Page({
 
@@ -15,6 +16,9 @@ Page({
    */
   onLoad: function (options) {
     var that = this;
+    ajax.requestByGet('/user/notifier/30',{},function(res){
+      console.log(res)
+    })
     that.setData({
       font:JSON.parse(options.obj).con,
       pic: app.data.requestHost + JSON.parse(options.obj).imageindex

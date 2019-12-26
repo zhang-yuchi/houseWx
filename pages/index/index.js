@@ -16,7 +16,11 @@ Page({
     nowcity: wx.getStorageSync("citylist") ? wx.getStorageSync("citylist").city:"",
     houses:[],
     movies:[],
-    requestHost:app.data.requestHost
+    requestHost:app.data.requestHost,
+    isFd:0,
+    isAuth:0,
+    page:1,
+    isBottom:false,
   },
   /**
    * 生命周期函数--监听页面加载
@@ -27,6 +31,11 @@ Page({
       console.log(res)
       wx.setStorageSync("userInfo", res.data.data)
       console.log(wx.getStorageSync("userInfo"))
+      that.setData({
+        isFd: res.data.data.landlord,
+        isAuth:res.data.data.isAuth
+      })
+      console.log(that.data)
     })
     console.log(wx.getStorageSync("userInfo"))
     //获取房源信息
@@ -46,6 +55,37 @@ Page({
     wx.navigateTo({
       url: '../price2/price2',
     })
+  },
+  tonew(){
+    let page = this.data.page
+    let that = this
+    if(!that.data.isBottom){
+      wx.showLoading({
+        title: '加载中',
+      })
+      ajax.requestByGet('/house?page=' + (page + 1), wx.getStorageSync("userSelect"), (res) => {
+        wx.hideLoading()
+        console.log(res)
+        if (res.data.status == -1) {
+          that.data.isBottom = true
+          wx.showToast({
+            title: '已经到底部了哦~',
+            icon: "none"
+          })
+        } else {
+          let houses = that.data.houses
+          for (let item of houses) {
+            houses.push(item)
+          }
+          that.setData({
+            houses: houses,
+            page: page + 1
+          })
+
+        }
+      })
+    }
+    
   },
   toarea(){
     wx.navigateTo({
@@ -162,7 +202,7 @@ Page({
         for (let item of houses) {
           let tags = item.tags
           if(tags){
-            console.log(tags)
+            // console.log(tags)
             tags = tags.replace("{", "")
             tags = tags.replace("}", "")
             tags = tags.split(',')
@@ -181,7 +221,7 @@ Page({
         that.setData({
           houses: houses
         })
-        console.log(that.data)
+        // console.log(that.data)
       })
     }
 

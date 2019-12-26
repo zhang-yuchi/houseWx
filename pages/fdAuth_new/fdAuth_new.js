@@ -21,8 +21,8 @@ Page({
     console.log(logoLeft);
     this.setData({
       logoLeft: logoLeft,
-      currentTaskName: options.info,
-      currentTaskId: options.id
+      // currentTaskName: options.info,
+      // houseId: options.id
     });
   },
   uploadImageData: function () {
@@ -34,6 +34,9 @@ Page({
       count: 1,
       sizeType: ['compressed'],
       success: function (res) {
+        wx.showLoading({
+          title: '上传中',
+        })
         var tempFilePaths1 = res.tempFilePaths;
         console.log("test:" + String(tempFilePaths1));
         var pparr = String(tempFilePaths1).split(".")
@@ -42,6 +45,20 @@ Page({
             isIdCardJpg: true
           });
         }
+        wx.uploadFile({
+          url: app.data.requestHost+'/image',
+          filePath: tempFilePaths1[0],
+          name: 'file',
+          formData:{
+            imgType:"auth_img"
+          },
+          success(res){
+            wx.hideLoading()
+            wx.showToast({
+              title: '上传成功',
+            })
+          }
+        })
         that.setData({
           imageSrc1: tempFilePaths1,
           plusDisplay1: "none",
@@ -64,6 +81,23 @@ Page({
             isTaskJpg: true
           });
         }
+        wx.showLoading({
+          title: '上传中',
+        })
+        wx.uploadFile({
+          url: app.data.requestHost + '/image',
+          filePath: tempFilePaths1[0],
+          name: 'file',
+          formData: {
+            imgType: "auth_img"
+          },
+          success(res) {
+            wx.hideLoading()
+            wx.showToast({
+              title: '上传成功',
+            })
+          }
+        })
         that.setData({
           imageSrc2: tempFilePaths1,
           plusDisplay2: "none",
@@ -74,44 +108,10 @@ Page({
   },
   upload: function () {
     var that = this;
-    var id = wx.getStorageSync('id');
-    var token = wx.getStorageSync('token');
     if (that.data.isIdCardJpg && that.data.isTaskJpg) {
-      var fileArr = [];
-      fileArr.push(that.data.imageSrc1[0]);
-      fileArr.push(that.data.imageSrc2[0]);
-      console.log(fileArr)
-      for(var i=0;i<fileArr.length;i++){
-        wx.uploadFile({
-          url: app.data.requestHost + '/upFdAuthPic', //仅为示例，非真实的接口地址
-          filePath: fileArr[i],
-          header: {
-            "content-type": "multipart/form-data"
-          },
-          name: 'file',
-          formData: {
-            id: id,
-            token:token,
-            index:i
-          },
-          success: function (res) {
-            var data = res.data
-            //do something
-            console.log("1" + data);
-            if(data.status == "200" && data.code == "1"){
-              wx.navigateTo({
-                url: '../fdAuth_check/fdAuth_check',
-              })
-            }else{
-              wx.showModal({
-                title: '提示',
-                content: '网络出错',
-              })
-            }
-          }
-        });
-      }
-
+      wx.navigateTo({
+        url: '../fdAuth_check/fdAuth_check',
+      })
     } else {
       wx.showModal({
         title: '提示',

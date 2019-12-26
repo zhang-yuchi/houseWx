@@ -64,6 +64,7 @@ page{
   overflow: hidden
 }
 .input{
+  box-sizing: border-box;
   width:96%;
   height:76rpx;
   outline: none;

@@ -74,6 +74,11 @@ Page({
       var d = new Date(details.checkInDate);
       var datetime = d.getFullYear() + '.' + (d.getMonth() + 1) + '.' + d.getDate();
       details.checkInDate = datetime
+      if(details.hasAirConditioner==1||details.hasTelevison==1||details.hasComplete==1||details.hasRefrigerator==1||details.hasWasher==1){
+        details.jiadian = 1
+      }else{
+        details.jiadian = 0
+      }
       let marker = this.data.markers[0]
       //坐标定位
       new Promise(resolve => {

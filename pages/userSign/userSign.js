@@ -50,13 +50,11 @@ Page({
     
     //包装上传信息
     var obj = {};
-    if (that.data.name != "" && that.data.idCard != "" && that.data.starttime != "" && that.data.endtime != "" && that.data.imageSrc1 != "" && that.data.imageSrc2){
+    if (that.data.name != "" && that.data.idCard != "" && that.data.starttime != "" && that.data.endtime != ""  ){
       obj.name = that.data.name;
       obj.idCard = that.data.idCard;
       obj.starttime = that.data.starttime;
       obj.endtime = that.data.endtime;
-      obj.imageSrc1 = that.data.imageSrc1[0];
-      obj.imageSrc2 = that.data.imageSrc2[0];
       wx.navigateTo({
         url: '../uploadSign/uploadSign?obj=' + JSON.stringify(obj),
       })

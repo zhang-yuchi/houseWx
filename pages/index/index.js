@@ -16,7 +16,9 @@ Page({
     nowcity: wx.getStorageSync("citylist") ? wx.getStorageSync("citylist").city:"",
     houses:[],
     movies:[],
-    requestHost:app.data.requestHost
+    requestHost:app.data.requestHost,
+    isFd:0,
+    isAuth:0,
   },
   /**
    * 生命周期函数--监听页面加载
@@ -27,6 +29,11 @@ Page({
       console.log(res)
       wx.setStorageSync("userInfo", res.data.data)
       console.log(wx.getStorageSync("userInfo"))
+      that.setData({
+        isFd: res.data.data.landlord,
+        isAuth:res.data.data.isAuth
+      })
+      console.log(that.data)
     })
     console.log(wx.getStorageSync("userInfo"))
     //获取房源信息
@@ -162,7 +169,7 @@ Page({
         for (let item of houses) {
           let tags = item.tags
           if(tags){
-            console.log(tags)
+            // console.log(tags)
             tags = tags.replace("{", "")
             tags = tags.replace("}", "")
             tags = tags.split(',')
@@ -181,7 +188,7 @@ Page({
         that.setData({
           houses: houses
         })
-        console.log(that.data)
+        // console.log(that.data)
       })
     }
 

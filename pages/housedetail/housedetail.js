@@ -8,9 +8,13 @@ Page({
    */
   data: {
     topPic:"",
+    id:"",
     scrollViewHeight:"",
     lat:0,
     lng:0,
+    love:"../../images/sc.png",
+    scTips:"收藏",
+    isSc:false,
     markers: [{
       iconPath: "",//地图图片路径
       id: 0,
@@ -68,6 +72,9 @@ Page({
     var that = this;
     // console.log(options.obj)
     // const details = JSON.parse(options.obj)
+    this.setData({
+      id:options.obj
+    })
     ajax.requestByGet(`/house/${options.obj}`, {}, (res) => {
       const details = res.data.data
       console.log(details)
@@ -159,30 +166,37 @@ sc:function(){
   var id = wx.getStorageSync('id');
   var token = wx.getStorageSync('token');
   var houseId = that.data.obj.id;
-  // wx.request({
-  //   url: app.data.requestHost + '/updateScPeople',
-  //   header: {
-  //     'content-type': 'application/json'
-  //   },
-  //   method: "POST",
-  //   data: {
-  //     id: id,
-  //     token: token,
-  //     houseId: houseId
-  //   },
-  //   success: function (res) {
-  //     var result = res.data;
-  //     if (result.status == "200" && result.code == "1" && result.data == "") {
-  //       wx.showToast({
-  //         title: '收藏成功',
-  //       })
-  //     } else if (result.status == "200" && result.code == "1" && result.data == "already"){
-  //       wx.showToast({
-  //         title: '请勿重复收藏',
-  //       })
-  //     }else{}
-  //   },
-  // });
+  if(!that.data.isSc){
+    //没有收藏
+    wx.showLoading({
+      title: '请等候',
+    })
+    ajax.requestByPost('/user/star/house/'+that.data.id,{},res=>{
+      console.log(res)
+      wx.hideLoading()
+      wx.showToast({
+        title: '收藏成功',
+      })
+      that.setData({
+        isSc: true,
+        love: "../../images/love.png",
+        scTips: "已收藏",
+
+      })
+    })
+    
+  }else{
+    //已收藏
+    wx.showToast({
+      title: '已取消',
+      icon:"none"
+    })
+    that.setData({
+      isSc:false,
+      love:"../../images/sc.png",
+      scTips: "收藏",
+    })
+  }
 },
   /**
    * 生命周期函数--监听页面初次渲染完成

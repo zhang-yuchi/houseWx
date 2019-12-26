@@ -1,0 +1,41 @@
+/* pages/fdsure/fdsure.wxss */
+page {
+  height: 100%;
+}
+
+.container {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+.img{
+  width:60%;
+  display: block;
+  margin:60rpx auto;
+}
+.font{
+  width:70%;
+  color:rgb(93,85,53);
+  text-align: center;
+  margin-top:10rpx;
+  margin:10px auto;
+  font-size:28rpx;
+}
+.submit{
+    width:80%;
+    height:120rpx;
+    position: fixed;
+    left:10%;
+    bottom:60rpx;
+    margin:40rpx auto;
+    margin-bottom:0;
+    background: rgb(255,217,62);
+    color:black;
+    text-align: center;
+    line-height:120rpx;
+    font-size:36rpx;
+    letter-spacing: 4rpx;
+    border-radius: 6rpx;
+    margin-top:80rpx;
+
+}

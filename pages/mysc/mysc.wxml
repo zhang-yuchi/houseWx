@@ -1,4 +1,8 @@
 <!--pages/myorder/myorder.wxml-->
+<view class="change-btn">
+  <view class="{{item.className}}" data-index="{{index}}" bindtap="changemodel" wx:for="{{barArr}}">{{item.name}}</view>
+  
+</view>
 <scroll-view class="content" scroll-y="true">
   <view class="content-block" bindtap="tohousedetails">
     <view class="block-pic">

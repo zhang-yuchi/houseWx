@@ -54,13 +54,16 @@ page{
     letter-spacing: 4rpx;
     border-radius: 6rpx;
     margin-top:80rpx;
-
+    position: fixed;
+    bottom: 20rpx;
+    left: 50%;
+    transform: translateX(-50%);
 }
 .infoBox{
   width:90%;
-  height:180rpx;
+  /* height:180rpx; */
   /* background:red; */
-  margin:20rpx auto;
+  margin:20rpx auto 40rpx;
   overflow: hidden
 }
 .input{
@@ -71,7 +74,7 @@ page{
   background:none;
   display: block;
   padding: 0 20rpx;
-  margin:0 auto;
+  margin:10rpx auto 30rpx;
   border:2rpx solid rgb(194,194,194);
   font-size:28rpx;
   letter-spacing: 2rpx;
@@ -79,6 +82,9 @@ page{
   border-radius: 6rpx;
 }
 .timeBox{
+  margin-top: 50rpx;
+  display: flex;
+  justify-content: center;
   width:90%;
   height:80rpx;
   margin:20rpx auto;

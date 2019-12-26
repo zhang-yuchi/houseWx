@@ -56,13 +56,12 @@ module.exports = {
               arealist.push(content)
             }
             wx.setStorageSync("arealist", arealist)
-            wx.getStorage({
+            console.log(wx.getStorage({
               key: 'arealist',
               success: function (res) {
-                console.log(res)
+                
               },
-            })
-            // console.log(wx.getStorageSync("arealist"))
+            }))
           },
           fail(res){
             console.log(res)
@@ -95,6 +94,170 @@ module.exports = {
         callback()
       },
     })
+  },
+  initList(obj){
+    let that = this
+    wx.setStorageSync("fjlist", [
+      //没有这个列表则创建一个新的
+      {
+        name: "不限",
+        select: false,
+        value: "",
+        classname: ""
+      },
+      {
+        name: "1000m内",
+        select: false,
+        value: 1000,
+        classname: ""
+      },
+      {
+        name: "3000m内",
+        select: false,
+        value: 3000,
+        classname: ""
+      },
+      {
+        name: "5000m内",
+        select: false,
+        value: 5000,
+        classname: ""
+      },
+      {
+        name: "10000m内",
+        select: false,
+        value: 10000,
+        classname: ""
+      }])
+    wx.setStorageSync("pricelist", [
+      {
+        name: "不限",
+        classname: "active",
+        select: true,
+      },
+      {
+        name: "价格由低到高",
+        classname: "",
+        select: false,
+      },
+      {
+        name: "价格由高到低",
+        classname: "",
+        select: false,
+      },
+      {
+        name: "时间由新到旧",
+        classname: "",
+        select: false,
+      },
+    ])
+    wx.setStorageSync('moneylist', [
+      {
+        name: "不限",
+        value: 0,
+        select: true,
+        classname: "active"
+      },
+      {
+        name: "1000元以下",
+        value: 1,
+        select: true,
+        classname: ""
+      },
+      {
+        name: "1000-1500元",
+        value: 2,
+        select: true,
+        classname: ""
+      },
+      {
+        name: "1500-2000元",
+        value: 3,
+        select: true,
+        classname: ""
+      },
+      {
+        name: "2000-2500元",
+        value: 4,
+        select: true,
+        classname: ""
+      },
+      {
+        name: "2500元以上",
+        value: 5,
+        select: true,
+        classname: ""
+      },
+    ])
+    wx.setStorageSync("hxlist", [
+      { name: "不限", id: 0, value: "", className: "barBtn barBtnC", select: true },
+      { name: "一室", id: 1, value: "一室", className: "barBtn", select: false },
+      { name: "二室", id: 2, value: "二室", className: "barBtn", select: false },
+      { name: "三室", id: 3, value: "三室", className: "barBtn", select: false }
+    ])
+    wx.setStorageSync("saixuanlist", {
+      cx: [
+        { name: "不限", id: 0, value: "", className: "barBtn barBtnC", select: true },
+        { name: "东", id: 1, value: "东", className: "barBtn", select: false },
+        { name: "南", id: 2, value: "南", className: "barBtn", select: false },
+        { name: "西", id: 3, value: "西", className: "barBtn", select: false },
+        { name: "北", id: 4, value: "北", className: "barBtn", select: false },
+        { name: "南北", id: 5, value: "南北", className: "barBtn", select: false },
+      ],
+      zf: [//多选
+        { name: "押一付一", value: "押一付一", obj: "cashType", id: 1, className: "barBtn", select: false },
+        { name: "配套齐全", value: 1, obj: "hasComplete", id: 2, className: "barBtn", select: false },
+        { name: "可短租", value: 1, obj: "shortRent", id: 3, className: "barBtn", select: false },
+        { name: "女生合租", value: 0, obj: "girlShared", id: 4, className: "barBtn", select: false },
+        { name: "男生合租", value: 0, obj: "boyShared", id: 5, className: "barBtn", select: false },
+        { name: "独立阳台", value: 1, obj: "hasBalcony", id: 6, className: "barBtn", select: false },
+      ]
+    })
+    new Promise((resolve, reject) => {
+      wx.getLocation({
+        success: function (res) {
+          qqMap.reverseGeocoder({
+            location: {
+              latitude: res.latitude,
+              longitude: res.longitude
+            },
+            success(res) {
+              let addr = res.result.address
+              let sheng = addr.indexOf('省')
+              let shi = addr.indexOf('市')
+              let checkSheng = addr.indexOf('省') != -1
+              let checkshi = addr.indexOf('市') != -1
+              let citylist = {
+                provicename: "",
+                city: "",
+                same: false
+              }
+              if (checkSheng && checkshi) {
+                //有省也有市
+                citylist.city = addr.substring(sheng + 1, shi)
+                citylist.provicename = addr.substring(0, sheng)
+              } else if (!checkSheng && checkshi) {
+                //没有省只有市
+                citylist.city = addr.substring(sheng + 1, shi)
+                citylist.provicename = city
+                citylist.same = true
+              }
+              wx.setStorageSync("citylist", citylist)
+              resolve()
+            }
+          })
+        },
+      })
+    }).then(() => {
+      let city = wx.getStorageSync("citylist").city
+      obj.setData({
+        nowcity: city
+      })
+      //获取城市地铁列表
+      that.initIndex(city, obj)
+    })
+  
+
   },
   tagsToArr(tags){
     if(tags){

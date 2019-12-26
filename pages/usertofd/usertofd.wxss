@@ -1,0 +1,40 @@
+/* pages/usertofd/usertofd.wxss */
+.wrap{
+  padding: 40rpx;
+  box-sizing: border-box;
+}
+.tips{
+  margin-bottom: 50rpx;
+}
+.chooseimg{
+  float: right;
+  font-size: 30rpx;
+  vertical-align: bottom;
+  /* margin-top: 10rpx; */
+  padding: 10rpx 20rpx;
+  background-color: rgb(247, 247, 247);
+  border:1rpx solid rgb(236, 236, 236);
+  color: rgb(176, 176, 176);
+}
+.picBox{
+  background-color: rgb(245, 245, 245);
+  width: 100%;
+}
+.picBox_pic{
+  width: 100%;
+}
+.btnBox{
+  display: flex;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 20rpx 40rpx 60rpx 40rpx;
+  box-sizing: border-box;
+}
+.btn{
+  line-height: 100rpx;
+  background-color: rgb(255, 217, 62);
+  width: 100%;
+  text-align: center;
+}

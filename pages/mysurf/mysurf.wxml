@@ -8,7 +8,7 @@
       <view class="sc-title">{{item.title}}</view>
       <view class="sc-position">{{item.area}}m^2<text class="fenge">|</text>{{item.orientation}}<text class="fenge">|</text>{{item.street}}</view>
       <view class="house-tag">
-        <text class="tags-sign">精选房源</text>
+        <text class="tags-sign" wx:for="{{item.tags}}" wx:key="{{item.index}}">{{item}}</text>
         
       </view>
       <view class="house-price">{{item.cash}}<text class="per">元/月</text></view>

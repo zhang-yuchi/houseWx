@@ -28,6 +28,10 @@
       <View class="btnBox_son_font">我的浏览</View>
       <image src="../../images/right.png" class="btnBox_son_pic"></image>
     </View>
+    <View class="btnBox_son" bindtap="fdauth">
+      <View class="btnBox_son_font">房东认证</View>
+      <image src="../../images/right.png" class="btnBox_son_pic"></image>
+    </View>
     <View class="btnBox_son" bindtap="showConcatBox">
       <View class="btnBox_son_font">联系客服</View>
       <image src="../../images/right.png" class="btnBox_son_pic"></image>

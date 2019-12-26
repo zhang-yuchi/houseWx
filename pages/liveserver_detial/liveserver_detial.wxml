@@ -33,6 +33,7 @@
     <image src="../../images/share.png" class="bottom_left_pic" mode="aspectFill" />
     <View class="bottom_left_font">分享</View>
   </View>
+  <button class="share-bottom" open-type="share">分享</button>
   <View class="bottom_right" bindtap="call">一键联系</View>
 </View>
 <view class="phone-window" wx:if="{{phonecall}}">

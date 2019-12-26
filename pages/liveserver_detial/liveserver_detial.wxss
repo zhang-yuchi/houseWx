@@ -167,3 +167,8 @@ page {
   font-weight:400;
   letter-spacing: 1.6rpx;
 }
+.share-bottom{
+  position: absolute;
+  left: 20rpx;
+  opacity: 0;
+}

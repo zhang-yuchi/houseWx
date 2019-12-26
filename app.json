@@ -46,7 +46,9 @@
     "pages/city2/city2",
     "pages/price2/price2",
     "pages/searchpage/searchpage",
-    "pages/livesearch/livesearch"
+    "pages/livesearch/livesearch",
+    "pages/fdsure/fdsure",
+    "pages/usertofd/usertofd"
   ],
   "window": {
     "backgroundTextStyle": "light",

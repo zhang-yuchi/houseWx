@@ -12,9 +12,10 @@ page {
 .searchBox{
   width:94%;
   height:120rpx;
-  margin:0 auto;
+  margin:25rpx auto 10rpx;
   box-shadow: 0 0 20rpx rgb(240,240,240);
   border-radius: 6rpx;
+
 }
 .searchpic{
   width:40rpx;

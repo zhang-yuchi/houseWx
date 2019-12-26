@@ -20,13 +20,7 @@
       {{endtime}}
     </picker>
   </View>
-  <View class="timeBox_son">
-    <!-- <radio-group class="radio-group" bindchange="radioChange">
-                <radio class="radio" wx:for-items="{{items}}" wx:key="name" value="{{item.name}}">
-                    <text>{{item.value}}</text>
-                </radio>
-            </radio-group> -->
-  </View>
+  
 </View>
 <view class="submit" bindtap="toUploadSign">下一步</view>
 </scroll-view>

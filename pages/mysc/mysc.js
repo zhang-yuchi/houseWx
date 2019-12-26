@@ -10,8 +10,8 @@ Page({
   data: {
     scrollViewHeight: "",
     barArr: [
-      { name: "履行中", id: 0, className: "son_text" },
-      { name: "已结束", id: 1, className: "son_textC" }
+      { name: "房源信息", id: 0, className: "inner-btn select-btn" },
+      { name: "生活服务", id: 1, className: "inner-btn" }
     ],
     houseSets: [],
     host: app.data.requestHost
@@ -22,7 +22,31 @@ Page({
       url: '../housedetail/housedetail?obj='+index,
     })
   },
+  changemodel(e){
+    let index = e.currentTarget.dataset.index
+    console.log(index)
+    for(let i in this.data.barArr){
+      if(i==index){
+        this.data.barArr[i].className = "inner-btn select-btn"
+      }else{
+        this.data.barArr[i].className = "inner-btn"
+      }
+    }
+    for(let item of this.data.barArr){
+      if(item.className == "inner-btn select-btn"){
+        if(item.name == "房源信息"){
+          //此时请求房源接口
 
+        }else{
+          //此时请求生活服务接口
+
+        }
+      }
+    }
+    this.setData({
+      barArr:this.data.barArr
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */

@@ -1,6 +1,6 @@
 <view style='display:flex;justify-content:center;flex-flow:column'>
   <!--头部-->
-  <view class='head'>"线租房"，您身边的租房专家~</view>
+  <view class='head'>"小鱼公寓"，您身边的租房专家~</view>
 
 
   <!--提示--> 

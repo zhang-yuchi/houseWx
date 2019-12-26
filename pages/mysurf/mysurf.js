@@ -11,8 +11,8 @@ Page({
   data: {
     scrollViewHeight: "",
     barArr: [
-      { name: "履行中", id: 0, className: "son_text" },
-      { name: "已结束", id: 1, className: "son_textC" }
+      { name: "房源信息", id: 0, className: "inner-btn select-btn" },
+      { name: "生活服务", id: 1, className: "inner-btn" }
     ],
     houses:[],
     host:app.data.requestHost

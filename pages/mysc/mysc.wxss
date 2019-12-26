@@ -1,2 +1,28 @@
 /* pages/myorder/myorder.wxss */
 @import "../../public/wxss/sc.wxss";
+.change-btn{
+  display: flex;
+
+}
+.change-btn view{
+  color: rgb(182, 182, 182);
+  padding: 20rpx 0;
+  position: relative;
+  flex: 1;
+  text-align: center;
+  font-size: 30rpx;
+}
+.select-btn{
+  color: #333 !important;
+}
+.select-btn::after{
+  content: "";
+  color: #333 !important;
+  background-color: rgb(255, 212, 38);
+  width:50rpx;
+  height: 6rpx;
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+}

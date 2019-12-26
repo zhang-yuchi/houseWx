@@ -1,0 +1,7 @@
+<!--pages/fdsure/fdsure.wxml-->
+<View class="container">
+  <image src="/images/fdAuth_check.png" class="img"></image>
+  <View class="font">已经收到您的申请，请等待管理员审核</View>
+  
+</View>
+<View class="submit" bindtap="to">确定</View>

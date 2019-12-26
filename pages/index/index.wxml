@@ -106,6 +106,9 @@
     <View class="middle_check_son" bindtap="tosort" style="width:{{middle_check_sonwidth}}">
         <image src="../../images/sx.png" class="middle_check_son_sx" bindtap="reverse"/>
     </View>
+    <View class="middle_check_son" bindtap="init" style="width:{{middle_check_sonwidth}}">
+        <image src="../../images/load.png" class="middle_check_son_sx" bindtap="reverse"/>
+    </View>
   </View>
 
 

@@ -22,6 +22,17 @@ Page({
     page:1,
     isBottom:false,
   },
+  init(){
+    utils.initList(this)
+    utils.initSelect(function(){
+      wx.reLaunch({
+        url: '../index/index',
+      })
+      console.log(wx.getStorageSync("userSelect"))
+    })
+    
+    // wx.reLaunch()
+  },
   /**
    * 生命周期函数--监听页面加载
    */
@@ -399,6 +410,9 @@ Page({
         })
       }).then(() => {
         let city = wx.getStorageSync("citylist").city
+        this.setData({
+          nowcity:city
+        })
         //获取城市地铁列表
         utils.initIndex(city, that)
       })

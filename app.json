@@ -1,7 +1,8 @@
 {
   "pages": [
-    "pages/myfixed_details/myfixed_details",
     "pages/wxLogin/wxLogin",
+    "pages/myfixed/myfixed",
+    "pages/myfixed_details/myfixed_details",
     "pages/fd_mime/fd_mime",
     "pages/index/index",
     "pages/change_infodetails/change_infodetails",
@@ -16,7 +17,6 @@
     "pages/myordercash_sd_unpaid/myordercash_sd_unpaid",
     "pages/myordercash_yj_unpaid/myordercash_yj_unpaid",
     "pages/myordercash_yj_paid/myordercash_yj_paid",
-    "pages/myfixed/myfixed",
     "pages/middle_mime/middle_mime",
     "pages/mywallet_fd/mywallet_fd",
     "pages/price/price",

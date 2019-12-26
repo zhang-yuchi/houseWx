@@ -20,10 +20,10 @@ Page({
 
   },
   changeBar: function (e) {
-    var that = this;
-    var id = e.currentTarget.id;
-    var arr = that.data.barArr;
-    for (var i = 0; i < arr.length; i++) {
+    let that = this;
+    let id = e.currentTarget.id;
+    let arr = that.data.barArr;
+    for (let i = 0; i < arr.length; i++) {
       if (arr[i].id == id) {
         arr[i].className = "son_text"
       } else {

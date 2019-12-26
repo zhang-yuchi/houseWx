@@ -1,6 +1,7 @@
 // pages/myorder/myorder.js
 var app = getApp();
 var ajax = require('../../utils/ajax.js')
+var utils = require('../../utils/utils.js')
 var allArr = [];
 Page({
 
@@ -13,7 +14,7 @@ Page({
       { name: "履行中", id: 0, className: "son_text" },
       { name: "已结束", id: 1, className: "son_textC" }
     ],
-    houseSets:[],
+    houses:[],
     host:app.data.requestHost
   },
   tohousedetails() {
@@ -26,8 +27,21 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    ajax.requestByGet('/user/browse',{},(res)=>{
+    let that = this
+    ajax.requestByGet('/user/browse',{
+      limit:10,
+      start:1
+    },(res)=>{
       console.log(res)
+      let houses = res.data.data
+      for(let item of houses){
+        // console.log(utils.tagsToArr(item.tags))
+        item.tags = utils.tagsToArr(item.tags)
+      }
+      that.setData({
+        houses: houses
+      })
+      console.log(res.data.data)
     })
   },
   changeBar: function (e) {

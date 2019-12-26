@@ -1,12 +1,13 @@
 // pages/fd_cz/fdcz.js
 var app = getApp()
+var ajax = require('../../utils/ajax.js')
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    cashArray: ['押一付一', '押一付三'],
+    cashArray: [],
     multiIndex: [0, 0],
     imageSrc: "",
     addr: "",
@@ -30,7 +31,9 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    ajax.requestByGet('/user/sign',{},function(res){
+      console.log(res)
+    })
   },
   // getId: function (e) {
   //   var id = e.currentTarget.id;

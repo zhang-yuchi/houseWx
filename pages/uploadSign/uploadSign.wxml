@@ -1,6 +1,6 @@
 <!--pages/housedetail/housedetail.wxml-->
 <View class="container">
-<scroll-view scroll-y="true" class="scrollView" style="width:100%;height:{{scrollViewHeight}}">
+<view class="scrollView" style="width:100%;height:{{scrollViewHeight}}">
 <image src="../../images/index_1.jpg" class="topPic" mode="aspectFill" />
   <!-- 新UI的介绍 -->
   <View class="new_box">
@@ -61,6 +61,12 @@
   <View class="timeBox"><Text style="color:rgb(140,140,140);font-size:15px;font-weight:300">到期日期：</Text>2019/12/12</View>
 
   <View class="ht"></View>
-  <View class="paybtn" bindtap="paybtn">支付并确定签约</View>
-</scroll-view>
+  <view class="sign-title">确定合同内容并签名</view>
+  <canvas style="width: 100%; height: 400px;" class="canvas" bindtouchstart="touchstart" bindtouchend="touchend" canvas-id="firstCanvas" bindtouchmove="move" disable-scroll></canvas>
+  <view class="sign-control">
+    <view bindtap="cleardraw">清除</view>
+    <view bindtap="getimg">上传</view>
+  </view>
+  <View class="paybtn" bindtap="paybtn">确定签约并支付</View>
+</view>
 </View>

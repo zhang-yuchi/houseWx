@@ -144,6 +144,7 @@ Page({
       middle_check_son_textleft: (app.data.width / 5-37)/2 + "px",
       scrollViewHeight:(app.data.height*0.745-190)+"px",
       sx_son_width:(app.data.width*0.95*0.6/4-6)+"px",
+      isBottom:false,
     });
     //请求所有房间数据
     // wx.showLoading({

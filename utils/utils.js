@@ -96,5 +96,20 @@ module.exports = {
       },
     })
   },
-
+  tagsToArr(tags){
+    if(tags){
+      tags = tags.replace("{","")
+      tags = tags.replace("}","")
+      let arr = tags.split(',')
+      let newarr = arr.map((item,index)=>{
+        let str = item
+        str = str.replace("\"","")
+        str = str.replace("\"", "")
+        return str
+      })
+      console.log(newarr)
+      return newarr
+    }
+    return []
+  }
 }

@@ -5,7 +5,7 @@ page {
 
 .container {
   width: 100%;
-  height: 100%;
+  /* height: 100%; */
   overflow: hidden;
 }
 /* 滚动图样式 */
@@ -46,6 +46,7 @@ page {
   margin:0 auto;
   margin-top:20rpx;
 }
+
 .nameBox_left{
   width:70%;
   height:60rpx;
@@ -333,4 +334,29 @@ page {
   background: rgb(255,217,62);
   border-radius: 4rpx;
   text-align: center;
+}
+.sign-title{
+  padding: 20rpx;
+}
+.canvas{
+  border: 1rpx solid black;
+  box-sizing: border-box;
+}
+.sign-control{
+  margin-top: 20rpx;
+  display: flex;
+}
+.sign-control view{
+  /* background-color: #f1f1f1; */
+  /* border: 1rpx solid gray; */
+  padding: 20rpx 0;
+  box-sizing: border-box;
+  flex: 1;
+  text-align: center;
+}
+.sign-control view:first-of-type{
+  background-color: rgb(255, 251, 240)
+}
+.sign-control view:last-of-type{
+  background-color: rgb(255, 209, 69)
 }

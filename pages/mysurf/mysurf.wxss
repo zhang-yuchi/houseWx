@@ -1,2 +1,9 @@
 /* pages/myorder/myorder.wxss */
 @import "../../public/wxss/sc.wxss";
+page{
+  height: 100%;
+}
+.content{
+  padding: 0;
+  height: 100%;
+}

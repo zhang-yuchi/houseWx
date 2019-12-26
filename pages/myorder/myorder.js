@@ -1,5 +1,6 @@
 // pages/myorder/myorder.js
 var app = getApp();
+let ajax = require('../../utils/ajax.js')
 Page({
 
   /**
@@ -18,7 +19,10 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    console.log(wx.getStorageSync("token"))
+    ajax.requestByGet('/user/sign',{},res=>{
+      console.log(res)
+    })
   },
   changeBar:function(e){
     var that = this;

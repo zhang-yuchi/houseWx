@@ -1,5 +1,4 @@
-// pages/myordercash_sj_unpaid/myordercash_sj_unpaid.js
-var ajax = require('../../utils/ajax.js')
+// pages/searchpage/searchpage.js
 Page({
 
   /**
@@ -8,22 +7,7 @@ Page({
   data: {
 
   },
-  toPay(){
-    
-    // wx.requestPayment({
-    //   'timeStamp': '',
-    //   'nonceStr': '',
-    //   'package': '',
-    //   'signType': 'MD5',
-    //   'paySign': '',
-    //   'success':function(res){
 
-    //   },
-    //   'fail':function(){
-
-    //   }
-    // })
-  },
   /**
    * 生命周期函数--监听页面加载
    */

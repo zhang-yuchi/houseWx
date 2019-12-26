@@ -111,3 +111,59 @@ page {
   letter-spacing: 4rpx;
   border-radius: 4rpx;
 }
+.phone-window{
+  top: 0;
+  left: 0;
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+.phone-call{
+  overflow: hidden;
+  border-radius: 10rpx;
+  /* height: 250rpx; */
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%,-50%);
+  background-color: white;
+
+}
+.phone-num view{
+  text-align: center;
+}
+
+.phone-num{
+  padding: 40rpx 110rpx;
+  flex: 2;
+}
+.tips{margin-bottom: 15rpx;font-weight: bold}
+.phone-control{
+  flex: 1;
+}
+.phone-control{
+  display: flex;
+}
+.phone-control view{
+  flex: 1;
+  text-align: center;
+}
+.phone-left,.phone-right{
+  font-size: 30rpx;
+}
+.phone-left{
+  background-color: rgb(255, 251, 240);
+  padding: 30rpx 50rpx;
+}
+.phone-right{
+  background-color: rgb(255, 209, 69);
+  padding: 30rpx 50rpx;
+}
+.call{
+  font-size: 32rpx;
+  font-weight:400;
+  letter-spacing: 1.6rpx;
+}

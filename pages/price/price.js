@@ -38,6 +38,11 @@ Page({
       url: '../area/area',
     })
   },
+  toprice(){
+    wx.redirectTo({
+      url: '../price2/price2',
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */

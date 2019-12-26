@@ -43,7 +43,7 @@
       </View>
       <View class="second_left">
         <View class="left_left" style="color:gray">入住</View>
-        <View class="left_left" style="text-align:left">2019.08.22</View>
+        <View class="left_left" style="text-align:left">{{obj.checkInDate}}</View>
       </View>
     </View>
     <View class="new_info_box_third">

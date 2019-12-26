@@ -10,7 +10,8 @@ App({
     height: 0,
     currentEmailCoinCount: "",
     userInfo: {},
-    openId: ""
+    openId: "",
+    mapKey: 'OVUBZ-MLPL6-MQPSJ-MR2KT-MWFIK-O6FUE'
   },
   onLaunch: function () {
     // 展示本地存储能力

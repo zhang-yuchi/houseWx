@@ -10,7 +10,8 @@
     </View>
     <View class="searchBox_input" style="width:{{searchBoxInputWidth}}">
       <image src="../../images/SEARCH.png" class="searchpic" />
-      <input placeholder="请输入小区或者地址" class="input" style="width:{{inputWidth}}"  bindinput="check"/>
+      <input placeholder="请输入小区或者地址" class="input" style="width:{{inputWidth}}"  bindconfirm="search" confirm-type='search' name="search"/>
+      
     </View>
   </View>
   <view class="banner">
@@ -91,7 +92,7 @@
         <View class="middle_check_son_text" style="margin-left:{{middle_check_son_textleft}}">筛选</View>
         <image src="../../images/indexdown.png" class="middle_check_son_pic" />
     </View>
-    <View class="middle_check_son" style="width:{{middle_check_sonwidth}}">
+    <View class="middle_check_son" bindtap="tosort" style="width:{{middle_check_sonwidth}}">
         <image src="../../images/sx.png" class="middle_check_son_sx" bindtap="reverse"/>
     </View>
   </View>
@@ -103,10 +104,10 @@
 <scroll-view class="content">
   <view class="content-block" data-id="{{item.id}}" wx:for="{{houses}}" wx:key="{{item.index}}" bindtap="tohousedetails">
     <view class="block-pic">
-      <image src="../../images/index_1.jpg"></image>
+      <image src="{{item.headingImg}}"></image>
     </view>
     <view class="sc-details">
-      <view class="sc-title">东泰花园 两房一厅</view>
+      <view class="sc-title">{{item.title}}</view>
       <view class="sc-position">{{item.area}}m^2<text class="fenge">|</text>{{item.orientation}}<text class="fenge">|</text>{{item.street}}</view>
       <view class="house-tag">
         <text class="tags-sign" wx:for="{{item.tags}}" wx:key="{{item.index}}">{{item}}</text>

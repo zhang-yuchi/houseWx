@@ -7,7 +7,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    topPic:"../../images/index_1.jpg",
+    topPic:"",
     scrollViewHeight:"",
     lat:0,
     lng:0,
@@ -45,18 +45,18 @@ Page({
     obj:{},
     host:app.data.requestHost,
     firstLevel: [
-      { name: "电视", url: "../../images/dianshi.png", id: 0, selected: false, className: "jjBox_son_text" },
-      { name: "冰箱", url: "../../images/bingxiang.png", id: 1, selected: false, className: "jjBox_son_text" },
-      { name: "洗衣机", url: "../../images/xiyiji.png", id: 2, selected: false, className: "jjBox_son_text" },
-      { name: "空调", url: "../../images/kongtiao.png", id: 3, selected: false, className: "jjBox_son_text" },
-      { name: "热水器", url: "../../images/reshuiqi.png", id: 4, selected: false, className: "jjBox_son_text" },
+      { name: "电视", url: "../../images/dianshi.png", prop:"hasTelevison", id: 0, selected: false, className: "jjBox_son_text" },
+      { name: "冰箱", url: "../../images/bingxiang.png", prop: "hasRefrigerator", id: 1, selected: false, className: "jjBox_son_text" },
+      { name: "洗衣机", url: "../../images/xiyiji.png", prop: "hasWasher", id: 2, selected: false, className: "jjBox_son_text" },
+      { name: "空调", url: "../../images/kongtiao.png", prop: "hasAirConditioner", id: 3, selected: false, className: "jjBox_son_text" },
+      { name: "热水器", url: "../../images/reshuiqi.png", prop: "hasHeater", id: 4, selected: false, className: "jjBox_son_text" },
     ],
     secondLevel: [
-      { name: "床", url: "../../images/chuang.png", id: 0, selected: false, className: "jjBox_son_text" },
-      { name: "暖气", url: "../../images/nuanqi.png", id: 1, selected: false, className: "jjBox_son_text" },
-      { name: "宽带", url: "../../images/kuandai.png", id: 2, selected: false, className: "jjBox_son_text" },
-      { name: "衣柜", url: "../../images/yigui.png", id: 3, selected: false, className: "jjBox_son_text" },
-      { name: "天然气", url: "../../images/meiqi.png", id: 4, selected: false, className: "jjBox_son_text" },
+      { name: "床", url: "../../images/chuang.png", prop: "hasBed", id: 0, selected: false, className: "jjBox_son_text" },
+      { name: "暖气", url: "../../images/nuanqi.png", prop: "hasHeating", id: 1, selected: false, className: "jjBox_son_text" },
+      { name: "宽带", url: "../../images/kuandai.png", prop: "hasBroadband", id: 2, selected: false, className: "jjBox_son_text" },
+      { name: "衣柜", url: "../../images/yigui.png", prop: "hasWardrobe", id: 3, selected: false, className: "jjBox_son_text" },
+      { name: "天然气", url: "../../images/meiqi.png", prop: "hasGas", id: 4, selected: false, className: "jjBox_son_text" },
     ],
     
   },
@@ -70,6 +70,10 @@ Page({
     // const details = JSON.parse(options.obj)
     ajax.requestByGet(`/house/${options.obj}`, {}, (res) => {
       const details = res.data.data
+      console.log(details)
+      var d = new Date(details.checkInDate);
+      var datetime = d.getFullYear() + '.' + (d.getMonth() + 1) + '.' + d.getDate();
+      details.checkInDate = datetime
       let marker = this.data.markers[0]
       //坐标定位
       new Promise(resolve => {
@@ -102,15 +106,24 @@ Page({
         })
         console.log(this.data.obj)
       })
+      
       //配套齐全
       let firLev = this.data.firstLevel
       let secLev = this.data.secondLevel
       for (let item of firLev) {
-        console.log(item)
+        if(details[item.prop]==1){
+          item.className = 'jjBox_son_textC'
+        }
       }
       for (let item of secLev) {
-
+        if (details[item.prop] == 1) {
+          item.className = 'jjBox_son_textC'
+        }
       }
+      that.setData({
+        firstLevel:firLev,
+        secondLevel:secLev
+      })
     })
     
     //上传浏览记录

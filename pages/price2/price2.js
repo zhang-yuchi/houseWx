@@ -1,5 +1,5 @@
-// pages/hx/hx.js
-var app = getApp();
+// pages/price2/price2.js
+var app = getApp()
 Page({
 
   /**
@@ -8,13 +8,22 @@ Page({
   data: {
     middle_check_sonwidth: "",
     middle_check_son_textleft: "",
-    btnLeft:"",
-    arr: [],
     btnLeft: "",
+    userselect:[]
   },
   toarea(){
     wx.redirectTo({
       url: '../area/area',
+    })
+  },
+  tohx(){
+    wx.redirectTo({
+      url: '../hx/hx',
+    })
+  },
+  toshaixuan(){
+    wx.redirectTo({
+      url: '../saixuan/saixuan',
     })
   },
   tosort(){
@@ -22,75 +31,56 @@ Page({
       url: '../price/price',
     })
   },
-  tosaixuan(){
-    wx.redirectTo({
-      url: '../saixuan/saixuan',
+  chooseprice(e){
+    let index = e.currentTarget.dataset.id
+    let arr = this.data.userselect
+    for(let id in arr){
+      if(id == index){
+        arr[id].classname = "active"
+        arr[id].select = true
+        continue
+      }
+      arr[id].classname = ""
+      arr[id].select = false
+    }
+    this.setData({
+      userselect:arr
     })
   },
-  toprice(){
-    wx.redirectTo({
-      url: '../price2/price2',
-    })
-  },
-  tosort() {
-    wx.redirectTo({
-      url: '../price/price',
+  tosure(){
+    let moneylist = wx.getStorageSync("moneylist")
+    let userselect = wx.getStorageSync("userSelect")
+    let arr = this.data.userselect
+    wx.setStorageSync("moneylist", arr)
+    for(let item of arr){
+      console.log(item)
+      if(item.select){
+        //被选中
+        userselect.price = item.value
+      }
+    }
+    wx.setStorageSync("userSelect", userselect)
+    wx.switchTab({
+      url: '../index/index',
     })
   },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    var that = this;
-    that.setData({
-      btnLeft: (app.data.width - 311) / 2 + "px",
-      arr: wx.getStorageSync("hxlist")
+    this.setData({
+      userselect: wx.getStorageSync("moneylist")
     })
+    console.log(wx.getStorageSync("moneylist"))
   },
-  sxBind: function (e) {
-    // console.log(wx.getStorageSync("hxlist"))
-    var that = this;
-    var id = e.target.id;
-    var cx = that.data.arr;
-    for (var i = 0; i < cx.length; i++) {
-      if (cx[i].id == id) {
-        cx[i].className = "barBtn barBtnC";
-        cx[i].select = true
-      } else {
-        cx[i].className = "barBtn";
-        cx[i].select = false
-      }
-    }
-    console.log(cx)
-    that.setData({
-      arr: cx
-    })
-  },
+
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
 
   },
-  tosure(){
-    let userselect = wx.getStorageSync("userSelect")
-    let hxlist = wx.getStorageSync("hxlist")
-    //既要改变用户选择,也要改变缓存下的那个选择
-    let arr = this.data.arr
-    hxlist = arr
-    wx.setStorageSync("hxlist", hxlist)
-    for(let key of arr){
-      if(key.select){
-        // console.log(key.value)
-        userselect.houseType = key.value
-        wx.setStorageSync("userSelect",userselect)
-        break
-      }
-    }
-    wx.switchTab({
-      url: '../index/index',
-    })
-  },
+
   /**
    * 生命周期函数--监听页面显示
    */

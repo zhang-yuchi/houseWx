@@ -1,4 +1,5 @@
 // pages/liveserver/liveserver.js
+let ajax = require('../../utils/ajax.js')
 var app = getApp();
 Page({
 
@@ -9,32 +10,63 @@ Page({
     scrollViewHeight:"",
     itemBoxDetail_right_width:"",
     barArr:[
-      { name: "房屋租赁", id: 0, className: "barBox_sonC"},
-      { name: "餐饮美食", id: 1, className: "barBox_son" },
-      { name: "零售便利", id: 2, className: "barBox_son" },
-      { name: "美容美发", id: 3, className: "barBox_son" },
-      { name: "家庭维修", id: 4, className: "barBox_son" },
-    ]
+      { name: "房屋租赁", value:"房屋租赁", id: 0, className: "barBox_sonC"},
+      { name: "餐饮美食", value: "餐饮美食", id: 1, className: "barBox_son" },
+      { name: "零售便利", value: "零售便利", id: 2, className: "barBox_son" },
+      { name: "美容美发", value: "美容美发", id: 3, className: "barBox_son" },
+      { name: "家庭维修", value: "家庭维修", id: 4, className: "barBox_son" },
+    ],
+    nowlist:[],
+    select:"房屋租赁"
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    ajax.requestByGet('/store/list/房屋租赁',{},(res)=>{
+      if(res.data.data.length>0){
+        this.setData({
+          nowlist: res.data.data
+        })
+      }
+    })
   },
   getBar:function(e){
+    let that = this
     var id = e.currentTarget.id;
     var arr = this.data.barArr
+    let value = ""
     for(var i=0;i<arr.length;i++){
       if(arr[i].id == id){
         arr[i].className = "barBox_sonC"
+        value = arr[i].value
+        ajax.requestByGet('/store/list/'+value,{},(res)=>{
+          if(res.data.data.length>0){
+            that.setData({
+              barArr: arr,
+              nowlist:res.data.data,
+              select:value
+            })
+          }else{
+            that.setData({
+              barArr: arr,
+              nowlist:[],
+              select: value
+            })
+          }
+          console.log(that.data)
+        })
       }else{
         arr[i].className = "barBox_son"
       }
     }
-    this.setData({
-      barArr:arr
+    
+  },
+  toliveserverdetail: function (e) {
+    let index = e.currentTarget.dataset.id
+    wx.navigateTo({
+      url: '../liveserver_detial/liveserver_detial'+'?index='+index,
     })
   },
   /**
@@ -60,11 +92,6 @@ Page({
    */
   onHide: function () {
 
-  },
-  toliveserverdetail:function(){
-    wx.navigateTo({
-      url: '../liveserver_detial/liveserver_detial',
-    })
   },
   /**
    * 生命周期函数--监听页面卸载

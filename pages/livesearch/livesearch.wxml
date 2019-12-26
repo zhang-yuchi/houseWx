@@ -1,9 +1,5 @@
-<!--pages/liveserver/liveserver.wxml-->
+<!--pages/livesearch/livesearch.wxml-->
 <View class="container">
-  <View class="searchBox">
-      <image src="../../images/SEARCH.png" class="searchpic" />
-      <input placeholder="请输入小区或者地址" class="input" style="width:{{inputWidth}}" bindconfirm="search" confirm-type='search' name="search"/>
-  </View>
   <View class="barBox">
     <View wx:for="{{barArr}}" wx:key="barArr" id="{{item.id}}"  class="{{item.className}}" bindtap="getBar">
       <View class="barBox_son_font">{{item.name}}</View>
@@ -26,3 +22,4 @@
   
   </scroll-view>
 </View>
+

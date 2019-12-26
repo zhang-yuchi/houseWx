@@ -132,7 +132,12 @@ Page({
         key.classname = ""
       }
     }
-
+    //清空地区 选择
+    for (let item of this.data.selectcontent[1]){
+      item.classname = ""
+      item.select = false
+    }
+    console.log(this.data.selectcontent)
      //----------
     let inner = ditielist[i]
     for(let item of inner){
@@ -145,7 +150,67 @@ Page({
     sub.content = subcontent
     this.setData({
       sublist: sub,
+      selectcontent: this.data.selectcontent,
       ditielist:ditielist,
+    })
+  },
+  choosearea(e){
+    //选择地区
+    let index = e.currentTarget.dataset.optionindex
+    let nowlist = this.data.nowlist
+    for (let item of nowlist) {
+      item.select = false;
+      item.classname = ""
+    }
+    //清除地铁口选择
+    for(let item of this.data.ditielist){
+      for(let key of item){
+        key.classname = ""
+        key.select = false
+      }
+    }
+    nowlist[index].select = true;
+    nowlist[index].classname = "active-content"
+    this.setData({
+      nowlist: nowlist,
+      ditielist:this.data.ditielist
+    })
+  },
+  sx(){
+    let userselect = wx.getStorageSync("userSelect")
+    //判断附近:
+    for (let item of this.data.selectcontent[0]){
+      console.log(item)
+      if(item.select){
+        console.log(item.value)
+        userselect.distance = item.value
+      }
+    }
+    wx.setStorageSync("fjlist", this.data.selectcontent[0])//修改本地缓存
+    console.log(userselect)
+    //改变地区和地铁 地区和地铁反正只有一个坐标 但是 地区 地铁和地铁口 三个状态的缓存要保存
+    for (let item of this.data.selectcontent[1]){
+      if(item.select&&item.name!=="不限"){
+        userselect.lat = item.location.lat
+        userselect.lng = item.location.lng
+      }
+    }
+    for(let item of this.data.ditielist){
+      for(let key of item){
+        if (key.select) {
+          userselect.lat = key.location.lat
+          userselect.lng = key.location.lng
+        }
+      }
+    }
+    wx.setStorageSync("arealist", this.data.selectcontent[1])
+    let subObj = wx.getStorageSync("subwayObject")
+    subObj.sublist = this.data.ditielist
+    subObj.subtitle = this.data.selectcontent[2]
+    wx.setStorageSync("subwayObject", subObj)
+    wx.setStorageSync("userSelect", userselect)
+    wx.switchTab({
+      url: '../index/index',
     })
   },
   /**
@@ -194,6 +259,11 @@ Page({
     })
   },
   toprice(){
+    wx.redirectTo({
+      url: '../price2/price2',
+    })
+  },
+  tosort(){
     wx.redirectTo({
       url: '../price/price',
     })

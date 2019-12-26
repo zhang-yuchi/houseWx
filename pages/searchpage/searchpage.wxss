@@ -1,3 +1,4 @@
+/* pages/searchpage/searchpage.wxss */
 .content{
   padding-top: 40rpx;
 }

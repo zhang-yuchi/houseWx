@@ -7,45 +7,17 @@
   </View>
 
   <scroll-view scroll-y="true" class="scrollView" style="width:100%;height:{{scrollViewHeight}}">
-    <View class="infoBox" bindtap="tomyordercash_sd">
+    <View class="infoBox" wx:for="{{myordercashNow}}" wx:key="paylist" bindtap="tomyordercash_{{item.payItem=='deposit'?'yj':item.payItem=='cash'?'zj':'sd'}}">
       <View class="left">
-        <image src="../../images/water.png" class="pic"/>
-        <View class="font">水电</View>
+        <image src="../../images/{{item.payItem=='deposit'?'icon_qianbao':item.payItem=='cash'?'cash':'water'}}.png" class="pic"/>
+        <View class="font">{{item.remark}}</View>
       </View>
       <View class="right">
-        <View class="right_son" style="margin-top:20px;">东泰花园</View>
-        <View class="right_son" style="color:gray"></View>
-        <View class="right_son" style="color:gray">日期：2019/10/10</View>
+        <View class="right_son" style="margin-top:20rpx">东泰花园</View>
+        <View class="right_son" style="color:gray;font-size:30rpx;margin-bottom:20rpx;font-weight:500">日期：2019/10/10</View>
       </View>
-      <View class="right_right">3000<Text style="font-size:12px;">元</Text></View>
+      <View class="right_right">{{item.money}}<Text style="font-size:12px;">元</Text></View>
     </View>
-
-
-    <!-- <View class="infoBox" bindtap="tomyordercash_zj">
-      <View class="left">
-        <image src="../../images/cash.png" class="pic"/>
-        <View class="font">租金</View>
-      </View>
-      <View class="right">
-        <View class="right_son" style="margin-top:20px;">东泰花园</View>
-        <View class="right_son" style="color:gray"></View>
-        <View class="right_son" style="color:gray">日期：2019/10/10</View>
-      </View>
-      <View class="right_right">3000<Text style="font-size:12px;">元</Text></View>
-    </View>
-
-    <View class="infoBox" bindtap="tomyordercash_yj">
-      <View class="left">
-        <image src="../../images/icon_qianbao.png" class="pic"/>
-        <View class="font">押金</View>
-      </View>
-      <View class="right">
-        <View class="right_son" style="margin-top:20px;">东泰花园</View>
-        <View class="right_son" style="color:gray"></View>
-        <View class="right_son" style="color:gray">日期：2019/10/10</View>
-      </View>
-      <View class="right_right">3000<Text style="font-size:12px;">元</Text></View>
-    </View> -->
 
   </scroll-view>
 </View>

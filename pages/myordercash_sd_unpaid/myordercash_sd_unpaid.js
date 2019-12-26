@@ -6,10 +6,25 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    
   },
   toPay(){
-    
+    ajax.requestByGet('/user/info',{},function(res){
+      console.log(res);
+    })
+    ajax.requestByGet('/pay/prepayInfo/2/"水电"/304.14',{},function(res){
+      console.log(res)
+      let payInfo = res.data.data
+      wx.requestPayment({
+        timeStamp: payInfo.timeStamp,
+        nonceStr: payInfo.nonceStr,
+        package: payInfo.package,
+        signType: 'MD5',
+        paySign: payInfo.paySign,
+        success: function(res){console.log(res)},
+        fail: function(res){console.log(res)}
+      })
+    })
     // wx.requestPayment({
     //   'timeStamp': '',
     //   'nonceStr': '',

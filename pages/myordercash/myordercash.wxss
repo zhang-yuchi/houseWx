@@ -54,37 +54,42 @@ page {
 }
 .infoBox{
   width:94%;
-  height:280rpx;
+  height:240rpx;
   margin:0 auto;
-  /* background:green; */
   border-bottom:2rpx solid rgb(240,240,240);
-  overflow: hidden;
+  display: flex;
+  align-items: center;
+  position: relative;
 }
 .left{
   width:200rpx;
   height:200rpx;
-  /* background:red; */
-  float:left;
-  margin-top:40rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
 .font{
   width:160rpx;
   height:40rpx;
-  font-size:28rpx;
+  font-size:24rpx;
   color:gray;
   letter-spacing: 2rpx;
   text-align: center;
   line-height: 40rpx;
+  margin-top: 10rpx;
 }
 .pic{
   display: block;
-  width:160rpx;
-  height:160rpx;
+  width:120rpx;
+  height:120rpx;
   border-radius: 20rpx;
 }
 .right{
   height:200rpx;
-  float:left;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
 }
 .right_son{
   height:60rpx;
@@ -92,10 +97,7 @@ page {
   font-weight: 800;
   color:#333333;
   text-align: left;
-  margin-left:20rpx;
   line-height: 60rpx;
-  /* margin-top:18px; */
-  letter-spacing: 2rpx;
 }
 .right_right{
   height:60rpx;
@@ -103,9 +105,9 @@ page {
   font-weight: 800;
   color:red;
   text-align: left;
-  margin-left:20rpx;
   line-height: 60rpx;
-  margin-top:160rpx;
   letter-spacing: 2rpx;
-  float: right;
+  position: absolute;
+  right: 0;
+  bottom: 40rpx;
 }

@@ -19,6 +19,8 @@ Page({
     requestHost:app.data.requestHost,
     isFd:0,
     isAuth:0,
+    page:1,
+    isBottom:false,
   },
   /**
    * 生命周期函数--监听页面加载
@@ -53,6 +55,37 @@ Page({
     wx.navigateTo({
       url: '../price2/price2',
     })
+  },
+  tonew(){
+    let page = this.data.page
+    let that = this
+    if(!that.data.isBottom){
+      wx.showLoading({
+        title: '加载中',
+      })
+      ajax.requestByGet('/house?page=' + (page + 1), wx.getStorageSync("userSelect"), (res) => {
+        wx.hideLoading()
+        console.log(res)
+        if (res.data.status == -1) {
+          that.data.isBottom = true
+          wx.showToast({
+            title: '已经到底部了哦~',
+            icon: "none"
+          })
+        } else {
+          let houses = that.data.houses
+          for (let item of houses) {
+            houses.push(item)
+          }
+          that.setData({
+            houses: houses,
+            page: page + 1
+          })
+
+        }
+      })
+    }
+    
   },
   toarea(){
     wx.navigateTo({

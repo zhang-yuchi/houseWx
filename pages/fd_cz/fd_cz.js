@@ -23,31 +23,34 @@ Page({
     caox:"请选择朝向",
     elArr:["有","无"],
     diant:"请选择是否有电梯",
-    looktime:"",
-    intime:"",
+    looktime:"单行输入",
+    intime:"单行输入",
     textarea:"",
     firstLevel:[
-      { name: "电视", url:"../../images/电视.png", id: 0, selected: false, className:"jjBox_son_text"},
-      { name: "冰箱", url: "../../images/冰箱.png",id: 1, selected: false, className: "jjBox_son_text" },
-      { name: "洗衣机", url: "../../images/洗衣机.png",id: 2, selected: false, className: "jjBox_son_text"},
-      { name: "空调", url: "../../images/空调.png",id: 3, selected: false, className: "jjBox_son_text"},
-      { name: "热水器", url: "../../images/热水器.png",id: 4, selected: false, className: "jjBox_son_text"},
+      { name: "电视", url: "../../images/dianshi.png", value:"hasTelevison", id: 0, selected: false, className:"jjBox_son_text"},
+      { name: "冰箱", url: "../../images/bingxiang.png", value: "hasRefrigerator", id: 1, selected: false, className: "jjBox_son_text" },
+      { name: "洗衣机", url: "../../images/xiyiji.png", value: "hasWasher", id: 2, selected: false, className: "jjBox_son_text"},
+      { name: "空调", url: "../../images/kongtiao.png", value: "hasAirConditioner", id: 3, selected: false, className: "jjBox_son_text"},
+      { name: "热水器", url: "../../images/reshuiqi.png", value: "hasHeater", id: 4, selected: false, className: "jjBox_son_text"},
     ],
     secondLevel:[
-      { name: "床", url: "../../images/床.png", id: 0, selected: false, className: "jjBox_son_text" },
-      { name: "暖气", url: "../../images/暖气.png", id: 1, selected: false, className: "jjBox_son_text" },
-      { name: "宽带", url: "../../images/宽带.png", id: 2, selected: false, className: "jjBox_son_text" },
-      { name: "衣柜", url: "../../images/衣柜.png", id: 3, selected: false, className: "jjBox_son_text" },
-      { name: "天然气", url: "../../images/煤气.png", id: 4, selected: false, className: "jjBox_son_text" },
-    ]
+      { name: "床", url: "../../images/chuang.png", value: "hasBed",  id: 0, selected: false, className: "jjBox_son_text" },
+      { name: "暖气", url: "../../images/nuanqi.png", value: "hasHeating",  id: 1, selected: false, className: "jjBox_son_text" },
+      { name: "宽带", url: "../../images/kuandai.png", value: "hasBoradband",  id: 2, selected: false, className: "jjBox_son_text" },
+      { name: "衣柜", url: "../../images/yigui.png", value: "hasWardrobe",  id: 3, selected: false, className: "jjBox_son_text" },
+      { name: "天然气", url: "../../images/meiqi.png", value: "hasGas",  id: 4, selected: false, className: "jjBox_son_text" },
+    ],
+    
+    
   },
-
+  
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
 
   },
+  //具体地址
   chooseLocation: function () {
     var that = this
     wx.chooseLocation({
@@ -66,6 +69,7 @@ Page({
       }
     })
   },
+
   getId:function(e){
     var id = e.currentTarget.id;
     var now = this.data.firstLevel;
@@ -86,11 +90,13 @@ Page({
       firstLevel:now
     })
   },
+  //其他要求
   getTextArea:function(e){
     this.setData({
       textarea: e.detail.value
     })
   },
+
   getSecond: function (e) {
     var id = e.currentTarget.id;
     var now = this.data.secondLevel;
@@ -103,8 +109,6 @@ Page({
           now[i].selected = true;
           now[i].className = "jjBox_son_textC"
         }
-
-
       }
     }
     this.setData({
@@ -127,76 +131,86 @@ Page({
   },
   submit:function(){
     var that = this;
-    // imageSrc: "",
-    //   addr: "",
-    //     cash: "",
-    //       time: "",
-    //         cashType: "请选择押金方式",
-    //           areaWidth: "",
-    //             floor: "",
-    //               cgArr: ["优", "良", "一般"],
-    //                 caig: "请选择采光程度",
-    //                   cxArr: ["东", "南", "西"],
-    //                     caox: "请选择朝向",
-    //                       elArr: ["是", "否"],
-    //                         diant: "请选择是否有电梯",
-    //                           looktime: "",
-    //                             intime: "",
-    //                               textarea: "",
-    if (that.data.addr != "" && that.data.cash != "" && that.data.time != "" && that.data.cashType != "" && that.data.areaWidth != "" && that.data.caig != "" && that.data.caox != "" && that.data.diant != "" && that.data.looktime != "" && that.data.intime != "" && that.data.textarea != "" && that.data.imageSrc != "" && that.data.floor != ""){
-      var dataObj = {};
-      dataObj.addr = that.data.addr;
-      dataObj.cash = that.data.cash;
-      dataObj.time = that.data.time;
-      dataObj.cashType = that.data.cashType;
-      dataObj.areaWidth = that.data.areaWidth;
-      dataObj.caig = that.data.caig;
-      dataObj.caox = that.data.caox;
-      dataObj.diant = that.data.diant;
-      dataObj.looktime = that.data.looktime;
-      dataObj.intime = that.data.intime;
-      dataObj.textarea = that.data.textarea;
-      dataObj.floor = that.data.floor;
-      dataObj.longitude = that.data.longitude;
-      dataObj.latitude = that.data.latitude;
-      dataObj.jj_1 = that.data.firstLevel;
-      dataObj.jj_2 = that.data.secondLevel;
-      var fdId = wx.getStorageSync('id');
-      var token = wx.getStorageSync('token');
-      //上传图片的同时将文字也进行上传
-      wx.uploadFile({
-        url: app.data.requestHost + '/upFdHouse', //仅为示例，非真实的接口地址
-        filePath: that.data.imageSrc[0],
-        header: {
-          "content-type": "multipart/form-data"
-        },
-        name: 'file',
-        formData: {
-          id: fdId,
-          token: token,
-          houseInfo:JSON.stringify(dataObj)
-        },
-        success: function (res) {
-          var data = res.data
-          //do something
-          console.log("1" + data);
-          if (JSON.parse(data).status == "200" && JSON.parse(data).code == "1"){
-            wx.navigateTo({
-              url: '../fdAuth_check/fdAuth_check',
-            })
-          }else{
-            wx.showModal({
-              title: '提示',
-              content: '信息出错，请重试',
-            })
-          }
+    console.log(wx.getStorageSync("userInfo"))
+    console.log(that.data)
+    if (that.data.addr != "" && that.data.cash != "" && that.data.time != "" && that.data.cashType != "请选择押金方式" && that.data.areaWidth != "" && that.data.caig != "请选择采光程度" && that.data.caox != "请选择朝向" && that.data.diant != "请选择是否有电梯" && that.data.looktime != "" && that.data.intime != "单行输入" && that.data.textarea != "" && that.data.imageSrc != "" && that.data.floor != ""){
+      var dataObj = {
+        area:that.data.areaWidth,//面积
+        cash:that.data.cash,//租金
+        cashType: that.data.cashType,//房租类型
+        checkInDate:that.data.intime,//入住时间
+        inspection:that.data.looktime,//看房时间
+        city:"",
+        daylighting:that.data.caig,
+        floor: that.data.floor,
+        // gmtCreate:"",
+        hasAirConditioner:0,
+        hasBalcony:0,
+        hasBed:0,
+        hasBoradband:0,
+        hasElevator:0,
+        hasGas:0,
+        hasHeater:0,
+        hasHeating:0,
+        hasRefrigerator:0,
+        hasTelevison:0,
+        hasWardrobe:0,
+        hasWasher:0,
+        lat:that.data.latitude,
+        lng:that.data.longitude,
+        orientation:that.data.caox,
+        province:"",
+        title:that.data.time,
+        textarea:that.data.textarea,
+      };
+      console.log("1111")
+      console.log(dataObj)
+      console.log(that.data.address)
+      //得到city和province
+      let addr = that.data.addr
+      //县级市
+      if (addr.indexOf('省') == -1 && addr.indexOf("自治区") == -1) {
+        //省市相同
+        let index = addr.indexOf('市')
+        console.log(addr.substring(0, index))
+        dataObj.city = dataObj.province = addr.substring(0, index)
+      } else if (addr.indexOf('省') == -1 && addr.indexOf("自治区") != -1) {
+        //自治区
+        let index = addr.indexOf('自治区')
+        let cindex = addr.indexOf('市')
+        dataObj.province = addr.substring(0, index)
+        dataObj.city = addr.substring(index+3, cindex)
+      } else if (addr.indexOf('省') != -1 && addr.indexOf("自治区") == -1) {
+        //常规
+        let index = addr.indexOf('省')
+        let cindex = addr.indexOf('市')
+        dataObj.province = addr.substring(0, index)
+        dataObj.city = addr.substring(index+1, cindex)
+      }
+
+      //得到两排的筛选
+      for(let item of that.data.firstLevel){
+        if(item.selected){
+          //被选中了
+          dataObj[item.value] = 1
         }
-      });
+      }
+      for(let item of that.data.secondLevel){
+        if (item.selected) {
+          //被选中了
+          dataObj[item.value] = 1
+        }
+      }
+      //是否有电梯
+      if(that.data.dianti=="有"){
+        dataObj.hasElevator = 1
+      }
+      console.log(dataObj)
     }else{
-      wx.showModal({
-        title: '提示',
-        content: '信息不完整！请检查',
-      })
+      // wx.showModal({
+      //   title: '提示',
+      //   content: '信息不完整！请检查',
+      // })
     }
     
   },

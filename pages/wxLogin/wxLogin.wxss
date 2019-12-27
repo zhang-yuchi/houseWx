@@ -72,7 +72,7 @@ page{
 
 .btn{
   width:80%;
-  height:100rpx;
+  line-height:100rpx;
   margin:20rpx auto;
 }
 

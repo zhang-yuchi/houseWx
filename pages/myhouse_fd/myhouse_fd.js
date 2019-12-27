@@ -1,6 +1,7 @@
 // pages/myorder/myorder.js
 var app = getApp();
 var allArr = [];
+let ajax = require('../../utils/ajax.js')
 Page({
 
   /**
@@ -21,7 +22,10 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    ajax.requestByGet('/user/landload/house',{},res=>{
+      console.log(res)
+      
+    })
   },
   changeBar: function (e) {
     var that = this;
@@ -51,44 +55,9 @@ Page({
    */
   onShow: function () {
     var that = this;
-    var id = wx.getStorageSync('id');
-    var token = wx.getStorageSync('token');
     that.setData({
       scrollViewHeight: (app.data.height - 50) + "px"
     })
-    wx.request({
-      url: app.data.requestHost + '/getAllHouseById',
-      header: {
-        'content-type': 'application/json'
-      },
-      data:{
-        id:id,
-        token:token
-      },
-      method: "POST",
-      success: function (res) {
-        var result = res.data;
-        if (result.status == "200" && result.code == "1") {
-          var arr = JSON.parse(result.data.houseData);
-          var newHouseSets = [];
-          for (var i = 0; i < arr.length; i++) {
-            var obj = {};
-            obj = arr[i];
-            obj.houseinfo = JSON.parse(arr[i].houseinfo);
-            newHouseSets.push(obj)
-          }
-          allArr = newHouseSets;
-          that.setData({
-            houseSets: newHouseSets
-          })
-          console.log(that.data.houseSets)
-        }else{
-          wx.showToast({
-            title: '网络出错',
-          })
-        }
-      },
-    });
   },
 
   /**

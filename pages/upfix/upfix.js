@@ -31,7 +31,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    ajax.requestByGet('/user/sign',{},function(res){
+    ajax.requestByGet('/house/user',{},function(res){
       console.log(res)
     })
   },

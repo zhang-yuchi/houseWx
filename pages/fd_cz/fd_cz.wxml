@@ -19,7 +19,7 @@
   <View class="sigleInput">
     <View class="left">租金</View>
     <View class="right">
-      <input placeholder="单行输入" class="input" bindinput="getCash" />
+      <input type="number" placeholder="单行输入/月" class="input" bindinput="getCash" />
     </View>
   </View>
 
@@ -46,13 +46,13 @@
   <View class="sigleInput">
     <View class="left">建筑面积</View>
     <View class="right">
-      <input placeholder="单行输入" class="input" bindinput="areaWidth" />
+      <input type="number" placeholder="单行输入" class="input" bindinput="areaWidth" />
     </View>
   </View>
   <View class="sigleInput" style="border:none;">
     <View class="left">楼层</View>
     <View class="right">
-      <input placeholder="单行输入" class="input" bindinput="getFloor" />
+      <input type="number" placeholder="单行输入" class="input" bindinput="getFloor" />
     </View>
   </View>
   <View style="width:100%;height:7px;background:rgb(234,234,234);margin-top:15px;"></View>
@@ -96,14 +96,17 @@
   <View class="sigleInput">
     <View class="left">看房时间</View>
     <View class="right">
-      <input placeholder="单行输入" class="input" bindinput="lookTime" />
+      <input  placeholder="单行输入" class="input" bindinput="lookTime" />
     </View>
+    <!-- <picker  mode="date"></picker> -->
   </View>
 
   <View class="sigleInput" style="border:none">
     <View class="left">入住时间</View>
-    <View class="right">
-      <input placeholder="单行输入" class="input" bindinput="intime" />
+    <View class="middle">
+      <picker class="picker" mode="date" bindchange="intime" >
+        {{intime}}
+      </picker>
     </View>
   </View>
   <View style="width:100%;height:7px;background:rgb(234,234,234);margin-top:15px;"></View>
@@ -115,22 +118,7 @@
       <View class="{{item.className}}">{{item.name}}</View>
     </View>
 
-    <!-- <View class="jjBox_son">
-    <image src="../../images/冰箱.png" class="jjBox_son_pic" />
-    <View class="jjBox_son_text">冰箱</View>
-  </View>
-  <View class="jjBox_son">
-    <image src="../../images/洗衣机.png" class="jjBox_son_pic" />
-    <View class="jjBox_son_text">洗衣机</View>
-  </View>
-  <View class="jjBox_son">
-    <image src="../../images/空调.png" class="jjBox_son_pic" />
-    <View class="jjBox_son_text">空调</View>
-  </View>
-  <View class="jjBox_son">
-    <image src="../../images/热水器.png" class="jjBox_son_pic" />
-    <View class="jjBox_son_text">热水器</View>
-  </View> -->
+    
   </View>
 
   <View class="jjBox">

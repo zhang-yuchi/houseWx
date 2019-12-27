@@ -1,5 +1,6 @@
 // pages/livesearch/livesearch.js
 var app = getApp()
+const ajax = require('../../utils/ajax.js')
 Page({
 
   /**
@@ -41,7 +42,9 @@ Page({
    */
   onLoad: function (options) {
     let search = options.search
-    
+    ajax.requestByGet('/store/search/'+search,{},function(res){
+      console.log(res)
+    })
   },
 
   /**

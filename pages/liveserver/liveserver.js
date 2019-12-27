@@ -22,6 +22,16 @@ Page({
   },
   search(){
     console.log(this.data.search)
+    let search = this.data.search
+    wx.navigateTo({
+      url: '../livesearch/livesearch?search='+search,
+    })
+  },
+  input(e){
+    // console.log(e.detail.value)
+    this.setData({
+      search:e.detail.value
+    })
   },
   /**
    * 生命周期函数--监听页面加载

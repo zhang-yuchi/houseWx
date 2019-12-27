@@ -62,6 +62,17 @@ Page({
   })
 
   },
+  totips(){
+    wx.showToast({
+      title: '审核中,请耐心等待',
+      icon:"none"
+    })
+  },
+  toRent(){
+    wx.navigateTo({
+      url: '../fd_cz/fd_cz',
+    })
+  },
   toPrice:function(){
     wx.navigateTo({
       url: '../price2/price2',

@@ -7,10 +7,10 @@ Page({
    * 页面的初始数据
    */
   data: {
-    
+    obj:{}
   },
   toPay(){
-    pay.pay(2,"deposit",0.01);
+    // pay.pay(2,"deposit",0.01);
     // ajax.requestByGet('/pay/prepayInfo/2/"deposit"/304.14',{},function(res){
     //   console.log(res)
     //   let payInfo = res.data.data
@@ -29,8 +29,22 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    ajax.requestByGet('/user/info', {}, function (res) {
-      console.log(res);
+    var that = this;
+    console.log(options.index);
+    var index = options.index
+    ajax.requestByGet('/user/bill', {}, function (res) {
+      var data = res.data.data[index];
+      console.log(data);
+      var obj = {};
+      obj.houseInfo = data.houseInfo;
+      obj.houseType = data.houseType;
+      obj.money = data.money;
+      obj.remark = data.remark;
+      obj.dead_date = data.dead_date.split('T')[0];
+      obj.gmtCreate = data.gmtCreate.split('T')[0];
+      that.setData({
+        obj: obj
+      })
     })
   },
 

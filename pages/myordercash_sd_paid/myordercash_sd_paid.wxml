@@ -2,7 +2,7 @@
 <view class="container">
   <button class="btn-paid">已支付</button>
   <view class="content-payfor">
-    <view class="content-payfor-left">东泰花园 两房一厅</view>
+    <view class="content-payfor-left">{{obj.houseInfo}} {{obj.houseType}}</view>
     <view class="content-payfor-right">
         <image src="../../images/water.png" class="content-payfor-pic"></image>
         <view class="content-payfor-font">水电</view>
@@ -31,6 +31,6 @@
   </view>
   <view class="content-list2" style="padding-top:60rpx;border-top:1px solid rgb(230, 230, 230)">
     <view  class="content-list-left">收费日期</view>
-    <view  class="content-list-right">2019-08-22</view>
+    <view  class="content-list-right">{{obj.payDate}}</view>
   </view>
 </view>

@@ -7,13 +7,13 @@
   </View>
 
   <scroll-view scroll-y="true" class="scrollView" style="width:100%;height:{{scrollViewHeight}}">
-    <View class="infoBox" wx:for="{{myordercashNow}}" wx:key="paylist" bindtap="tomyordercash_{{item.payItem=='deposit'?'yj':item.payItem=='cash'?'zj':'sd'}}">
+    <View class="infoBox" wx:for="{{myordercashNow}}" wx:key="paylist" bindtap="tomyordercash_{{item.payItem=='deposit'?'yj':item.payItem=='cash'?'zj':'sd'}}" data-index="{{index}}">
       <View class="left">
         <image src="../../images/{{item.payItem=='deposit'?'icon_qianbao':item.payItem=='cash'?'cash':'water'}}.png" class="pic"/>
-        <View class="font">{{item.remark}}</View>
+        <View class="font">{{item.payItem=='deposit'?'押金':item.payItem=='cash'?'租金':'水电费'}}</View>
       </View>
       <View class="right">
-        <View class="right_son" style="margin-top:20rpx">东泰花园</View>
+        <View class="right_son" style="margin-top:20rpx">{{item.houseInfo}}</View>
         <View class="right_son" style="color:gray;font-size:30rpx;margin-bottom:20rpx;font-weight:500">日期：{{item.dead_date}}</View>
       </View>
       <View class="right_right">{{item.money}}<Text style="font-size:12px;">元</Text></View>

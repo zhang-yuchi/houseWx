@@ -1,7 +1,6 @@
-const app = getApp()
 var ajax = require('ajax.js');
 module.exports = {
-    pay(houseid, payItem, money) {
+    pay(houseid, payItem, money,callback) {
       ajax.requestByGet(`/pay/prepayInfo/${houseid}/${payItem}/${money}`, {}, function(res) {
           console.log(res)
           let payInfo = res.data.data;
@@ -11,11 +10,7 @@ module.exports = {
             package: payInfo.package,
             signType: 'MD5',
             paySign: payInfo.paySign,
-            success: function(res) {
-              wx.showToast({
-                title: '支付成功',
-              })
-            },
+            success: callback,
             fail: function(res) {
               if (res.errMsg == "requestPayment:fail cancel"){
                 wx.showToast({
@@ -25,6 +20,7 @@ module.exports = {
               }else{
                 wx.showToast({
                   title: '支付失败',
+                  icon:"none"
                 })
               }
             }

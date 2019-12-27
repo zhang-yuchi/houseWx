@@ -35,14 +35,17 @@ Page({
       var myordercashPaid = [];
       var payList = res.data.data
       for (let item of payList) {
+        item.dead_date = (item.dead_date.split('T'))[0]
         if (item.isPaid) {
-          myordercashPaid.push(item)
+          myordercashPaid.push(item);
+
         } else {
           myordercashUnpaid.push(item)
         }
       }
       // console.log(myordercashPaid);
       // console.log(myordercashUnpaid);
+      
       that.setData({
         myordercashUnpaid: myordercashUnpaid,
         myordercashPaid: myordercashPaid,
@@ -77,39 +80,42 @@ Page({
   },
 
   //页面跳转
-  tomyordercash_yj: function() {
+  tomyordercash_yj: function(e) {
     var that = this;
+    var index = e.currentTarget.dataset.index;
     if (that.data.barArr[0].select) {
       wx.navigateTo({
-        url: '../myordercash_yj_unpaid/myordercash_yj_unpaid',
+        url: `../myordercash_yj_unpaid/myordercash_yj_unpaid?index=${index}`,
       })
     } else {
       wx.navigateTo({
-        url: '../myordercash_yj_paid/myordercash_yj_paid',
+        url: `../myordercash_yj_paid/myordercash_yj_paid?index=${index}`,
       })
     }
   },
-  tomyordercash_zj: function() {
+  tomyordercash_zj: function(e) {
     var that = this;
+    var index = e.currentTarget.dataset.index;
     if (that.data.barArr[0].select) {
       wx.navigateTo({
-        url: '../myordercash_zj_unpaid/myordercash_zj_unpaid',
+        url: `../myordercash_zj_unpaid/myordercash_zj_unpaid?index=${index}`,
       })
     } else {
       wx.navigateTo({
-        url: '../myordercash_zj_paid/myordercash_zj_paid',
+        url: `../myordercash_zj_paid/myordercash_zj_paid?index=${index}`,
       })
     }
   },
-  tomyordercash_sd: function() {
+  tomyordercash_sd: function(e) {
     var that = this;
+    var index = e.currentTarget.dataset.index;
     if (that.data.barArr[0].select) {
       wx.navigateTo({
-        url: '../myordercash_sd_unpaid/myordercash_sd_unpaid',
+        url: `../myordercash_sd_unpaid/myordercash_sd_unpaid?index=${index}`,
       })
     } else {
       wx.navigateTo({
-        url: '../myordercash_sd_paid/myordercash_sd_paid',
+        url: `../myordercash_sd_paid/myordercash_sd_paid?index=${index}`,
       })
     }
   },

@@ -1,5 +1,6 @@
 // pages/myordercash_sj_unpaid/myordercash_sj_unpaid.js
 var ajax = require('../../utils/ajax.js')
+var pay = require('../../utils/pay.js')
 Page({
 
   /**
@@ -9,41 +10,28 @@ Page({
     
   },
   toPay(){
-    ajax.requestByGet('/user/info',{},function(res){
-      console.log(res);
-    })
-    ajax.requestByGet('/pay/prepayInfo/2/"水电"/304.14',{},function(res){
-      console.log(res)
-      let payInfo = res.data.data
-      wx.requestPayment({
-        timeStamp: payInfo.timeStamp,
-        nonceStr: payInfo.nonceStr,
-        package: payInfo.package,
-        signType: 'MD5',
-        paySign: payInfo.paySign,
-        success: function(res){console.log(res)},
-        fail: function(res){console.log(res)}
-      })
-    })
-    // wx.requestPayment({
-    //   'timeStamp': '',
-    //   'nonceStr': '',
-    //   'package': '',
-    //   'signType': 'MD5',
-    //   'paySign': '',
-    //   'success':function(res){
-
-    //   },
-    //   'fail':function(){
-
-    //   }
+    pay.pay(2,"deposit",0.01);
+    // ajax.requestByGet('/pay/prepayInfo/2/"deposit"/304.14',{},function(res){
+    //   console.log(res)
+    //   let payInfo = res.data.data
+    //   wx.requestPayment({
+    //     timeStamp: payInfo.timeStamp,
+    //     nonceStr: payInfo.nonceStr,
+    //     package: payInfo.package,
+    //     signType: 'MD5',
+    //     paySign: payInfo.paySign,
+    //     success: function(res){console.log(res)},
+    //     fail: function(res){console.log(res)}
+    //   })
     // })
   },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    ajax.requestByGet('/user/info', {}, function (res) {
+      console.log(res);
+    })
   },
 
   /**

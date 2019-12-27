@@ -14,7 +14,7 @@
       </View>
       <View class="right">
         <View class="right_son" style="margin-top:20rpx">东泰花园</View>
-        <View class="right_son" style="color:gray;font-size:30rpx;margin-bottom:20rpx;font-weight:500">日期：2019/10/10</View>
+        <View class="right_son" style="color:gray;font-size:30rpx;margin-bottom:20rpx;font-weight:500">日期：{{item.dead_date}}</View>
       </View>
       <View class="right_right">{{item.money}}<Text style="font-size:12px;">元</Text></View>
     </View>

@@ -1,8 +1,8 @@
 const app = getApp()
-var ajax = require('../../utils/ajax.js');
+var ajax = require('ajax.js');
 module.exports = {
     pay(houseid, payItem, money) {
-      ajax.requestByGet('/pay/prepayInfo/houseid/payItem/money', {}, function(res) {
+      ajax.requestByGet(`/pay/prepayInfo/${houseid}/${payItem}/${money}`, {}, function(res) {
           console.log(res)
           let payInfo = res.data.data;
           wx.requestPayment({
@@ -20,6 +20,7 @@ module.exports = {
               if (res.errMsg == "requestPayment:fail cancel"){
                 wx.showToast({
                   title: '已取消',
+                  icon:'none'
                 })
               }else{
                 wx.showToast({

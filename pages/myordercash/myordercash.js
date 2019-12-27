@@ -7,17 +7,17 @@ Page({
    */
   data: {
     barArr: [{
-      name: "未缴费账单",
-      id: 0,
-      className: "son_text",
-      select: true
-    },
-    {
-      name: "已缴费账单",
-      id: 1,
-      className: "son_textC",
-      select: false
-    }
+        name: "未缴费账单",
+        id: 0,
+        className: "son_text",
+        select: true
+      },
+      {
+        name: "已缴费账单",
+        id: 1,
+        className: "son_textC",
+        select: false
+      }
     ],
     myordercashUnpaid: [],
     myordercashPaid: [],
@@ -27,9 +27,9 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
+  onLoad: function(options) {
     var that = this;
-    ajax.requestByGet('/user/bill', {}, function (res) {
+    ajax.requestByGet('/user/bill', {}, function(res) {
       console.log(res);
       var myordercashUnpaid = [];
       var myordercashPaid = [];
@@ -49,10 +49,9 @@ Page({
         myordercashNow: myordercashUnpaid
       })
     })
-
-
   },
-  changeBar: function (e) {
+  
+  changeBar: function(e) {
     var that = this;
     var id = e.currentTarget.id;
     var arr = that.data.barArr;
@@ -78,7 +77,7 @@ Page({
   },
 
   //页面跳转
-  tomyordercash_yj: function () {
+  tomyordercash_yj: function() {
     var that = this;
     if (that.data.barArr[0].select) {
       wx.navigateTo({
@@ -90,7 +89,7 @@ Page({
       })
     }
   },
-  tomyordercash_zj: function () {
+  tomyordercash_zj: function() {
     var that = this;
     if (that.data.barArr[0].select) {
       wx.navigateTo({
@@ -102,7 +101,7 @@ Page({
       })
     }
   },
-  tomyordercash_sd: function () {
+  tomyordercash_sd: function() {
     var that = this;
     if (that.data.barArr[0].select) {
       wx.navigateTo({
@@ -120,49 +119,49 @@ Page({
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
-  onReady: function () {
+  onReady: function() {
 
   },
 
   /**
    * 生命周期函数--监听页面显示
    */
-  onShow: function () {
+  onShow: function() {
 
   },
 
   /**
    * 生命周期函数--监听页面隐藏
    */
-  onHide: function () {
+  onHide: function() {
 
   },
 
   /**
    * 生命周期函数--监听页面卸载
    */
-  onUnload: function () {
+  onUnload: function() {
 
   },
 
   /**
    * 页面相关事件处理函数--监听用户下拉动作
    */
-  onPullDownRefresh: function () {
+  onPullDownRefresh: function() {
 
   },
 
   /**
    * 页面上拉触底事件的处理函数
    */
-  onReachBottom: function () {
+  onReachBottom: function() {
 
   },
 
   /**
    * 用户点击右上角分享
    */
-  onShareAppMessage: function () {
+  onShareAppMessage: function() {
 
   }
 })

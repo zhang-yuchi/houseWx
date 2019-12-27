@@ -29,15 +29,16 @@ page {
   color:#c6c6c6;
 }
 .headPic{
-  width:160rpx;
-  height:160rpx;
+  box-sizing: border-box;
+  width:180rpx;
+  height:180rpx;
   position: absolute;
   top:240rpx;
   margin-top: -120rpx;
   left: 50%;
-  margin-left: -80rpx;
+  margin-left: -90rpx;
   border:20rpx solid white;
-  border-radius: 200rpx;
+  border-radius: 50%;
 }
 .barBox{
   width:90%;

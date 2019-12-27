@@ -13,7 +13,18 @@ Page({
    */
   onLoad: function (options) {
     var that = this;
-    var isFd = wx.getStorageSync('isFd');
+    var isFd = wx.getStorageSync('userInfo').landlord;
+    console.log(isFd)
+    if(isFd==1){
+      //是房东
+      wx.navigateTo({
+        url: '../fd_mime/fd_mime',
+      })
+    }else{
+      wx.navigateTo({
+        url: '../new_mime/new_mime',
+      })
+    }
     // if (isFd == "no") {
     //   wx.navigateTo({
     //     url: '../new_mime/new_mime',
@@ -26,8 +37,8 @@ Page({
   },
   go:function(){
     var that = this;
-    var isFd = wx.getStorageSync('isFd');
-    if (isFd == "no") {
+    var isFd = wx.getStorageSync('userInfo').landlord;
+    if (isFd == 0) {
       wx.navigateTo({
         url: '../new_mime/new_mime',
       })

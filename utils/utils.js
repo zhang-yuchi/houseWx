@@ -259,6 +259,88 @@ module.exports = {
   
 
   },
+  initAsDongGuan(that,callback,loading){
+    //起始地改为东莞
+    console.log(wx.getStorageSync("citylist"))
+
+    let citylist = {
+      city:"东莞"
+    }
+    // citylist.city = "东莞"
+    wx.setStorageSync("citylist",citylist)
+    that.setData({
+      nowcity:"东莞"
+    })
+    qqMap.geocoder({
+      address:"东莞",
+      success(res){
+        //获取东莞的坐标
+        console.log(res)
+        let result = res.result.location
+        wx.setStorageSync("userSelect", {
+          lat: result.lat,
+          lng: result.lng,
+          district: '',
+          houseType: '',
+          cashType: '',
+          girlShared: '',
+          boyShared: '',
+          hasBalcony: '',
+          rentType: '',
+          hasComplete: '',
+          shortRent: '',
+          orientation: "",
+          price: "",
+          cash: '',
+          latest: ''
+      })
+      subwayUtil.sendSubWay("东莞",function(){
+        if(loading){
+          wx.showLoading({
+            title: '加载中',
+          })
+        }
+        //获取arealist
+        qqMap.getCityList({
+          success(res){
+            let arr = res.result[1]
+            let code = 441999 //东莞的编号
+            // for(let item of arr){
+            //   if(item.name == "东莞"){
+            //     // console.log(item)
+            //     code = item.id
+            //     break
+            //   }
+            // }
+            console.log(code)
+            qqMap.getDistrictByCityId({
+              id:code,
+              success(res){
+                let arealist = [{
+                  name: "不限",
+                  select: false,
+                  classname: ""
+                }]
+                console.log(res)
+                // console.log(res.result)
+                for (let item of res.result[0]) {
+                  console.log(item)
+                  let content = {}
+                  content.name = item.fullname
+                  content.location = item.location
+                  content.select = false
+                  content.classname = ""
+                  arealist.push(content)
+                }
+                wx.setStorageSync("arealist", arealist)
+                callback()
+              }
+            })
+          }
+        })
+      })
+    }
+  })},
   tagsToArr(tags){
     if(tags){
       tags = tags.replace("{","")

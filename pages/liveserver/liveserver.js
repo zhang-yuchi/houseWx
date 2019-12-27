@@ -17,9 +17,12 @@ Page({
       { name: "家庭维修", value: "家庭维修", id: 4, className: "barBox_son" },
     ],
     nowlist:[],
-    select:"房屋租赁"
+    select:"房屋租赁",
+    search:""
   },
-
+  search(){
+    console.log(this.data.search)
+  },
   /**
    * 生命周期函数--监听页面加载
    */

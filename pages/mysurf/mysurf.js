@@ -17,9 +17,9 @@ Page({
     houses:[],
     host:app.data.requestHost
   },
-  tohousedetails() {
+  tohousedetails(e) {
     wx.navigateTo({
-      url: '../housedetail/housedetail',
+      url: '../housedetail/housedetail?obj='+e.currentTarget.dataset.id,
     })
   },
 

@@ -58,27 +58,6 @@
     </View>
   </View>
 
-  <!-- <View class="nameBox">
-    <View class="nameBox_left">东泰花园 两房一厅</View>
-    <View class="nameBox_right">￥2500/月</View>
-  </View>
-
-  <View class="nameBox">
-    <View class="nameBox_left" style="font-size:14px;">两房一厅/5楼/建筑面积约85m</View>
-    <View class="nameBox_right" style="font-size:12px;">押一付一</View>
-  </View>
-
-  <View class="titleB">其它情况</View>
-  <View class="nameBox">
-    <View class="nameBox_left" style="font-size:14px;width:30%;font-weight:100">朝向：南北</View>
-    <View class="nameBox_right" style="font-size:14px;width:30%;float:left;font-weight:100">电梯：有</View>
-  </View>
-  <View class="nameBox" style="margin-top:0">
-    <View class="nameBox_left" style="font-size:14px;width:30%;font-weight:100">看房：随时</View>
-    <View class="nameBox_right" style="font-size:14px;width:60%;float:left;font-weight:100">入住：2019.08.08</View>
-  </View> -->
-
-
   <View class="titleB">地理位置</View>
   <map id="map" longitude="{{lng}}" latitude="{{lat}}" scale="14" controls="{{controls}}" bindcontroltap="controltap" markers="{{markers}}" bindmarkertap="markertap" polyline="{{polyline}}" bindregionchange="regionchange" show-location style="width: 95%; height: 100px;margin:0 auto;"></map>
 

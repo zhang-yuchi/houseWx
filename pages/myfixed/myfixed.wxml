@@ -7,17 +7,7 @@
   </View>
 
   <scroll-view scroll-y="true" class="scrollView" style="width:100%;height:{{scrollViewHeight}}">
-    <!-- <View class="infoBox">
-      <View class="left">
-        <image src="../../images/myfixed.png" class="pic"/>
-        <View class="font">报修</View>
-      </View>
-      <View class="right">
-        <View class="right_son" style="margin-top:20px;">东泰花园</View>
-        <View class="right_son" style="color:gray"></View>
-        <View class="right_son" style="color:gray">日期：2019/10/10</View>
-      </View>
-    </View> -->
+    
     <view class="container-list" bindtap="toFixedDetails">
       <View class="left">
         <image src="../../images/myfixed.png" class="pic"/>
@@ -29,37 +19,11 @@
       </View>
     </view>
 
-    <view class="container-list">
-      <View class="left">
-        <image src="../../images/myfixed.png" class="pic"/>
-        <View class="font">报修</View>
-      </View>
-      <View class="right">
-        <View class="right_son" style="font-weight:600;margin-bottom:30rpx">东泰花园</View>
-        <View class="right_son" style="color:rgb(115, 115, 115);margin-top:24rpx">日期：2019-10-10</View>
-      </View>
-    </view>
+    
 
-    <view class="container-list">
-      <View class="left">
-        <image src="../../images/myfixed.png" class="pic"/>
-        <View class="font">报修</View>
-      </View>
-      <View class="right">
-        <View class="right_son" style="font-weight:600;margin-bottom:30rpx">东泰花园</View>
-        <View class="right_son" style="color:rgb(115, 115, 115);margin-top:24rpx">日期：2019-10-10</View>
-      </View>
-    </view>
+    
 
-    <view class="container-list">
-      <View class="left">
-        <image src="../../images/myfixed.png" class="pic"/>
-        <View class="font">报修</View>
-      </View>
-      <View class="right">
-        <View class="right_son" style="font-weight:600;margin-bottom:30rpx">东泰花园</View>
-        <View class="right_son" style="color:rgb(115, 115, 115);margin-top:24rpx">日期：2019-10-10</View>
-      </View>
-    </view>
+    
+    
   </scroll-view>
 </View>

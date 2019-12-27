@@ -11,7 +11,9 @@ Page({
     barArr:[
       { name: "履行中", id: 0, className:"son_text"},
       { name: "已结束", id: 1, className: "son_textC" }
-    ]
+    ],
+    fulArr:[],
+    nowList:[],
   },
 
 
@@ -19,9 +21,28 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    let that = this
     console.log(wx.getStorageSync("token"))
     ajax.requestByGet('/user/sign',{},res=>{
       console.log(res)
+      let arr = res.data.data
+      for(let item of arr){
+        let d = new Date(item.gmtCreate)
+        let date = `${d.getFullYear()}-${d.getMonth()+1}-${d.getDay()}`
+        console.log(date)
+        item.gmtCreate = date
+      }
+      that.setData({
+        fulArr: arr
+      })
+      for(let item of arr){
+        if(item.isFulFill==1){
+          that.data.nowList.push(item)
+        }
+      }
+      that.setData({
+        nowList: that.data.nowList
+      })
     })
   },
   changeBar:function(e){
@@ -34,6 +55,32 @@ Page({
       }else{
         arr[i].className = "son_textC"
       }
+    }
+    if(id==0){
+      // console.log("履行中")
+      let arr = that.data.fulArr
+      let nowL = []
+      for(let item of arr){
+        if(item.isFulFill==1){
+          nowL.push(item)
+        }
+      }
+      that.setData({
+        nowList:nowL
+      })
+    }else{
+      // console.log("已结束")
+      let arr = that.data.fulArr
+      let nowL = []
+      for (let item of arr) {
+        if (item.isFulFill == 0) {
+          nowL.push(item)
+        }
+      }
+      that.setData({
+        nowList: nowL
+      })
+
     }
     that.setData({
       barArr:arr

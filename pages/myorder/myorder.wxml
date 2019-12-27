@@ -8,12 +8,12 @@
 
 
   <view class="box-wrap">
-    <view class="inner-block">
+    <view class="inner-block" wx:for="{{nowList}}" wx:key="{{item.index}}">
       <image class="houseimg" src="../../images/index_2.jpg" />
       <view class="house-info">
-        <view class="details-title">东泰花园 两房一厅</view>
-        <view class="details-date">有效期: 1年</view>
-        <view class="starttime">签订日期:2020-08-22</view>
+        <view class="details-title">{{item.houseInfo}} {{item.houseType}}</view>
+        <view class="details-date">有效期: {{item.expDate}}个月</view>
+        <view class="starttime">签订日期:{{item.gmtCreate}}</view>
       </view>
     </view>
 

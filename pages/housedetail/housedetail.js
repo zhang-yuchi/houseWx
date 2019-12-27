@@ -70,7 +70,7 @@ Page({
    */
   onLoad: function (options) {
     var that = this;
-    // console.log(options.obj)
+    console.log(options.obj)
     // const details = JSON.parse(options.obj)
     this.setData({
       id:options.obj
@@ -137,29 +137,6 @@ Page({
         secondLevel:secLev
       })
     })
-    
-    //上传浏览记录
-    // var id = wx.getStorageSync('id');
-    // var token = wx.getStorageSync('token');
-    // var houseId = that.data.obj.id;
-    // wx.request({
-    //   url: app.data.requestHost + '/updateJoinPeople',
-    //   header: {
-    //     'content-type': 'application/json'
-    //   },
-    //   method: "POST",
-    //   data:{
-    //     id:id,
-    //     token:token,
-    //     houseId:houseId
-    //   },
-    //   success: function (res) {
-    //     var result = res.data;
-    //     if (result.status == "200" && result.code == "1") {
-    //       console.log(result);
-    //     }
-    //   },
-    // });
   },
 sc:function(){
   var that = this;
@@ -214,9 +191,26 @@ sc:function(){
     console.log(e.controlId)
   },
   touserSign:function(){
-    wx.navigateTo({
-      url: '../userSign/userSign',
-    })
+    console.log(wx.getStorageSync("userInfo"))
+    let userinfo = wx.getStorageSync("userInfo")
+    if(userinfo.isAuth==0){
+      wx.showModal({
+        title: '未认证',
+        content: '请先前往主页认证',
+      })
+      return
+    }
+    if (userinfo.landlord==1){
+      wx.showToast({
+        title: '房东无法签约',
+        icon:"none"
+      })
+      return
+    }
+
+    // wx.navigateTo({
+    //   url: '../userSign/userSign',
+    // })
   },
   /**
    * 生命周期函数--监听页面显示

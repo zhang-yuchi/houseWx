@@ -36,13 +36,8 @@ Page({
     }
     // let that = this
     this.setData({
-<<<<<<< HEAD
-      to: 6,//tanke
-      mine:mine
-=======
       to: options.new,//tanke
       mine:mine,
->>>>>>> e8dbae39b8d8ab0a356bc567fd85e28e61bf7538
     })
     new Promise(resolve=>{
       ajax.requestByGet('/tim/msg/history', {

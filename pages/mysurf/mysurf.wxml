@@ -1,5 +1,5 @@
 <!--pages/myorder/myorder.wxml-->
-<view class="content">
+<scroll-view class="content" scroll-y="true" bindtouchend="addpage">
   <view class="content-block" wx:for="{{houses}}" wx:key="{{item.index}}" data-id="{{item.id}}"  bindtap="tohousedetails">
     <view class="block-pic">
       <image src="{{item.headingImg}}"></image>
@@ -14,4 +14,4 @@
       <view class="house-price">{{item.cash}}<text class="per">元/月</text></view>
     </view>
   </view>
-</view>
+</scroll-view>

@@ -333,7 +333,10 @@ module.exports = {
                   arealist.push(content)
                 }
                 wx.setStorageSync("arealist", arealist)
-                callback()
+                if(callback){
+                  callback()
+                }
+                
               }
             })
           }

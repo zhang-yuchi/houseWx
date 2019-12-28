@@ -3,6 +3,7 @@ var app = getApp();
 var ajax = require('../../utils/ajax.js')
 var utils = require('../../utils/utils.js')
 var allArr = [];
+var page = 1
 Page({
 
   /**
@@ -14,6 +15,7 @@ Page({
       { name: "房源信息", id: 0, className: "inner-btn select-btn" },
       { name: "生活服务", id: 1, className: "inner-btn" }
     ],
+    isBottom:false,
     houses:[],
     host:app.data.requestHost
   },
@@ -29,7 +31,7 @@ Page({
   onLoad: function (options) {
     let that = this
     ajax.requestByGet('/user/browse',{
-      page:1
+      page:page
     },(res)=>{
       console.log(res)
       let houses = res.data.data
@@ -42,6 +44,40 @@ Page({
       })
       console.log(res.data.data)
     })
+  },
+  addpage(){
+    let that = this
+    if(!that.data.isBottom){
+      ajax.requestByGet('/user/browse', {
+        page: page + 1
+      }, (res) => {
+        console.log(res)
+        if (res.data.status == -1) {
+          that.setData({
+            isBottom: true
+          })
+          wx.showToast({
+            title: '已经到底部了哦~',
+            icon: "none"
+          })
+          return
+        }
+        let h = that.data.houses
+        let houses = res.data.data
+        for (let item of houses) {
+          // console.log(utils.tagsToArr(item.tags))
+          item.tags = utils.tagsToArr(item.tags)
+        }
+        for (let item of houses) {
+          h.push(item)
+        }
+        that.setData({
+          houses: h
+        })
+        console.log(res.data.data)
+      })
+    }
+    
   },
   changeBar: function (e) {
     var that = this;

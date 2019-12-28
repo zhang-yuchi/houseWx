@@ -160,7 +160,7 @@ sc:function(){
     wx.showLoading({
       title: '请等候',
     })
-    ajax.requestByPost('/user/star/house/'+that.data.id,{},res=>{
+    ajax.requestByPost('/user/star/house/'+that.data.id,{houseId:that.data.id},res=>{
       console.log(res)
       wx.hideLoading()
       wx.showToast({

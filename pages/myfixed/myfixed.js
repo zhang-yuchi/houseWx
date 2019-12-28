@@ -9,9 +9,13 @@ Page({
   data: {
     scrollViewHeight: "",
     barArr: [
-      { name: "待处理", id: 0, className: "son_text" },
-      { name: "已处理", id: 1, className: "son_textC" }
-    ]
+      { name: "待处理", id: 0, className: "son_text" , select:true},
+      { name: "已处理", id: 1, className: "son_textC" , select:false}
+    ],
+    fixed:[],
+    unfixed:[],
+    nowlist:[],
+    houseInfo:[]
   },
 
   /**
@@ -20,17 +24,38 @@ Page({
   onLoad: function (options) {
     ajax.requestByGet('/user/repair',{},res=>{
       console.log(res)
+      let that = this;
+      let data = res.data.data;
+      let fixed = [];
+      let unfixed = [];
+      for(let item of data){
+        item.gmtCreate = item.gmtCreate.split('T')[0]
+        if(item.status){
+          fixed.push(item)
+        }else{
+         unfixed.push(item)
+        }
+      }
+      that.setData({
+        fixed:fixed,
+        unfixed:unfixed,
+        nowlist:unfixed
+      })
     })
+    ajax
   },
+
   changeBar: function (e) {
     let that = this;
     let id = e.currentTarget.id;
     let arr = that.data.barArr;
     for (let i = 0; i < arr.length; i++) {
       if (arr[i].id == id) {
-        arr[i].className = "son_text"
+        arr[i].className = "son_text";
+        arr[i].select = true
       } else {
-        arr[i].className = "son_textC"
+        arr[i].className = "son_textC";
+        arr[i].select = false;
       }
     }
     that.setData({

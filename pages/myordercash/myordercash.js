@@ -1,5 +1,6 @@
 // pages/myordercash/myordercash.js
 var ajax = require('../../utils/ajax.js')
+var app = getApp();
 Page({
 
   /**
@@ -22,7 +23,8 @@ Page({
     myordercashUnpaid: [],
     myordercashPaid: [],
     myordercashNow: [],
-    scrollViewHeight:''
+    scrollViewHeight: '',
+    status: ''
   },
 
   /**
@@ -34,27 +36,35 @@ Page({
       console.log(res);
       var myordercashUnpaid = [];
       var myordercashPaid = [];
-      var payList = res.data.data
-      for (let item of payList) {
-        item.gmtCreate = (item.gmtCreate.split('T'))[0]
-        if (item.isPaid) {
-          myordercashPaid.push(item);
+      if (res.data.status != 1) {
+        wx.showToast({
+          title: res.data.message,
+          icon: 'none'
+        })
+      } else {
+        var payList = res.data.data
+        for (let item of payList) {
+          item.gmtCreate = (item.gmtCreate.split('T'))[0]
+          if (item.isPaid) {
+            myordercashPaid.push(item);
 
-        } else {
-          myordercashUnpaid.push(item)
+          } else {
+            myordercashUnpaid.push(item)
+          }
         }
+        // console.log(myordercashPaid);
+        // console.log(myordercashUnpaid);
+
+        that.setData({
+          myordercashUnpaid: myordercashUnpaid,
+          myordercashPaid: myordercashPaid,
+          myordercashNow: myordercashUnpaid,
+          status: res.data.status
+        })
       }
-      // console.log(myordercashPaid);
-      // console.log(myordercashUnpaid);
-      
-      that.setData({
-        myordercashUnpaid: myordercashUnpaid,
-        myordercashPaid: myordercashPaid,
-        myordercashNow: myordercashUnpaid
-      })
     })
   },
-  
+
   changeBar: function(e) {
     var that = this;
     var id = e.currentTarget.id;
@@ -76,10 +86,9 @@ Page({
     }
     that.setData({
       barArr: arr,
-      myordercashNow: myordercashNow,
-      scrollViewHeight:(240*(myordercashNow.length) + 40) + "rpx"
+      myordercashNow: myordercashNow
     })
-    console.log(that.data.scrollViewHeight)
+    // console.log(that.data.scrollViewHeight)
   },
 
   //页面跳转
@@ -136,7 +145,10 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function() {
-
+    let that = this;
+    that.setData({
+      scrollViewHeight:(app.data.height*2 - 100) + "rpx"
+    })
   },
 
   /**

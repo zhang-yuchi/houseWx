@@ -96,21 +96,6 @@ Page({
       })
     })
   },
-  // changeBar: function (e) {
-  //   var that = this;
-  //   var id = e.currentTarget.id;
-  //   var arr = that.data.barArr;
-  //   for (var i = 0; i < arr.length; i++) {
-  //     if (arr[i].id == id) {
-  //       arr[i].className = "son_text"
-  //     } else {
-  //       arr[i].className = "son_textC"
-  //     }
-  //   }
-  //   that.setData({
-  //     barArr: arr
-  //   })
-  // },
 
   /**
    * 生命周期函数--监听页面初次渲染完成

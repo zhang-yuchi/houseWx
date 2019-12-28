@@ -4,20 +4,20 @@
   
 </view>
 <scroll-view class="content" scroll-y="true">
-  <view class="content-block" bindtap="{{barArr[0]?tohousedetails:toliveserverdetail}}" wx:for="{{barArr[0]?house:store}}" wx:key="list" wx:for-item="item">
+  <view class="content-block" bindtap="{{barArr[0].select?tohousedetails:toliveserverdetail}}" wx:for="{{barArr[0].select?house:store}}" wx:key="list" wx:for-item="item">
     <view class="block-pic">
-      <image src="{{barArr[0]?item.headingImg:item}}"></image>
+      <image src="{{barArr[0].select?item.headingImg:item.headImg}}" style="{{barArr[0].select?'':'width:100%;height:100%'}}"></image>
     </view>
     <view class="sc-details">
-      <view class="sc-title">{{barArr[0]?item.houseInfo:toliveserverdetail}} {{barArr[0]?item.houseType:toliveserverdetail}}</view>
-      <view class="sc-position">{{barArr[0]?item.area:toliveserverdetail}}m<text class="fenge">|</text>{{barArr[0]?item.orientation:toliveserverdetail}}<text class="fenge">|</text>{{barArr[0]?item.street:toliveserverdetail}}</view>
+      <view class="sc-title">{{barArr[0].select?item.houseInfo:item.name}} {{barArr[0].select?item.houseType:''}}</view>
+      <view class="sc-position">{{barArr[0].select?item.area:toliveserverdetail}}{{barArr[0].select?'m':''}}<text class="fenge">{{barArr[0].select?'|':''}}</text>{{barArr[0].select?item.orientation:toliveserverdetail}}<text class="fenge">{{barArr[0].select?'|':''}}</text>{{barArr[0].select?item.street:toliveserverdetail}}</view>
       <view class="house-tag">
-        <text class="tags-sign" wx:for="{{barArr[0]?house[index].tags:[]}}" wx:for-item="tag">{{tag}}</text>
+        <text class="tags-sign" wx:for="{{barArr[0].select?house[index].tags:[item.type]}}" wx:for-item="tag">{{tag}}</text>
         <!-- <text class="tags-sign">押一付一</text>
         <text class="tags-sign">近地铁</text>
         <text class="tags-sign">配套齐全</text> -->
       </view>
-      <view class="house-price">{{item.cash}}<text class="per">元/月</text></view>
+      <view class="{{barArr[0].select?'house-price':'address'}}">{{barArr[0].select?item.cash:item.address}}<text class="per">{{barArr[0].select?'元/月':''}}</text></view>
     </view>
   </view>
 </scroll-view>

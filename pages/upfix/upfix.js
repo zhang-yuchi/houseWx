@@ -7,128 +7,86 @@ Page({
    * 页面的初始数据
    */
   data: {
+    fixtime:'',
+    phone:'',
     cashArray: [],
-    multiIndex: [0, 0],
-    imageSrc: "",
-    addr: "",
-    cash: "",
-    time: "",
     cashType: "请选择房源",
-    areaWidth: "",
-    floor: "",
-    cgArr: ["优", "良", "一般"],
-    caig: "请选择采光程度",
-    cxArr: ["东", "南", "西"],
-    caox: "请选择朝向",
-    elArr: ["是", "否"],
-    diant: "请选择是否有电梯",
-    looktime: "",
-    intime: "",
-    textarea: ""
+    imageSrc: "",
+    textarea: "",
+    index:'',
+    dateArray:'',
+    houseId:[],
+    userId:[]
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    let that = this;
     ajax.requestByGet('/house/user',{},function(res){
       console.log(res)
+      let list = res.data.data;
+      var cashArray = [];
+      var dateArray = [];
+      var houseid = [];
+      var userId = [];
+      for(let item of list){
+        cashArray.push(item.houseInfo);
+        dateArray.push(item.gmtCreate)
+        houseid.push(item.id)
+        userId.push(item.userId)
+      }
+      that.setData({
+        cashArray:cashArray,
+        dateArray: dateArray,
+        houseId:houseid,
+        userId:userId
+      })
     })
   },
-  // getId: function (e) {
-  //   var id = e.currentTarget.id;
-  //   var now = this.data.firstLevel;
-  //   for (var i = 0; i < now.length; i++) {
-  //     if (id == now[i].id) {
-  //       if (now[i].selected == true) {
-  //         now[i].selected = false;
-  //         now[i].className = "jjBox_son_text"
-  //       } else {
-  //         now[i].selected = true;
-  //         now[i].className = "jjBox_son_textC"
-  //       }
-
-
-  //     }
-  //   }
-  //   this.setData({
-  //     firstLevel: now
-  //   })
-  // },
   getTextArea: function (e) {
     this.setData({
       textarea: e.detail.value
     })
   },
-  getSecond: function (e) {
-    var id = e.currentTarget.id;
-    var now = this.data.secondLevel;
-    for (var i = 0; i < now.length; i++) {
-      if (id == now[i].id) {
-        if (now[i].selected == true) {
-          now[i].selected = false;
-          now[i].className = "jjBox_son_text"
-        } else {
-          now[i].selected = true;
-          now[i].className = "jjBox_son_textC"
-        }
-
-
-      }
-    }
+  getphone: function (event) {
     this.setData({
-      secondLevel: now
+      phone: event.detail.value
     })
   },
-  bindMultiPickerChange: function (e) {
-    console.log(e.detail.value)
+  getfixtime: function (event) {
     this.setData({
-      multiIndex: e.detail.value
+      fixtime: event.detail.value
     })
   },
-  bindMultiPickerColumnChange: function (e) {
-    var data = {
-      multiArray: this.data.multiArray,
-      multiIndex: this.data.multiIndex
-    };
-    data.multiIndex[e.detail.column] = e.detail.value;
-    this.setData(data);
+  bindCashPickerChange: function (e) {
+    console.log(e.detail.value);
+    this.setData({
+      cashType: this.data.cashArray[e.detail.value],
+      index: e.detail.value
+    })
   },
   submit: function () {
     var that = this;
-    // imageSrc: "",
-    //   addr: "",
-    //     cash: "",
-    //       time: "",
-    //         cashType: "请选择押金方式",
-    //           areaWidth: "",
-    //             floor: "",
-    //               cgArr: ["优", "良", "一般"],
-    //                 caig: "请选择采光程度",
-    //                   cxArr: ["东", "南", "西"],
-    //                     caox: "请选择朝向",
-    //                       elArr: ["是", "否"],
-    //                         diant: "请选择是否有电梯",
-    //                           looktime: "",
-    //                             intime: "",
-    //                               textarea: "",
-    if (that.data.cashType != "" && that.data.areaWidth != "" && that.data.textarea != "" && that.data.imageSrc != "" && that.data.floor != "") {
+    if (that.data.cashType != "请选择房源" && that.data.areaWidth != "" && that.data.textarea != "" && that.data.imageSrc != "" && that.data.phone != "" && that.data.fixtime != '') {
       var dataObj = {};
-      dataObj.addr = that.data.addr;
-      dataObj.cash = that.data.cash;
-      dataObj.time = that.data.time;
-      dataObj.cashType = that.data.cashType;
+      let idnex = that.data.index
+      dataObj.content = that.data.textarea;
+      dataObj.gmtCreate = that.data.dateArray[index];
+      dataObj.houseId = that.data.houseId[idnex];
+      dataObj.id = that.data.userId[idnex];
+
+
+      dataObj.cashType = that.data.cashType;  
       dataObj.areaWidth = that.data.areaWidth;
-      dataObj.caig = that.data.caig;
-      dataObj.caox = that.data.caox;
-      dataObj.diant = that.data.diant;
-      dataObj.looktime = that.data.looktime;
-      dataObj.intime = that.data.intime;
-      dataObj.textarea = that.data.textarea;
-      dataObj.floor = that.data.floor;
+      dataObj.textarea = that.data.fixtime;
       var fdId = wx.getStorageSync('id');
       var token = wx.getStorageSync('token');
       //上传图片的同时将文字也进行上传
+      ajax.requestByPut('/user/repair',{},function(res){
+        
+      })
       wx.uploadFile({
         url: app.data.requestHost + '/upFdHouse', //仅为示例，非真实的接口地址
         filePath: that.data.imageSrc[0],
@@ -163,14 +121,13 @@ Page({
         content: '信息不完整！请检查',
       })
     }
-
   },
   choseImg: function (e) {
     var that = this;
     wx.chooseImage({
       count: 1,//选择图片的数量
       sizeType: ['compressed'],//尺寸压缩图
-      sourceType:['camera'],
+      sourceType:['album'],
       success: function (res) {
         var tempFilePaths1 = res.tempFilePaths;
         console.log("test:" + String(tempFilePaths1));
@@ -186,69 +143,6 @@ Page({
       }
     })
     console.log(that.data.imageSrc);
-  },
-  //
-  watchPassWord: function (event) {
-    console.log(event.detail.value);
-  },
-  getAddr: function (event) {
-    this.setData({
-      addr: event.detail.value
-    })
-  },
-  getCash: function (event) {
-    this.setData({
-      cash: event.detail.value
-    })
-  },
-  getTime: function (event) {
-    this.setData({
-      time: event.detail.value
-    })
-  },
-  areaWidth: function (event) {
-    this.setData({
-      areaWidth: event.detail.value
-    })
-  },
-  getFloor: function (event) {
-    this.setData({
-      floor: event.detail.value
-    })
-  },
-  lookTime: function (event) {
-    this.setData({
-      looktime: event.detail.value
-    })
-  },
-  intime: function (event) {
-    this.setData({
-      intime: event.detail.value
-    })
-  },
-  bindCashPickerChange: function (e) {
-    console.log(this.data.cashArray[e.detail.value]);
-    this.setData({
-      cashType: this.data.cashArray[e.detail.value]
-    })
-  },
-  bindCgPickerChange: function (e) {
-    console.log(this.data.cgArr[e.detail.value]);
-    this.setData({
-      caig: this.data.cgArr[e.detail.value]
-    })
-  },
-  bindCxPickerChange: function (e) {
-    console.log(this.data.cxArr[e.detail.value]);
-    this.setData({
-      caox: this.data.cxArr[e.detail.value]
-    })
-  },
-  bindDtPickerChange: function (e) {
-    console.log(this.data.elArr[e.detail.value]);
-    this.setData({
-      diant: this.data.elArr[e.detail.value]
-    })
   },
   /**
    * 生命周期函数--监听页面初次渲染完成

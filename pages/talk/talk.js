@@ -20,7 +20,7 @@ Page({
     let mine = wx.getStorageSync("userInfo").id
     let that = this
     this.setData({
-      to: 7,//tanke
+      to: 6,//tanke
       mine:mine
     })
     new Promise(resolve=>{

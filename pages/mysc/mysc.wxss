@@ -26,3 +26,11 @@
   left: 50%;
   transform: translateX(-50%);
 }
+.address{
+  width: 90%;
+  font-size: 24rpx;
+  color: rgb(158, 158, 158);
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}

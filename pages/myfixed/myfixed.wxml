@@ -8,14 +8,14 @@
 
   <scroll-view scroll-y="true" class="scrollView" style="width:100%;height:{{scrollViewHeight}}">
     
-    <view class="container-list" bindtap="toFixedDetails">
+    <view class="container-list" bindtap="toFixedDetails" wx:for="{{nowlist}}">
       <View class="left">
         <image src="../../images/myfixed.png" class="pic"/>
         <View class="font">报修</View>
       </View>
       <View class="right">
         <View class="right_son" style="font-weight:600;margin-bottom:30rpx">东泰花园</View>
-        <View class="right_son" style="color:rgb(115, 115, 115);margin-top:24rpx">日期：2019-10-10</View>
+        <View class="right_son" style="color:rgb(115, 115, 115);margin-top:24rpx">日期：{{item.gmtCreate}}</View>
       </View>
     </view>
 

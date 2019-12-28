@@ -18,13 +18,13 @@
     <View class="sigleInput">
       <View class="left">联系电话</View>
       <View class="right">
-        <input placeholder="单行输入" class="input" bindinput="areaWidth" type="number" />
+        <input placeholder="单行输入" class="input" bindinput="getphone" type="number" />
       </View>
     </View>
     <View class="sigleInput">
       <View class="left">维修时间</View>
       <View class="right">
-        <input placeholder="单行输入" class="input" bindinput="getFloor" />
+        <input placeholder="单行输入" class="input" bindinput="getfixtime" />
       </View>
     </View>
     <View class="sigleInput" id="textArea-box">

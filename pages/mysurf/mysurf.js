@@ -29,8 +29,7 @@ Page({
   onLoad: function (options) {
     let that = this
     ajax.requestByGet('/user/browse',{
-      limit:10,
-      start:1
+      page:1
     },(res)=>{
       console.log(res)
       let houses = res.data.data

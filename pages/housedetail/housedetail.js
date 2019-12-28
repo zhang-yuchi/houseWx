@@ -75,6 +75,18 @@ Page({
     this.setData({
       id:options.obj
     })
+    ajax.requestByGet('/house/'+that.data.id+"/isfavor",{},res=>{
+      console.log(res.data.data.isfavor)
+      that.setData({
+        isSc:res.data.data.isfavor
+      })
+      if(that.data.isSc){
+        that.setData({
+          love: "../../images/love.png",
+          scTips: "已收藏",
+        })
+      }
+    })
     ajax.requestByGet(`/house/${options.obj}`, {}, (res) => {
       const details = res.data.data
       console.log(details)
@@ -164,15 +176,19 @@ sc:function(){
     
   }else{
     //已收藏
-    wx.showToast({
-      title: '已取消',
-      icon:"none"
+    ajax.requestByDelete('/user/star/house/'+that.data.id,{},res=>{
+      console.log(res)
+      wx.showToast({
+        title: '已取消',
+        icon: "none"
+      })
+      that.setData({
+        isSc: false,
+        love: "../../images/sc.png",
+        scTips: "收藏",
+      })
     })
-    that.setData({
-      isSc:false,
-      love:"../../images/sc.png",
-      scTips: "收藏",
-    })
+    
   }
 },
   /**

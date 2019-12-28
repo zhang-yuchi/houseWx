@@ -2,6 +2,7 @@
 var app = getApp();
 var allArr = [];
 let ajax = require('../../utils/ajax.js')
+let utils = require('../../utils/utils.js')
 Page({
 
   /**
@@ -10,11 +11,14 @@ Page({
   data: {
     scrollViewHeight: "",
     barArr: [
-      { name: "待租房源", id: 0, className: "son_text" },
-      { name: "已出租房源", id: 1, className: "son_textC" }
+      { name: "待租房源", id: 0, value:"no", className: "son_text" },
+      { name: "已出租房源", id: 1, value:"yes", className: "son_textC" }
     ],
     houseSets:[],
-    requestHost:app.data.requestHost
+    houses:[],
+    nowlist:[],
+    requestHost:app.data.requestHost,
+    select:0
   },
 
 
@@ -22,27 +26,91 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    let that = this
     ajax.requestByGet('/user/landload/house',{},res=>{
       console.log(res)
+      let houses = res.data.data
       
+      let nowlist = []
+      for(let item of houses){
+        if(item.rented == that.data.select){
+          // console.log(item)
+          nowlist.push(item)
+        }
+      }
+      console.log(nowlist)
+      for (let item of nowlist) {
+        let tags = item.tags
+        if (tags) {
+          console.log(tags)
+          tags = tags.replace("{", "")
+          tags = tags.replace("}", "")
+
+          tags = tags.split(',')
+          tags = tags.map((item, index) => {
+            item = item.replace('\"', '')
+            // console.log(item)
+            item = item.replace('\"', '')
+            console.log(item)
+            return item
+          })
+          item.tags = tags
+        }
+
+      }
+      // wx.hideLoading()
+      that.setData({
+        nowlist: nowlist,
+        houses:houses
+      })
+    })
+  },
+  tohousedetails(e){
+    let index = e.currentTarget.dataset.id
+    wx.navigateTo({
+      url: '../housedetail/housedetail?obj='+index+"&fdeditor="+1,
     })
   },
   changeBar: function (e) {
     var that = this;
     var id = e.currentTarget.id;
+    let nowlist = []
     var arr = that.data.barArr;
     for (var i = 0; i < arr.length; i++) {
       if (arr[i].id == id) {
         arr[i].className = "son_text"
+        if(arr[i].value=="no"){
+          //为出租
+          that.setData({
+            select:0
+          })
+          console.log("no")
+        }else{
+          //已出租
+          that.setData({
+            select: 1
+          })
+          console.log("yes")
+        }
       } else {
         arr[i].className = "son_textC"
       }
     }
+    for(let item of that.data.houses){
+      if(item.rented==that.data.select){
+        console.log(item)
+        nowlist.push(item)
+      }
+    }
+    
     that.setData({
-      barArr: arr
+      barArr: arr,
+      nowlist:nowlist
     })
   },
+  editorHouse(e){
 
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

@@ -15,6 +15,8 @@ Page({
     love:"../../images/sc.png",
     scTips:"收藏",
     isSc:false,
+    userId:"",
+    iseditor:0,
     markers: [{
       iconPath: "",//地图图片路径
       id: 0,
@@ -64,17 +66,26 @@ Page({
     ],
     
   },
-
+  talk(){
+    let that = this
+    // console.log(this.data.userId)
+    wx.navigateTo({
+      url: '../talk/talk?new='+that.data.userId,
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
     var that = this;
-    console.log(options.obj)
+    console.log(options)
+    
     // const details = JSON.parse(options.obj)
     this.setData({
-      id:options.obj
+      id:options.obj,
+      iseditor:options.fdeditor
     })
+    //是否收藏
     ajax.requestByGet('/house/'+that.data.id+"/isfavor",{},res=>{
       console.log(res.data.data.isfavor)
       that.setData({
@@ -87,9 +98,13 @@ Page({
         })
       }
     })
+    //房屋详情
     ajax.requestByGet(`/house/${options.obj}`, {}, (res) => {
       const details = res.data.data
       console.log(details)
+      that.setData({
+        userId: details.userId
+      })
       var d = new Date(details.checkInDate);
       var datetime = d.getFullYear() + '.' + (d.getMonth() + 1) + '.' + d.getDate();
       details.checkInDate = datetime

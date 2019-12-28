@@ -1,22 +1,18 @@
-// pages/talk/talk.js
-var ajax = require('../../utils/ajax.js')
+// pages/housemdf/housemdf.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    to:"",
-    text:""
+
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.setData({
-      to: options.new
-    })
+
   },
 
   /**
@@ -25,23 +21,7 @@ Page({
   onReady: function () {
 
   },
-  //发送一条普通文本
-  sendtext(e){
-    let that = this
-    console.log(this.data.text)
-    ajax.requestByPut('/tim/msg',{
-      msg:that.data.text,
-      receiverId:that.data.to
-    },res=>{
-      
-    })
-  },
-  //监听聊天内容并绑定
-  listentext(e){
-    this.setData({
-      text:e.detail.value
-    })
-  },
+
   /**
    * 生命周期函数--监听页面显示
    */

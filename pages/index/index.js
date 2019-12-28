@@ -21,6 +21,7 @@ Page({
     isAuth:0,
     page:1,
     isBottom:false,
+    search:""
   },
   init(){
     let that = this
@@ -568,9 +569,16 @@ Page({
   },
   search(){
     //搜索
+    let that = this
     wx.navigateTo({
-      url: '../searchpage/searchpage',
+      url: '../searchpage/searchpage?houseinfo='+that.data.search,
     })
+  },
+  listeninput(e){
+    this.setData({
+      search:e.detail.value
+    })
+    
   },
   toCity:function(){
     wx.navigateTo({

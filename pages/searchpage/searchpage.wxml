@@ -1,19 +1,16 @@
 <!--pages/searchpage/searchpage.wxml-->
 <scroll-view class="content" scroll-y="true">
-  <view class="content-block" bindtap="tohousedetails">
+  <view class="content-block" data-id="{{item.id}}" wx:for="{{houses}}" wx:key="{{item.index}}" bindtap="tohousedetails">
     <view class="block-pic">
-      <image src="../../images/index_1.jpg"></image>
+      <image src="{{item.headingImg}}"></image>
     </view>
     <view class="sc-details">
-      <view class="sc-title">东泰花园 两房一厅</view>
-      <view class="sc-position">125m<text class="fenge">|</text>南<text class="fenge">|</text>东莞大道</view>
+      <view class="sc-title">{{item.title}}</view>
+      <view class="sc-position">{{item.area}}m^2<text class="fenge">|</text>{{item.orientation}}<text class="fenge">|</text>{{item.street}}</view>
       <view class="house-tag">
-        <text class="tags-sign">精选房源</text>
-        <text class="tags-sign">押一付一</text>
-        <text class="tags-sign">近地铁</text>
-        <text class="tags-sign">配套齐全</text>
+        <text class="tags-sign" wx:for="{{item.tags}}" wx:key="{{item.index}}">{{item}}</text>
       </view>
-      <view class="house-price">2200<text class="per">元/月</text></view>
+      <view class="house-price">{{item.cash}}<text class="per">元/月</text></view>
     </view>
   </view>
 </scroll-view>

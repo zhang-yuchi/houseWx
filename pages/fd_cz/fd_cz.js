@@ -153,7 +153,7 @@ Page({
         area:that.data.areaWidth,//面积
         cash:that.data.cash,//租金
         cashType: that.data.cashType,//房租类型
-        checkInDate:that.data.intime,//入住时间
+        checkInDate:new Date(that.data.intime),//入住时间
         inspection:that.data.looktime,//看房时间
         city:"",
         daylighting:that.data.caig,

@@ -5,7 +5,7 @@
     <view class="content-payfor-left">{{obj.houseInfo}} {{obj.houseType}}</view>
     <view class="content-payfor-right">
         <image src="../../images/cash.png" class="content-payfor-pic"></image>
-        <view class="content-payfor-font">押金</view>
+        <view class="content-payfor-font">租金</view>
     </view>
   </view>
   <view class="content-list2">

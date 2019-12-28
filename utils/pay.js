@@ -1,7 +1,7 @@
 var ajax = require('ajax.js');
 module.exports = {
-    pay(houseid, payItem, money,callback) {
-      ajax.requestByGet(`/pay/prepayInfo/${houseid}/${payItem}/${money}`, {}, function(res) {
+    pay(houseid, payItem, money,obj,callback) {
+      ajax.requestByGet(`/pay/prepayInfo/${houseid}/${payItem}/${money}`, obj, function(res) {
           console.log(res)
           let payInfo = res.data.data;
           wx.requestPayment({

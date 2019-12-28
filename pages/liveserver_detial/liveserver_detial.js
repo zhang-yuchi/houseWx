@@ -70,6 +70,19 @@ Page({
         details:details,
         phone:details.phone,
         id:details.id
+      });
+      let id = that.data.id
+      ajax.requestByGet('/store/' + id + '/isfavor', {}, function (res) {
+        console.log(res)
+        if (res.data.data.isfavor) {
+          that.setData({
+            iconIndex: 1
+          })
+        } else {
+          that.setData({
+            iconIndex: 0
+          })
+        }
       })
     })
     ajax.requestByGet('/store/img/'+index,{},(res)=>{
@@ -78,6 +91,7 @@ Page({
         images:res.data.data
       })
     })
+    
     // that.setData({
     //   obj: JSON.parse(obj),
     //   firstLevel: JSON.parse(obj).houseinfo.jj_1,
@@ -107,6 +121,7 @@ Page({
     let that = this;
     let index = 0;
     let id = that.data.id;
+    
     if(that.data.iconIndex == 0){
       wx.showToast({
         title: '收藏成功'
@@ -114,7 +129,6 @@ Page({
       index = 1;
       ajax.requestByPost('/user/star/store/'+id,{},function(res){
         console.log(res);
-
       })
     }else{
       wx.showToast({

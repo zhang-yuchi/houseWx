@@ -36,13 +36,12 @@ Page({
   },
   toPay() {
     let that = this;
-    pay.pay(that.data.obj.houseId, "deposit", that.data.obj.money, function(res) {
+    pay.pay(that.data.obj.houseId, "deposit", that.data.obj.money, {}, function(res) {
+      wx.navigateBack();
       wx.showToast({
         title: '支付成功',
       });
-      wx.navigateTo({
-        url: '../myordercash/myordercash',
-      })
+      that.onLoad();
     })
   },
   /**

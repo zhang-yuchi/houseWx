@@ -21,7 +21,8 @@ Page({
     ],
     myordercashUnpaid: [],
     myordercashPaid: [],
-    myordercashNow: []
+    myordercashNow: [],
+    scrollViewHeight:''
   },
 
   /**
@@ -75,8 +76,10 @@ Page({
     }
     that.setData({
       barArr: arr,
-      myordercashNow: myordercashNow
+      myordercashNow: myordercashNow,
+      scrollViewHeight:(240*(myordercashNow.length) + 40) + "rpx"
     })
+    console.log(that.data.scrollViewHeight)
   },
 
   //页面跳转

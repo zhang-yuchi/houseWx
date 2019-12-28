@@ -1,5 +1,6 @@
 // pages/msg/msg.js
 var app = getApp();
+var ajax = require('../../utils/ajax.js')
 Page({
 
   /**
@@ -7,6 +8,7 @@ Page({
    */
   data: {
     systemMsgs:[],
+    userlist:[],
     host:app.data.requestHost
   },
 
@@ -14,11 +16,18 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    let that = this
+    ajax.requestByGet('/tim/chatter',{},res=>{
+      console.log(res.data.data)
+      that.setData({
+        userlist:res.data.data
+      })
+    })
   },
   toTalk(e){
+    let id = e.currentTarget.dataset.id
     wx.navigateTo({
-      url: '../talk/talk',
+      url: '../talk/talk?new='+id,
     })
   },
   todetail:function(e){
@@ -67,14 +76,15 @@ Page({
    * 生命周期函数--监听页面隐藏
    */
   onHide: function () {
-
+    // console.log(222)
+    
   },
 
   /**
    * 生命周期函数--监听页面卸载
    */
   onUnload: function () {
-
+    console.log(111)
   },
 
   /**

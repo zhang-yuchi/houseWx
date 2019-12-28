@@ -13,10 +13,10 @@
   </View>
   
 
-  <View class="infoBox" bindtap="toTalk">
+  <View class="infoBox" bindtap="toTalk" data-id="{{item.id}}" wx:for="{{userlist}}" wx:key="{{item.index}}">
     <image src="../../images/chat_1.png" class="infoBox_pic"/>
     <View class="middleBox">
-      <View class="title">用户沟通</View>
+      <View class="title">{{item.nickName}}</View>
       <View class="content">这是大概内容</View>
     </View>
     <View class="rightBox">5:09</View>

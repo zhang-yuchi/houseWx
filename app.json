@@ -48,7 +48,8 @@
     "pages/searchpage/searchpage",
     "pages/livesearch/livesearch",
     "pages/fdsure/fdsure",
-    "pages/usertofd/usertofd"
+    "pages/usertofd/usertofd",
+    "pages/housemdf/housemdf"
   ],
   "window": {
     "backgroundTextStyle": "light",

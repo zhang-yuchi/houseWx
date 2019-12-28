@@ -16,6 +16,7 @@ Page({
       { name: "美容美发", value: "美容美发", id: 3, className: "barBox_son" },
       { name: "家庭维修", value: "家庭维修", id: 4, className: "barBox_son" },
     ],
+    allList:[],
     nowlist: [],
     select: "房屋租赁"
   },
@@ -23,12 +24,15 @@ Page({
     let that = this
     var id = e.currentTarget.id;
     var arr = this.data.barArr
+    let nowlist = []
     let value = ""
     for (var i = 0; i < arr.length; i++) {
       if (arr[i].id == id) {
         arr[i].className = "barBox_sonC"
         value = arr[i].value
-        
+        that.setData({
+          select:value
+        })
       } else {
         arr[i].className = "barBox_son"
       }
@@ -36,14 +40,37 @@ Page({
     that.setData({
       barArr:arr
     })
+    
+      for (let item of that.data.allList) {
+        if (that.data.select == item.type) {
+          nowlist.push(item)
+        }
+      }
+    that.setData({
+      nowlist:nowlist
+    })
   },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
     let search = options.search
+    let that = this
+    let select = that.data.select
+    let nowlist = []
     ajax.requestByGet('/store/search/'+search,{},function(res){
       console.log(res)
+      that.setData({
+        allList:res.data.data
+      })
+      for(let item of res.data.data){
+        if(select == item.type){
+          nowlist.push(item)
+        }
+      }
+      that.setData({
+        nowlist:nowlist
+      })
     })
   },
 

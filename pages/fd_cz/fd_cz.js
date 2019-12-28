@@ -1,11 +1,13 @@
 // pages/fd_cz/fdcz.js
 var app = getApp()
+var ajax = require('../../utils/ajax.js')
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
+    yesArr:['否','是'],
     cashArray: ['押一付一', '押一付三'],
     multiIndex: [0, 0],
     imageSrc:"",
@@ -23,6 +25,8 @@ Page({
     caox:"请选择朝向",
     elArr:["有","无"],
     diant:"请选择是否有电梯",
+    boyShared:"是否为男生合租",
+    girlShared:"是否为女生合租",
     looktime:"单行输入",
     intime:"单行输入",
     textarea:"",
@@ -96,7 +100,18 @@ Page({
       textarea: e.detail.value
     })
   },
-
+  girlShared(e){
+    let that = this
+    this.setData({
+      girlShared:that.data.yesArr[e.detail.value]
+    })
+  },
+  boyShared(e){
+    let that = this
+    this.setData({
+      boyShared: that.data.yesArr[e.detail.value]
+    })
+  },
   getSecond: function (e) {
     var id = e.currentTarget.id;
     var now = this.data.secondLevel;
@@ -133,7 +148,7 @@ Page({
     var that = this;
     console.log(wx.getStorageSync("userInfo"))
     console.log(that.data)
-    if (that.data.addr != "" && that.data.cash != "" && that.data.time != "" && that.data.cashType != "请选择押金方式" && that.data.areaWidth != "" && that.data.caig != "请选择采光程度" && that.data.caox != "请选择朝向" && that.data.diant != "请选择是否有电梯" && that.data.looktime != "" && that.data.intime != "单行输入" && that.data.textarea != "" && that.data.imageSrc != "" && that.data.floor != ""){
+    if (that.data.addr != "" && that.data.cash != "" && that.data.time != "" && that.data.cashType != "请选择押金方式" && that.data.areaWidth != "" && that.data.caig != "请选择采光程度" && that.data.caox != "请选择朝向" && that.data.diant != "请选择是否有电梯" && that.data.looktime != "" && that.data.intime != "单行输入" && that.data.textarea != "" && that.data.imageSrc != "" && that.data.floor != "" &&that.data.boyShared != "是否为男生合租"&&that.data.girlShared!="是否为女生合租"){
       var dataObj = {
         area:that.data.areaWidth,//面积
         cash:that.data.cash,//租金
@@ -156,6 +171,8 @@ Page({
         hasTelevison:0,
         hasWardrobe:0,
         hasWasher:0,
+        boyShared:0,
+        girlShared:0,
         lat:that.data.latitude,
         lng:that.data.longitude,
         orientation:that.data.caox,
@@ -205,7 +222,17 @@ Page({
       if(that.data.dianti=="有"){
         dataObj.hasElevator = 1
       }
+      //是否男女生合租
+      if(that.data.boyShared=="是"){
+        dataObj.boyShared = 1
+      }
+      if (that.data.girlShared == "是") {
+        dataObj.girlShared = 1
+      }
       console.log(dataObj)
+      ajax.requestByPost("/house",dataObj,res=>{
+        console.log(res)
+      })
     }else{
       // wx.showModal({
       //   title: '提示',
@@ -228,6 +255,31 @@ Page({
             isIdCardJpg: true
           });
         }
+        wx.showLoading({
+          title: '上传中',
+        })
+        wx.uploadFile({
+          url: app.data.requestHost+'/image',
+          filePath: tempFilePaths1[0],
+          name: 'file',
+          formData:{
+            imageType:"house"
+          },
+          success(){
+            wx.hideLoading()
+            wx.showToast({
+              title: '上传成功',
+            })
+          },
+          fail(err){
+            console.log(res)
+            wx.hideLoading()
+            wx.showToast({
+              title: '上传失败',
+              icon:"none"
+            })
+          }
+        })
         that.setData({
           imageSrc: tempFilePaths1,
         });

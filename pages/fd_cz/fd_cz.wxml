@@ -92,6 +92,28 @@
       <image src="../../images/right.png" class="newRightPic" />
     </View>
   </View>
+  <View class="sigleInput">
+    <View class="left">男生合租</View>
+    <View class="middle">
+      <picker class="picker" mode="selector" bindchange="boyShared" range="{{yesArr}}">
+        {{boyShared}}
+      </picker>
+    </View>
+    <View class="new_right">
+      <image src="../../images/right.png" class="newRightPic" />
+    </View>
+  </View>
+  <View class="sigleInput">
+    <View class="left">女生合租</View>
+    <View class="middle">
+      <picker class="picker" mode="selector" bindchange="girlShared" range="{{yesArr}}">
+        {{girlShared}}
+      </picker>
+    </View>
+    <View class="new_right">
+      <image src="../../images/right.png" class="newRightPic" />
+    </View>
+  </View>
 
   <View class="sigleInput">
     <View class="left">看房时间</View>

@@ -6,8 +6,8 @@
       <view class="shop-details-name">
         {{details.name}}
         <view class="right" bindtap="tosc">
-          <image src="../../images/sc.png" class="right_top" mode="aspectFill" />
-          <View class="right_bottom">收藏</View>
+          <image src="../../images/{{icon[iconIndex].src}}.png" class="right_top" mode="aspectFill"/>
+          <View class="right_bottom" style="color:{{icon[iconIndex].color}}">{{icon[iconIndex].font}}</View>
         </view>
       </view>
       <view class="shop-details">

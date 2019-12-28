@@ -18,7 +18,9 @@ Page({
     images:[],
     phone:"",
     phonecall:false,
-    icon:''
+    icon: [{ src: 'sc', font: '收藏', color: 'rgb(129, 125, 125)' }, { src: 'love', font: '已收藏', color:'rgb(255, 83, 49)'}],
+    iconIndex:0,
+    id:null
   },
   tolocation(){
     let that = this
@@ -66,7 +68,8 @@ Page({
       let details = res.data.data
       that.setData({
         details:details,
-        phone:details.phone
+        phone:details.phone,
+        id:details.id
       })
     })
     ajax.requestByGet('/store/img/'+index,{},(res)=>{
@@ -97,6 +100,38 @@ Page({
   controltap(e) {
     console.log(e.controlId)
   },
+
+
+  //---------------收藏
+  tosc(e){
+    let that = this;
+    let index = 0;
+    let id = that.data.id;
+    if(that.data.iconIndex == 0){
+      wx.showToast({
+        title: '收藏成功'
+      })
+      index = 1;
+      ajax.requestByPost('/user/star/store/'+id,{},function(res){
+        console.log(res);
+
+      })
+    }else{
+      wx.showToast({
+        title: '取消收藏',
+        icon: 'none'
+      })
+      index = 0;
+      ajax.requestByDelete('/user/star/store/'+id,{},function(res){
+        console.log(res)
+      })
+    }
+    that.setData({
+      iconIndex: index
+    })
+  },
+
+
   /**
    * 生命周期函数--监听页面显示
    */

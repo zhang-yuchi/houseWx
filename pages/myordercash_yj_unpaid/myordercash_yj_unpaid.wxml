@@ -22,5 +22,5 @@
     <view  class="content-list-left">最迟缴费日期</view>
     <view  class="content-list-right">{{obj.dead_date}}</view>
   </view>
-  <button class="pay-btn">支付</button>
+  <button class="pay-btn" bindtap="topay">支付</button>
 </view>

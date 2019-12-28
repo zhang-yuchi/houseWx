@@ -55,6 +55,7 @@ Page({
         arr[i].className = "barBox_sonC"
         value = arr[i].value
         ajax.requestByGet('/store/list/'+value,{},(res)=>{
+          console.log(res)
           if(res.data.data.length>0){
             that.setData({
               barArr: arr,
@@ -68,7 +69,6 @@ Page({
               select: value
             })
           }
-          console.log(that.data)
         })
       }else{
         arr[i].className = "barBox_son"
@@ -77,9 +77,15 @@ Page({
     
   },
   toliveserverdetail: function (e) {
-    let index = e.currentTarget.dataset.id
-    wx.navigateTo({
-      url: '../liveserver_detial/liveserver_detial'+'?index='+index,
+    let that = this;
+    let index = e.currentTarget.dataset.id;
+    let select = that.data.select
+    console.log(index)
+    ajax.requestByGet(`/store/list/${select}`,{},function(res){
+      console.log(res)
+      wx.navigateTo({
+        url: '../liveserver_detial/liveserver_detial' + '?index=' + index,
+      })
     })
   },
   /**

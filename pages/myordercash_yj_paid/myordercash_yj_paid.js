@@ -23,9 +23,10 @@ Page({
       obj.houseType = data.houseType;
       obj.money = data.money;
       obj.remark = data.remark;
-      obj.dead_date = data.dead_date.split('T')[0];
-      obj.gmtCreate = data.gmtCreate.split('T')[0];
+      // obj.dead_date = data.dead_date.split('T')[0];
+      // obj.gmtCreate = data.gmtCreate.split('T')[0];
       obj.payDate = data.payDate.split('T')[0];
+      // obj.month = obj.gmtCreate.split('-')[1] - 1;
       that.setData({
         obj: obj
       })

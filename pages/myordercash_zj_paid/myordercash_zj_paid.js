@@ -26,6 +26,8 @@ Page({
       obj.dead_date = data.dead_date.split('T')[0];
       obj.gmtCreate = data.gmtCreate.split('T')[0];
       obj.payDate = data.payDate.split('T')[0];
+      obj.payDetailFee1 = data.payDetailFee1
+      obj.payDetailFee2 = data.payDetailFee2
       that.setData({
         obj: obj
       })

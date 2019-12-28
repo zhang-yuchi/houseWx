@@ -26,6 +26,13 @@ Page({
       obj.dead_date = data.dead_date.split('T')[0];
       obj.gmtCreate = data.gmtCreate.split('T')[0];
       obj.payDate = data.payDate.split('T')[0];
+      obj.month = obj.gmtCreate.split('-')[1] - 1;
+      obj.waterUse = data.waterUse
+      obj.waterUntPrice = data.waterUntPrice
+      obj.payDetailFee1 = data.payDetailFee1
+      obj.eleUse = data.eleUse
+      obj.eleUntPrice = data.eleUntPrice
+      obj.payDetailFee2 = data.payDetailFee2
       that.setData({
         obj: obj
       })

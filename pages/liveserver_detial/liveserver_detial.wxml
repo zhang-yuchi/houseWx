@@ -5,7 +5,7 @@
       <image src="{{details.headImg}}" class="topPic" mode="aspectFill"></image>
       <view class="shop-details-name">
         {{details.name}}
-        <view class="right">
+        <view class="right" bindtap="tosc">
           <image src="../../images/sc.png" class="right_top" mode="aspectFill" />
           <View class="right_bottom">收藏</View>
         </view>

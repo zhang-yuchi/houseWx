@@ -15,7 +15,7 @@
     <view class="content-list-right">合计</view>
   </view>
   <view class="content-list" style="border-bottom:1px solid rgb(230, 230, 230)">
-    <view  class="content-list-left">押金（7月）</view>
+    <view  class="content-list-left">押金</view>
     <view  class="content-list-right">{{obj.money}}元</view>
   </view>
   <view class="content-list" style="padding-top:60rpx">

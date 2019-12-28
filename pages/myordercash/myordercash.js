@@ -35,7 +35,7 @@ Page({
       var myordercashPaid = [];
       var payList = res.data.data
       for (let item of payList) {
-        item.dead_date = (item.dead_date.split('T'))[0]
+        item.gmtCreate = (item.gmtCreate.split('T'))[0]
         if (item.isPaid) {
           myordercashPaid.push(item);
 

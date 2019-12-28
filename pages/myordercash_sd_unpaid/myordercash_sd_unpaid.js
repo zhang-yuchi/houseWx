@@ -10,20 +10,15 @@ Page({
     obj:{}
   },
   toPay(){
-    // pay.pay(2,"deposit",0.01);
-    // ajax.requestByGet('/pay/prepayInfo/2/"deposit"/304.14',{},function(res){
-    //   console.log(res)
-    //   let payInfo = res.data.data
-    //   wx.requestPayment({
-    //     timeStamp: payInfo.timeStamp,
-    //     nonceStr: payInfo.nonceStr,
-    //     package: payInfo.package,
-    //     signType: 'MD5',
-    //     paySign: payInfo.paySign,
-    //     success: function(res){console.log(res)},
-    //     fail: function(res){console.log(res)}
-    //   })
-    // })
+    let that = this;
+    pay.pay(that.data.obj.houseId, "utilities",that.data.obj.money,function(res){
+      wx.showToast({
+        title: '支付成功',
+      });
+      wx.navigateTo({
+        url: '../myordercash/myordercash',
+      })
+    })
   },
   /**
    * 生命周期函数--监听页面加载
@@ -42,6 +37,14 @@ Page({
       obj.remark = data.remark;
       obj.dead_date = data.dead_date.split('T')[0];
       obj.gmtCreate = data.gmtCreate.split('T')[0];
+      obj.houseId = data.houseId;
+      obj.month = obj.gmtCreate.split('-')[1] - 1;
+      obj.waterUse = data.waterUse
+      obj.waterUntPrice = data.waterUntPrice
+      obj.payDetailFee1 = data.payDetailFee1
+      obj.eleUse = data.eleUse
+      obj.eleUntPrice = data.eleUntPrice
+      obj.payDetailFee2 = data.payDetailFee2
       that.setData({
         obj: obj
       })

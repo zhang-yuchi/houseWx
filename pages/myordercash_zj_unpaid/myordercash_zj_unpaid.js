@@ -27,12 +27,26 @@ Page({
       obj.remark = data.remark;
       obj.dead_date = data.dead_date.split('T')[0];
       obj.gmtCreate = data.gmtCreate.split('T')[0];
+      obj.houseId = data.houseId;
+      obj.month = obj.gmtCreate.split('-')[1] -1;
+      obj.payDetailFee1 = data.payDetailFee1
+      obj.payDetailFee2 = data.payDetailFee2
       that.setData({
         obj: obj
       });
     })
   },
-
+  toPay() {
+    let that = this;
+    pay.pay(that.data.obj.houseId, "cash", that.data.obj.money, function (res) {
+      wx.showToast({
+        title: '支付成功',
+      });
+      wx.navigateTo({
+        url: '../myordercash/myordercash',
+      })
+    })
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

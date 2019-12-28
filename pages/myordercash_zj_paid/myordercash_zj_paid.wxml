@@ -12,12 +12,12 @@
     <view class="content-list-left" style="font-weight:600;font-size:30rpx">费用明细</view>
   </view>
   <view class="content-list2">
-   <view  class="content-list-left">租金（7月）</view>
-    <view  class="content-list-right">{{obj.money}}元</view>
+   <view  class="content-list-left">租金({{obj.month}}月)</view>
+    <view  class="content-list-right">{{obj.payDetailFee1}}元</view>
   </view>
   <view class="content-list2 padding-bottom">
-  <view  class="content-list-left">管理费（7月）</view>
-    <view  class="content-list-right">300元</view>
+  <view  class="content-list-left">管理费({{obj.month}}月)</view>
+    <view  class="content-list-right">{{obj.payDetailFee2}}元</view>
   </view>
   <view class="content-list2" style="padding-top:60rpx;border-top:1px solid rgb(230, 230, 230)">
     <view  class="content-list-left">收费日期</view>

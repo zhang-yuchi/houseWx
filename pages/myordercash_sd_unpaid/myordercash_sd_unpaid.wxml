@@ -17,16 +17,16 @@
     <view class="content-list2-item" style="color: rgb(140, 140, 140);">合计</view>
   </view>
   <view class="content-list2">
-    <view class="content-list2-item">水费（7月）</view>
-    <view class="content-list2-item">2吨</view>
-    <view class="content-list2-item">2.07元</view>
-    <view class="content-list2-item">4.14元</view>
+    <view class="content-list2-item">水费({{obj.month}}月)</view>
+    <view class="content-list2-item">{{obj.waterUse}}吨</view>
+    <view class="content-list2-item">{{obj.waterUntPrice}}元</view>
+    <view class="content-list2-item">{{obj.payDetailFee1}}元</view>
   </view>
   <view class="content-list2 padding-bottom">
-    <view class="content-list2-item">电费（7月）</view>
-    <view class="content-list2-item">300度</view>
-    <view class="content-list2-item">1.0元</view>
-    <view class="content-list2-item">300元</view>
+    <view class="content-list2-item">电费({{obj.month}}月)</view>
+    <view class="content-list2-item">{{obj.eleUse}}度</view>
+    <view class="content-list2-item">{{obj.eleUntPrice}}元</view>
+    <view class="content-list2-item">{{obj.payDetailFee2}}元</view>
   </view>
   <view class="content-list2" style="padding-top:60rpx;border-top:1px solid rgb(230, 230, 230)">
     <view  class="content-list-left">收费日期</view>

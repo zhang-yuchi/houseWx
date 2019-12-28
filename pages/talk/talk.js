@@ -7,16 +7,36 @@ Page({
    */
   data: {
     to:"",
-    text:""
+    text:"",
+    mine:6
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    let that = this
     this.setData({
-      to: options.new
+      to: 7//tanke
     })
+    new Promise(resolve=>{
+      ajax.requestByGet('/tim/msg/history', {
+        senderId: that.data.to,
+      }, res => {
+        console.log("历史信息")
+        console.log(res)
+        resolve()
+      })
+    }).then(()=>{
+      setInterval(function () {
+        ajax.requestByGet('/tim/msg/' + that.data.to, {}, res => {
+          console.log("新信息")
+          console.log(res)
+        })
+      }, 10000)
+    })
+    
+    
   },
 
   /**
@@ -33,7 +53,7 @@ Page({
       msg:that.data.text,
       receiverId:that.data.to
     },res=>{
-      
+      console.log(res)
     })
   },
   //监听聊天内容并绑定

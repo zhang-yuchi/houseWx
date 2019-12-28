@@ -1,5 +1,6 @@
 // pages/talk/talk.js
 var ajax = require('../../utils/ajax.js')
+var timer = null
 Page({
 
   /**
@@ -10,18 +11,38 @@ Page({
     text:"",
     mine:6,
     history:[],
-    getmsg:[]
+    getmsg:[],
+    toview:"",
+    product:null
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    let mine = wx.getStorageSync("userInfo").id
     let that = this
+    let mine = wx.getStorageSync("userInfo").id
+    let houseid = options.houseid
+    console.log(houseid)
+    if(houseid){
+      //如果有 就去查找房屋的信息,并放入product中
+      ajax.requestByGet(`/house/${houseid}`,{},res=>{
+        console.log(res)
+        let product = res.data.data
+        that.setData({
+          product:product
+        })
+      })
+    }
+    // let that = this
     this.setData({
+<<<<<<< HEAD
       to: 6,//tanke
       mine:mine
+=======
+      to: options.new,//tanke
+      mine:mine,
+>>>>>>> e8dbae39b8d8ab0a356bc567fd85e28e61bf7538
     })
     new Promise(resolve=>{
       ajax.requestByGet('/tim/msg/history', {
@@ -35,12 +56,30 @@ Page({
           item.gmtSend = date
         }
         that.setData({
-          history: res.data.data
+          history: res.data.data,
+          toview: "history" + (res.data.data.length-1)
         })
         resolve()
       })
     }).then(()=>{
-      setInterval(function () {
+      ajax.requestByGet('/tim/msg/' + that.data.to, {}, res => {
+        console.log("新信息")
+        console.log(res)
+        if (res.data.data.length > 0) {
+          let arr = that.data.getmsg
+          for (let item of res.data.data) {
+            let d = new Date(item.gmtSend)
+            let date = (d.getMonth() + 1) + "-" + d.getDay() + " " + d.getHours() + ':' + d.getMinutes()
+            item.gmtSend = date
+            arr.push(item)
+          }
+          that.setData({
+            getmsg: arr,
+            toview: "getmsg" + (that.data.getmsg.length - 1)
+          })
+        }
+      })
+      timer = setInterval(function () {
         ajax.requestByGet('/tim/msg/' + that.data.to, {}, res => {
           console.log("新信息")
           console.log(res)
@@ -53,7 +92,8 @@ Page({
               arr.push(item)
             }
             that.setData({
-              getmsg:arr
+              getmsg:arr,
+              toview: "getmsg" + (that.data.getmsg.length - 1)
             })
           }
         })
@@ -85,7 +125,8 @@ Page({
       that.data.getmsg.push(res.data.data)
       that.setData({
         text:"",
-        getmsg: that.data.getmsg
+        getmsg: that.data.getmsg,
+        toview: "getmsg" + (that.data.getmsg.length-1)
       })
     })
   },
@@ -106,14 +147,20 @@ Page({
    * 生命周期函数--监听页面隐藏
    */
   onHide: function () {
-
+    console.log(timer)
+    if(timer){
+      clearInterval(timer)
+    }
   },
 
   /**
    * 生命周期函数--监听页面卸载
    */
   onUnload: function () {
-
+    console.log(timer)
+    if (timer) {
+      clearInterval(timer)
+    }
   },
 
   /**

@@ -70,7 +70,7 @@ Page({
     let that = this
     // console.log(this.data.userId)
     wx.navigateTo({
-      url: '../talk/talk?new='+that.data.userId,
+      url: '../talk/talk?new='+that.data.userId+"&houseid="+that.data.id,
     })
   },
   /**

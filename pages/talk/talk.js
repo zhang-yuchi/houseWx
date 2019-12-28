@@ -47,7 +47,7 @@ Page({
         console.log(res.data.data)
         for (let item of res.data.data){
           let d = new Date(item.gmtSend)
-          let date = (d.getMonth()+1)+"-"+d.getDay()+" "+d.getHours()+':'+d.getMinutes()
+          let date = (d.getMonth() + 1) + "-" + d.getDate()+" "+d.getHours()+':'+d.getMinutes()
           item.gmtSend = date
         }
         that.setData({
@@ -64,7 +64,7 @@ Page({
           let arr = that.data.getmsg
           for (let item of res.data.data) {
             let d = new Date(item.gmtSend)
-            let date = (d.getMonth() + 1) + "-" + d.getDay() + " " + d.getHours() + ':' + d.getMinutes()
+            let date = (d.getMonth() + 1) + "-" + d.getDate() + " " + d.getHours() + ':' + d.getMinutes()
             item.gmtSend = date
             arr.push(item)
           }
@@ -82,7 +82,7 @@ Page({
             let arr = that.data.getmsg
             for (let item of res.data.data){
               let d = new Date(item.gmtSend)
-              let date = (d.getMonth() + 1) + "-" + d.getDay() + " " + d.getHours() + ':' + d.getMinutes()
+              let date = (d.getMonth() + 1) + "-" + d.getDate() + " " + d.getHours() + ':' + d.getMinutes()
               item.gmtSend = date
               arr.push(item)
             }
@@ -119,7 +119,7 @@ Page({
       }, res => {
         console.log(res)
         let d = new Date(res.data.data.gmtSend)
-        let date = (d.getMonth() + 1) + "-" + d.getDay() + " " + d.getHours() + ':' + d.getMinutes()
+        let date = (d.getMonth() + 1) + "-" + d.getDate() + " " + d.getHours() + ':' + d.getMinutes()
         res.data.data.gmtSend = date
         that.data.getmsg.push(res.data.data)
         that.setData({

@@ -8,23 +8,35 @@ Page({
   data: {
     to:"",
     text:"",
-    mine:6
+    mine:6,
+    history:[],
+    getmsg:[]
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    let mine = wx.getStorageSync("userInfo").id
     let that = this
     this.setData({
-      to: 7//tanke
+      to: 7,//tanke
+      mine:mine
     })
     new Promise(resolve=>{
       ajax.requestByGet('/tim/msg/history', {
         senderId: that.data.to,
       }, res => {
         console.log("历史信息")
-        console.log(res)
+        console.log(res.data.data)
+        for (let item of res.data.data){
+          let d = new Date(item.gmtSend)
+          let date = (d.getMonth()+1)+"-"+d.getDay()+" "+d.getHours()+':'+d.getMinutes()
+          item.gmtSend = date
+        }
+        that.setData({
+          history: res.data.data
+        })
         resolve()
       })
     }).then(()=>{
@@ -32,6 +44,18 @@ Page({
         ajax.requestByGet('/tim/msg/' + that.data.to, {}, res => {
           console.log("新信息")
           console.log(res)
+          if(res.data.data.length>0){
+            let arr = that.data.getmsg
+            for (let item of res.data.data){
+              let d = new Date(item.gmtSend)
+              let date = (d.getMonth() + 1) + "-" + d.getDay() + " " + d.getHours() + ':' + d.getMinutes()
+              item.gmtSend = date
+              arr.push(item)
+            }
+            that.setData({
+              getmsg:arr
+            })
+          }
         })
       }, 10000)
     })
@@ -51,9 +75,18 @@ Page({
     console.log(this.data.text)
     ajax.requestByPut('/tim/msg',{
       msg:that.data.text,
-      receiverId:that.data.to
+      receiverId:that.data.to,
+      type:"message"
     },res=>{
       console.log(res)
+      let d = new Date(res.data.data.gmtSend)
+      let date = (d.getMonth() + 1) + "-" + d.getDay() + " " + d.getHours() + ':' + d.getMinutes()
+      res.data.data.gmtSend = date
+      that.data.getmsg.push(res.data.data)
+      that.setData({
+        text:"",
+        getmsg: that.data.getmsg
+      })
     })
   },
   //监听聊天内容并绑定

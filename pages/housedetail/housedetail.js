@@ -79,7 +79,9 @@ Page({
   onLoad: function (options) {
     var that = this;
     console.log(options)
-    
+    if(!options.fdeditor){
+      options.fdeditor = 0
+    }
     // const details = JSON.parse(options.obj)
     this.setData({
       id:options.obj,

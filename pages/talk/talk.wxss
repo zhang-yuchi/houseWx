@@ -20,6 +20,7 @@ page{
 }
 .mine{
   /* justify-content: flex-end; */
+  align-items: flex-start;
   flex-direction: row-reverse;
 }
 .other{
@@ -76,14 +77,14 @@ page{
 }
 .timer{
   text-align: center;
-  padding: 10rpx 0;
+  /* padding: 10rpx 0; */
 }
 .timer text{
   font-size: 28rpx;
-  background-color: rgb(218, 218, 218);
+  /* background-color: rgb(218, 218, 218); */
   display: inline-block;
   padding: 10rpx 20rpx;
-  color: rgb(241, 241, 241);
+  color: #abacae;
   border-radius: 30rpx;
 }
 .product{

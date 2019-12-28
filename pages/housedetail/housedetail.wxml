@@ -82,7 +82,7 @@
 </scroll-view>
 </View>
 
-<View wx:if="{{iseditor==0}}" class="btnBox">
+<View wx:if="{{iseditor==0&&myId!=userId}}" class="btnBox">
   <View class="btnBox_son">
     <View class="btnBox_son_left">
       <image src="../../images/share.png" class="btnBox_son_left_pic" />

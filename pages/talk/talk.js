@@ -108,22 +108,29 @@ Page({
   sendtext(e){
     let that = this
     console.log(this.data.text)
-    ajax.requestByPut('/tim/msg',{
-      msg:that.data.text,
-      receiverId:that.data.to,
-      type:"message"
-    },res=>{
-      console.log(res)
-      let d = new Date(res.data.data.gmtSend)
-      let date = (d.getMonth() + 1) + "-" + d.getDay() + " " + d.getHours() + ':' + d.getMinutes()
-      res.data.data.gmtSend = date
-      that.data.getmsg.push(res.data.data)
-      that.setData({
-        text:"",
-        getmsg: that.data.getmsg,
-        toview: "getmsg" + (that.data.getmsg.length-1)
-      })
+    wx.showLoading({
+      title: '发送中..',
     })
+    if(this.data.text){
+      ajax.requestByPut('/tim/msg', {
+        msg: that.data.text,
+        receiverId: that.data.to,
+        type: "message"
+      }, res => {
+        console.log(res)
+        let d = new Date(res.data.data.gmtSend)
+        let date = (d.getMonth() + 1) + "-" + d.getDay() + " " + d.getHours() + ':' + d.getMinutes()
+        res.data.data.gmtSend = date
+        that.data.getmsg.push(res.data.data)
+        that.setData({
+          text: "",
+          getmsg: that.data.getmsg,
+          toview: "getmsg" + (that.data.getmsg.length - 1)
+        })
+        wx.hideLoading()
+      })
+    }
+    
   },
   //监听聊天内容并绑定
   listentext(e){

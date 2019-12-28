@@ -16,13 +16,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    let that = this
-    ajax.requestByGet('/tim/chatter',{},res=>{
-      console.log(res.data.data)
-      that.setData({
-        userlist:res.data.data
-      })
-    })
+    
   },
   toTalk(e){
     let id = e.currentTarget.dataset.id
@@ -55,21 +49,13 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    var that = this;
-    // wx.request({
-    //   url: app.data.requestHost + '/getAllMsg',
-    //   header: {
-    //     'content-type': 'application/json'
-    //   },
-    //   method: "GET",
-    //   success: function (res) {
-    //     var result = res.data;
-    //     console.log(res)
-    //     that.setData({
-    //       systemMsgs: JSON.parse(result.data)
-    //     })
-    //   },
-    // });
+    let that = this
+    ajax.requestByGet('/tim/chatter', {}, res => {
+      console.log(res.data.data)
+      that.setData({
+        userlist: res.data.data
+      })
+    })
   },
 
   /**

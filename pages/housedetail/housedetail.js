@@ -15,7 +15,9 @@ Page({
     love:"../../images/sc.png",
     scTips:"收藏",
     isSc:false,
-    userId:"",
+    userId:"",//房东的
+    myId:"",//自己的 用于判断是不是自己的房子
+    isloader:0,
     iseditor:0,
     markers: [{
       iconPath: "",//地图图片路径
@@ -79,13 +81,17 @@ Page({
   onLoad: function (options) {
     var that = this;
     console.log(options)
+    console.log(wx.getStorageSync("userInfo"))
     if(!options.fdeditor){
       options.fdeditor = 0
     }
+    console.log(this.data)
     // const details = JSON.parse(options.obj)
     this.setData({
       id:options.obj,
-      iseditor:options.fdeditor
+      iseditor:options.fdeditor,
+      myId: wx.getStorageSync("userInfo").id,
+      isloader: wx.getStorageSync("userInfo").landlord
     })
     //是否收藏
     ajax.requestByGet('/house/'+that.data.id+"/isfavor",{},res=>{

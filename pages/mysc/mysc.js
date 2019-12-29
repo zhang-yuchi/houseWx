@@ -30,8 +30,17 @@ Page({
   },
   tohousedetails(e) {
     let index = e.currentTarget.dataset.id
+    let id =  this.data.house[index].id
+    console.log(id)
     wx.navigateTo({
-      url: '../housedetail/housedetail?obj=' + index,
+      url: '../housedetail/housedetail?obj=' + id,
+    })
+  },
+  toliveserverdetail(e){
+    let index = e.currentTarget.dataset.id;
+    let id = this.data.store[index].id
+    wx.navigateTo({
+      url: '../liveserver_detial/liveserver_detial?index=' + id,
     })
   },
   changemodel(e) {

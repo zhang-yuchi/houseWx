@@ -613,6 +613,10 @@ Page({
       wx.navigateTo({
         url: '../fd_cz/fd_cz',
       })
+      wx.showToast({
+        title: '您已是房东',
+        icon: 'none'
+      })
     }else{
       wx.navigateTo({
         url: '../fdAuth_new/fdAuth_new',

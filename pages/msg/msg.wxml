@@ -19,6 +19,6 @@
       <View class="title">{{item.nickName}}</View>
       <View class="content">{{item.latest100Msgs[item.latest100Msgs.length-1].msg}}</View>
     </View>
-    <View class="rightBox">5:09</View>
+    <View class="rightBox">{{item.latest100Msgs[item.latest100Msgs.length-1].gmtSend}}</View>
   </View>
 </View>

@@ -16,7 +16,24 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    
+    let that = this
+    let timer = setInterval(() => {
+      ajax.requestByGet('/tim/chatter', {}, res => {
+        console.log(res.data.data)
+        for(let item of res.data.data){
+          let d = new Date(item.latest100Msgs[item.latest100Msgs.length - 1].gmtSend)
+          let date = d.getHours() + ":" + d.getMinutes()
+          item.latest100Msgs[item.latest100Msgs.length - 1].gmtSend = date
+        }
+        
+        // console.log(date)
+        
+        console.log(res.data.data)
+        that.setData({
+          userlist: res.data.data
+        })
+      })
+    }, 10000)
   },
   toTalk(e){
     let id = e.currentTarget.dataset.id
@@ -49,21 +66,20 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
+
     let that = this
     ajax.requestByGet('/tim/chatter', {}, res => {
       console.log(res.data.data)
+      for (let item of res.data.data) {
+        let d = new Date(item.latest100Msgs[item.latest100Msgs.length - 1].gmtSend)
+        let date = d.getHours() + ":" + d.getMinutes()
+        item.latest100Msgs[item.latest100Msgs.length - 1].gmtSend = date
+      }
       that.setData({
         userlist: res.data.data
       })
     })
-    let timer = setInterval(()=>{
-      ajax.requestByGet('/tim/chatter', {}, res => {
-        console.log(res.data.data)
-        that.setData({
-          userlist: res.data.data
-        })
-      })
-    },10000)
+    
     
   },
 

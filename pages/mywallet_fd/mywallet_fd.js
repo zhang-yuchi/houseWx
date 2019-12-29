@@ -1,4 +1,5 @@
 // pages/mywallet_fd/mywallet_fd.js
+var ajax = require('../../utils/ajax.js')
 Page({
 
   /**
@@ -22,7 +23,9 @@ Page({
         type: "zhongguo",
         checked: false,
       }
-    ]
+    ],
+    canMoney:0,
+    succesMoney:0
   },
   select(e){
     var index = e.currentTarget.dataset.id
@@ -56,6 +59,7 @@ Page({
   tocash(){
     //经过一系列判断后:
     
+
     this.setData({
       tipshow:"block"  
     })
@@ -69,7 +73,12 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    let that = this;
+    ajax.requestByGet('/user/allGetMoney', {}, function (res) {
+      that.setData({
+        succesMoney:res.data.data
+      })
+    })
   },
 
   /**

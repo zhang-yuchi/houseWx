@@ -13,7 +13,7 @@ Page({
       { name: "已结束", id: 1, className: "son_textC"}
     ],
     fulArr:[],
-    nowList:[],
+    nowList:[]
   },
 
 
@@ -25,24 +25,24 @@ Page({
     console.log(wx.getStorageSync("token"))
     ajax.requestByGet('/user/sign',{},function(res){
       console.log(res)
-      // let arr = res.data.data
-      // for(let item of arr){
-      //   let d = new Date(item.gmtCreate)
-      //   let date = `${d.getFullYear()}-${d.getMonth()+1}-${d.getDay()}`
-      //   console.log(date)
-      //   item.gmtCreate = date
-      // }
-      // that.setData({
-      //   fulArr: arr
-      // })
-      // for(let item of arr){
-      //   if(item.isFulFill==1){
-      //     that.data.nowList.push(item)
-      //   }
-      // }
-      // that.setData({
-      //   nowList: that.data.nowList
-      // })
+      let arr = res.data.data
+      for(let item of arr){
+        let d = new Date(item.startCreate)
+        let date = `${d.getFullYear()}-${d.getMonth()}-${d.getDay()}`
+        console.log(date)
+        item.startCreate = date
+      }
+      that.setData({
+        fulArr: arr
+      })
+      for(let item of arr){
+        if(item.isFulFill==1){
+          that.data.nowList.push(item)
+        }
+      }
+      that.setData({
+        nowList: that.data.nowList
+      })
     })
   },
   changeBar:function(e){

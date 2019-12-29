@@ -39,6 +39,7 @@ Page({
     console.log(e.detail.rawData)
     wx.setStorageSync('userInfo', JSON.parse(e.detail.rawData))
     console.log(wx.getStorageSync("userInfo"))
+    wx.setStorageSync("authImg", wx.getStorageSync("userInfo").avatarUrl )
     that.setData({
       userInfo: e.detail.userInfo,
       authShow: "none",

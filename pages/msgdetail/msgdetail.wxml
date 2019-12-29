@@ -1,5 +1,7 @@
 <!--pages/msgdetail/msgdetail.wxml-->
-<View class="container">
-  <image src="{{pic}}" class="pic"/>
-  <View class="font">{{font}}</View>
-</View>
+<scroll-view class="container" scroll-y="true" scroll-into-view="{{tobottom}}">
+  <scroll-view class="msg-block" wx:for="{{msg}}" wx:key="{{item.index}}" scroll-y="true" id="msg{{index}}">
+    <image src="{{item.imgUrl}}"></image>
+    <view class="text">{{item.content}}</view>
+  </scroll-view>
+</scroll-view>

@@ -18,10 +18,11 @@ Page({
   onLoad: function (options) {
     var that = this;
     var userInfo = wx.getStorageSync("userInfo");
+    let authImg = wx.getStorageSync("authImg")
     console.log(userInfo);
     that.setData({
       nickName: userInfo.nickName,
-      imagePic: userInfo.authImgUrl
+      imagePic: authImg
     })
   },
   call: function () {

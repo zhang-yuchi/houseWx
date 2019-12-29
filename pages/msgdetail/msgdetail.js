@@ -8,7 +8,9 @@ Page({
    */
   data: {
     font:"",
-    pic:""
+    pic:"",
+    msg:[],
+    tobottom:""
   },
 
   /**
@@ -18,11 +20,16 @@ Page({
     var that = this;
     ajax.requestByGet('/user/notifier/30',{},function(res){
       console.log(res)
+      that.setData({
+        msg:res.data.data,
+        tobottom: "msg" + (res.data.data.length-1)
+      })
+      console.log(that.data)
     })
-    that.setData({
-      font:JSON.parse(options.obj).con,
-      pic: app.data.requestHost + JSON.parse(options.obj).imageindex
-    })
+    // that.setData({
+    //   font:JSON.parse(options.obj).con,
+    //   pic: app.data.requestHost + JSON.parse(options.obj).imageindex
+    // })
   },
 
   /**

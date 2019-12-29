@@ -22,9 +22,10 @@ Page({
   onLoad: function (options) {
     var that = this;
     var userInfo = wx.getStorageSync('userInfo');
+    let authImg = wx.getStorageSync("authImg")
     that.setData({
       name: userInfo.nickName,
-      imagePic: userInfo.authImgUrl
+      imagePic: authImg
     })
   },
   

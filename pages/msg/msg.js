@@ -56,6 +56,15 @@ Page({
         userlist: res.data.data
       })
     })
+    let timer = setInterval(()=>{
+      ajax.requestByGet('/tim/chatter', {}, res => {
+        console.log(res.data.data)
+        that.setData({
+          userlist: res.data.data
+        })
+      })
+    },10000)
+    
   },
 
   /**

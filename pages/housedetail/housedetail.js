@@ -251,6 +251,12 @@ sc:function(){
     //   url: '../userSign/userSign',
     // })
   },
+  editorhouse(){
+    let that = this
+    wx.navigateTo({
+      url: '../housemdf/housemdf?houseid='+that.data.id,
+    })
+  },
   /**
    * 生命周期函数--监听页面显示
    */

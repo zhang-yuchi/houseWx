@@ -234,10 +234,10 @@ Page({
         console.log(res)
       })
     }else{
-      // wx.showModal({
-      //   title: '提示',
-      //   content: '信息不完整！请检查',
-      // })
+      wx.showModal({
+        title: '提示',
+        content: '信息不完整！请检查',
+      })
     }
     
   },

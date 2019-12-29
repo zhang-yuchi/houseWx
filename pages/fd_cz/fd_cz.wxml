@@ -12,7 +12,7 @@
   <View class="sigleInput">
     <View class="left">具体地址</View>
     <View class="right" bindtap="chooseLocation">
-      <input placeholder="{{addr}}" class="input" />
+      <input placeholder="单行输入" value="{{addr}}" class="input" />
     </View>
   </View>
 

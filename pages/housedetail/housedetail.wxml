@@ -94,5 +94,5 @@
   <View bindtap="touserSign" class="btnBox_son_te" style="background:rgb(255,217,62)">立即签约</View>
 </View>
 <view wx:else class="fd-btn">
-  <view class="fd_innerbtn">编辑房源资料</view>
+  <view class="fd_innerbtn" bindtap="editorhouse">编辑房源资料</view>
 </view>

@@ -8,25 +8,31 @@ Page({
    */
   data: {
     scrollViewHeight: "",
-    barArr:[
-      { name: "履行中", id: 0, className:"son_text"},
-      { name: "已结束", id: 1, className: "son_textC"}
+    barArr: [{
+        name: "履行中",
+        id: 0,
+        className: "son_text"
+      },
+      {
+        name: "已结束",
+        id: 1,
+        className: "son_textC"
+      }
     ],
-    fulArr:[],
-    nowList:[]
+    fulArr: [],
+    nowList: []
   },
-
 
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
+  onLoad: function(options) {
     let that = this
     console.log(wx.getStorageSync("token"))
-    ajax.requestByGet('/user/sign',{},function(res){
+    ajax.requestByGet('/user/sign', {}, function(res) {
       console.log(res)
       let arr = res.data.data
-      for(let item of arr){
+      for (let item of arr) {
         let d = new Date(item.startCreate)
         let date = `${d.getFullYear()}-${d.getMonth()}-${d.getDay()}`
         console.log(date)
@@ -35,8 +41,9 @@ Page({
       that.setData({
         fulArr: arr
       })
-      for(let item of arr){
-        if(item.isFulFill==1){
+      let now = new Date()
+      for (let item of arr) {
+        if (now - item.endCreate <= 0) {
           that.data.nowList.push(item)
         }
       }
@@ -45,30 +52,31 @@ Page({
       })
     })
   },
-  changeBar:function(e){
+  changeBar: function(e) {
     var that = this;
     var id = e.currentTarget.id;
     var arr = that.data.barArr;
-    for(var i=0;i<arr.length;i++){
-      if(arr[i].id == id){
+    for (var i = 0; i < arr.length; i++) {
+      if (arr[i].id == id) {
         arr[i].className = "son_text"
-      }else{
+      } else {
         arr[i].className = "son_textC"
       }
     }
-    if(id==0){
+    if (id == 0) {
       // console.log("履行中")
       let arr = that.data.fulArr
       let nowL = []
-      for(let item of arr){
-        if(item.isFulFill==1){
+      let now = new Date()
+      for (let item of arr) {
+        if (now - item.endCreate <= 0) {
           nowL.push(item)
         }
       }
       that.setData({
-        nowList:nowL
+        nowList: nowL
       })
-    }else{
+    } else {
       // console.log("已结束")
       let arr = that.data.fulArr
       let nowL = []
@@ -83,56 +91,56 @@ Page({
 
     }
     that.setData({
-      barArr:arr
+      barArr: arr
     })
   },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
-  onReady: function () {
+  onReady: function() {
 
   },
 
   /**
    * 生命周期函数--监听页面显示
    */
-  onShow: function () {
-    
+  onShow: function() {
+
   },
 
   /**
    * 生命周期函数--监听页面隐藏
    */
-  onHide: function () {
+  onHide: function() {
 
   },
 
   /**
    * 生命周期函数--监听页面卸载
    */
-  onUnload: function () {
+  onUnload: function() {
 
   },
 
   /**
    * 页面相关事件处理函数--监听用户下拉动作
    */
-  onPullDownRefresh: function () {
+  onPullDownRefresh: function() {
 
   },
 
   /**
    * 页面上拉触底事件的处理函数
    */
-  onReachBottom: function () {
+  onReachBottom: function() {
 
   },
 
   /**
    * 用户点击右上角分享
    */
-  onShareAppMessage: function () {
+  onShareAppMessage: function() {
 
   }
 })

@@ -13,7 +13,7 @@
       <view class="house-info">
         <view class="details-title">{{item.houseInfo}} {{item.houseType}}</view>
         <view class="details-date">有效期: {{item.expDate}}个月</view>
-        <view class="starttime">签订日期:{{item.startCreate}}</view>
+        <view class="starttime">签订日期：{{item.startCreate}}</view>
       </view>
     </view>
 

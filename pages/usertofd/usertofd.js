@@ -1,16 +1,53 @@
 // pages/usertofd/usertofd.js
+var ajax = require('../../utils/ajax.js')
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    imageSrc:''
+  },
+  chooseimage(){
+    let that = this;
+    wx.chooseImage({
+      count:1,
+      success: function(res) {
+        let tempFilePaths = res.tempFilePaths
+        console.log(tempFilePaths[0])
+        that.setData({
+          imageSrc: tempFilePaths
+        })
+      },
+    })
   },
   upload(){
-    wx.navigateTo({
-      url: '../fdsure/fdsure',
-    })
+    let that = this
+    if (that.data.imageSrc == ''){
+      wx.showToast({
+        title: '请上传图片',
+        icon:'none'
+      })
+    }else{
+      ajax.requestByPost('/user/landlord/certify', { authImgUrl:that.data.imageSrc},function(res){
+        console.log(res);
+        wx.showLoading({
+          title: '上传中',
+        })
+        if(res.data.status == 1){
+          wx.navigateTo({
+            url: '../fdsure/fdsure',
+          })
+         wx.hideLoading()
+        }else{
+          wx.showToast({
+            title: res.data.message,
+            icon:'none'
+          })
+        }
+      })
+      
+    }
   },
   /**
    * 生命周期函数--监听页面加载

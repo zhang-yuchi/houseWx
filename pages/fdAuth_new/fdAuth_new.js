@@ -1,5 +1,4 @@
 var app = getApp();
-var ajax = require('../../utils/ajax.js')
 Page({
   data: {
     currentTaskName: "",
@@ -26,9 +25,9 @@ Page({
       // houseId: options.id
     });
   },
-  // uploadImageData: function () {
-  //   console.log("request");
-  // },
+  uploadImageData: function () {
+    console.log("request");
+  },
   uploadIdcard: function (e) {
     var that = this;
     wx.chooseImage({
@@ -46,7 +45,6 @@ Page({
             isIdCardJpg: true
           });
         }
-
         wx.uploadFile({
           url: app.data.requestHost+'/image',
           filePath: tempFilePaths1[0],
@@ -111,45 +109,21 @@ Page({
   upload: function () {
     var that = this;
     if (that.data.isIdCardJpg && that.data.isTaskJpg) {
-      ajax.requestByPost('/user/landlord/certify', { authImgUrl: that.data.imageSrc1},function(res){
-        let data = res.data;
-        console.log(res)
-        console.log(data)
-        if(data.status != 1){
-          wx.showToast({
-            title: data.message,
-            icon:'none'
-          })
-        }else{
-          ajax.requestByPost('/user/landlord/certify', { authImgUrl: that.data.imageSrc2 }, function (res) {
-            if(res.data){
-
-            }
-          })
-        }
+      wx.navigateTo({
+        url: '../fdAuth_check/fdAuth_check',
       })
-      
-      // wx.navigateTo({
-      //   url: '../fdAuth_check/fdAuth_check',
-      // })
-    } else if (that.data.Display1 == 'none' || that.data.Display2 == 'none'){
+    } else {
       wx.showModal({
         title: '提示',
-        content: '请上传图片',
+        content: '图片格式必须为jpg',
+        showCancel: false,
         success: function (res) {
           if (res.confirm) {
             // console.log('用户点击确定')
           } else if (res.cancel) {
             // console.log('用户点击取消')
-            wx.navigateBack()
           }
         }
-      })
-    }else{
-      wx.showModal({
-        title: '提示',
-        content: '图片格式必须为jpg',
-        showCancel: false
       })
     }
   },

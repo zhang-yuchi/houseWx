@@ -1,8 +1,8 @@
 <!--pages/usertofd/usertofd.wxml-->
 <view class="wrap">
-<view class="tips"><text>请上传您的房产证</text><text class="chooseimg">上传图片</text></view>
+<view class="tips"><text>请上传您的房产证</text><text class="chooseimg" bindtap="chooseimage">上传图片</text></view>
 <View class="picBox">
-      <image src="{{imageSrc[0]}}" class="picBox_pic" mode="aspectFit" />
+      <image src="{{imageSrc}}" class="picBox_pic" mode="aspectFit" />
     </View>
 </view>
 

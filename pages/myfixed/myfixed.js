@@ -9,8 +9,8 @@ Page({
   data: {
     scrollViewHeight: "",
     barArr: [
-      { name: "待处理", id: 0, className: "son_text" , select:true},
-      { name: "已处理", id: 1, className: "son_textC" , select:false}
+      { name: "待处理", id: 0, className: "son_text" },
+      { name: "已处理", id: 1, className: "son_textC" }
     ],
     fixed:[],
     unfixed:[],
@@ -42,20 +42,29 @@ Page({
         nowlist:unfixed
       })
     })
-    ajax
   },
 
   changeBar: function (e) {
     let that = this;
     let id = e.currentTarget.id;
     let arr = that.data.barArr;
+    let fixed = that.data.fixed;
+    let unfixed = that.data.unfixed;
+    if(id == 0){
+      that.setData({
+        nowlist: unfixed
+      })
+    }else if(id == 1){
+      that.setData({
+        nowlist: fixed
+      })
+    }
     for (let i = 0; i < arr.length; i++) {
       if (arr[i].id == id) {
         arr[i].className = "son_text";
-        arr[i].select = true
+        
       } else {
         arr[i].className = "son_textC";
-        arr[i].select = false;
       }
     }
     that.setData({

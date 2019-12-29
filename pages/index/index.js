@@ -21,7 +21,8 @@ Page({
     isAuth:0,
     page:1,
     isBottom:false,
-    search:""
+    search:"",
+    tcArr:[]
   },
   init(){
     let that = this
@@ -187,6 +188,19 @@ Page({
       movies: res.data.data
     })
 
+  })
+
+
+  //获得特色推荐
+  ajax.requestByGet('/user/rcmd',{},function(res){
+    console.log(res)
+    let tcArr = []
+    for(let item of res.data.data){
+      tcArr.push(item)
+    }
+    that.setData({
+      tcArr: tcArr
+    })
   })
 
   },

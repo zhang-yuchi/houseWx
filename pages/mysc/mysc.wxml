@@ -9,7 +9,7 @@
       <image src="{{barArr[0].select?item.headingImg:item.headImg}}" style="{{barArr[0].select?'':'width:100%;height:100%'}}"></image>
     </view>
     <view class="sc-details">
-      <view class="sc-title">{{barArr[0].select?item.houseInfo:item.name}} {{barArr[0].select?item.houseType:''}}</view>
+      <view class="sc-title">{{barArr[0].select?item.title:item.name}} {{barArr[0].select?item.houseType:''}}</view>
       <view class="sc-position">{{barArr[0].select?item.area:''}}{{barArr[0].select?'m':''}}<text class="fenge">{{barArr[0].select?'|':''}}</text>{{barArr[0].select?item.orientation:''}}<text class="fenge">{{barArr[0].select?'|':''}}</text>{{barArr[0].select?item.street:''}}</view>
       <view class="house-tag">
         <text class="tags-sign" wx:for="{{barArr[0].select?house[index].tags:[item.type]}}" wx:for-item="tag">{{tag}}</text>

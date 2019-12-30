@@ -1,4 +1,5 @@
 var app = getApp();
+var ajax = require('../../utils/ajax.js')
 Page({
   data: {
     currentTaskName: "",
@@ -14,6 +15,8 @@ Page({
     isIdCardJpg: false,
     isTaskJpg: false,
     currentTaskId: "",
+    upimgSrc1:'',
+    upimgSrc2:''
   },
   onLoad: function (options) {
     var width = app.data.width;
@@ -53,10 +56,12 @@ Page({
             imgType:"auth_img"
           },
           success(res){
-            wx.hideLoading()
-            wx.showToast({
-              title: '上传成功',
+            console.log(JSON.parse(res.data))
+            let obj = JSON.parse(res.data);
+            that.setData({
+                upimgSrc1:obj.data
             })
+            wx.hideLoading()
           }
         })
         that.setData({
@@ -92,10 +97,11 @@ Page({
             imgType: "auth_img"
           },
           success(res) {
-            wx.hideLoading()
-            wx.showToast({
-              title: '上传成功',
+            let obj = JSON.parse(res.data)
+            that.setData({
+              upimgSrc2:obj.data
             })
+            wx.hideLoading()
           }
         })
         that.setData({
@@ -109,10 +115,20 @@ Page({
   upload: function () {
     var that = this;
     if (that.data.isIdCardJpg && that.data.isTaskJpg) {
-      wx.navigateTo({
-        url: '../fdAuth_check/fdAuth_check',
+      ajax.requestByPost('/user/certify', { idcardFront:that.data.upimgSrc1,idcardBack: that.data.upimgSrc2},function(res){
+        console.log(res)
+        wx.showToast({
+          title: res.data.data,
+          icon: 'none'
+        })
       })
-    } else {
+      
+    } else if (that.data.Display1 == 'none' || that.data.Display2 == 'none'){
+      wx.showToast({
+        title: '请选择上传图片',
+        icon: 'none'
+      })
+    }else {
       wx.showModal({
         title: '提示',
         content: '图片格式必须为jpg',

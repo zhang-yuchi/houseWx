@@ -14,16 +14,9 @@
         <View class="font">报修</View>
       </View>
       <View class="right">
-        <View class="right_son" style="font-weight:600;margin-bottom:30rpx">{{item.id}}</View>
+        <View class="right_son" style="font-weight:600;margin-bottom:30rpx">{{item.house.houseInfo}}</View>
         <View class="right_son" style="color:rgb(115, 115, 115);margin-top:24rpx">日期：{{item.gmtCreate}}</View>
       </View>
     </view>
-
-    
-
-    
-
-    
-    
   </scroll-view>
 </View>

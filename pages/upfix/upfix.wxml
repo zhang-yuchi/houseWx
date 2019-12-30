@@ -22,9 +22,21 @@
       </View>
     </View>
     <View class="sigleInput">
+      <View class="left">维修日期</View>
+      <View class="middle">
+         <picker class="picker" mode="date" bindchange="bindDatePickerChange">{{fixdate}}</picker>
+      </View>
+      <View class="new_right">
+        <image src="../../images/right.png" class="newRightPic" />
+      </View>
+    </View>
+    <View class="sigleInput">
       <View class="left">维修时间</View>
-      <View class="right">
-        <input placeholder="单行输入" class="input" bindinput="getfixtime" />
+      <View class="middle">
+         <picker class="picker" mode="time" bindchange="bindTimePickerChange">{{fixtime}}</picker>
+      </View>
+      <View class="new_right">
+        <image src="../../images/right.png" class="newRightPic" />
       </View>
     </View>
     <View class="sigleInput" id="textArea-box">

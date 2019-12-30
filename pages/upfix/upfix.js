@@ -7,7 +7,8 @@ Page({
    * 页面的初始数据
    */
   data: {
-    fixtime:'',
+    fixtime:'请选择时间',
+    fixdate: '请选择日期',
     phone:'',
     cashArray: [],
     cashType: "请选择房源",
@@ -17,6 +18,7 @@ Page({
     dateArray:'',
     houseId:[],
     userId:[]
+    
   },
 
   /**
@@ -55,9 +57,16 @@ Page({
       phone: event.detail.value
     })
   },
-  getfixtime: function (event) {
+  bindDatePickerChange(e){
+    console.log(e.detail.value)
     this.setData({
-      fixtime: event.detail.value
+      fixdate: e.detail.value
+    })
+  },
+  bindTimePickerChange(e) {
+    console.log(e.detail.value)
+    this.setData({
+      fixtime: e.detail.value
     })
   },
   bindCashPickerChange: function (e) {
@@ -69,44 +78,37 @@ Page({
   },
   submit: function () {
     var that = this;
-    if (that.data.cashType != "请选择房源" && that.data.areaWidth != "" && that.data.textarea != "" && that.data.imageSrc != "" && that.data.phone != "" && that.data.fixtime != '') {
-      var dataObj = {};
-      let idnex = that.data.index
-      dataObj.content = that.data.textarea;
-      dataObj.gmtCreate = that.data.dateArray[index];
-      dataObj.houseId = that.data.houseId[idnex];
-      dataObj.id = that.data.userId[idnex];
-
-
-      dataObj.cashType = that.data.cashType;  
-      dataObj.areaWidth = that.data.areaWidth;
-      dataObj.textarea = that.data.fixtime;
-      var fdId = wx.getStorageSync('id');
-      var token = wx.getStorageSync('token');
+    if (that.data.cashType != "请选择房源" && that.data.areaWidth != "" && that.data.textarea != "" && that.data.imageSrc != "" && that.data.phone != "" && that.data.fixtime != '请选择时间'&& that.data.fixdate != '请选择日期') {
       //上传图片的同时将文字也进行上传
-      ajax.requestByPut('/user/repair',{},function(res){
-        
-      })
       wx.uploadFile({
-        url: app.data.requestHost + '/upFdHouse', //仅为示例，非真实的接口地址
+        url: app.data.requestHost + '/image', 
         filePath: that.data.imageSrc[0],
-        header: {
-          "content-type": "multipart/form-data"
-        },
         name: 'file',
         formData: {
-          id: fdId,
-          token: token,
-          houseInfo: JSON.stringify(dataObj)
+          imgType: 'repair'
         },
         success: function (res) {
-          var data = res.data
+          console.log(res)
+          var obj = JSON.parse(res.data)
           //do something
-          console.log("1" + data);
-          if (JSON.parse(data).status == "200" && JSON.parse(data).code == "1") {
-            wx.navigateTo({
-              url: '../fdAuth_check/fdAuth_check',
+          if (obj.status == 1) {
+            var dataObj = {};
+            let index = that.data.index
+            dataObj.content = that.data.textarea;
+            dataObj.gmtCreate = that.data.dateArray[index];
+            dataObj.houseId = that.data.houseId[index];
+            dataObj.id = that.data.userId[index];
+            dataObj.phone = that.data.phone;
+            dataObj.url = obj.data;
+            dataObj.repairTime = `${that.data.fixdate} ${that.data.fixtime}:00`
+            console.log(dataObj)
+            ajax.requestByPut('/user/repair', dataObj, function (res) {
+              console.log(res)
+              // wx.navigateTo({
+              //   url: '../fdAuth_check/fdAuth_check',
+              // })
             })
+            
           } else {
             wx.showModal({
               title: '提示',
@@ -133,6 +135,7 @@ Page({
         console.log("test:" + String(tempFilePaths1));
         var pparr = String(tempFilePaths1).split(".")
         if (pparr[pparr.length - 1] == "jpg" || pparr[pparr.length - 1] == "JPG") {
+
           that.setData({
             isIdCardJpg: true
           });

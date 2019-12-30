@@ -15,7 +15,7 @@ Page({
     fixed:[],
     unfixed:[],
     nowlist:[],
-    houseInfo:[]
+    index:''
   },
 
   /**
@@ -29,6 +29,9 @@ Page({
       let fixed = [];
       let unfixed = [];
       for(let item of data){
+        console.log(item.gmtCreate)
+        item.gmtCreateT = new Date(item.gmtCreate)
+        console.log(item.gmtCreateT)
         item.gmtCreate = item.gmtCreate.split('T')[0]
         if(item.status){
           fixed.push(item)
@@ -62,7 +65,6 @@ Page({
     for (let i = 0; i < arr.length; i++) {
       if (arr[i].id == id) {
         arr[i].className = "son_text";
-        
       } else {
         arr[i].className = "son_textC";
       }
@@ -71,9 +73,12 @@ Page({
       barArr: arr
     })
   },
-  toFixedDetails(){
+  toFixedDetails(e){
+    let index = e.currentTarget.dataset.index;
+    console.log(index)
+    let obj = this.data.nowlist[index]
     wx.navigateTo({
-      url: '../myfixed_details/myfixed_details',
+      url: `../myfixed_details/myfixed_details?content=${obj.content}&phone=${obj.phone}&houseImgUrl=${obj.houseImgUrl}&repaireTime=${obj.repaireTime}&houseInfo=${obj.house.houseInfo}&houseStreet=${obj.house.streetNumber}`,
     })
   },
   /**

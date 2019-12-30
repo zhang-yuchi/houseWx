@@ -6,22 +6,22 @@
 </view>
 <view class="list">
   <view class="list-left">选择房源：</view>
-  <view class="list-right">东泰花园 D栋305</view>
+  <view class="list-right">{{obj.houseInfo}} {{obj.houseStreet}}</view>
 </view>
 <view class="list">
   <view class="list-left">联系电话：</view>
-  <view class="list-right">18617244771</view>
+  <view class="list-right">{{obj.phone}}</view>
 </view>
 <view class="list">
   <view class="list-left">维修时间：</view>
-  <view class="list-right">2019-08-23 11：30</view>
+  <view class="list-right">{{obj.repaireTime}}</view>
 </view>
 <view class="list">
   <view class="list-left">维修内容：</view>
-  <view class="list-right">房屋漏水</view>
+  <view class="list-right">{{obj.content}}</view>
 </view>
 <view class="list">
   <view class="list-left">图片上传：</view>
-  <image class="list-right" src="../../images/faAuth_1.png" style="height:380rpx;border-radius:10rpx"></image>
+  <image class="list-right" src="{{obj.houseImgUrl}}" style="height:380rpx;border-radius:10rpx"></image>
 </view>
 </scroll-view>

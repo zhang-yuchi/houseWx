@@ -1,5 +1,6 @@
 // pages/usertofd/usertofd.js
 var ajax = require('../../utils/ajax.js')
+var app = getApp()
 Page({
 
   /**
@@ -15,9 +16,24 @@ Page({
       success: function(res) {
         let tempFilePaths = res.tempFilePaths
         console.log(tempFilePaths[0])
-        that.setData({
-          imageSrc: tempFilePaths
+        wx.uploadFile({
+          url: app.data.requestHost+'/image' ,
+          filePath: tempFilePaths[0],
+          name: 'file',
+          formData:{
+            imgType:"certificate"
+          },
+          success(res){
+            // console.log(res)
+            let obj = JSON.parse(res.data)
+            let img = obj.data
+            // console.log(img)
+            that.setData({
+              imageSrc: img
+            })
+          }
         })
+        
       },
     })
   },

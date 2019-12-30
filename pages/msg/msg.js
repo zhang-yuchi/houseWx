@@ -74,7 +74,7 @@ Page({
 
     let that = this
     ajax.requestByGet('/tim/chatter', {}, res => {
-      // console.log(res.data.data)
+      console.log(res.data.data)
       for (let item of res.data.data) {
         let d = new Date(item.latest100Msgs[item.latest100Msgs.length - 1].gmtSend)
         let date = d.getHours() + ":" + d.getMinutes()
@@ -100,7 +100,7 @@ Page({
    * 生命周期函数--监听页面卸载
    */
   onUnload: function () {
-    console.log(111)
+    // console.log(111)
   },
 
   /**

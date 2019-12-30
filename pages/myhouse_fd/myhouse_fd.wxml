@@ -6,7 +6,7 @@
     </View>
   </View>
 
-  <view class="content">
+  <scroll-view class="content" scroll-y="true">
     <view class="content-block" data-id="{{item.id}}" wx:for="{{nowlist}}" wx:key="{{item.index}}" bindtap="tohousedetails">
     <view class="block-pic">
       <image src="{{item.headingImg}}"></image>
@@ -20,6 +20,6 @@
       <view class="house-price">{{item.cash}}<text class="per">元/月</text></view>
     </view>
   </view>
-  </view>
+  </scroll-view>
 
 </View>

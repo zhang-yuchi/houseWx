@@ -15,6 +15,30 @@
       <input placeholder="单行输入" value="{{addr}}" class="input" />
     </View>
   </View>
+  <View class="sigleInput">
+    <View class="left">街道</View>
+    <View class="right">
+      <input type="text" placeholder="单行输入" class="input" bindinput="getStreet" />
+    </View>
+  </View>
+<View class="sigleInput">
+    <View class="left">街道号</View>
+    <View class="right">
+      <input type="text" placeholder="单行输入" class="input" bindinput="getStreetNumber" />
+    </View>
+  </View>
+  <View class="sigleInput">
+    <View class="left">装修</View>
+    <View class="right">
+      <input type="text" placeholder="精装,简装等" class="input" bindinput="getdecoration" />
+    </View>
+  </View>
+  <View class="sigleInput">
+    <View class="left">户型</View>
+    <View class="right">
+      <input type="text" placeholder="几室几厅几卫,务必输入几室" class="input" bindinput="gethx" />
+    </View>
+  </View>
 
   <View class="sigleInput">
     <View class="left">租金</View>
@@ -161,6 +185,6 @@
   </View>
   <View class="picBox">
     <image src="{{imageSrc}}" class="picBox_pic" mode="aspectFit" />
-  </View>、
+  </View>
   <View class="btn" bindtap="submit">下一步</View>
 </View>

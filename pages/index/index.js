@@ -165,6 +165,7 @@ Page({
    */
   onLoad: function (options) {
     const that = this
+    utils.token()
     ajax.requestByGet('/user/info',{},function(res){
       console.log(res)
       wx.setStorageSync("userInfo", res.data.data)

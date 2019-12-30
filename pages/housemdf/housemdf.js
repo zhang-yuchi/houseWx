@@ -7,6 +7,10 @@ Page({
    * 页面的初始数据
    */
   data: {
+    street: "",
+    streetNum: "",
+    deco: "",
+    hx: "",
     id:"",
     yesArr: ['否', '是'],
     cashArray: ['押一付一', '押一付三'],
@@ -59,9 +63,17 @@ Page({
       console.log(res)
       let house = res.data.data
       that.setData({
+        street: that.data.street,
+        streetNum: that.data.streetNumber,
+        deco: that.data.decoration,
+        hx: that.data.houseType,
+        decoration: that.data.deco,
+        street: that.data.street,
+        streetNumber: that.data.streetNum,
+        houseType: that.data.hx,
         id: options.houseid,
         imageSrc: house.headingImg,
-        addr: house.province+house.city+house.district+house.street+house.streetNumber,
+        addr: house.province+house.city+house.district,
         longitude: house.lng,
         latitude: house.lat,
         cash: house.cash,
@@ -213,8 +225,11 @@ Page({
     var that = this;
     console.log(wx.getStorageSync("userInfo"))
     // console.log(that.data)
-    if (that.data.addr != "" && that.data.cash >=0 && that.data.time != "" && that.data.cashType != "请选择押金方式" && that.data.areaWidth != "" && that.data.caig != "请选择采光程度" && that.data.caox != "请选择朝向" && that.data.diant != "请选择是否有电梯" && that.data.looktime != "" && that.data.intime != "单行输入" && that.data.textarea != "" && that.data.imageSrc != "" && that.data.floor != "" && that.data.boyShared != "是否为男生合租" && that.data.girlShared != "是否为女生合租") {
+    if (that.data.hx != "" && that.data.street != "" && that.data.streetNum != "" && that.data.deco != "" &&that.data.addr != "" && that.data.cash >=0 && that.data.time != "" && that.data.cashType != "请选择押金方式" && that.data.areaWidth != "" && that.data.caig != "请选择采光程度" && that.data.caox != "请选择朝向" && that.data.diant != "请选择是否有电梯" && that.data.looktime != "" && that.data.intime != "单行输入" && that.data.textarea != "" && that.data.imageSrc != "" && that.data.floor != "" && that.data.boyShared != "是否为男生合租" && that.data.girlShared != "是否为女生合租") {
       var dataObj = {
+
+        district:"",
+        headingImg:that.data.imageSrc,
         id:parseInt(that.data.id),
         userId:wx.getStorageSync("userInfo").id,
         area: that.data.areaWidth,//面积
@@ -268,7 +283,9 @@ Page({
         dataObj.province = addr.substring(0, index)
         dataObj.city = addr.substring(index + 1, cindex)
       }
-
+      const district = addr.substring(addr.indexOf("市")+1)
+      // console.log(district)
+      dataObj.district = district
       //得到两排的筛选
       for (let item of that.data.firstLevel) {
         if (item.selected) {
@@ -296,6 +313,14 @@ Page({
       console.log(dataObj)
       ajax.requestByPut("/house", dataObj, res => {
         console.log(res)
+        if(res.data.status==1){
+          wx.showToast({
+            title: '修改成功!',
+          })
+          wx.reLaunch({
+            url: '../myhouse_fd/myhouse_fd',
+          })
+        }
       })
     } else {
       wx.showModal({
@@ -327,13 +352,18 @@ Page({
           filePath: tempFilePaths1[0],
           name: 'file',
           formData: {
-            imageType: "house"
+            imgType: "house"
           },
-          success() {
+          success(res) {
             wx.hideLoading()
             wx.showToast({
               title: '上传成功',
             })
+            let img = JSON.parse(res.data).data
+            console.log(JSON.parse(res.data))
+            that.setData({
+              imageSrc: img,
+            });
           },
           fail(err) {
             console.log(res)
@@ -421,6 +451,30 @@ Page({
 
   },
 
+
+
+  //补充
+  getStreet(e) {
+    this.setData({
+      street: e.detail.value
+    })
+  },
+  getStreetNumber(e) {
+    this.setData({
+      streetNum: e.detail.value
+    })
+    console.log(this.data)
+  },
+  getdecoration(e) {
+    this.setData({
+      deco: e.detail.value
+    })
+  },
+  gethx(e) {
+    this.setData({
+      hx: e.detail.value
+    })
+  },
   /**
    * 生命周期函数--监听页面显示
    */

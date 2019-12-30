@@ -43,7 +43,7 @@ Page({
       })
       let now = new Date()
       for (let item of arr) {
-        if (now - item.endCreate <= 0) {
+        if (now - new Date(item.endCreate) <= 0) {
           that.data.nowList.push(item)
         }
       }
@@ -69,7 +69,7 @@ Page({
       let nowL = []
       let now = new Date()
       for (let item of arr) {
-        if (now - item.endCreate <= 0) {
+        if (now - new Date(item.endCreate)  <= 0) {
           nowL.push(item)
         }
       }
@@ -80,8 +80,9 @@ Page({
       // console.log("已结束")
       let arr = that.data.fulArr
       let nowL = []
+      let now = new Date()
       for (let item of arr) {
-        if (item.isFulFill == 0) {
+        if (now - new Date(item.endCreate) > 0) {
           nowL.push(item)
         }
       }

@@ -8,7 +8,7 @@
 
 
   <view class="box-wrap">
-    <view class="inner-block" wx:for="{{nowList}}" wx:key="{{item.index}}">
+    <view class="inner-block" wx:for="{{nowList}}" wx:key="details">
       <image class="houseimg" src="../../images/index_2.jpg" />
       <view class="house-info">
         <view class="details-title">{{item.houseInfo}} {{item.houseType}}</view>

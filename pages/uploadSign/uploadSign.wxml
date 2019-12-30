@@ -1,44 +1,41 @@
 <!--pages/housedetail/housedetail.wxml-->
 <View class="container">
 <view class="scrollView" style="width:100%;height:{{scrollViewHeight}}">
-<image src="../../images/index_1.jpg" class="topPic" mode="aspectFill" />
+<image src="{{house.headingImg}}" class="topPic" mode="aspectFill" />
   <!-- 新UI的介绍 -->
   <View class="new_box">
     <View class="left">
       <View class="left_top">
-        精品房
+        {{house.title}}
       </View>
       <View class="left_bottom">
-        押一付一
+        {{house.cashType}}
       </View>
     </View>
-    <View class="right">
-      <image src="../../images/sc.png" class="right_top" mode="aspectFill" />
-      <View class="right_bottom">收藏</View>
-    </View>
+    
   </View>
 
-  <View class="price_new">￥ 2100 元/月</View>
+  <View class="price_new">￥ {{house.cash}} 元/月</View>
 
   <View class="new_info_box">
     <View class="new_info_box_first">
       <View class="firstBox">
-        <View class="firstBox_top">朝向-东</View>
-        <View class="firstBox_bottom">28m</View>
+        <View class="firstBox_top">朝向-{{house.orientation}}</View>
+        <View class="firstBox_bottom">{{house.area}}m^2</View>
       </View>
       <View class="firstBox">
-        <View class="firstBox_top">2室1厅1卫</View>
+        <View class="firstBox_top">{{house.houseType}}</View>
         <View class="firstBox_bottom">有家电</View>
       </View>
       <View class="firstBox">
-        <View class="firstBox_top">28层</View>
-        <View class="firstBox_bottom">有电梯</View>
+        <View class="firstBox_top">{{house.floor}}层</View>
+        <View class="firstBox_bottom">{{house.hasElevator==0?"无":"有"}}电梯</View>
       </View>
     </View>
     <View class="new_info_box_second">
       <View class="second_left">
         <View class="left_left" style="color:gray">装修</View>
-        <View class="left_left" style="text-align:left">豪华装修</View>
+        <View class="left_left" style="text-align:left">{{house.decoration}}</View>
       </View>
       <View class="second_left">
         <View class="left_left" style="color:gray">入住</View>
@@ -48,25 +45,28 @@
     <View class="new_info_box_third">
     <View class="second_left">
         <View class="left_left" style="color:gray">看房</View>
-        <View class="left_left" style="text-align:left">2017/12/16</View>
+        <View class="left_left" style="text-align:left">{{house.inspection}}</View>
       </View>
       <View class="second_left">
         <View class="left_left" style="color:gray">采光</View>
-        <View class="left_left" style="text-align:left">优</View>
+        <View class="left_left" style="text-align:left">{{house.daylighting}}</View>
       </View>
     </View>
   </View>
 
-  <View class="timeBox"><Text style="color:rgb(140,140,140);font-size:15px;font-weight:300">签订日期：</Text>2019/12/6</View>
-  <View class="timeBox"><Text style="color:rgb(140,140,140);font-size:15px;font-weight:300">到期日期：</Text>2019/12/12</View>
+  <View class="timeBox"><Text style="color:rgb(140,140,140);font-size:15px;font-weight:300">签订日期：</Text>{{starttime}}</View>
+  <View class="timeBox"><Text style="color:rgb(140,140,140);font-size:15px;font-weight:300">到期日期：</Text>{{endtime}}</View>
 
-  <View class="ht"></View>
+  <View class="ht">
+    <image mode="scaleToFill" src="https://image.ruankun.xyz/2.jpg"></image>
+  </View>
   <view class="sign-title">确定合同内容并签名</view>
-  <canvas style="width: 100%; height: 400px;" class="canvas" bindtouchstart="touchstart" bindtouchend="touchend" canvas-id="firstCanvas" bindtouchmove="move" disable-scroll></canvas>
   <view class="sign-control">
     <view bindtap="cleardraw">清除</view>
-    <view bindtap="getimg">上传</view>
   </view>
-  <View class="paybtn" bindtap="paybtn">确定签约并支付</View>
+  <canvas style="width: 100%; height: 400px;" class="canvas" bindtouchstart="touchstart" bindtouchend="touchend" canvas-id="firstCanvas" bindtouchmove="move" disable-scroll></canvas>
+  
+  <View class="paybtn" wx:if="{{!isLoad}}" bindtap="getimg">确认合同并上传</View>
+  <View class="paybtn" wx:elif="{{isLoad}}" bindtap="paybtn">支付</View>
 </view>
 </View>

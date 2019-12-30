@@ -230,6 +230,7 @@ sc:function(){
     console.log(e.controlId)
   },
   touserSign:function(){
+    var that = this
     console.log(wx.getStorageSync("userInfo"))
     let userinfo = wx.getStorageSync("userInfo")
     if(userinfo.isAuth==0){
@@ -239,6 +240,13 @@ sc:function(){
       })
       return
     }
+    // if(userinfo.isAuth==1){
+    //   wx.showToast({
+    //     title: '认证中,请耐心等待~',
+    //     icon:"none"
+    //   })
+    //   return
+    // }
     if (userinfo.landlord==1){
       wx.showToast({
         title: '房东无法签约',
@@ -247,9 +255,9 @@ sc:function(){
       return
     }
 
-    // wx.navigateTo({
-    //   url: '../userSign/userSign',
-    // })
+    wx.navigateTo({
+      url: '../userSign/userSign?houseid='+that.data.id,
+    })
   },
   editorhouse(){
     let that = this

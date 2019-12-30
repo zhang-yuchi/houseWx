@@ -17,23 +17,28 @@ Page({
    */
   onLoad: function (options) {
     let that = this
-    let timer = setInterval(() => {
-      ajax.requestByGet('/tim/chatter', {}, res => {
-        console.log(res.data.data)
-        for(let item of res.data.data){
-          let d = new Date(item.latest100Msgs[item.latest100Msgs.length - 1].gmtSend)
-          let date = d.getHours() + ":" + d.getMinutes()
-          item.latest100Msgs[item.latest100Msgs.length - 1].gmtSend = date
-        }
-        
-        // console.log(date)
-        
-        console.log(res.data.data)
-        that.setData({
-          userlist: res.data.data
+    let msgtimer = wx.getStorageSync("msgtimer")
+    if(!msgtimer){
+        msgtimer = setInterval(() => {
+        ajax.requestByGet('/tim/chatter', {}, res => {
+          // console.log(res.data.data)
+          for (let item of res.data.data) {
+            let d = new Date(item.latest100Msgs[item.latest100Msgs.length - 1].gmtSend)
+            let date = d.getHours() + ":" + d.getMinutes()
+            item.latest100Msgs[item.latest100Msgs.length - 1].gmtSend = date
+          }
+
+          // console.log(date)
+
+          console.log(res.data.data)
+          that.setData({
+            userlist: res.data.data
+          })
         })
-      })
-    }, 10000)
+      }, 10000)
+      wx.setStorageSync("msgtimer", msgtimer)
+    }
+    
   },
   toTalk(e){
     let id = e.currentTarget.dataset.id
@@ -69,7 +74,7 @@ Page({
 
     let that = this
     ajax.requestByGet('/tim/chatter', {}, res => {
-      console.log(res.data.data)
+      // console.log(res.data.data)
       for (let item of res.data.data) {
         let d = new Date(item.latest100Msgs[item.latest100Msgs.length - 1].gmtSend)
         let date = d.getHours() + ":" + d.getMinutes()

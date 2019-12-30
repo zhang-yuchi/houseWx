@@ -244,6 +244,12 @@ Page({
       console.log(dataObj)
       ajax.requestByPost("/house",dataObj,res=>{
         console.log(res)
+        wx.showToast({
+          title: '提交成功!',
+        })
+        wx.reLaunch({
+          url: '../fdAuth_check/fdAuth_check',
+        })
       })
     }else{
       wx.showModal({

@@ -9,7 +9,7 @@ Page({
   data: {
     to:"",
     text:"",
-    mine:6,
+    mine:0,
     history:[],
     getmsg:[],
     toview:"",
@@ -76,8 +76,8 @@ Page({
       })
       timer = setInterval(function () {
         ajax.requestByGet('/tim/msg/' + that.data.to, {}, res => {
-          console.log("新信息")
-          console.log(res)
+          // console.log("新信息")
+          // console.log(res)
           if(res.data.data.length>0){
             let arr = that.data.getmsg
             for (let item of res.data.data){
@@ -92,7 +92,7 @@ Page({
             })
           }
         })
-      }, 10000)
+      }, 3000)
     })
     
     

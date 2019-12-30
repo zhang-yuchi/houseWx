@@ -1,5 +1,6 @@
 // pages/housedetail/housedetail.js
 var app = getApp();
+var ajax = require('../../utils/ajax.js')
 var context = null;// 使用 wx.createContext 获取绘图上下文 context  
 var isButtonDown = false;
 var arrx = [];
@@ -20,7 +21,14 @@ Page({
    * 页面的初始数据
    */
   data: {
-    isLoad:false
+    isLoad:false,
+    handWriteImgUrl:"", 
+    house:{},
+    houseid:"",
+    userName:"",
+    starttime:"",
+    endtime:"",
+    idCard:"",
   },
   paybtn:function(){
     var that = this;
@@ -110,12 +118,32 @@ Page({
             'imgType': 'handwritten_signature'
           },
           success: function (res) {
-            that.data.isLoad = true
+            // that.data.isLoad = true
             wx.showToast({
               title: '上传成功',
             })
             wx.hideLoading()
-            console.log(res);
+            // console.log(res);
+            let obj = JSON.parse(res.data)
+            // console.log(obj)
+            let handWriteImgUrl=obj.data
+            console.log(handWriteImgUrl)
+            that.setData({
+              handWriteImgUrl: handWriteImgUrl
+            })
+            ajax.requestByPost('/user/'+that.data.houseid+"/sign",{
+              handWriteImgUrl: that.data.handWriteImgUrl,
+              houseId :that.data.houseid,
+              idCardNum:that.data.idCardNum,
+              userName:that.data.userName
+            },res=>{
+              wx.showToast({
+                title: '上传成功!请支付',
+              })
+              that.setData({
+                isLoad:true
+              })
+            })
           },
           fail: function (res) {
             console.log(res);
@@ -150,10 +178,32 @@ Page({
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
-  onLoad:function(){
-    console.log(111)
+  onLoad:function(options){
+    // console.log(111)
+    let obj = JSON.parse(options.obj)
+    //画布
     context = wx.createCanvasContext('firstCanvas');
     context.beginPath()
+    //数据初始化
+    console.log(obj)
+    let that = this
+    that.setData({
+      houseid: obj.houseid,
+      idCardNum: obj.idCard,
+      userName: obj.name,
+      starttime:obj.starttime,
+      endtime:obj.endtime
+    })
+    ajax.requestByGet('/house/' + that.data.houseid,{},res=>{
+      if(res.data.status==1){
+        console.log(res.data.data)
+        that.setData({
+          house: res.data.data
+        })
+      }
+      
+    })
+    
   },
   onReady: function () {
 

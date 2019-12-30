@@ -1,5 +1,6 @@
 var subwayUtil = require('./subwayUtil.js')
 var QQMap = require('./qqmap-wx-jssdk.min.js')
+var ajax = require("./ajax.js")
 let qqMap = new QQMap({
   key: "OVUBZ-MLPL6-MQPSJ-MR2KT-MWFIK-O6FUE"
 })
@@ -359,5 +360,32 @@ module.exports = {
       return newarr
     }
     return []
-  }
+  },
+  token(){
+    let token = wx.getStorageSync("token")
+    // console.log(wx.getStorageSync("userInfo"))
+    let timer = wx.getStorageSync("timer")
+    if(!timer){
+      timer = setInterval(function () {
+        ajax.requestByGet('/user/token/' + token, {}, res => {
+          // console.log(res)
+          if (res.data.data == "token可用" && res.data.status == 1) {
+            // console.log("未过期")
+            return
+          }
+          wx.showModal({
+            title: '身份过期',
+            content: '请重新登录',
+          })
+          clearInterval(timer)
+          wx.reLaunch({
+            url: '../wxLogin/wxLogin',
+          })
+        })
+      }, 10000)
+      wx.setStorageSync("timer", timer)
+    }
+    
+    
+  },
 }

@@ -1,6 +1,7 @@
 var app = getApp();
 Page({
   data: {
+    houseid:"",
     currentTaskName: "",
     imageSrc1: "",
     imageSrc2: "",
@@ -47,14 +48,21 @@ Page({
   },
   toUploadSign:function(){
     var that = this;
-    
     //包装上传信息
     var obj = {};
+    if(that.data.idCard.length!==18){
+      wx.showToast({
+        title: '请输入正确的18位身份证',
+        icon:"none",
+      })
+      return
+    }
     if (that.data.name != "" && that.data.idCard != "" && that.data.starttime != "" && that.data.endtime != ""  ){
       obj.name = that.data.name;
       obj.idCard = that.data.idCard;
       obj.starttime = that.data.starttime;
       obj.endtime = that.data.endtime;
+      obj.houseid = that.data.houseid
       wx.navigateTo({
         url: '../uploadSign/uploadSign?obj=' + JSON.stringify(obj),
       })
@@ -67,13 +75,16 @@ Page({
     
   },
   onLoad: function (options) {
+    console.log(options)
+
     var width = app.data.width;
     var logoLeft = 0 + "px"
     var imageLeft = (width * 0.9 * 0.3) / 2 + "px"
     console.log(logoLeft);
     this.setData({
       logoLeft: logoLeft,
-      imageLeft:imageLeft
+      imageLeft:imageLeft,
+      houseid:options.houseid
     });
   },
   uploadImageData: function () {

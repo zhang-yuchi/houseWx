@@ -1,5 +1,6 @@
 // pages/housedetail/housedetail.js
 var app = getApp();
+var pay = require('../../utils/pay.js')
 var ajax = require('../../utils/ajax.js')
 var context = null;// 使用 wx.createContext 获取绘图上下文 context  
 var isButtonDown = false;
@@ -28,7 +29,7 @@ Page({
     userName:"",
     starttime:"",
     endtime:"",
-    idCard:"",
+    idCardNum:"",
   },
   paybtn:function(){
     var that = this;
@@ -39,9 +40,26 @@ Page({
         icon:"none"
       })
       return
+    } else {//支付相关代码
+        wx.showModal({
+          title: '注意',
+          content: '该房源为' + that.data.house.cashType+'，需先付押金，再付租金',
+          success:function(res){
+            if(res.cancel){//点取消
+              wx.showToast({
+                title: '取消支付',
+                icon:'none'
+              })
+            }else{
+              pay.pay(that.data.houseid, 'deposit', that.data.house.cash, {}, function(res){
+                
+              })
+            }
+          }
+        })
+        
+
     }
-    //支付相关代码
-    
   },
 
 
@@ -138,7 +156,7 @@ Page({
               userName:that.data.userName
             },res=>{
               wx.showToast({
-                title: '上传成功!请支付',
+                title: '上传成功请支付 ',
               })
               that.setData({
                 isLoad:true

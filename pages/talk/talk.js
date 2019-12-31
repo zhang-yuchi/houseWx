@@ -58,7 +58,7 @@ Page({
       })
     }).then(()=>{
       ajax.requestByGet('/tim/msg/' + that.data.to, {}, res => {
-        console.log("新信息")
+        // console.log("新信息")
         console.log(res)
         if (res.data.data.length > 0) {
           let arr = that.data.getmsg

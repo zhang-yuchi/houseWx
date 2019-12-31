@@ -1,5 +1,6 @@
 // pages/mywallet_fd/mywallet_fd.js
 var ajax = require('../../utils/ajax.js')
+var utils = require('../../utils/utils.js')
 Page({
 
   /**
@@ -7,25 +8,9 @@ Page({
    */
   data: {
     tipshow:"none",
-    cards:[
-      {
-        cardnum:"2133",
-        type:"gongshang",
-        checked:false,
-      },
-      {
-        cardnum: "2134",
-        type: "jianshe",
-        checked: false,
-      },
-      {
-        cardnum: "2133",
-        type: "zhongguo",
-        checked: false,
-      }
-    ],
     canMoney:0,
-    succesMoney:0
+    succesMoney:0,
+    givemoney:0,
   },
   select(e){
     var index = e.currentTarget.dataset.id
@@ -36,6 +21,11 @@ Page({
     this.data.cards[index].checked = true
     this.setData({
       cards:this.data.cards
+    })
+  },
+  getgivemoney(e){
+    this.setData({
+      givemoney:parseFloat(e.detail.value).toFixed(2)
     })
   },
   toaddCard(){
@@ -58,11 +48,50 @@ Page({
   },
   tocash(){
     //经过一系列判断后:
-    
-
-    this.setData({
-      tipshow:"block"  
+    let that = this
+    console.log(this.data.givemoney)
+    // if(that.data.givemoney>that.data.canMoney){
+    //   wx.showToast({
+    //     title: '提现金额过多!',
+    //     icon:"none"
+    //   })
+    //   return
+    // }
+    if(that.data.givemoney==0){
+      wx.showToast({
+        title: '提现金额不能为0',
+        icon:"none"
+      })
+      return
+    }
+    let user = wx.getStorageSync("userInfo")
+    console.log(user)
+    let openid = user.openId
+    console.log(openid)
+    let sign = utils.getMoney_fd(user,openid)
+    console.log(sign)
+    wx.showLoading({
+      title: '提交中',
     })
+    ajax.requestByPost('/user/launchWithdraw',{
+      money: parseFloat(that.data.givemoney).toFixed(2),
+      sign:sign
+    },res=>{
+      console.log(res)
+      if(res.data.sataus==1){
+        wx.hideLoading()
+        this.setData({
+          tipshow: "block"
+        })
+      }
+      wx.hideLoading()
+      wx.showToast({
+        title: res.data.message,
+        icon:"none"
+      })
+      
+    })
+    
   },
   sure(){
     this.setData({
@@ -74,11 +103,22 @@ Page({
    */
   onLoad: function (options) {
     let that = this;
-    ajax.requestByGet('/user/allGetMoney', {}, function (res) {
-      that.setData({
-        succesMoney:res.data.data
+    new Promise(resolve=>{
+      ajax.requestByGet('/user/info',{},res=>{
+        console.log(res)
+        that.setData({
+          canMoney:res.data.data.money
+        })
+        resolve()
+      })
+    }).then(()=>{
+      ajax.requestByGet('/user/allGetMoney', {}, function (res) {
+        that.setData({
+          succesMoney: res.data.data
+        })
       })
     })
+    
   },
 
   /**

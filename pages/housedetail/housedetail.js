@@ -240,13 +240,13 @@ sc:function(){
       })
       return
     }
-    // if(userinfo.isAuth==1){
-    //   wx.showToast({
-    //     title: '认证中,请耐心等待~',
-    //     icon:"none"
-    //   })
-    //   return
-    // }
+    if(userinfo.isAuth==1){
+      wx.showToast({
+        title: '认证中,请耐心等待~',
+        icon:"none"
+      })
+      return
+    }
     if (userinfo.landlord==1){
       wx.showToast({
         title: '房东无法签约',

@@ -1,4 +1,5 @@
 // pages/pulldetails/pulldetails.js
+let ajax = require('../../utils/ajax.js')
 Page({
 
   /**
@@ -71,7 +72,9 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    ajax.requestByGet('/pay/withdraw',{},res=>{
+      console.log(res)
+    })
   },
 
   /**

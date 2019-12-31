@@ -1,6 +1,7 @@
 var subwayUtil = require('./subwayUtil.js')
 var QQMap = require('./qqmap-wx-jssdk.min.js')
 var ajax = require("./ajax.js")
+var MD5 = require('./md5.js')
 let qqMap = new QQMap({
   key: "OVUBZ-MLPL6-MQPSJ-MR2KT-MWFIK-O6FUE"
 })
@@ -363,24 +364,27 @@ module.exports = {
   },
   token(){
     let token = wx.getStorageSync("token")
-    // console.log(wx.getStorageSync("userInfo"))
+    console.log(wx.getStorageSync("userInfo"))
     let timer = wx.getStorageSync("timer")
     if(!timer){
       timer = setInterval(function () {
         ajax.requestByGet('/user/token/' + token, {}, res => {
-          // console.log(res)
+          console.log(res)
           if (res.data.data == "token可用" && res.data.status == 1) {
-            // console.log("未过期")
+            console.log("未过期")
             return
+          }else{
+            wx.showModal({
+              title: '身份过期',
+              content: '请重新登录',
+            })
+            wx.reLaunch({
+              url: '../wxLogin/wxLogin',
+            })
+            clearInterval(timer)
+            timer=null
           }
-          wx.showModal({
-            title: '身份过期',
-            content: '请重新登录',
-          })
-          clearInterval(timer)
-          wx.reLaunch({
-            url: '../wxLogin/wxLogin',
-          })
+          
         })
       }, 10000)
       wx.setStorageSync("timer", timer)
@@ -388,4 +392,31 @@ module.exports = {
     
     
   },
+  getMoney_fd(obj,openid){
+    //遍历obj 去掉openid 把openid加到最后面 用key作为参数
+    let str = ""
+    let arr = []
+    // for(let key in obj){
+    //   let temp = ""
+    //   if(key=="openId"||!obj[key]){
+    //     continue
+    //   }else if(key=="money"){
+    //     temp = `${key}=${obj[key] ? obj[key] : ""}&`
+    //     arr.push(temp)
+    //   }
+      
+    //   // arr.push(temp)
+    // }
+    // arr.sort()
+    // console.log(arr)
+    // for(let item of arr){
+    //   str+=item
+    // }
+    str+=`money=${obj["money"]}&`
+    str+=`key=${openid}`
+    console.log(str)
+    return MD5.hexMD5(str).toUpperCase()
+
+  },
+
 }

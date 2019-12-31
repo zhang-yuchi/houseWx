@@ -63,14 +63,14 @@ Page({
       console.log(res)
       let house = res.data.data
       that.setData({
-        street: that.data.street,
-        streetNum: that.data.streetNumber,
-        deco: that.data.decoration,
-        hx: that.data.houseType,
-        decoration: that.data.deco,
-        street: that.data.street,
-        streetNumber: that.data.streetNum,
-        houseType: that.data.hx,
+        street: house.street,
+        streetNum: house.streetNumber,
+        deco: house.decoration,
+        hx: house.houseType,
+        // decoration: that.data.deco,
+        // street: that.data.street,
+        // streetNumber: that.data.streetNum,
+        // houseType: that.data.hx,
         id: options.houseid,
         imageSrc: house.headingImg,
         addr: house.province+house.city+house.district,
@@ -227,7 +227,10 @@ Page({
     // console.log(that.data)
     if (that.data.hx != "" && that.data.street != "" && that.data.streetNum != "" && that.data.deco != "" &&that.data.addr != "" && that.data.cash >=0 && that.data.time != "" && that.data.cashType != "请选择押金方式" && that.data.areaWidth != "" && that.data.caig != "请选择采光程度" && that.data.caox != "请选择朝向" && that.data.diant != "请选择是否有电梯" && that.data.looktime != "" && that.data.intime != "单行输入" && that.data.textarea != "" && that.data.imageSrc != "" && that.data.floor != "" && that.data.boyShared != "是否为男生合租" && that.data.girlShared != "是否为女生合租") {
       var dataObj = {
-
+        decoration: that.data.deco,
+        street: that.data.street,
+        streetNumber: that.data.streetNum,
+        houseType: that.data.hx,
         district:"",
         headingImg:that.data.imageSrc,
         id:parseInt(that.data.id),
@@ -317,8 +320,8 @@ Page({
           wx.showToast({
             title: '修改成功!',
           })
-          wx.reLaunch({
-            url: '../myhouse_fd/myhouse_fd',
+          wx.navigateBack({
+            
           })
         }
       })

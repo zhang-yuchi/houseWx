@@ -1,9 +1,9 @@
 <!--pages/mywallet_fd/mywallet_fd.wxml-->
 <view class="money-show">
-  <view><text>可提现金额</text><text>￥100.00</text></view>
+  <view><text>可提现金额</text><text>￥{{canMoney}}</text></view>
   <view><text>成功提现金额</text><text>￥{{succesMoney}}</text></view>
 </view>
-<view class="money-pull"><text>提现金额:</text><input type="number" placeholder="请输入您要提现的金额" /></view>
+<view class="money-pull"><text>提现金额:</text><input bindinput="getgivemoney" type="number" placeholder="请输入您要提现的金额" /></view>
 <view class="money-controls">
   <view class="left" bindtap="tomoneydetails">
     <image src="../../images/icon_money.png"></image>

@@ -40,37 +40,31 @@ Page({
     })
   },
   showConcatBox: function () {
-    var that = this;
     that.setData({
       concatBoxDisplay: "block"
     })
   },
   cancel: function () {
-    var that = this;
     that.setData({
       concatBoxDisplay: "none"
     })
   },
   tomyorder: function () {
-    var that = this;
     wx.navigateTo({
       url: '../myorder/myorder',
     })
   },
   tomyfixed: function () {
-    var that = this;
     wx.navigateTo({
       url: '../myfixed/myfixed',
     })
   },
   tosc: function () {
-    var that = this;
     wx.navigateTo({
       url: '../sc/sc',
     })
   },
   tomyordercash: function () {
-    var that = this;
     wx.navigateTo({
       url: '../myordercash/myordercash',
     })

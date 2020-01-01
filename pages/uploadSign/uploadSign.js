@@ -54,7 +54,14 @@ Page({
               pay.pay(that.data.houseid, 'deposit', that.data.house.cash, {}, function(res){
                 wx.showModal({
                   title: '提示',
-                  content: '已支付押金，请及时到 我的——我的账单 缴纳相应租金',
+                  content: '已支付押金，请及时去 我的——我的账单 缴纳相应租金，点击确定查看账单',
+                  success(res){
+                    if(res.confirm){
+                      wx.navigateTo({
+                        url: '../myordercash/myordercash',
+                      })
+                    }
+                  }
                 })
               })
             }

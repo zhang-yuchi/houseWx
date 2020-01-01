@@ -3,3 +3,7 @@
 page{
   background-color: rgb(250, 250, 250);
 }
+.title{
+  /* margin-top: 30rpx; */
+  margin-left: 15rpx;
+}

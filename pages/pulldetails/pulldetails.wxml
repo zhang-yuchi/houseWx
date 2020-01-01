@@ -5,24 +5,24 @@
 
 <view class="content" wx:if="{{list.length>0}}">
 <!-- 押金 -->
-  <view class="content-block">
+  <view class="content-block" wx:for="{{nowlist}}">
     <view class="info">
       <view class="sign">
         <image src="../../images/icon_qianbao.png"></image>
-        <view>押金</view>
+        <view>提现</view>
       </view>
       <view class="details">
-        <view class="title">东泰花园 两房一厅</view>
-        <view class="date">日期: 2019-08-22</view>
+        <view class="title">日期: {{item.gmtCreate}}</view>
+        <!-- <view class="date">日期: {{item.gmtCreate}}</view> -->
       </view>
     </view>
     <view class="price">
-      <view class="process">审核中</view>
-      <view class="num">2600<text>元</text></view>
+      <view class="process">{{item.withdrawStatus?item.isFinish?"已完成":item.isCheckPass?"打款中":item.isCheck?"审核中":"审核失败":"审核失败"}}</view>
+      <view class="num">{{item.money?item.money:0}}<text>元</text></view>
     </view>
   </view>
 <!-- 租金 -->
-  <view class="content-block">
+  <!-- <view class="content-block">
     <view class="info">
       <view class="sign">
         <image src="../../images/cash.png"></image>
@@ -37,7 +37,7 @@
       <view class="process">审核中</view>
       <view class="num">2600<text>元</text></view>
     </view>
-  </view>
+  </view> -->
 
 </view>
 

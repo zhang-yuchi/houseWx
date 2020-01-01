@@ -7,8 +7,9 @@ Page({
    */
   data: {
     list:[
-      {}
+      
     ],
+    nowlist:[],
     selectbtn:[
       {
         name:"所有",
@@ -42,29 +43,65 @@ Page({
     this.setData({
       selectbtn: this.data.selectbtn
     })
+    let list = that.data.list
+    let arr = []
     if(index==1){
       //筛选所有
-
+      that.setData({
+        nowlist:list
+      })
       return
     }
     if(index==2){
       //筛选审核中
-
+      for (let item of list) {
+        if (item.isCheck) {
+          arr.push(item)
+          continue
+        }
+      }
+      that.setData({
+        nowlist: arr
+      })
       return
     }
     if(index==3){
       //筛选打款中
-
+      for (let item of list) {
+        if (item.isCheckPass) {
+          arr.push(item)
+          continue
+        }
+      }
+      that.setData({
+        nowlist: arr
+      })
       return
     }
     if(index==4){
       //筛选已完成
-
+      for (let item of list) {
+        if (item.isFinish) {
+          arr.push(item)
+          continue
+        }
+      }
+      that.setData({
+        nowlist: arr
+      })
       return
     }
     if(index==5){
       //筛选审核失败
-
+      for (let item of list) {
+        if (!item.withdrawStatus) {
+          arr.push(item)
+          continue
+        }
+      }
+      that.setData({
+        nowlist: arr
+      })
       return
     }
   },
@@ -72,8 +109,27 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    let that = this
     ajax.requestByGet('/pay/withdraw',{},res=>{
       console.log(res)
+      let bill = res.data.data
+      for(let item of bill){
+        let d = new Date(item.gmtCreate)
+        let date = d.getFullYear()+"-"+(d.getMonth()+1)+"-"+d.getDay()
+        item.gmtCreate = date
+      }
+      if(res.data.status==1){
+        that.setData({
+          list: bill,
+          nowlist: bill,
+        })
+      }
+      else{
+        wx.showToast({
+          title: res.data.message,
+          icon:"none"
+        })
+      }
     })
   },
 

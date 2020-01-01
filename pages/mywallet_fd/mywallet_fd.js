@@ -11,6 +11,7 @@ Page({
     canMoney:0,
     succesMoney:0,
     givemoney:0,
+    wxId:"",
   },
   select(e){
     var index = e.currentTarget.dataset.id
@@ -28,6 +29,12 @@ Page({
       givemoney:parseFloat(e.detail.value).toFixed(2)
     })
   },
+  getwxId(e){
+    this.setData({
+      wxId:e.detail.value
+    })
+  },
+
   toaddCard(){
     //跳转到银行卡付款页面
     wx.navigateTo({
@@ -64,18 +71,27 @@ Page({
       })
       return
     }
+    if(!that.data.wxId){
+      wx.showToast({
+        title: '微信号不能为空!',
+        icon:"none"
+      })
+      return
+    }
+
     let user = wx.getStorageSync("userInfo")
     console.log(user)
     let openid = user.openId
     console.log(openid)
-    let sign = utils.getMoney_fd(user,openid)
+    let sign = utils.getMoney_fd(user,openid,that.data.givemoney)
     console.log(sign)
     wx.showLoading({
       title: '提交中',
     })
     ajax.requestByPost('/user/launchWithdraw',{
-      money: parseFloat(that.data.givemoney).toFixed(2),
-      sign:sign
+      money:that.data.givemoney,
+      sign:sign,
+      wxId:that.data.wxId
     },res=>{
       console.log(res)
       if(res.data.sataus==1){

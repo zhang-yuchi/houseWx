@@ -9,7 +9,8 @@ Page({
   },
   onLoad: function () {
     var that = this;
-    
+    wx.setStorageSync("msgtimer", null)
+    wx.setStorageSync("timer", null)
     // wx.setStorageSync("token", null)//清除token
     var token = wx.getStorageSync('token');
     console.log(token)

@@ -418,5 +418,50 @@ module.exports = {
     return MD5.hexMD5(str).toUpperCase()
 
   },
+  getNewList(that){
+    // let newList = []
+    new Promise(resolve=>{
+      ajax.requestByGet('/tim/chatter', {}, res => {
+        // console.log(res.data.data)
+        for (let item of res.data.data) {
+          let d = new Date(item.latest100Msgs[item.latest100Msgs.length - 1].gmtSend)
+          let date = d.getHours() + ":" + d.getMinutes()
+          item.latest100Msgs[item.latest100Msgs.length - 1].gmtSend = date
+        }
+
+        // console.log(date)
+
+        // console.log(res.data.data)
+        // newList = res.data.data
+        that.setData({
+          userlist: res.data.data
+        })
+        resolve()
+      })
+    }).then(()=>{
+      ajax.requestByGet('/tim/v2/chatter/new', {}, res => {
+        // console.log(res)
+        let newList = res.data.data
+        // console.log(newList)
+        for(let item of newList){
+          for(let key of that.data.userlist){
+            if(key.id==item.id){
+              // console.log(item)
+              let lastmsg = key.latest100Msgs[key.latest100Msgs.length-1]
+              //如果有新消息
+              if(item.hasNewMessage){
+                lastmsg.msg = item.latestMessage
+                lastmsg.read = false
+              }
+            }
+          }
+        }
+        that.setData({
+          userlist: that.data.userlist
+        })
+      })
+    })
+    
+  },
 
 }

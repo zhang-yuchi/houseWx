@@ -2,7 +2,6 @@
 var ajax = require('../../utils/ajax.js')
 var timer = null
 Page({
-
   /**
    * 页面的初始数据
    */

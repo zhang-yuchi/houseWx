@@ -130,6 +130,7 @@ Page({
         secondLevel:secondLevel
       })
     })
+    console.log(that.data)
   },
   //具体地址
   chooseLocation: function () {
@@ -224,8 +225,8 @@ Page({
   submit: function () {
     var that = this;
     console.log(wx.getStorageSync("userInfo"))
-    // console.log(that.data)
-    if (that.data.hx != "" && that.data.street != "" && that.data.streetNum != "" && that.data.deco != "" &&that.data.addr != "" && that.data.cash >=0 && that.data.time != "" && that.data.cashType != "请选择押金方式" && that.data.areaWidth != "" && that.data.caig != "请选择采光程度" && that.data.caox != "请选择朝向" && that.data.diant != "请选择是否有电梯" && that.data.looktime != "" && that.data.intime != "单行输入" && that.data.textarea != "" && that.data.imageSrc != "" && that.data.floor != "" && that.data.boyShared != "是否为男生合租" && that.data.girlShared != "是否为女生合租") {
+    console.log(that.data)
+    if (that.data.hx  && that.data.street  && that.data.streetNum  && that.data.deco &&that.data.addr != "" && that.data.cash >=0 && that.data.time != "" && that.data.cashType != "请选择押金方式" && that.data.areaWidth != "" && that.data.caig != "请选择采光程度" && that.data.caox != "请选择朝向" && that.data.diant != "请选择是否有电梯" && that.data.looktime != "" && that.data.intime != "单行输入" && that.data.textarea != "" && that.data.imageSrc != "" && that.data.floor != "" && that.data.boyShared != "是否为男生合租" && that.data.girlShared != "是否为女生合租") {
       var dataObj = {
         decoration: that.data.deco,
         street: that.data.street,
@@ -320,8 +321,9 @@ Page({
           wx.showToast({
             title: '修改成功!',
           })
-          wx.navigateBack({
-            
+          // wx.navigateBack()
+          wx.reLaunch({
+            url: '../index/index',
           })
         }
       })

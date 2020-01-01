@@ -1,5 +1,6 @@
 // pages/msg/msg.js
 var app = getApp();
+var utils = require('../../utils/utils.js')
 var ajax = require('../../utils/ajax.js')
 Page({
 
@@ -9,7 +10,9 @@ Page({
   data: {
     systemMsgs:[],
     userlist:[],
-    host:app.data.requestHost
+    host:app.data.requestHost,
+    systemmsg:"",
+    systemtime:""
   },
 
   /**
@@ -20,22 +23,19 @@ Page({
     let msgtimer = wx.getStorageSync("msgtimer")
     if(!msgtimer){
         msgtimer = setInterval(() => {
-        ajax.requestByGet('/tim/chatter', {}, res => {
-          // console.log(res.data.data)
-          for (let item of res.data.data) {
-            let d = new Date(item.latest100Msgs[item.latest100Msgs.length - 1].gmtSend)
-            let date = d.getHours() + ":" + d.getMinutes()
-            item.latest100Msgs[item.latest100Msgs.length - 1].gmtSend = date
-          }
-
-          // console.log(date)
-
-          console.log(res.data.data)
-          that.setData({
-            userlist: res.data.data
+          ajax.requestByGet('/user/notifier/30', {}, res => {
+            // console.log(res)
+            if (res.data.status == 1) {
+              let d = new Date(res.data.data[res.data.data.length - 1].gmtCreate)
+              let sysdate = d.getHours() + ":" + d.getMinutes()
+              that.setData({
+                systemmsg: res.data.data[res.data.data.length - 1].content,
+                systemtime: sysdate
+              })
+            }
           })
-        })
-      }, 10000)
+        utils.getNewList(that)
+      }, 3000)
       wx.setStorageSync("msgtimer", msgtimer)
     }
     
@@ -73,17 +73,18 @@ Page({
   onShow: function () {
 
     let that = this
-    ajax.requestByGet('/tim/chatter', {}, res => {
-      console.log(res.data.data)
-      for (let item of res.data.data) {
-        let d = new Date(item.latest100Msgs[item.latest100Msgs.length - 1].gmtSend)
-        let date = d.getHours() + ":" + d.getMinutes()
-        item.latest100Msgs[item.latest100Msgs.length - 1].gmtSend = date
+    ajax.requestByGet('/user/notifier/30', {}, res => {
+      console.log(res)
+      if (res.data.status == 1) {
+        let d = new Date(res.data.data[res.data.data.length - 1].gmtCreate)
+        let sysdate = d.getHours() + ":" + d.getMinutes()
+        that.setData({
+          systemmsg: res.data.data[res.data.data.length - 1].content,
+          systemtime: sysdate
+        })
       }
-      that.setData({
-        userlist: res.data.data
-      })
     })
+    utils.getNewList(that)
     
     
   },
@@ -93,14 +94,14 @@ Page({
    */
   onHide: function () {
     // console.log(222)
-    
+    // wx.setStorageSync("msgtimer", null)
   },
 
   /**
    * 生命周期函数--监听页面卸载
    */
   onUnload: function () {
-    // console.log(111)
+    // wx.setStorageSync("msgtimer", null)
   },
 
   /**

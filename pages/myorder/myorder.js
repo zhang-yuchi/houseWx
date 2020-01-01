@@ -31,25 +31,33 @@ Page({
     console.log(wx.getStorageSync("token"))
     ajax.requestByGet('/user/sign', {}, function(res) {
       console.log(res)
-      let arr = res.data.data
-      for (let item of arr) {
-        let d = new Date(item.startCreate)
-        let date = `${d.getFullYear()}-${d.getMonth()}-${d.getDay()}`
-        console.log(date)
-        item.startCreate = date
-      }
-      that.setData({
-        fulArr: arr
-      })
-      let now = new Date()
-      for (let item of arr) {
-        if (now - new Date(item.endCreate) <= 0) {
-          that.data.nowList.push(item)
+      if(res.data.status == 1){
+        let arr = res.data.data
+        for (let item of arr) {
+          let d = new Date(item.startCreate)
+          let date = `${d.getFullYear()}-${d.getMonth()}-${d.getDay()}`
+          console.log(date)
+          item.startCreate = date
         }
+        that.setData({
+          fulArr: arr
+        })
+        let now = new Date()
+        for (let item of arr) {
+          if (now - new Date(item.endCreate) <= 0) {
+            that.data.nowList.push(item)
+          }
+        }
+        that.setData({
+          nowList: that.data.nowList
+        })
+      }else{
+        wx.showToast({
+          title: res.data.message,
+          icon: 'none'
+        })
       }
-      that.setData({
-        nowList: that.data.nowList
-      })
+      
     })
   },
   changeBar: function(e) {

@@ -52,7 +52,10 @@ Page({
               })
             }else{
               pay.pay(that.data.houseid, 'deposit', that.data.house.cash, {}, function(res){
-                
+                wx.showModal({
+                  title: '提示',
+                  content: '已支付押金，请及时到 我的——我的账单 缴纳相应租金',
+                })
               })
             }
           }

@@ -54,7 +54,8 @@ Page({
         }
         // console.log(myordercashPaid);
         // console.log(myordercashUnpaid);
-
+        myordercashUnpaid = myordercashUnpaid.reverse()
+        myordercashPaid = myordercashPaid.reverse()
         that.setData({
           myordercashUnpaid: myordercashUnpaid,
           myordercashPaid: myordercashPaid,

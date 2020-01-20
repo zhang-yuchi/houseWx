@@ -6,9 +6,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    list: [{
-
-    }]
+    list:[]
   },
   //页面跳转
   toMoneyDetails_yajin: function() {
@@ -21,27 +19,24 @@ Page({
       url: '../moneydetails_zj/moneydetails_zj',
     })
   },
-  toMoneyDetails_shuidian: function() {
-    if (paid) {
-      wx.navigateTo({
-        url: '../moneydetails_shuidian/moneydetails_shuidian_paid',
-      })
-    } else {
-      wx.navigateTo({
-        url: '../moneydetails_shuidian/moneydetails_shuidian',
-      })
-    }
-  },
-
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
-    ajax.requestByGet('/user/bill',{},res=>{
+    var that = this;
+    ajax.requestByGet('/house/roomer',{},res=>{
       console.log(res)
       if(res.data.status==1){
-
+        let arr = []
+        for(let item of res.data.data){
+          let date = new Date(item.payDate)
+          item.payDate = date.getFullYear() + '-' + (date.getMonth()+1) + '-' + date.getDate()
+          arr.push(item)
+        }
+        that.setData({
+          list:arr
+        })
       }else{
         wx.showToast({
           title: res.data.message,

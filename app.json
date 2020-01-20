@@ -1,6 +1,6 @@
 {
   "pages": [
-    
+
     "pages/wxLogin/wxLogin",
     "pages/myordercash/myordercash",
     "pages/myfixed/myfixed",

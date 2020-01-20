@@ -71,13 +71,13 @@ Page({
       })
       return
     }
-    if(!that.data.wxId){
-      wx.showToast({
-        title: '微信号不能为空!',
-        icon:"none"
-      })
-      return
-    }
+    // if(!that.data.wxId){
+    //   wx.showToast({
+    //     title: '微信号不能为空!',
+    //     icon:"none"
+    //   })
+    //   return
+    // }
 
     let user = wx.getStorageSync("userInfo")
     console.log(user)

@@ -115,7 +115,7 @@ Page({
       let bill = res.data.data
       for(let item of bill){
         let d = new Date(item.gmtCreate)
-        let date = d.getFullYear()+"-"+(d.getMonth()+1)+"-"+d.getDay()
+        let date = d.getFullYear() + "-" + (d.getMonth() + 1) + "-" + d.getDay() + " " + d.getHours() + ":" + (d.getMinutes() < 10 ? "0" + d.getMinutes() : d.getMinutes())
         item.gmtCreate = date
       }
       if(res.data.status==1){

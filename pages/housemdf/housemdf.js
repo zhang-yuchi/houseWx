@@ -7,6 +7,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+    houseInfo:"",
     street: "",
     streetNum: "",
     deco: "",
@@ -63,6 +64,7 @@ Page({
       console.log(res)
       let house = res.data.data
       that.setData({
+        houseInfo:house.houseInfo,
         street: house.street,
         streetNum: house.streetNumber,
         deco: house.decoration,
@@ -228,6 +230,7 @@ Page({
     console.log(that.data)
     if (that.data.hx  && that.data.street  && that.data.streetNum  && that.data.deco &&that.data.addr != "" && that.data.cash >=0 && that.data.time != "" && that.data.cashType != "请选择押金方式" && that.data.areaWidth != "" && that.data.caig != "请选择采光程度" && that.data.caox != "请选择朝向" && that.data.diant != "请选择是否有电梯" && that.data.looktime != "" && that.data.intime != "单行输入" && that.data.textarea != "" && that.data.imageSrc != "" && that.data.floor != "" && that.data.boyShared != "是否为男生合租" && that.data.girlShared != "是否为女生合租") {
       var dataObj = {
+        houseInfo:that.data.houseInfo,
         decoration: that.data.deco,
         street: that.data.street,
         streetNumber: that.data.streetNum,

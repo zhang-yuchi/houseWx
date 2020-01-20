@@ -167,14 +167,14 @@ Page({
     const that = this
     utils.token()
     ajax.requestByGet('/user/info',{},function(res){
-      console.log(res)
+      // console.log(res)
       wx.setStorageSync("userInfo", res.data.data)
-      console.log(wx.getStorageSync("userInfo"))
+      // console.log(wx.getStorageSync("userInfo"))
       that.setData({
         isFd: res.data.data.landlord,
         isAuth:res.data.data.isAuth
       })
-      console.log(that.data)
+      // console.log(that.data)
     })
     console.log(wx.getStorageSync("userInfo"))
     console.log(wx.getStorageSync("citylist"))
@@ -184,7 +184,7 @@ Page({
     // wx.setStorageSync("userSelect", null)
     //获取轮播图
   ajax.requestByGet('/banner',{},function(res){
-    console.log(res.data.data)
+    // console.log(res.data.data)
     that.setData({
       movies: res.data.data
     })
@@ -194,7 +194,7 @@ Page({
 
   //获得特色推荐
   ajax.requestByGet('/user/rcmd',{},function(res){
-    console.log(res)
+    // console.log(res)
     let tcArr = []
     for(let item of res.data.data){
       tcArr.push(item)
@@ -356,7 +356,7 @@ Page({
     } else {
       console.log(wx.getStorageSync("userSelect"))
       ajax.requestByGet('/house', wx.getStorageSync("userSelect"), function (res) {
-        console.log(res)
+        // console.log(res)
         if(res.data.status==-1){
           that.setData({
             houses:[]

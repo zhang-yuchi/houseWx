@@ -369,9 +369,9 @@ module.exports = {
     if(!timer){
       timer = setInterval(function () {
         ajax.requestByGet('/user/token/' + token, {}, res => {
-          console.log(res)
+          // console.log(res)
           if (res.data.data == "token可用" && res.data.status == 1) {
-            console.log("未过期")
+            // console.log("未过期")
             return
           }else{
             wx.showModal({

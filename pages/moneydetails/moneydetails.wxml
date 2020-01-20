@@ -1,24 +1,26 @@
 <!--pages/moneydetails/moneydetails.wxml-->
-<view class="content" wx:if="{{list.length>0}}">
-<!-- 押金 -->
-  <view class="content-block" bindtap="toMoneyDetails_yajin">
+<view class="content" wx:if="{{list.length}}>0">
+  <!-- 押金 -->
+  <view class="content-block" bindtap="toMoneyDetails_{{item.payItem=='deposit'?'yj':item.payItem=='cash'?'zj':'sd'}}" wx:for="{{list}}" wx:key='list'>
     <view class="info">
       <view class="sign">
-        <image src="../../images/icon_qianbao.png"></image>
-        <view>押金</view>
+        <image src="../../images/{{item.payItem=='deposit'?'icon_qianbao':item.payItem=='cash'?'cash':'water'}}.png"></image>
+        <view>{{item.payItem=='deposit'?'押金':item.payItem=='cash'?'租金':'水电费'}}</view>
       </view>
       <view class="details">
         <view class="title">东泰花园 两房一厅</view>
-        <view class="date">日期: 2019-08-22</view>
+        <view class="date">日期: {{item.payDate}}</view>
       </view>
     </view>
     <view class="price">
-      
-      <view class="num">2600<text>元</text></view>
+
+      <view class="num">{{item.money}}
+        <text>元</text>
+      </view>
     </view>
   </view>
-<!-- 租金 -->
-  <view class="content-block" bindtap="toMoneyDetails_zujin">
+  <!-- 租金 -->
+  <!-- <view class="content-block" bindtap="toMoneyDetails_zujin">
     <view class="info">
       <view class="sign">
         <image src="../../images/cash.png"></image>
@@ -33,7 +35,7 @@
       
       <view class="num">2600<text>元</text></view>
     </view>
-  </view>
+  </view> -->
 
 </view>
 

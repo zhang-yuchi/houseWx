@@ -4,13 +4,13 @@
   
   <view class="timer"><text>{{item.gmtSend}}</text></view>
   <view class="mine" wx:if="{{item.senderId==mine}}" >
-    <view class="user"><image src="../../images/water.png"></image></view>
+    <view class="user"><image src="../../images/user.png"></image></view>
     <view class="mine-text-content">{{item.msg}}</view>
   </view>
 
 <!-- <view class="timer"><text>09:18</text></view> -->
   <view wx:else class="other" >
-    <view class="user"><image src="../../images/water.png"></image></view>
+    <view class="user"><image src="../../images/user.png"></image></view>
     <view class="other-text-content">{{item.msg}}</view>
   </view>
 </view>
@@ -30,13 +30,13 @@
 <block wx:for="{{getmsg}}">
 <view class="timer"><text>{{item.gmtSend}}</text></view>
   <view class="mine"  id="getmsg{{index}}" wx:if="{{item.senderId==mine}}">
-    <view class="user"><image src="../../images/water.png"></image></view>
+    <view class="user"><image src="../../images/user.png"></image></view>
     <view class="mine-text-content">{{item.msg}}</view>
   </view>
 
 <!-- <view class="timer"><text>09:18</text></view> -->
   <view wx:else id="getmsg{{index}}" class="other" >
-    <view class="user"><image src="../../images/water.png"></image></view>
+    <view class="user"><image src="../../images/user.png"></image></view>
     <view class="other-text-content">{{item.msg}}</view>
   </view>
 </block>

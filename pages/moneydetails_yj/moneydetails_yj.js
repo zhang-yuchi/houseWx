@@ -5,14 +5,22 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    obj:{}
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    let obj = JSON.parse(options.obj)
+    let payDate = new Date(obj.payDate)
+    obj.payDate = payDate.getFullYear() + '-' + (payDate.getMonth()+1) + '-' + payDate.getDate()
+    let gmtDate = new Date(obj.gmtCreate)
+    obj.month = gmtDate.getMonth()
+    console.log(obj)
+    this.setData({
+      obj:obj
+    })
   },
 
   /**

@@ -1,0 +1,38 @@
+<!--pages/myordercash_sd_paid/myordercash_sd_paid.wxml-->
+<view class="container">
+  <view class="content-payfor">
+    <view class="content-payfor-left">{{obj.house.houseInfo}} {{obj.house.houseType}}</view>
+    <view class="content-payfor-right">
+        <image src="../../images/water.png" class="content-payfor-pic"></image>
+        <view class="content-payfor-font">水电费</view>
+    </view>
+  </view>
+  <view class="content-list2">
+    <view class="content-list-left" style="font-weight:600;font-size:30rpx">费用明细</view>
+  </view>
+  <view class="content-list2 padding-bottom">
+    <view class="content-list2-item"></view>
+    <view class="content-list2-item" style="color: rgb(140, 140, 140);">用量</view>
+    <view class="content-list2-item" style="color: rgb(140, 140, 140);">单价</view>
+    <view class="content-list2-item" style="color: rgb(140, 140, 140);">合计</view>
+  </view>
+  <view class="content-list2">
+    <view class="content-list2-item">水费({{obj.month}}月)</view>
+    <view class="content-list2-item">{{obj.waterUse}}吨</view>
+    <view class="content-list2-item">{{obj.waterUntPrice}}元</view>
+    <view class="content-list2-item">{{obj.payDetailFee1}}元</view>
+  </view>
+  <view class="content-list2 padding-bottom">
+    <view class="content-list2-item">电费({{obj.month}}月)</view>
+    <view class="content-list2-item">{{obj.eleUse}}度</view>
+    <view class="content-list2-item">{{obj.eleUntPrice}}元</view>
+    <view class="content-list2-item">{{obj.payDetailFee2}}元</view>
+  </view>
+  <view class="content-list2" style="padding-top:60rpx;border-top:1px solid rgb(230, 230, 230)"  wx:if='{{obj.isPaid==1}}'>
+    <view  class="content-list-left">收费日期</view>
+    <view  class="content-list-right">{{obj.payDate}}</view>
+  </view>
+  <view class="content-list" style="padding-top:60rpx border-top:1px solid rgb(230, 230, 230)" wx:else>
+    <view class='unPaid'>租户未支付</view>
+  </view>
+</view>

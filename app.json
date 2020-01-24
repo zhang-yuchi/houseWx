@@ -1,6 +1,5 @@
 {
   "pages": [
-
     "pages/wxLogin/wxLogin",
     "pages/myordercash/myordercash",
     "pages/myfixed/myfixed",
@@ -50,7 +49,8 @@
     "pages/livesearch/livesearch",
     "pages/fdsure/fdsure",
     "pages/usertofd/usertofd",
-    "pages/housemdf/housemdf"
+    "pages/housemdf/housemdf",
+    "pages/moneydetails_sd/moneydetails_sd"
   ],
   "window": {
     "backgroundTextStyle": "light",

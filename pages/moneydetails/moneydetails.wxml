@@ -1,7 +1,7 @@
 <!--pages/moneydetails/moneydetails.wxml-->
-<view class="content" wx:if="{{list.length}}>0">
+<view class="content" wx:if="{{list.length>0}}">
   <!-- 押金 -->
-  <view class="content-block" bindtap="toMoneyDetails_{{item.payItem=='deposit'?'yj':item.payItem=='cash'?'zj':'sd'}}" wx:for="{{list}}" wx:key='list'>
+  <view class="content-block" bindtap="toMoneyDetails_{{item.payItem=='deposit'?'yj':item.payItem=='cash'?'zj':'sd'}}" wx:for="{{list}}" wx:key='list' data-index="{{index}}">
     <view class="info">
       <view class="sign">
         <image src="../../images/{{item.payItem=='deposit'?'icon_qianbao':item.payItem=='cash'?'cash':'water'}}.png"></image>

@@ -94,7 +94,7 @@ Page({
   onShow: function () {
     var that = this;
     that.setData({
-      scrollViewHeight: (app.data.height - 30) + "px"
+      scrollViewHeight: (app.data.height - 50)*2 + "rpx"
     })
   },
 

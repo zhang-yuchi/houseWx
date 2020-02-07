@@ -1,6 +1,6 @@
 // pages/myorder/myorder.js
 var app = getApp();
-let ajax = require('../../utils/ajax.js')
+var ajax = require('../../utils/ajax.js')
 Page({
 
   /**

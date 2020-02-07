@@ -28,16 +28,18 @@ Page({
     let that = this;
     ajax.requestByGet('/house/user',{},function(res){
       console.log(res)
-      let list = res.data.data;
       var cashArray = [];
       var dateArray = [];
       var houseid = [];
       var userId = [];
-      for(let item of list){
-        cashArray.push(item.houseInfo);
-        dateArray.push(item.gmtCreate)
-        houseid.push(item.id)
-        userId.push(item.userId)
+      if(res.status == 200){
+        let list = res.data.data;
+        for (let item of list) {
+          cashArray.push(item.houseInfo);
+          dateArray.push(item.gmtCreate)
+          houseid.push(item.id)
+          userId.push(item.userId)
+        }
       }
       that.setData({
         cashArray:cashArray,
@@ -71,10 +73,17 @@ Page({
   },
   bindCashPickerChange: function (e) {
     console.log(e.detail.value);
-    this.setData({
-      cashType: this.data.cashArray[e.detail.value],
-      index: e.detail.value
-    })
+    if(this.data.cashArray.length > 0){
+      this.setData({
+        cashType: this.data.cashArray[e.detail.value],
+        index: e.detail.value
+      })
+    }else{
+      this.setData({
+        cashType: "请选择房源",
+        index: e.detail.value
+      })
+    }
   },
   submit: function () {
     var that = this;

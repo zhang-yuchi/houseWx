@@ -5,9 +5,9 @@
     <image src="../../images/chat_2.png" class="infoBox_pic"/>
     <View class="middleBox">
       <View class="title">系统通知</View>
-      <View class="content">{{systemmsg}}</View>
+      <View class="content">{{systemmsg?systemmsg:"暂无"}}</View>
     </View>
-    <View class="rightBox">{{systemtime}}</View>
+    <View class="rightBox">{{systemtime?systemtime:""}}</View>
   </View>
   
   </View>

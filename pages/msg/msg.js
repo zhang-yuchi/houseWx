@@ -12,7 +12,8 @@ Page({
     userlist:[],
     host:app.data.requestHost,
     systemmsg:"",
-    systemtime:""
+    systemtime:"",
+    timer:null
   },
 
   /**
@@ -20,25 +21,6 @@ Page({
    */
   onLoad: function (options) {
     let that = this
-    let msgtimer = wx.getStorageSync("msgtimer")
-    if(!msgtimer){
-        msgtimer = setInterval(() => {
-          ajax.requestByGet('/user/notifier/30', {}, res => {
-            // console.log(res)
-            if (res.data.status == 1) {
-              let d = new Date(res.data.data[res.data.data.length - 1].gmtCreate)
-              let sysdate = d.getHours() + ":" + d.getMinutes()
-              that.setData({
-                systemmsg: res.data.data[res.data.data.length - 1].content,
-                systemtime: sysdate
-              })
-            }
-          })
-        utils.getNewList(that)
-      }, 3000)
-      wx.setStorageSync("msgtimer", msgtimer)
-    }
-    
   },
   toTalk(e){
     let id = e.currentTarget.dataset.id
@@ -56,6 +38,13 @@ Page({
         obj = arr[i];
       }
     }
+    if(arr.length==0){
+      wx.showToast({
+        title: '暂无系统通知',
+        icon:"none"
+      })
+      return
+    }
     wx.navigateTo({
       url: '../msgdetail/msgdetail?obj='+JSON.stringify(obj),
     })
@@ -72,35 +61,51 @@ Page({
    */
   onShow: function () {
     let that = this
+    
+    let timer = setInterval(this.RunTimer(),3000)
+    this.setData({
+      timer:timer
+    })
+    
+  },
+  RunTimer(){
+    //需求:启动定时器时执行一次getAllListOnce
+    //然后在定时器状态下 返回getAllListOnce
+    console.log(this)
+    this.getAllListOnce()
+    return this.getAllListOnce
+  },
+  getAllListOnce(){//获取一次所有列表
+    const that = this
+    console.log("轮询中...")
     ajax.requestByGet('/user/notifier/30', {}, res => {
-      console.log(res)
+      // console.log(res)
       if (res.data.status == 1) {
-        let d = new Date(res.data.data[res.data.data.length - 1].gmtCreate)
-        let sysdate = d.getHours() + ":" + d.getMinutes()
-        that.setData({
-          systemmsg: res.data.data[res.data.data.length - 1].content,
-          systemtime: sysdate
-        })
+        let sysdate = null
+        if (res.data.data.length > 0) {
+          let d = new Date(res.data.data[res.data.data.length - 1].gmtCreate)
+          sysdate = d.getHours() + ":" + d.getMinutes()
+          that.setData({
+            systemmsg: res.data.data ? res.data.data[res.data.data.length - 1].content : "",
+            systemtime: sysdate
+          })
+        }
       }
     })
     utils.getNewList(that)
-    
-    
   },
-
   /**
    * 生命周期函数--监听页面隐藏
    */
   onHide: function () {
-    // console.log(222)
-    // wx.setStorageSync("msgtimer", null)
+    clearInterval(this.data.timer)
   },
 
   /**
    * 生命周期函数--监听页面卸载
    */
   onUnload: function () {
-    // wx.setStorageSync("msgtimer", null)
+    clearInterval(this.data.timer)
   },
 
   /**

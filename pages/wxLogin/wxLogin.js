@@ -13,8 +13,8 @@ Page({
     wx.setStorageSync("timer", null)
     // wx.setStorageSync("token", null)//清除token
     var token = wx.getStorageSync('token');
-    console.log(token)
-    console.log(app.data.requestHost)
+    // console.log(token)
+    // console.log(app.data.requestHost)
     if(token&&wx.getStorageSync("userInfo")){
       wx.request({
         url: app.data.requestHost+'/user/token/'+token,
@@ -23,7 +23,7 @@ Page({
         },
         success(res){
           //如果有信息则直接跳转index页面
-          console.log(res)
+          // console.log(res)
           if(res.data.status===1){
             wx.reLaunch({
               url: '../index/index?identify=1',
@@ -37,9 +37,9 @@ Page({
   // 点击按钮授权
   getUserInfo: function (e) {
     var that = this;
-    console.log(e.detail.rawData)
+    // console.log(e.detail.rawData)
     wx.setStorageSync('userInfo', JSON.parse(e.detail.rawData))
-    console.log(wx.getStorageSync("userInfo"))
+    // console.log(wx.getStorageSync("userInfo"))
     wx.setStorageSync("authImg", wx.getStorageSync("userInfo").avatarUrl )
     that.setData({
       userInfo: e.detail.userInfo,
@@ -50,10 +50,10 @@ Page({
       wx.getUserInfo({
         lang: "zh_CN",
         success(res) {
-          console.log("entry")
+          // console.log("entry")
           app.data.userInfo = res.userInfo
           wx.setStorageSync('userInfo', res.userInfo)
-          console.log(wx.getStorageSync("userInfo"))
+          // console.log(wx.getStorageSync("userInfo"))
           resolve()
         },
       })
@@ -87,7 +87,7 @@ Page({
             'content-type': 'application/x-www-form-urlencoded',
           },
           success(res){
-            console.log(res)
+            // console.log(res)
             const userinfo = wx.getStorageSync("userInfo")
             if(res.data.status==-1){
               console.log(wx.getStorageSync("userInfo"))
@@ -122,7 +122,7 @@ Page({
             }else{
               //已注册,直接登录
               wx.setStorageSync("token", res.data.data)
-              console.log(res.data.data)
+              // console.log(res.data.data)
               wx.reLaunch({
                 url: '../index/index',
               })

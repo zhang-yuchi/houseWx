@@ -55,7 +55,7 @@ Page({
         arr[i].className = "barBox_sonC"
         value = arr[i].value
         ajax.requestByGet('/store/list/'+value,{},(res)=>{
-          console.log(res)
+          // console.log(res)
           if(res.data.data.length>0){
             that.setData({
               barArr: arr,

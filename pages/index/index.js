@@ -176,8 +176,8 @@ Page({
       })
       // console.log(that.data)
     })
-    console.log(wx.getStorageSync("userInfo"))
-    console.log(wx.getStorageSync("citylist"))
+    // console.log(wx.getStorageSync("userInfo"))
+    // console.log(wx.getStorageSync("citylist"))
     this.setData({
       nowcity: wx.getStorageSync("citylist").city ? wx.getStorageSync("citylist").city : ""
     })
@@ -230,7 +230,7 @@ Page({
       })
       ajax.requestByGet('/house?page=' + (page + 1), wx.getStorageSync("userSelect"), (res) => {
         wx.hideLoading()
-        console.log(res)
+        // console.log(res)
         if (res.data.status == -1) {
           that.data.isBottom = true
           wx.showToast({
@@ -298,8 +298,8 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    console.log(wx.getStorageSync("userSelect"))
-    console.log("show")
+    // console.log(wx.getStorageSync("userSelect"))
+    // console.log("show")
     var that = this;
     that.setData({
       searchBoxInputWidth:(app.data.width-136)+"px",
@@ -354,7 +354,7 @@ Page({
         })
       })
     } else {
-      console.log(wx.getStorageSync("userSelect"))
+      // console.log(wx.getStorageSync("userSelect"))
       ajax.requestByGet('/house', wx.getStorageSync("userSelect"), function (res) {
         // console.log(res)
         if(res.data.status==-1){
@@ -571,7 +571,7 @@ Page({
       //   utils.initIndex(city, that)
       // })
     }
-    console.log(wx.getStorageSync("citychanges"))
+    // console.log(wx.getStorageSync("citychanges"))
     if (wx.getStorageSync("citychanges")) {
       //城市发生改变 重新获取地铁信息
       let city = wx.getStorageSync("citylist").city

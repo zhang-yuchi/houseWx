@@ -49,7 +49,7 @@ module.exports = {
             console.log(res)
             // console.log(res.result)
             for (let item of res.result[0]) {
-              console.log(item)
+              // console.log(item)
               let content = {}
               content.name = item.fullname
               content.location = item.location
@@ -58,12 +58,12 @@ module.exports = {
               arealist.push(content)
             }
             wx.setStorageSync("arealist", arealist)
-            console.log(wx.getStorage({
+            wx.getStorage({
               key: 'arealist',
               success: function (res) {
                 
               },
-            }))
+            })
           },
           fail(res){
             console.log(res)
@@ -263,7 +263,7 @@ module.exports = {
   },
   initAsDongGuan(that,callback,loading){
     //起始地改为东莞
-    console.log(wx.getStorageSync("citylist"))
+    // console.log(wx.getStorageSync("citylist"))
 
     let citylist = {
       city:"东莞"
@@ -364,7 +364,7 @@ module.exports = {
   },
   token(){
     let token = wx.getStorageSync("token")
-    console.log(wx.getStorageSync("userInfo"))
+    // console.log(wx.getStorageSync("userInfo"))
     let timer = wx.getStorageSync("timer")
     if(!timer){
       timer = setInterval(function () {
@@ -396,22 +396,6 @@ module.exports = {
     //遍历obj 去掉openid 把openid加到最后面 用key作为参数
     let str = ""
     let arr = []
-    // for(let key in obj){
-    //   let temp = ""
-    //   if(key=="openId"||!obj[key]){
-    //     continue
-    //   }else if(key=="money"){
-    //     temp = `${key}=${obj[key] ? obj[key] : ""}&`
-    //     arr.push(temp)
-    //   }
-      
-    //   // arr.push(temp)
-    // }
-    // arr.sort()
-    // console.log(arr)
-    // for(let item of arr){
-    //   str+=item
-    // }
     str+=`money=${money}&`
     str+=`key=${openid}`
     console.log(str)
@@ -428,11 +412,6 @@ module.exports = {
           let date = d.getHours() + ":" + d.getMinutes()
           item.latest100Msgs[item.latest100Msgs.length - 1].gmtSend = date
         }
-
-        // console.log(date)
-
-        // console.log(res.data.data)
-        // newList = res.data.data
         that.setData({
           userlist: res.data.data
         })
@@ -460,6 +439,7 @@ module.exports = {
           userlist: that.data.userlist
         })
       })
+      
     })
     
   },

@@ -64,13 +64,13 @@ Page({
     //   })
     //   return
     // }
-    if(that.data.givemoney==0){
-      wx.showToast({
-        title: '提现金额不能为0',
-        icon:"none"
-      })
-      return
-    }
+    // if(that.data.givemoney==0){
+    //   wx.showToast({
+    //     title: '提现金额不能为0',
+    //     icon:"none"
+    //   })
+    //   return
+    // }
     // if(!that.data.wxId){
     //   wx.showToast({
     //     title: '微信号不能为空!',

@@ -33,7 +33,7 @@ Page({
     ajax.requestByGet('/user/browse',{
       page:page
     },(res)=>{
-      console.log(res)
+      // console.log(res)
       let houses = res.data.data
       for(let item of houses){
         // console.log(utils.tagsToArr(item.tags))
@@ -42,7 +42,7 @@ Page({
       that.setData({
         houses: houses
       })
-      console.log(res.data.data)
+      // console.log(res.data.data)
     })
   },
   addpage(){

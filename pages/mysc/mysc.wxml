@@ -1,6 +1,6 @@
 <!--pages/myorder/myorder.wxml-->
 <view class="change-btn">
-  <view class="{{item.className}}" data-index="{{index}}" bindtap="changemodel" wx:for="{{barArr}}">{{item.name}}</view>
+  <view class="{{item.className}}" data-index="{{index}}" bindtap="changemodel" wx:key="{{item.index}}" wx:for="{{barArr}}">{{item.name}}</view>
   
 </view>
 <scroll-view class="content" scroll-y="true">
@@ -12,7 +12,7 @@
       <view class="sc-title">{{barArr[0].select?item.title:item.name}} {{barArr[0].select?item.houseType:''}}</view>
       <view class="sc-position">{{barArr[0].select?item.area:''}}{{barArr[0].select?'m':''}}<text class="fenge">{{barArr[0].select?'|':''}}</text>{{barArr[0].select?item.orientation:''}}<text class="fenge">{{barArr[0].select?'|':''}}</text>{{barArr[0].select?item.street:''}}</view>
       <view class="house-tag">
-        <text class="tags-sign" wx:for="{{barArr[0].select?house[index].tags:[item.type]}}" wx:for-item="tag">{{tag}}</text>
+        <text class="tags-sign" wx:for="{{barArr[0].select?house[index].tags:[item.type]}}" wx:key="{{item.index}}" wx:for-item="tag">{{tag}}</text>
         <!-- <text class="tags-sign">押一付一</text>
         <text class="tags-sign">近地铁</text>
         <text class="tags-sign">配套齐全</text> -->

@@ -28,7 +28,7 @@ Page({
   onLoad: function (options) {
     let that = this
     ajax.requestByGet('/user/landload/house',{},res=>{
-      console.log(res)
+      // console.log(res)
       let houses = res.data.data
       
       let nowlist = []
@@ -38,7 +38,7 @@ Page({
           nowlist.push(item)
         }
       }
-      console.log(nowlist)
+      // console.log(nowlist)
       for (let item of nowlist) {
         let tags = item.tags
         if (tags) {
@@ -51,7 +51,7 @@ Page({
             item = item.replace('\"', '')
             // console.log(item)
             item = item.replace('\"', '')
-            console.log(item)
+            // console.log(item)
             return item
           })
           item.tags = tags

@@ -95,7 +95,7 @@ Page({
   onLoad: function(options) {
     let that = this;
     ajax.requestByGet('/user/star/house', {}, function(res) {
-      console.log(res)
+      // console.log(res)
       let list = res.data.data
       for (let i = 0; i < list.length; i++) {
         list[i].tags = tagsToArr.tagsToArr(list[i].tags);

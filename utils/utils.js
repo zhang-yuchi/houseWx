@@ -29,7 +29,7 @@ module.exports = {
           if (item.name == citylist.city) {
             citycode = item.id
           }
-          console.log(citycode)
+          // console.log(citycode)
         }
         if(!citycode){
           for (let item of provinces) {
@@ -46,7 +46,7 @@ module.exports = {
               select: false,
               classname: ""
             }]
-            console.log(res)
+            // console.log(res)
             // console.log(res.result)
             for (let item of res.result[0]) {
               // console.log(item)
@@ -357,7 +357,7 @@ module.exports = {
         str = str.replace("\"", "")
         return str
       })
-      console.log(newarr)
+      // console.log(newarr)
       return newarr
     }
     return []

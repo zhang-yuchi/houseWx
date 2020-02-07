@@ -26,7 +26,7 @@ Page({
     if(houseid){
       //如果有 就去查找房屋的信息,并放入product中
       ajax.requestByGet(`/house/${houseid}`,{},res=>{
-        console.log(res)
+        // console.log(res)
         let product = res.data.data
         that.setData({
           product:product
@@ -42,8 +42,8 @@ Page({
       ajax.requestByGet('/tim/msg/history', {
         senderId: that.data.to,
       }, res => {
-        console.log("历史信息")
-        console.log(res.data.data)
+        // console.log("历史信息")
+        // console.log(res.data.data)
         for (let item of res.data.data){
           let d = new Date(item.gmtSend)
           let date = (d.getMonth() + 1) + "-" + d.getDate()+" "+d.getHours()+':'+d.getMinutes()
@@ -58,7 +58,7 @@ Page({
     }).then(()=>{
       ajax.requestByGet('/tim/msg/' + that.data.to, {}, res => {
         // console.log("新信息")
-        console.log(res)
+        // console.log(res)
         if (res.data.data.length > 0) {
           let arr = that.data.getmsg
           for (let item of res.data.data) {

@@ -19,7 +19,7 @@ Page({
     var that = this;
     var userInfo = wx.getStorageSync("userInfo");
     let authImg = wx.getStorageSync("authImg")
-    console.log(userInfo);
+    // console.log(userInfo);
     that.setData({
       nickName: userInfo.nickName,
       imagePic: authImg

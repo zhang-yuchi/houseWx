@@ -264,7 +264,7 @@ Page({
   },
   tohousedetails(e){
     const id = e.currentTarget.dataset.id
-    console.log(id)
+    // console.log(id)
     wx.navigateTo({
       url: `../housedetail/housedetail?obj=${id}`,
     })

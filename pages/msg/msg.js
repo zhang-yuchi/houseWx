@@ -77,7 +77,7 @@ Page({
   },
   getAllListOnce(){//获取一次所有列表
     const that = this
-    console.log("轮询中...")
+    // console.log("轮询中...")
     ajax.requestByGet('/user/notifier/30', {}, res => {
       // console.log(res)
       if (res.data.status == 1) {

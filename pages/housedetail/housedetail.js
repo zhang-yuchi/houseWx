@@ -80,12 +80,12 @@ Page({
    */
   onLoad: function (options) {
     var that = this;
-    console.log(options)
-    console.log(wx.getStorageSync("userInfo"))
+    // console.log(options)
+    // console.log(wx.getStorageSync("userInfo"))
     if(!options.fdeditor){
       options.fdeditor = 0
     }
-    console.log(this.data)
+    // console.log(this.data)
     // const details = JSON.parse(options.obj)
     this.setData({
       id:options.obj,
@@ -95,7 +95,7 @@ Page({
     })
     //是否收藏
     ajax.requestByGet('/house/'+that.data.id+"/isfavor",{},res=>{
-      console.log(res.data.data.isfavor)
+      // console.log(res.data.data.isfavor)
       that.setData({
         isSc:res.data.data.isfavor
       })
@@ -109,7 +109,7 @@ Page({
     //房屋详情
     ajax.requestByGet(`/house/${options.obj}`, {}, (res) => {
       const details = res.data.data
-      console.log(details)
+      // console.log(details)
       that.setData({
         userId: details.userId
       })
@@ -126,7 +126,7 @@ Page({
       new Promise(resolve => {
         wx.getLocation({
           success: function (res) {
-            console.log(res)
+            // console.log(res)
             let userlat = res.latitude
             let userlng = res.longitude
             // console.log(userlat)
@@ -151,7 +151,7 @@ Page({
           lng: details.lng,
           lat: details.lat
         })
-        console.log(this.data.obj)
+        // console.log(this.data.obj)
       })
       
       //配套齐全

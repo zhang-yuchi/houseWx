@@ -85,3 +85,9 @@
   outline: none;
   border: none;
 }
+.unPaid{
+  font-size: 40rpx;
+  text-align: center;
+  height: 100rpx;
+  font-weight: 600;
+}

@@ -9,17 +9,31 @@ Page({
     list:[]
   },
   //页面跳转
-  toMoneyDetails_yajin: function() {
+  toMoneyDetails_yj: function(e) {
+    let obj = {}
+    let index = e.currentTarget.dataset.index;
+    obj = this.data.list[index]
+    console.log(e)
     wx.navigateTo({
-      url: '../moneydetails_yj/moneydetails_yj',
+      url: '../moneydetails_yj/moneydetails_yj?obj=' + JSON.stringify(obj),
     })
   },
-  toMoneyDetails_zujin: function(e) {
+  toMoneyDetails_zj: function(e) {
+    let obj = {}
+    let index = e.currentTarget.dataset.index;
+    obj = this.data.list[index]
     wx.navigateTo({
-      url: '../moneydetails_zj/moneydetails_zj',
+      url: '../moneydetails_zj/moneydetails_zj?obj='+ JSON.stringify(obj),
     })
   },
-
+  toMoneyDetails_sd: function(e){
+    let obj = {}
+    let index = e.currentTarget.dataset.index;
+    obj = this.data.list[index]
+    wx.navigateTo({
+      url: '../moneydetails_sd/moneydetails_sd?obj=' + JSON.stringify(obj),
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */

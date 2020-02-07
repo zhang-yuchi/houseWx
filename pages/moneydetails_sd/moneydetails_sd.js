@@ -1,4 +1,4 @@
-// pages/moneydetails_zj/moneydetails_zj.js
+// pages/moneydetails_sd/moneydetails_sd.js
 Page({
 
   /**

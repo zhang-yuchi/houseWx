@@ -2,7 +2,7 @@
 var app = getApp();
 var pay = require('../../utils/pay.js')
 var ajax = require('../../utils/ajax.js')
-var context = null;// 使用 wx.createContext 获取绘图上下文 context  
+var context = null; // 使用 wx.createContext 获取绘图上下文 context  
 var isButtonDown = false;
 var arrx = [];
 var arry = [];
@@ -11,63 +11,76 @@ var canvasw = 0;
 var canvash = 0;
 var animateId = {}
 wx.getSystemInfo({
-  success: function (res) {
-    canvasw = res.windowWidth;//设备宽度  
+  success: function(res) {
+    canvasw = res.windowWidth; //设备宽度  
     canvash = res.windowHeight;
   }
-}); 
+});
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    isLoad:false,
-    handWriteImgUrl:"", 
-    house:{},
-    houseid:"",
-    userName:"",
-    starttime:"",
-    endtime:"",
-    idCardNum:"",
+    isLoad: false,
+    handWriteImgUrl: "",
+    house: {},
+    houseid: "",
+    userName: "",
+    starttime: "",
+    endtime: "",
+    idCardNum: "",
+    houseSignNo: '',
   },
-  paybtn:function(){
+  paybtn: function() {
     var that = this;
     var token = wx.getStorageSync('token');
-    if(!this.data.isLoad){
+    if (!this.data.isLoad) {
       wx.showToast({
         title: '请先签字并上传!',
-        icon:"none"
+        icon: "none"
       })
       return
-    } else {//支付相关代码
-        wx.showModal({
-          title: '注意',
-          content: '该房源为' + that.data.house.cashType+'，需先付押金，再付租金',
-          success:function(res){
-            if(res.cancel){//点取消
-              wx.showToast({
-                title: '取消支付',
-                icon:'none'
-              })
-            }else{
-              pay.pay(that.data.houseid, 'deposit', that.data.house.cash, {}, function(res){
-                wx.showModal({
-                  title: '提示',
-                  content: '已支付押金，请及时去 我的——我的账单 缴纳相应租金，点击确定查看账单',
-                  success(res){
-                    if(res.confirm){
-                      wx.navigateTo({
-                        url: '../myordercash/myordercash',
-                      })
-                    }
-                  }
-                })
-              })
+    } else { //支付相关代码
+      wx.showModal({
+        title: '注意',
+        content: '该房源为' + that.data.house.cashType + '，需先付押金，再付租金',
+        success: function(res) {
+          if (res.cancel) { //点取消
+            wx.showToast({
+              title: '取消支付',
+              icon: 'none'
+            })
+          } else {
+            let starttime = new Date(that.data.starttime)
+            let endtime = new Date(that.data.endtime)
+            let lease = (endtime.getFullYear() * 12 + endtime.getMonth()) - (starttime.getFullYear() * 12 + starttime.getMonth())
+            if (endtime.getDate() - starttime.getDate() > 0) {
+              lease = lease + 1
             }
+            if (that.data.starttime == that.data.endtime) {
+              lease = 1
+            }
+            pay.pay(that.data.houseid, 'deposit', that.data.house.cash, {
+              houseSignNo: that.data.houseSignNo,
+              lease: lease
+            }, function(res) {
+              wx.showModal({
+                title: '提示',
+                content: '已支付押金，请及时去 我的——我的账单 缴纳相应租金，点击确定查看账单',
+                success(res) {
+                  if (res.confirm) {
+                    wx.navigateTo({
+                      url: '../myordercash/myordercash',
+                    })
+                  }
+                }
+              })
+            })
           }
-        })
-        
+        }
+      })
+
 
     }
   },
@@ -77,7 +90,7 @@ Page({
   move(event) {
     console.log(111)
     // console.log(this.requestAnimationFrame)
-    animateId = this.requestAnimationFrame(function () {
+    animateId = this.requestAnimationFrame(function() {
       context.setStrokeStyle('#0000ff');
       context.setLineWidth(3);
       context.setLineCap('round');
@@ -132,20 +145,20 @@ Page({
     //生成图片  
     wx.canvasToTempFilePath({
       canvasId: 'firstCanvas',
-      success: function (res) {
+      success: function(res) {
         wx.showLoading({
           title: '上传中',
         })
         console.log(res.tempFilePath);
         //存入服务器  
         wx.uploadFile({
-          url: app.data.requestHost+'/image', //接口地址  
+          url: app.data.requestHost + '/image', //接口地址  
           filePath: res.tempFilePath,
           name: 'file',
           formData: { //HTTP 请求中其他额外的 form data   
             'imgType': 'handwritten_signature'
           },
-          success: function (res) {
+          success: function(res) {
             // that.data.isLoad = true
             wx.showToast({
               title: '上传成功',
@@ -154,40 +167,49 @@ Page({
             // console.log(res);
             let obj = JSON.parse(res.data)
             // console.log(obj)
-            let handWriteImgUrl=obj.data
+            let handWriteImgUrl = obj.data
             console.log(handWriteImgUrl)
             that.setData({
               handWriteImgUrl: handWriteImgUrl
             })
-            ajax.requestByPost('/user/'+that.data.houseid+"/sign",{
+            let now = new Date();
+            let num = Math.floor(Math.random() * 8999 + 1000) + (now.getTime() + '').slice(-4)
+            // console.log('签约号：'+num)
+            ajax.requestByPost('/user/' + that.data.houseid + "/sign", {
               handWriteImgUrl: that.data.handWriteImgUrl,
-              houseId :that.data.houseid,
-              idCardNum:that.data.idCardNum,
-              userName:that.data.userName
-            },res=>{
+              houseId: that.data.houseid,
+              idCardNum: that.data.idCardNum,
+              userName: that.data.userName,
+              contractImgUrl: "https://image.ruankun.xyz/2.jpg",
+              endDate: new Date(that.data.endtime),
+              houseSignNo: num,
+              startDate: new Date(that.data.starttime),
+
+            }, res => {
               wx.showToast({
                 title: '上传成功请支付 ',
               })
               that.setData({
-                isLoad:true
+                houseSignNo: num,
+                isLoad: true
               })
             })
           },
-          fail: function (res) {
+          fail: function(res) {
             console.log(res);
             wx.showToast({
               title: '上传失败..',
-              icon:"none"
+              icon: "none"
             })
           },
-          complete: function (res) {
+          complete: function(res) {
             wx.hideLoading()
           }
         });
       }
     })
   },
-  requestAnimationFrame: function (callback, lastTime) {
+  requestAnimationFrame: function(callback, lastTime) {
     var lastTime;
     if (typeof lastTime === 'undefined') {
       lastTime = 0
@@ -195,18 +217,18 @@ Page({
     var currTime = new Date().getTime();
     var timeToCall = Math.max(0, 16 - (currTime - lastTime));
     lastTime = currTime + timeToCall;
-    var id = setTimeout(function () {
+    var id = setTimeout(function() {
       callback(lastTime);
     }, timeToCall);
     return id;
   },
-  cancelAnimationFrame: function (id) {
+  cancelAnimationFrame: function(id) {
     clearTimeout(id);
   },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
-  onLoad:function(options){
+  onLoad: function(options) {
     // console.log(111)
     let obj = JSON.parse(options.obj)
     //画布
@@ -215,25 +237,27 @@ Page({
     //数据初始化
     console.log(obj)
     let that = this
+    let starttime = new Date(obj.starttime)
+    let endtime = new Date(obj.endtime)
     that.setData({
       houseid: obj.houseid,
       idCardNum: obj.idCard,
       userName: obj.name,
-      starttime:obj.starttime,
-      endtime:obj.endtime
+      starttime: starttime.getFullYear() + '-' + (starttime.getMonth() + 1) + '-' + starttime.getDate(),
+      endtime: endtime.getFullYear() + '-' + (endtime.getMonth() + 1) + '-' + endtime.getDate()
     })
-    ajax.requestByGet('/house/' + that.data.houseid,{},res=>{
-      if(res.data.status==1){
+    ajax.requestByGet('/house/' + that.data.houseid, {}, res => {
+      if (res.data.status == 1) {
         console.log(res.data.data)
         that.setData({
           house: res.data.data
         })
       }
-      
+
     })
-    
+
   },
-  onReady: function () {
+  onReady: function() {
 
   },
   regionchange(e) {
@@ -245,7 +269,7 @@ Page({
   controltap(e) {
     console.log(e.controlId)
   },
-  touserSign: function () {
+  touserSign: function() {
     wx.navigateTo({
       url: '../userSign/userSign',
     })
@@ -253,7 +277,7 @@ Page({
   /**
    * 生命周期函数--监听页面显示
    */
-  onShow: function () {
+  onShow: function() {
     var that = this;
     that.setData({
       // scrollViewHeight: (app.data.height - 40) + "px"
@@ -263,35 +287,35 @@ Page({
   /**
    * 生命周期函数--监听页面隐藏
    */
-  onHide: function () {
+  onHide: function() {
 
   },
 
   /**
    * 生命周期函数--监听页面卸载
    */
-  onUnload: function () {
+  onUnload: function() {
 
   },
 
   /**
    * 页面相关事件处理函数--监听用户下拉动作
    */
-  onPullDownRefresh: function () {
+  onPullDownRefresh: function() {
 
   },
 
   /**
    * 页面上拉触底事件的处理函数
    */
-  onReachBottom: function () {
+  onReachBottom: function() {
 
   },
 
   /**
    * 用户点击右上角分享
    */
-  onShareAppMessage: function () {
+  onShareAppMessage: function() {
 
   }
 })

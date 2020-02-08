@@ -61,8 +61,8 @@ Page({
       if(new Date(that.data.endtime) - new Date(that.data.starttime) >= 0){
         obj.name = that.data.name;
         obj.idCard = that.data.idCard;
-        obj.starttime = that.data.starttime;
-        obj.endtime = that.data.endtime;
+        obj.starttime = new Date(that.data.starttime);
+        obj.endtime = new Date(that.data.endtime);
         obj.houseid = that.data.houseid
         wx.navigateTo({
           url: '../uploadSign/uploadSign?obj=' + JSON.stringify(obj),

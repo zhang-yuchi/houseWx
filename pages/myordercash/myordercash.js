@@ -52,8 +52,6 @@ Page({
             myordercashUnpaid.push(item)
           }
         }
-        // console.log(myordercashPaid);
-        // console.log(myordercashUnpaid);
         myordercashUnpaid = myordercashUnpaid.reverse()
         myordercashPaid = myordercashPaid.reverse()
         that.setData({
@@ -89,7 +87,6 @@ Page({
       barArr: arr,
       myordercashNow: myordercashNow
     })
-    // console.log(that.data.scrollViewHeight)
   },
 
   //页面跳转

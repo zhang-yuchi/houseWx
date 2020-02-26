@@ -142,12 +142,6 @@ Page({
         { name: "独立阳台", value: 1, obj: "hasBalcony", id: 6, className: "barBtn", select: false },
       ]
     })
-    // utils.initSelect(function(){
-    //   wx.reLaunch({
-    //     url: '../index/index',
-    //   })
-    //   console.log(wx.getStorageSync("userSelect"))
-    // })
     new Promise(resolve=>{
       utils.initAsDongGuan(this, function () {
         wx.reLaunch({
@@ -222,6 +216,7 @@ Page({
     })
   },
   tonew(){
+    //分页操作
     let page = this.data.page
     let that = this
     if(!that.data.isBottom){
@@ -230,7 +225,7 @@ Page({
       })
       ajax.requestByGet('/house?page=' + (page + 1), wx.getStorageSync("userSelect"), (res) => {
         wx.hideLoading()
-        // console.log(res)
+        // console.log(res.data.data[0])
         if (res.data.status == -1) {
           that.data.isBottom = true
           wx.showToast({
@@ -239,9 +234,11 @@ Page({
           })
         } else {
           let houses = that.data.houses
-          for (let item of houses) {
+          res.data.data.map(item=>{
+            item.tags = utils.tagsToArr(item.tags)
             houses.push(item)
-          }
+          })
+
           that.setData({
             houses: houses,
             page: page + 1

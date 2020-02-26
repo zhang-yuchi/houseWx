@@ -57,33 +57,33 @@ Page({
     //经过一系列判断后:
     let that = this
     console.log(this.data.givemoney)
-    // if(that.data.givemoney>that.data.canMoney){
-    //   wx.showToast({
-    //     title: '提现金额过多!',
-    //     icon:"none"
-    //   })
-    //   return
-    // }
-    // if(that.data.givemoney==0){
-    //   wx.showToast({
-    //     title: '提现金额不能为0',
-    //     icon:"none"
-    //   })
-    //   return
-    // }
-    // if(!that.data.wxId){
-    //   wx.showToast({
-    //     title: '微信号不能为空!',
-    //     icon:"none"
-    //   })
-    //   return
-    // }
+    if(that.data.givemoney>that.data.canMoney){
+      wx.showToast({
+        title: '提现金额过多!',
+        icon:"none"
+      })
+      return
+    }
+    if(that.data.givemoney==0){
+      wx.showToast({
+        title: '提现金额不能为0',
+        icon:"none"
+      })
+      return
+    }
+    if(!that.data.wxId){
+      wx.showToast({
+        title: '微信号不能为空!',
+        icon:"none"
+      })
+      return
+    }
 
     let user = wx.getStorageSync("userInfo")
     console.log(user)
     let openid = user.openId
     console.log(openid)
-    let sign = utils.getMoney_fd(user,openid,that.data.givemoney)
+    let sign = utils.getMoney_fd(user,openid,that.data.givemoney,that.data.wxId)
     console.log(sign)
     wx.showLoading({
       title: '提交中',

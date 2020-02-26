@@ -392,11 +392,12 @@ module.exports = {
     
     
   },
-  getMoney_fd(obj,openid,money){
+  getMoney_fd(obj,openid,money,wxId){
     //遍历obj 去掉openid 把openid加到最后面 用key作为参数
     let str = ""
     let arr = []
     str+=`money=${money}&`
+    str+=`wxId=${wxId}&`
     str+=`key=${openid}`
     console.log(str)
     return MD5.hexMD5(str).toUpperCase()

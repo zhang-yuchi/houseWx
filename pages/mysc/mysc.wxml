@@ -3,7 +3,7 @@
   <view class="{{item.className}}" data-index="{{index}}" bindtap="changemodel" wx:key="{{item.index}}" wx:for="{{barArr}}">{{item.name}}</view>
   
 </view>
-<scroll-view class="content" scroll-y="true">
+<scroll-view class="content" scroll-y="true" style="height:92%">
   <view class="content-block" bindtap="{{barArr[0].select?'tohousedetails':'toliveserverdetail'}}" wx:for="{{barArr[0].select?house:store}}" wx:key="list" wx:for-item="item" data-id="{{index}}">
     <view class="block-pic">
       <image src="{{barArr[0].select?item.headingImg:item.headImg}}" style="{{barArr[0].select?'':'width:100%;height:100%'}}"></image>

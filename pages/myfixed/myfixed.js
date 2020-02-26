@@ -24,24 +24,32 @@ Page({
   onLoad: function (options) {
     ajax.requestByGet('/user/repair',{},res=>{
       console.log(res)
-      let that = this;
-      let data = res.data.data;
-      let fixed = [];
-      let unfixed = [];
-      for(let item of data){
-        item.gmtCreateT = new Date(item.gmtCreate)
-        item.gmtCreate = item.gmtCreate.split('T')[0]
-        if(item.status){
-          fixed.push(item)
-        }else{
-         unfixed.push(item)
+      if(res.data.status == 1){
+        let that = this;
+        let data = res.data.data;
+        let fixed = [];
+        let unfixed = [];
+        for (let item of data) {
+          item.gmtCreateT = new Date(item.gmtCreate)
+          item.gmtCreate = item.gmtCreate.split('T')[0]
+          if (item.status) {
+            fixed.push(item)
+          } else {
+            unfixed.push(item)
+          }
         }
+        that.setData({
+          fixed: fixed,
+          unfixed: unfixed,
+          nowlist: unfixed
+        })
+      }else{
+        wx.showToast({
+          title: res.data.message,
+          icon:'none'
+        })
       }
-      that.setData({
-        fixed:fixed,
-        unfixed:unfixed,
-        nowlist:unfixed
-      })
+      
     })
   },
 

@@ -9,101 +9,104 @@ Page({
     concatBox_sonBoxwidth: "",
     concatBoxDisplay: "none",
     name: "",
-    imagePic: ""
+    imagePic: "",
+    isFd:0,
   },
-  fdauth(){
-    wx.navigateTo({
-      url: '../usertofd/usertofd',
-    })
-  },
+  // fdauth(){
+  //   wx.navigateTo({
+  //     url: '../usertofd/usertofd',
+  //   })
+  // },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
     var that = this;
     var userInfo = wx.getStorageSync('userInfo');
+    var isFd = userInfo.landlord;
     let authImg = wx.getStorageSync("authImg")
     that.setData({
       name: userInfo.nickName,
-      imagePic: authImg
+      imagePic: authImg,
+      isFd:isFd
     })
   },
   
-  tosurf: function () {
-    wx.navigateTo({
-      url: '../mysurf/mysurf',
-    })
-  },
-  tomysc:function(){
-    wx.navigateTo({
-      url: '../mysc/mysc',
-    })
-  },
-  showConcatBox: function () {
-    that.setData({
-      concatBoxDisplay: "block"
-    })
-  },
-  cancel: function () {
-    that.setData({
-      concatBoxDisplay: "none"
-    })
-  },
-  tomyorder: function () {
-    wx.navigateTo({
-      url: '../myorder/myorder',
-    })
-  },
-  tomyfixed: function () {
-    wx.navigateTo({
-      url: '../myfixed/myfixed',
-    })
-  },
-  tosc: function () {
-    wx.navigateTo({
-      url: '../sc/sc',
-    })
-  },
-  tomyordercash: function () {
-    wx.navigateTo({
-      url: '../myordercash/myordercash',
-    })
-  },
-  toQuanxian: function () {
-    wx.getSetting({
-      success(res) {
-        console.log(res.authSetting)
-        if (!res.authSetting['scope.userLocation']) {
-          wx.showModal({
-            title: '提示',
-            content: '请求获取位置权限',
-            success: function (res) {
-              if (res.confirm) {
-                wx.openSetting({
-                  success: function (data) {
-                    if (data.authSetting['scope.userLocation'] === true) {
-                      wx.showToast({
-                        title: '授权成功',
-                        icon: 'success',
-                        duration: 1000
-                      })
-                    }
-                  }
-                })
-              }
-            }
-          })
-        } else {
-          wx.showToast({
-            title: '您已授权成功',
-            icon: 'none',
-            duration: 1000
-          })
-          return false
-        }
-      }
-    })
-  },
+  // tosurf: function () {
+  //   wx.navigateTo({
+  //     url: '../mysurf/mysurf',
+  //   })
+  // },
+  // tomysc:function(){
+  //   wx.navigateTo({
+  //     url: '../mysc/mysc',
+  //   })
+  // },
+  // showConcatBox: function () {
+  //   this.setData({
+  //     concatBoxDisplay: "block"
+  //   })
+  // },
+  // cancel: function () {
+  //   this.setData({
+  //     concatBoxDisplay: "none"
+  //   })
+  // },
+  // tomyorder: function () {
+  //   wx.navigateTo({
+  //     url: '../myorder/myorder',
+  //   })
+  // },
+  // tomyfixed: function () {
+  //   wx.navigateTo({
+  //     url: '../myfixed/myfixed',
+  //   })
+  // },
+  // tosc: function () {
+  //   wx.navigateTo({
+  //     url: '../sc/sc',
+  //   })
+  // },
+  // tomyordercash: function () {
+  //   wx.navigateTo({
+  //     url: '../myordercash/myordercash',
+  //   })
+  // },
+  // toQuanxian: function () {
+  //   wx.getSetting({
+  //     success(res) {
+  //       console.log(res.authSetting)
+  //       if (!res.authSetting['scope.userLocation']) {
+  //         wx.showModal({
+  //           title: '提示',
+  //           content: '请求获取位置权限',
+  //           success: function (res) {
+  //             if (res.confirm) {
+  //               wx.openSetting({
+  //                 success: function (data) {
+  //                   if (data.authSetting['scope.userLocation'] === true) {
+  //                     wx.showToast({
+  //                       title: '授权成功',
+  //                       icon: 'success',
+  //                       duration: 1000
+  //                     })
+  //                   }
+  //                 }
+  //               })
+  //             }
+  //           }
+  //         })
+  //       } else {
+  //         wx.showToast({
+  //           title: '您已授权成功',
+  //           icon: 'none',
+  //           duration: 1000
+  //         })
+  //         return false
+  //       }
+  //     }
+  //   })
+  // },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
@@ -115,17 +118,17 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    var that = this;
-    that.setData({
-      nameBoxWidth: (app.data.width * 0.9 - 90) + 'px',
-      concatBox_sonBoxwidth: (app.data.height - 146) / 2 + "px",
-    })
+    // var that = this;
+    // that.setData({
+    //   nameBoxWidth: (app.data.width * 0.9 - 90) + 'px',
+    //   concatBox_sonBoxwidth: (app.data.height - 146) / 2 + "px",
+    // })
   },
-  call:function(){
-    wx.makePhoneCall({
-      phoneNumber: '020-202525562' //仅为示例，并非真实的电话号码
-    })
-  },
+  // call:function(){
+  //   wx.makePhoneCall({
+  //     phoneNumber: '020-202525562' //仅为示例，并非真实的电话号码
+  //   })
+  // },
   
   /**
    * 生命周期函数--监听页面隐藏

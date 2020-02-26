@@ -7,7 +7,6 @@ Page({
    * 页面的初始数据
    */
   data: {
-    scrollViewHeight: "",
     barArr: [{
         name: "履行中",
         id: 0,
@@ -43,13 +42,14 @@ Page({
           fulArr: arr
         })
         let now = new Date()
+        let nowList = []
         for (let item of arr) {
           if (now - new Date(item.endCreate) <= 0) {
-            that.data.nowList.push(item)
+            nowList.push(item)
           }
         }
         that.setData({
-          nowList: that.data.nowList
+          nowList: nowList
         })
       }else{
         wx.showToast({

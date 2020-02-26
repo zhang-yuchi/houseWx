@@ -10,7 +10,7 @@ page {
 }
 .selectItem{
   width:100%;
-  height:100rpx;
+  height:8%;
   box-shadow: 0 0 10px rgb(240,240,240);
 }
 .selectItem_son{

@@ -24,7 +24,7 @@ Page({
             imgType:"certificate"
           },
           success(res){
-            // console.log(res)
+            console.log(res)
             let obj = JSON.parse(res.data)
             let img = obj.data
             // console.log(img)

@@ -6,17 +6,16 @@
     </View>
   </View>
 
-
-  <view class="box-wrap">
-    <view class="inner-block" wx:for="{{nowList}}" wx:key="details">
-      <image class="houseimg" src="../../images/index_2.jpg" />
-      <view class="house-info">
-        <view class="details-title">{{item.houseInfo}} {{item.houseType}}</view>
-        <view class="details-date">有效期: {{item.expDate}}个月</view>
-        <view class="starttime">签订日期：{{item.startCreate}}</view>
+  <scroll-view scroll-y="true" style="height:92%">
+    <view class="box-wrap">
+      <view class="inner-block" wx:for="{{nowList}}" wx:key="details">
+        <image class="houseimg" src="../../images/index_2.jpg" />
+        <view class="house-info">
+          <view class="details-title">{{item.houseInfo}} {{item.houseType}}</view>
+          <view class="details-date">有效期: {{item.expDate}}个月</view>
+          <view class="starttime">签订日期：{{item.startCreate}}</view>
+        </view>
       </view>
     </view>
-
-  </view>
-  
+  </scroll-view>
 </View>

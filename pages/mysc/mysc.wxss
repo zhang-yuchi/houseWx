@@ -2,7 +2,7 @@
 @import "../../public/wxss/sc.wxss";
 .change-btn{
   display: flex;
-
+  height: 8%;
 }
 .change-btn view{
   color: rgb(182, 182, 182);

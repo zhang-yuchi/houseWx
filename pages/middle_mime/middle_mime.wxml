@@ -1,8 +1,4 @@
 <!--pages/middle_mime/middle_mime.wxml-->
-<!-- <View class="btn" bindtap="go"  style="left:{{btnLeft}}">点击跳转</View> -->
-<!-- <button bindtap="toyonghu">跳转用户</button>
-<button bindtap="tofangdong">跳转房东</button> -->
-
 <!-- 跳转房东 -->
 <block wx:if="{{isFd}}">
 <!--pages/fd_mime/fd_mime.wxml-->
@@ -10,7 +6,7 @@
   <View class="topBox">
     <View class="topBox_left">
       <View class="topBox_left_name">{{nickName}}</View>
-      <View class="topBox_left_tel">18089598383</View>
+      <!-- <View class="topBox_left_tel">18089598383</View> -->
     </View>
     <image src="{{imagePic}}" class="topBox_right" />
   </View>
@@ -85,7 +81,7 @@
   <View class="UtopBox"></View>
   <image src="{{imagePic}}" class="UheadPic"></image>
   <View class="UnameBox">{{nickName}}</View>
-  <View class="UtelBox">18089598383</View>
+  <!-- <View class="UtelBox">18089598383</View> -->
   <View class="UbarBox">
     <View class="UbarBox_son" bindtap="tomyorder">
       <image src="../../images/bar_1.png" class="UbarBox_son_pic"></image>

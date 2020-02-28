@@ -18,8 +18,8 @@ Page({
    */
   onLoad: function (options) {
     var that = this;
-    console.log(this.data.isFd)
     let userInfo = wx.getStorageSync('userInfo');
+    // console.log(userInfo)
     let isFd = userInfo.landlord;
     let authImg = wx.getStorageSync("authImg")
     that.setData({

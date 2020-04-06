@@ -12,6 +12,7 @@ Page({
     imagePic: "",
     isFd: 0,
     notifyShowen:false,
+    cleanShow:false,
   },
 
   /**
@@ -52,6 +53,21 @@ Page({
   cancel: function () {
     this.setData({
       concatBoxDisplay: "none"
+    })
+  },
+  preClean: function () {
+    this.setData({
+      cleanShow: true
+    })
+  },
+  cancelClean:function(){
+    this.setData({
+      cleanShow:false
+    })
+  },
+  callClean:function(){
+    wx.makePhoneCall({
+      phoneNumber: '020-202525562' //仅为示例，并非真实的电话号码
     })
   },
   tomyorder: function () {

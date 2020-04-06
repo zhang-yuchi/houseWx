@@ -48,12 +48,12 @@
     <View class="otherBox_font">修改信息</View>
     <image src="../../images/right.png" class="otherBox_pic" />
   </View>
-  <View class="otherBox" bindtap="toChangeInfodetails">
+  <View class="otherBox" bindtap="preClean">
     <image src="../../images/person.png" class="otherBox_pic" />
     <View class="otherBox_font">保洁预约</View>
     <image src="../../images/right.png" class="otherBox_pic" />
   </View>
-  <View class="otherBox" bindtap="toChangeInfodetails">
+  <View class="otherBox" bindtap="notice">
     <image src="../../images/person.png" class="otherBox_pic" />
     <View class="otherBox_font">关注公众号</View>
     <image src="../../images/right.png" class="otherBox_pic" />
@@ -79,6 +79,18 @@
     <View class="concatBox_sonBox_bottom">
       <View class="concatBox_sonBox_bottom_left" bindtap="cancel">取消</View>
       <View class="concatBox_sonBox_bottom_right" bindtap='call'>拨通</View>
+    </View>
+  </View>
+</View>
+<View class="concatBox" wx:if="{{cleanShow}}">
+  <View class="concatBox_sonBox" style="margin-top:{{concatBox_sonBoxwidth}}">
+    <View class="concatBox_sonBox_top">
+      <View class="concatBox_sonBox_top_top">沟通电话</View>
+      <View class="concatBox_sonBox_top_bottom">020-202525562</View>
+    </View>
+    <View class="concatBox_sonBox_bottom">
+      <View class="concatBox_sonBox_bottom_left" bindtap="cancelClean">取消</View>
+      <View class="concatBox_sonBox_bottom_right" bindtap='callClean'>拨通</View>
     </View>
   </View>
 </View>
@@ -128,7 +140,7 @@
       <View class="UbtnBox_son_font">房东认证</View>
       <image src="../../images/right.png" class="UbtnBox_son_pic"></image>
     </View>
-    <View class="UbtnBox_son" bindtap="fdauth">
+    <View class="UbtnBox_son" bindtap="preClean">
       <View class="UbtnBox_son_font">保洁预约</View>
       <image src="../../images/right.png" class="UbtnBox_son_pic"></image>
     </View>
@@ -157,6 +169,18 @@
     <View class="UconcatBox_sonBox_bottom">
       <View class="UconcatBox_sonBox_bottom_left" bindtap="cancel">取消</View>
       <View class="UconcatBox_sonBox_bottom_right" bindtap="call">拨通</View>
+    </View>
+  </View>
+</View>
+<View class="concatBox" wx:if="{{cleanShow}}">
+  <View class="concatBox_sonBox" style="margin-top:{{concatBox_sonBoxwidth}}">
+    <View class="concatBox_sonBox_top">
+      <View class="concatBox_sonBox_top_top">沟通电话</View>
+      <View class="concatBox_sonBox_top_bottom">020-202525562</View>
+    </View>
+    <View class="concatBox_sonBox_bottom">
+      <View class="concatBox_sonBox_bottom_left" bindtap="cancelClean">取消</View>
+      <View class="concatBox_sonBox_bottom_right" bindtap='callClean'>拨通</View>
     </View>
   </View>
 </View>

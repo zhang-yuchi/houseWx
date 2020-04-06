@@ -1,6 +1,6 @@
 <!--pages/myorder/myorder.wxml-->
 <view class="change-btn">
-  <view class="{{item.className}}" data-index="{{index}}" bindtap="changemodel" wx:key="{{item.index}}" wx:for="{{barArr}}">{{item.name}}</view>
+  <view class="{{item.className}}" data-index="{{index}}" bindtap="changemodel" wx:key="{{item.id}}" wx:for="{{barArr}}">{{item.name}}</view>
   
 </view>
 <scroll-view class="content" scroll-y="true" style="height:92%">

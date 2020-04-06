@@ -81,7 +81,7 @@ Page({
           //此时请求生活服务接口
           ajax.requestByGet('/user/star/store', {}, function(res) {
             console.log(res)
-            if(res.status == 1){
+            if(res.data.status == 1){
               let list = res.data.data
               for (let i = 0; i < list.length; i++) {
                 list[i].tags = tagsToArr.tagsToArr(list[i].tags);

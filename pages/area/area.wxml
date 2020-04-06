@@ -22,7 +22,6 @@
         <image src="../../images/sx.png" class="middle_check_son_sx" />
     </View>
   </View>
-
   <view class="select-wrap">
   <view class="select-btn">
     <view bindtap="choosebtn" data-btnid="{{index}}" class="inner-btn {{item.classname}}" wx:key="{{item.index}}" wx:for="{{selectbtn}}">

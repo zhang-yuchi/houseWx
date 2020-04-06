@@ -102,12 +102,18 @@ page {
   height: 200rpx;
   /* background: red; */
   overflow: hidden;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
 }
 
 .itembox_son {
   height: 180rpx;
   float: left;
   margin-top: 20rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .itembox_son_pic {
@@ -282,4 +288,12 @@ width:96%;
   line-height: 50rpx;
   margin-top:60rpx;
   margin-bottom:20rpx;
+}
+.spec{
+  width: 65rpx;
+  height: 65rpx;
+}
+.spec-box{
+  border-radius: 50%;
+  padding: 40rpx;
 }

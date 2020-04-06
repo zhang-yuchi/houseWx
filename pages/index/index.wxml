@@ -28,29 +28,37 @@
   </view>
 
   <View class="itembox">
-    <View class="itembox_son" style="width:{{itembox_sonwidth}}"  bindtap="toupfix">
+    <View class="itembox_son"   bindtap="toupfix">
       <image src="../../images/index_1.png" class="itembox_son_pic" />
       <View class="itembox_son_text">故障报修</View>
     </View>
 
-    <View class="itembox_son" wx:if="{{isAuth==0}}" style="width:{{itembox_sonwidth}}" bindtap="tofdauth">
-      <image src="../../images/index_3.png" class="itembox_son_pic" />
+    <View class="itembox_son" wx:if="{{isAuth==0}}"  bindtap="tofdauth">
+      <view class="spec-box">
+        <image src="../../images/index_2.png" class="itembox_son_pic spec" />
+      </view>
       <View class="itembox_son_text">我要认证</View>
     </View>
-    <View class="itembox_son" wx:if="{{isAuth==1}}" style="width:{{itembox_sonwidth}}" bindtap="totips">
-      <image src="../../images/index_3.png" class="itembox_son_pic" />
+    <View class="itembox_son" wx:if="{{isAuth==1}}"  bindtap="totips">
+      <view class="spec-box">
+        <image src="../../images/index_2.png" class="itembox_son_pic spec" />
+      </view>
       <View class="itembox_son_text">认证中</View>
     </View>
-    <View class="itembox_son" wx:if="{{isAuth==2&&isFd==1}}" style="width:{{itembox_sonwidth}}" bindtap="toRent">
-      <image src="../../images/index_3.png" class="itembox_son_pic" />
+    <View class="itembox_son" wx:if="{{isAuth==2&&isFd!=0}}"  bindtap="toRent">
+      <view class="spec-box">
+        <image src="../../images/index_2.png" class="itembox_son_pic spec" />
+      </view>
       <View class="itembox_son_text">我要出租</View>
     </View>
-<View class="itembox_son" wx:if="{{isAuth==2&&isFd==0}}" style="width:{{itembox_sonwidth}}">
-      <image src="../../images/index_3.png" class="itembox_son_pic" />
+<View class="itembox_son" wx:if="{{isAuth==2&&isFd==0}}" >
+      <view class="spec-box">
+        <image src="../../images/index_2.png" class="itembox_son_pic spec" />
+      </view>
       <View class="itembox_son_text">认证成功</View>
     </View>
-    <View class="itembox_son" style="width:{{itembox_sonwidth}}" bindtap="toliveserver">
-      <image src="../../images/index_1.png" class="itembox_son_pic" />
+    <View class="itembox_son"  bindtap="toliveserver">
+      <image src="../../images/index_3.png" class="itembox_son_pic" />
       <View class="itembox_son_text">生活服务</View>
     </View>
   </View>

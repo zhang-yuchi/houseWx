@@ -26,7 +26,6 @@ module.exports = {
         page_size: 20,
         page_index: page,
         region: city,
-       
       })
     })
   },
@@ -38,7 +37,6 @@ module.exports = {
         region: city,
         success(res) {
           page = Math.ceil(res.count / 20)
-          
           resolve(page)
         },
         fail(res) {

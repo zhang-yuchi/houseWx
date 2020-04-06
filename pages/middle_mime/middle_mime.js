@@ -11,6 +11,7 @@ Page({
     nickName: "",
     imagePic: "",
     isFd: 0,
+    notifyShowen:false,
   },
 
   /**
@@ -124,8 +125,16 @@ Page({
       url: '../myfixed/myfixed',
     })
   },
-
-
+  notice(){
+    this.setData({
+      notifyShowen:true
+    })
+  },
+  cancelNotify(){
+    this.setData({
+      notifyShowen: false
+    })
+  },
   
   /**
    * 生命周期函数--监听页面初次渲染完成

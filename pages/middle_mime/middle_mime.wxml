@@ -82,6 +82,15 @@
     </View>
   </View>
 </View>
+<View class="concatBox" wx:if="{{notifyShowen}}">
+  <View class="notify-box">
+    <View class="notify-title">关注公众号</View>
+    <View class="img-box">
+      <image src="../../images/test.png"></image>
+    </View>
+    <View class="notify-btn"  bindtap='cancelNotify'>知道了</View>
+  </View>
+</View>
 </block>
 
 <!-- 跳转用户 -->
@@ -123,7 +132,7 @@
       <View class="UbtnBox_son_font">保洁预约</View>
       <image src="../../images/right.png" class="UbtnBox_son_pic"></image>
     </View>
-    <View class="UbtnBox_son" bindtap="fdauth">
+    <View class="UbtnBox_son" bindtap="notice">
       <View class="UbtnBox_son_font">关注公众号</View>
       <image src="../../images/right.png" class="UbtnBox_son_pic"></image>
     </View>
@@ -138,7 +147,7 @@
   </View>
 
 </View>
-
+<view class="" style="display:{{concatBoxDisplay}}"></view>
 <View class="UconcatBox" style="display:{{concatBoxDisplay}}">
   <View class="UconcatBox_sonBox" style="margin-top:{{concatBox_sonBoxwidth}}">
     <View class="UconcatBox_sonBox_top">
@@ -149,6 +158,15 @@
       <View class="UconcatBox_sonBox_bottom_left" bindtap="cancel">取消</View>
       <View class="UconcatBox_sonBox_bottom_right" bindtap="call">拨通</View>
     </View>
+  </View>
+</View>
+<View class="concatBox" wx:if="{{notifyShowen}}">
+  <View class="notify-box">
+    <View class="notify-title">关注公众号</View>
+    <View class="img-box">
+      <image src="../../images/test.png"></image>
+    </View>
+    <View class="notify-btn"  bindtap='cancelNotify'>知道了</View>
   </View>
 </View>
 </block>

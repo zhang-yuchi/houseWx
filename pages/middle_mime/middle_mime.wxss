@@ -374,3 +374,24 @@ page{
   color:#02BB00;
   float:left;
 }
+.notify-box{
+  width: 90%;
+  background-color: white;
+  margin: 40rpx auto;
+}
+.img-box{
+  text-align: center;
+}
+.img-box image{
+  width: 400rpx;
+  height: 400rpx;
+}
+.notify-title{
+  text-align: center;
+  padding: 16rpx;
+}
+.notify-btn{
+  padding: 16rpx;
+  text-align: center;
+  color: rgb(32, 195, 30);
+}

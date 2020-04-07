@@ -375,6 +375,7 @@ page{
   float:left;
 }
 .notify-box{
+  border-radius: 10rpx;
   width: 90%;
   background-color: white;
   margin: 40rpx auto;

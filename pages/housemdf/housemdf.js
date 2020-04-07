@@ -106,8 +106,8 @@ Page({
           { name: "天然气", url: "../../images/meiqi.png", value: "hasGas", id: 4, selected: false, className: "jjBox_son_text" },
         ],
       })
-      let d = new Date(that.data.intime)
-      let intime = `${d.getFullYear()}-${d.getMonth()+1}-${d.getDate()}`
+      let intime = moment(that.data.intime).format('YYYY-MM-DD')
+      // let intime = `${d.getFullYear()}-${d.getMonth()+1}-${d.getDate()}`
       //对下面两排进行遍历
       let firstLevel = that.data.firstLevel
       let secondLevel = that.data.secondLevel

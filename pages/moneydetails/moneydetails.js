@@ -1,5 +1,6 @@
 // pages/moneydetails/moneydetails.js
 var ajax = require('../../utils/ajax.js')
+const moment = require('../../utils/moment')
 Page({
 
   /**
@@ -44,8 +45,9 @@ Page({
       if(res.data.status==1){
         let arr = []
         for(let item of res.data.data){
-          let date = new Date(item.payDate)
-          item.payDate = date.getFullYear() + '-' + (date.getMonth()+1) + '-' + date.getDate()
+          let date = moment(item.payDate).format('YYYY-MM-DD')
+          // item.payDate = date.getFullYear() + '-' + (date.getMonth()+1) + '-' + date.getDate()
+          item.payDate = date
           arr.push(item)
         }
         that.setData({

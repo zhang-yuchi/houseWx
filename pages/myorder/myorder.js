@@ -1,6 +1,7 @@
 // pages/myorder/myorder.js
 var app = getApp();
 var ajax = require('../../utils/ajax.js')
+const moment = require('../../utils/moment')
 Page({
 
   /**
@@ -33,8 +34,8 @@ Page({
       if(res.data.status == 1){
         let arr = res.data.data
         for (let item of arr) {
-          let d = new Date(item.startCreate)
-          let date = `${d.getFullYear()}-${d.getMonth()}-${d.getDay()}`
+          let date = moment(item.startCreate).format('YYYY-MM-DD')
+          // let date = `${d.getFullYear()}-${d.getMonth()}-${d.getDay()}`
           console.log(date)
           item.startCreate = date
         }

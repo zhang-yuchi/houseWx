@@ -1,5 +1,6 @@
 // pages/talk/talk.js
 var ajax = require('../../utils/ajax.js')
+const moment = require('../../utils/moment')
 var timer = null
 Page({
   /**
@@ -45,8 +46,8 @@ Page({
         // console.log("历史信息")
         // console.log(res.data.data)
         for (let item of res.data.data){
-          let d = new Date(item.gmtSend)
-          let date = (d.getMonth() + 1) + "-" + d.getDate()+" "+d.getHours()+':'+d.getMinutes()
+          let date = moment(item.gmtSend).format('MM-DD HH:mm')
+          // let date = (d.getMonth() + 1) + "-" + d.getDate()+" "+d.getHours()+':'+d.getMinutes()
           item.gmtSend = date
         }
         that.setData({
@@ -58,12 +59,11 @@ Page({
     }).then(()=>{
       ajax.requestByGet('/tim/msg/' + that.data.to, {}, res => {
         // console.log("新信息")
-        // console.log(res)
         if (res.data.data.length > 0) {
           let arr = that.data.getmsg
           for (let item of res.data.data) {
-            let d = new Date(item.gmtSend)
-            let date = (d.getMonth() + 1) + "-" + d.getDate() + " " + d.getHours() + ':' + d.getMinutes()
+            let date = moment(item.gmtSend).format('MM-DD HH:mm')
+            // let date = (d.getMonth() + 1) + "-" + d.getDate() + " " + d.getHours() + ':' + d.getMinutes()
             item.gmtSend = date
             arr.push(item)
           }
@@ -80,8 +80,8 @@ Page({
           if(res.data.data.length>0){
             let arr = that.data.getmsg
             for (let item of res.data.data){
-              let d = new Date(item.gmtSend)
-              let date = (d.getMonth() + 1) + "-" + d.getDate() + " " + d.getHours() + ':' + d.getMinutes()
+              let date = moment(item.gmtSend).format('MM-DD HH:mm')
+              // let date = (d.getMonth() + 1) + "-" + d.getDate() + " " + d.getHours() + ':' + d.getMinutes()
               item.gmtSend = date
               arr.push(item)
             }
@@ -117,8 +117,8 @@ Page({
         type: "message"
       }, res => {
         console.log(res)
-        let d = new Date(res.data.data.gmtSend)
-        let date = (d.getMonth() + 1) + "-" + d.getDate() + " " + d.getHours() + ':' + d.getMinutes()
+        let date = moment(res.data.data.gmtSend).format('MM-DD HH:mm')
+        // let date = (d.getMonth() + 1) + "-" + d.getDate() + " " + d.getHours() + ':' + d.getMinutes()
         res.data.data.gmtSend = date
         that.data.getmsg.push(res.data.data)
         that.setData({

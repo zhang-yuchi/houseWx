@@ -2,6 +2,7 @@ var subwayUtil = require('./subwayUtil.js')
 var QQMap = require('./qqmap-wx-jssdk.min.js')
 var ajax = require("./ajax.js")
 var MD5 = require('./md5.js')
+const moment = require('./moment')
 let qqMap = new QQMap({
   key: "OVUBZ-MLPL6-MQPSJ-MR2KT-MWFIK-O6FUE"
 })
@@ -409,8 +410,8 @@ module.exports = {
       ajax.requestByGet('/tim/chatter', {}, res => {
         // console.log(res.data.data)
         for (let item of res.data.data) {
-          let d = new Date(item.latest100Msgs[item.latest100Msgs.length - 1].gmtSend)
-          let date = d.getHours() + ":" + d.getMinutes()
+          let date = moment(item.latest100Msgs[item.latest100Msgs.length - 1].gmtSend).format('HH:mm')
+          // let date = d.getHours() + ":" + d.getMinutes()
           item.latest100Msgs[item.latest100Msgs.length - 1].gmtSend = date
         }
         that.setData({

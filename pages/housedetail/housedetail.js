@@ -1,5 +1,6 @@
 // pages/housedetail/housedetail.js
 var ajax = require("../../utils/ajax.js")
+const moment = require('../../utils/moment')
 var app = getApp();
 Page({
 
@@ -113,8 +114,8 @@ Page({
       that.setData({
         userId: details.userId
       })
-      var d = new Date(details.checkInDate);
-      var datetime = d.getFullYear() + '.' + (d.getMonth() + 1) + '.' + d.getDate();
+      var datetime = moment(details.checkInDate).format('YYYY.MM.DD')
+      // var datetime = d.getFullYear() + '.' + (d.getMonth() + 1) + '.' + d.getDate();
       details.checkInDate = datetime
       if(details.hasAirConditioner==1||details.hasTelevison==1||details.hasComplete==1||details.hasRefrigerator==1||details.hasWasher==1){
         details.jiadian = 1

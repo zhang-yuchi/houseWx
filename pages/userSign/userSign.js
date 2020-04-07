@@ -1,4 +1,5 @@
 var app = getApp();
+const moment = require('../../utils/moment')
 Page({
   data: {
     houseid:"",

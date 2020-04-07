@@ -1,6 +1,7 @@
 // pages/msg/msg.js
 var app = getApp();
 var utils = require('../../utils/utils.js')
+const moment = require('../../utils/moment')
 var ajax = require('../../utils/ajax.js')
 Page({
 
@@ -83,8 +84,8 @@ Page({
       if (res.data.status == 1) {
         let sysdate = null
         if (res.data.data.length > 0) {
-          let d = new Date(res.data.data[res.data.data.length - 1].gmtCreate)
-          sysdate = d.getHours() + ":" + d.getMinutes()
+          let sysdate = moment(res.data.data[res.data.data.length - 1].gmtCreate).format('HH:mm')
+          // sysdate = d.getHours() + ":" + d.getMinutes()
           that.setData({
             systemmsg: res.data.data ? res.data.data[res.data.data.length - 1].content : "",
             systemtime: sysdate

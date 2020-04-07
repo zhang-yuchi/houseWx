@@ -1,6 +1,7 @@
 // pages/myfixed/myfixed.js
 var app = getApp();
 var ajax = require('../../utils/ajax.js')
+const moment = require('../../utils/')
 Page({
 
   /**

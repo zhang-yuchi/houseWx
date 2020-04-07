@@ -71,7 +71,7 @@ Page({
       }else{
         wx.showModal({
           title: '时间错误',
-          content: '请至少租一天',
+          content: '请检查起始时间是否正确',
           showCancel:false
         })
       }

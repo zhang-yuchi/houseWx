@@ -2,6 +2,8 @@
 var app = getApp();
 var pay = require('../../utils/pay.js')
 var ajax = require('../../utils/ajax.js')
+const moment = require('../../utils/moment.js')
+
 var context = null; // 使用 wx.createContext 获取绘图上下文 context  
 var isButtonDown = false;
 var arrx = [];
@@ -52,15 +54,17 @@ Page({
               icon: 'none'
             })
           } else {
-            let starttime = new Date(that.data.starttime)
-            let endtime = new Date(that.data.endtime)
-            let lease = (endtime.getFullYear() * 12 + endtime.getMonth()) - (starttime.getFullYear() * 12 + starttime.getMonth())
-            if (endtime.getDate() - starttime.getDate() > 0) {
+            let starttime = moment(that.data.starttime)
+            let endtime = moment(that.data.endtime)
+            let lease = (endtime.year() * 12 + endtime.month()) - (starttime.year() * 12 + starttime.month())
+            if (endtime.date() - starttime.date() > 0) {
               lease = lease + 1
             }
             if (that.data.starttime == that.data.endtime) {
+              console.log('时间相等')
               lease = 1
             }
+            console.log(lease)
             pay.pay(that.data.houseid, 'deposit', that.data.house.cash, {
               houseSignNo: that.data.houseSignNo,
               lease: lease
@@ -88,7 +92,6 @@ Page({
 
   //canvas函数
   move(event) {
-    console.log(111)
     // console.log(this.requestAnimationFrame)
     animateId = this.requestAnimationFrame(function() {
       context.setStrokeStyle('#0000ff');
@@ -237,14 +240,14 @@ Page({
     //数据初始化
     console.log(obj)
     let that = this
-    let starttime = new Date(obj.starttime)
-    let endtime = new Date(obj.endtime)
+    let starttime = moment(obj.starttime).format('YYYY-MM-DD')
+    let endtime = moment(obj.endtime).format('YYYY-MM-DD')
     that.setData({
       houseid: obj.houseid,
       idCardNum: obj.idCard,
       userName: obj.name,
-      starttime: starttime.getFullYear() + '-' + (starttime.getMonth() + 1) + '-' + starttime.getDate(),
-      endtime: endtime.getFullYear() + '-' + (endtime.getMonth() + 1) + '-' + endtime.getDate()
+      starttime: starttime,
+      endtime: endtime
     })
     ajax.requestByGet('/house/' + that.data.houseid, {}, res => {
       if (res.data.status == 1) {

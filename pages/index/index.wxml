@@ -1,72 +1,72 @@
 <!--pages/index/index.wxml-->
 
 <view class="container">
-<scroll-view scroll-y="true" class="scrollView" style="width:100%;height:100%" bindscrolltolower="tonew">
-  <!-- 顶部搜索组件 -->
-  <View class="searchBox">
-    <View class="city" bindtap="toCity">{{nowcity}}</View>
-    <View class="cityIcon">
-      <image src="../../images/indexdown.png" class="indexdown" />
+  <scroll-view scroll-y="true" class="scrollView" style="width:100%;height:100%" bindscrolltolower="tonew">
+    <!-- 顶部搜索组件 -->
+    <View class="searchBox">
+      <View class="city" bindtap="toCity">{{nowcity}}</View>
+      <View class="cityIcon">
+        <image src="../../images/indexdown.png" class="indexdown" />
+      </View>
+      <View class="searchBox_input" style="width:{{searchBoxInputWidth}}">
+        <image src="../../images/SEARCH.png" class="searchpic" />
+        <input placeholder="请输入小区或者地址" class="input" style="width:{{inputWidth}}" bindconfirm="search" bindinput="listeninput" confirm-type='search' name="search" />
+
+      </View>
     </View>
-    <View class="searchBox_input" style="width:{{searchBoxInputWidth}}">
-      <image src="../../images/SEARCH.png" class="searchpic" />
-      <input placeholder="请输入小区或者地址" class="input" style="width:{{inputWidth}}"  bindconfirm="search" bindinput="listeninput" confirm-type='search' name="search"/>
-      
-    </View>
-  </View>
-  <view class="banner">
-    <view class="banner_son">
-      <!--滚动图  -->
-      <swiper class="swiper" indicator-dots="true" autoplay="true" interval="5000" duration="1000">
-        <block wx:for="{{movies}}" wx:for-index="index" wx:key="test">
-          <swiper-item>
-            <image src="{{item.imgUrl}}" class="slide-image" mode="aspectFill" />
-          </swiper-item>
-        </block>
-      </swiper>
+    <view class="banner">
+      <view class="banner_son">
+        <!--滚动图  -->
+        <swiper class="swiper" indicator-dots="true" autoplay="true" interval="5000" duration="1000">
+          <block wx:for="{{movies}}" wx:for-index="index" wx:key="test">
+            <swiper-item>
+              <image src="{{item.imgUrl}}" class="slide-image" mode="aspectFill" />
+            </swiper-item>
+          </block>
+        </swiper>
+      </view>
     </view>
-  </view>
 
-  <View class="itembox">
-    <View class="itembox_son"   bindtap="toupfix">
-      <image src="../../images/index_1.png" class="itembox_son_pic" />
-      <View class="itembox_son_text">故障报修</View>
-    </View>
+    <View class="itembox">
+      <View class="itembox_son" bindtap="toupfix">
+        <image src="../../images/index_1.png" class="itembox_son_pic" />
+        <View class="itembox_son_text">故障报修</View>
+      </View>
 
-    <View class="itembox_son" wx:if="{{isAuth==0}}"  bindtap="tofdauth">
-      <view class="spec-box">
-        <image src="../../images/index_2.png" class="itembox_son_pic spec" />
-      </view>
-      <View class="itembox_son_text">我要认证</View>
+      <View class="itembox_son" wx:if="{{isAuth==0}}" bindtap="tofdauth">
+        <view class="spec-box">
+          <image src="../../images/index_2.png" class="itembox_son_pic spec" />
+        </view>
+        <View class="itembox_son_text">我要认证</View>
+      </View>
+      <View class="itembox_son" wx:if="{{isAuth==1}}" bindtap="totips">
+        <view class="spec-box">
+          <image src="../../images/index_2.png" class="itembox_son_pic spec" />
+        </view>
+        <View class="itembox_son_text">认证中</View>
+      </View>
+      <View class="itembox_son" wx:if="{{isAuth==2&&isFd==2}}" bindtap="toRent">
+        <view class="spec-box">
+          <image src="../../images/index_2.png" class="itembox_son_pic spec" />
+        </view>
+        <View class="itembox_son_text">我要出租</View>
+      </View>
+      <View class="itembox_son" wx:if="{{isAuth==2&&isFd!=0}}">
+        <view class="spec-box">
+          <image src="../../images/index_2.png" class="itembox_son_pic spec" />
+        </view>
+        <View class="itembox_son_text">认证成功</View>
+      </View>
+      <View class="itembox_son" bindtap="toliveserver">
+        <image src="../../images/index_3.png" class="itembox_son_pic" />
+        <View class="itembox_son_text">生活服务</View>
+      </View>
     </View>
-    <View class="itembox_son" wx:if="{{isAuth==1}}"  bindtap="totips">
-      <view class="spec-box">
-        <image src="../../images/index_2.png" class="itembox_son_pic spec" />
-      </view>
-      <View class="itembox_son_text">认证中</View>
-    </View>
-    <View class="itembox_son" wx:if="{{isAuth==2&&isFd!=0}}"  bindtap="toRent">
-      <view class="spec-box">
-        <image src="../../images/index_2.png" class="itembox_son_pic spec" />
-      </view>
-      <View class="itembox_son_text">我要出租</View>
-    </View>
-<View class="itembox_son" wx:if="{{isAuth==2&&isFd==0}}" >
-      <view class="spec-box">
-        <image src="../../images/index_2.png" class="itembox_son_pic spec" />
-      </view>
-      <View class="itembox_son_text">认证成功</View>
-    </View>
-    <View class="itembox_son"  bindtap="toliveserver">
-      <image src="../../images/index_3.png" class="itembox_son_pic" />
-      <View class="itembox_son_text">生活服务</View>
-    </View>
-  </View>
-  <!-- 特色推荐 -->
-  <View class="teseBoxTitle">特色推荐</View>
-  <View class="teseBox">
-    <scroll-view class="scrollX" scroll-x='true'>
-      <!-- <View class="teseBox_son">
+    <!-- 特色推荐 -->
+    <View class="teseBoxTitle">特色推荐</View>
+    <View class="teseBox">
+      <scroll-view class="scrollX" scroll-x='true'>
+        <!-- <View class="teseBox_son">
       <image src="../../images/sx.png" class="teseBox_son_pic" />
       <View class="teseBox_text">情侣抢先看</View>
     </View>
@@ -82,59 +82,64 @@
       <image src="../../images/sx.png" class="teseBox_son_pic" />
       <View class="teseBox_text">转租好房源</View>
     </View> -->
-    <View class="teseBox_son" wx:for="{{tcArr}}" wx:key="i" bindtap="tohousedetails" data-id="{{item.houseId}}">
-    <image src="{{item.imgUrl}}" mode="aspectFit" class="teseBox_son_pic" /></View>
-    </scroll-view>
-  </View>
+        <View class="teseBox_son" wx:for="{{tcArr}}" wx:key="i" bindtap="tohousedetails" data-id="{{item.houseId}}">
+          <image src="{{item.imgUrl}}" mode="aspectFit" class="teseBox_son_pic" />
+        </View>
+      </scroll-view>
+    </View>
 
-  <View class="empty" style="width:100%;height:8px;background:#F8F8F8"></View>
+    <View class="empty" style="width:100%;height:8px;background:#F8F8F8"></View>
 
-  <!-- 中部条件筛选 -->
-  <View class="middle_check">
-    <View class="middle_check_son" bindtap="toarea" style="width:{{middle_check_sonwidth}}">
+    <!-- 中部条件筛选 -->
+    <View class="middle_check">
+      <View class="middle_check_son" bindtap="toarea" style="width:{{middle_check_sonwidth}}">
         <View class="middle_check_son_text" style="margin-left:{{middle_check_son_textleft}}">区域</View>
         <image src="../../images/indexdown.png" class="middle_check_son_pic" />
-    </View>
-    <View class="middle_check_son" style="width:{{middle_check_sonwidth}}" bindtap="toPrice">
+      </View>
+      <View class="middle_check_son" style="width:{{middle_check_sonwidth}}" bindtap="toPrice">
         <View class="middle_check_son_text" style="margin-left:{{middle_check_son_textleft}}">租金</View>
         <image src="../../images/indexdown.png" class="middle_check_son_pic" />
-    </View>
-    <View class="middle_check_son" style="width:{{middle_check_sonwidth}}" bindtap="toHx">
+      </View>
+      <View class="middle_check_son" style="width:{{middle_check_sonwidth}}" bindtap="toHx">
         <View class="middle_check_son_text" style="margin-left:{{middle_check_son_textleft}}">户型</View>
         <image src="../../images/indexdown.png" class="middle_check_son_pic" />
-    </View>
-    <View class="middle_check_son" style="width:{{middle_check_sonwidth}}" bindtap="tosaixuan">
+      </View>
+      <View class="middle_check_son" style="width:{{middle_check_sonwidth}}" bindtap="tosaixuan">
         <View class="middle_check_son_text" style="margin-left:{{middle_check_son_textleft}}">筛选</View>
         <image src="../../images/indexdown.png" class="middle_check_son_pic" />
+      </View>
+      <View class="middle_check_son" bindtap="tosort" style="width:{{middle_check_sonwidth}}">
+        <image src="../../images/sx.png" class="middle_check_son_sx" bindtap="reverse" />
+      </View>
+      <View class="middle_check_son" bindtap="init" style="width:{{middle_check_sonwidth}}">
+        <image src="../../images/load.png" class="middle_check_son_sx" bindtap="reverse" />
+      </View>
     </View>
-    <View class="middle_check_son" bindtap="tosort" style="width:{{middle_check_sonwidth}}">
-        <image src="../../images/sx.png" class="middle_check_son_sx" bindtap="reverse"/>
-    </View>
-    <View class="middle_check_son" bindtap="init" style="width:{{middle_check_sonwidth}}">
-        <image src="../../images/load.png" class="middle_check_son_sx" bindtap="reverse"/>
-    </View>
-  </View>
 
 
 
-  <!-- 中部广告条 -->
+    <!-- 中部广告条 -->
 
-<scroll-view class="content">
-  <view class="content-block" data-id="{{item.id}}" wx:for="{{houses}}" wx:key="index" bindtap="tohousedetails">
-    <view class="block-pic">
-      <image src="{{item.headingImg}}"></image>
-    </view>
-    <view class="sc-details">
-      <view class="sc-title">{{item.title}}</view>
-      <view class="sc-position">{{item.area}}m^2<text class="fenge">|</text>{{item.orientation}}<text class="fenge">|</text>{{item.street}}</view>
-      <view class="house-tag">
-        <text class="tags-sign" wx:for="{{item.tags}}" wx:key="price">{{item}}</text>
+    <scroll-view class="content">
+      <view class="content-block" data-id="{{item.id}}" wx:for="{{houses}}" wx:key="index" bindtap="tohousedetails">
+        <view class="block-pic">
+          <image src="{{item.headingImg}}"></image>
+        </view>
+        <view class="sc-details">
+          <view class="sc-title">{{item.title}}</view>
+          <view class="sc-position">{{item.area}}m^2
+            <text class="fenge">|</text>{{item.orientation}}
+            <text class="fenge">|</text>{{item.street}}</view>
+          <view class="house-tag">
+            <text class="tags-sign" wx:for="{{item.tags}}" wx:key="price">{{item}}</text>
+          </view>
+          <view class="house-price">{{item.cash}}
+            <text class="per">元/月</text>
+          </view>
+        </view>
       </view>
-      <view class="house-price">{{item.cash}}<text class="per">元/月</text></view>
-    </view>
-  </view>
-</scroll-view>
-  
-    
+    </scroll-view>
+
+
   </scroll-view>
 </view>

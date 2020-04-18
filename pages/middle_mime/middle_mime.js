@@ -91,9 +91,17 @@ Page({
     })
   },
   fdauth() {
-    wx.navigateTo({
-      url: '../usertofd/usertofd',
-    })
+    if(this.isFd==0){
+      wx.navigateTo({
+        url: '../usertofd/usertofd',
+      })
+    }else{
+      wx.showToast({
+        title: '审核中,请耐心等待',
+        icon: "none"
+      })
+    }
+    
   },
   toQuanxian: function () {
     wx.getSetting({

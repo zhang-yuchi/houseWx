@@ -1,6 +1,6 @@
 <!--pages/middle_mime/middle_mime.wxml-->
 <!-- 跳转房东 -->
-<block wx:if="{{isFd}}">
+<block wx:if="{{isFd==2}}">
 <!--pages/fd_mime/fd_mime.wxml-->
 <View class="container">
   <View class="topBox">

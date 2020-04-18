@@ -158,46 +158,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    const that = this
-    utils.token()
-    ajax.requestByGet('/user/info',{},function(res){
-      console.log(res)
-      wx.setStorageSync("userInfo", res.data.data)
-      // console.log(wx.getStorageSync("userInfo"))
-      that.setData({
-        isFd: res.data.data.landlord,
-        isAuth:res.data.data.isAuth
-      })
-      // console.log(that.data)
-    })
-    // console.log(wx.getStorageSync("userInfo"))
-    // console.log(wx.getStorageSync("citylist"))
-    this.setData({
-      nowcity: wx.getStorageSync("citylist").city ? wx.getStorageSync("citylist").city : ""
-    })
-    // wx.setStorageSync("userSelect", null)
-    //获取轮播图
-  ajax.requestByGet('/banner',{},function(res){
-    // console.log(res.data.data)
-    that.setData({
-      movies: res.data.data
-    })
-
-  })
-
-
-  //获得特色推荐
-  ajax.requestByGet('/user/rcmd',{},function(res){
-    // console.log(res)
-    let tcArr = []
-    for(let item of res.data.data){
-      tcArr.push(item)
-    }
-    that.setData({
-      tcArr: tcArr
-    })
-  })
-
+    
   },
   totips(){
     wx.showToast({
@@ -297,7 +258,45 @@ Page({
   onShow: function () {
     // console.log(wx.getStorageSync("userSelect"))
     // console.log("show")
-    var that = this;
+    const that = this
+    utils.token()
+    ajax.requestByGet('/user/info', {}, function (res) {
+      console.log(res)
+      wx.setStorageSync("userInfo", res.data.data)
+      // console.log(wx.getStorageSync("userInfo"))
+      that.setData({
+        isFd: res.data.data.landlord,
+        isAuth: res.data.data.isAuth
+      })
+      // console.log(that.data)
+    })
+    // console.log(wx.getStorageSync("userInfo"))
+    // console.log(wx.getStorageSync("citylist"))
+    this.setData({
+      nowcity: wx.getStorageSync("citylist").city ? wx.getStorageSync("citylist").city : ""
+    })
+    // wx.setStorageSync("userSelect", null)
+    //获取轮播图
+    ajax.requestByGet('/banner', {}, function (res) {
+      // console.log(res.data.data)
+      that.setData({
+        movies: res.data.data
+      })
+
+    })
+
+
+    //获得特色推荐
+    ajax.requestByGet('/user/rcmd', {}, function (res) {
+      // console.log(res)
+      let tcArr = []
+      for (let item of res.data.data) {
+        tcArr.push(item)
+      }
+      that.setData({
+        tcArr: tcArr
+      })
+    })
     that.setData({
       searchBoxInputWidth:(app.data.width-136)+"px",
       inputWidth: (app.data.width - 136-14-25)+"px",

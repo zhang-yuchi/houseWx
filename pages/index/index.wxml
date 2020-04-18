@@ -45,7 +45,7 @@
       </view>
       <View class="itembox_son_text">认证中</View>
     </View>
-    <View class="itembox_son" wx:if="{{isAuth==2&&isFd!=0}}"  bindtap="toRent">
+    <View class="itembox_son" wx:if="{{isAuth==2&&isFd==2}}"  bindtap="toRent">
       <view class="spec-box">
         <image src="../../images/index_2.png" class="itembox_son_pic spec" />
       </view>

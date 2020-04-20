@@ -1,5 +1,6 @@
 // pages/housemdf/housemdf.js
 var ajax = require("../../utils/ajax.js")
+const moment = require('../../utils/moment.js')
 var app = getApp();
 Page({
 
@@ -86,8 +87,8 @@ Page({
         caig: house.daylighting,
         caox: house.orientation,
         diant: house.hasElevator==0?"无":"有",
-        boyShared: house.boyShared==0?"否":"是",
-        girlShared: house.girlShared==0?"否":"是",
+        boyShared: house.boyOnly==0?"否":"是",
+        girlShared: house.girlOnly==0?"否":"是",
         looktime: house.inspection,
         intime: house.checkInDate,
         textarea: house.textarea,
@@ -259,8 +260,8 @@ Page({
         hasTelevison: 0,
         hasWardrobe: 0,
         hasWasher: 0,
-        boyShared: 0,
-        girlShared: 0,
+        boyOnly: 0,
+        girlOnly: 0,
         lat: that.data.latitude,
         lng: that.data.longitude,
         orientation: that.data.caox,

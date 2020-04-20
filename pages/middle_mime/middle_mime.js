@@ -103,6 +103,16 @@ Page({
     }
     
   },
+  tomyhouse_fd: function () {
+    wx.navigateTo({
+      url: '../myhouse_fd/myhouse_fd',
+    })
+  },
+  tomywallet: function () {
+    wx.navigateTo({
+      url: '../mywallet_fd/mywallet_fd',
+    })
+  },
   toQuanxian: function () {
     wx.getSetting({
       success(res) {

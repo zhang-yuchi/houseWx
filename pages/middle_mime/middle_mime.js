@@ -91,7 +91,7 @@ Page({
     })
   },
   fdauth() {
-    if(this.isFd==0){
+    if(this.data.isFd==0){
       wx.navigateTo({
         url: '../usertofd/usertofd',
       })

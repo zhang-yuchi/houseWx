@@ -6,45 +6,60 @@ Page({
    * 页面的初始数据
    */
   data: {
-    nick_name:'',
-    gender:0,
-    genderArr:['未填写','男','女'],
-    country:'',
+    nick_name: '',
+    gender: 0,
+    genderArr: ['未填写', '男', '女'],
+    country: '',
     city: ''
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
+  onLoad: function(options) {
+    var that = this
     console.log(wx.getStorageSync("userInfo"));
     console.log(wx.getStorageSync("userInfo").gender);
     this.setData({
-      gender: wx.getStorageSync("userInfo").gender
+      gender: wx.getStorageSync("userInfo").gender,
+      city: wx.getStorageSync("userInfo").city
     })
   },
-  
-  bindGenderPickerChange: function(e){
+
+  bindGenderPickerChange: function(e) {
     // console.log(this.data.genderArr[e.detail.value]);
     // console.log(e.detail.value)
     this.setData({
       gender: e.detail.value
     })
   },
-  toChooseCity:function(){
+  toChooseCity: function() {
     wx.navigateTo({
       url: '../city2/city2',
     })
   },
-  smtChangeInfo:function(){
+  smtChangeInfo: function() {
     let that = this;
-    ajax.requestByGet('/user/info',{
-      city:that.data.city,
-      gender:that.data.gender
-    },function(){
-      wx.navigateBack({
-        delta:1
-      })
+    console.log(that.data.city, that.data.gender)
+    ajax.requestByPost('/user/info', {
+      city: that.data.city,
+      gender: that.data.gender
+    }, function(res) {
+      console.log(res)
+      if(res.data.status == 1){
+        let userInfo = wx.getStorageSync("userInfo")
+        userInfo.gender = that.data.gender
+        userInfo.city = that.data.city
+        wx.setStorageSync("userInfo", userInfo)
+        wx.navigateBack({
+          delta: 1
+        })
+      }else{
+        wx.showToast({
+          title: '与服务器连接失败...',
+          icon:'none'
+        })
+      }
     })
 
   },
@@ -53,49 +68,49 @@ Page({
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
-  onReady: function () {
+  onReady: function() {
 
   },
 
   /**
    * 生命周期函数--监听页面显示
    */
-  onShow: function () {
+  onShow: function() {
 
   },
 
   /**
    * 生命周期函数--监听页面隐藏
    */
-  onHide: function () {
+  onHide: function() {
 
   },
 
   /**
    * 生命周期函数--监听页面卸载
    */
-  onUnload: function () {
+  onUnload: function() {
 
   },
 
   /**
    * 页面相关事件处理函数--监听用户下拉动作
    */
-  onPullDownRefresh: function () {
+  onPullDownRefresh: function() {
 
   },
 
   /**
    * 页面上拉触底事件的处理函数
    */
-  onReachBottom: function () {
+  onReachBottom: function() {
 
   },
 
   /**
    * 用户点击右上角分享
    */
-  onShareAppMessage: function () {
+  onShareAppMessage: function() {
 
   }
 })

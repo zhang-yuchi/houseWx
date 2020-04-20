@@ -29,11 +29,14 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    wx.showLoading({
+      title: '加载中...',
+    })
     let that = this
     ajax.requestByGet('/user/browse',{
       page:page
     },(res)=>{
-      // console.log(res)
+      console.log(res)
       let houses = res.data.data
       for(let item of houses){
         // console.log(utils.tagsToArr(item.tags))
@@ -42,7 +45,7 @@ Page({
       that.setData({
         houses: houses
       })
-      // console.log(res.data.data)
+      wx.hideLoading()
     })
   },
   addpage(){

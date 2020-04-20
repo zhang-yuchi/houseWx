@@ -39,22 +39,22 @@
   </View>
 
   <View class="otherBox" bindtap="tosurf">
-    <image src="../../images/sc.png" class="otherBox_pic" />
+    <image src="../../images/surf-history.png" class="otherBox_pic" />
     <View class="otherBox_font">我的浏览</View>
     <image src="../../images/right.png" class="otherBox_pic" />
   </View>
   <View class="otherBox" bindtap="toChangeInfodetails">
-    <image src="../../images/person.png" class="otherBox_pic" />
+    <image src="../../images/change.png" class="otherBox_pic" />
     <View class="otherBox_font">修改信息</View>
     <image src="../../images/right.png" class="otherBox_pic" />
   </View>
   <View class="otherBox" bindtap="preClean">
-    <image src="../../images/person.png" class="otherBox_pic" />
+    <image src="../../images/date.png" class="otherBox_pic" />
     <View class="otherBox_font">保洁预约</View>
     <image src="../../images/right.png" class="otherBox_pic" />
   </View>
   <View class="otherBox" bindtap="notice">
-    <image src="../../images/person.png" class="otherBox_pic" />
+    <image src="../../images/wechat.png" class="otherBox_pic" />
     <View class="otherBox_font">关注公众号</View>
     <image src="../../images/right.png" class="otherBox_pic" />
   </View>

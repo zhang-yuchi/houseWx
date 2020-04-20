@@ -1,23 +1,27 @@
 <!--pages/myorder/myorder.wxml-->
 <view class="change-btn">
-  <view class="{{item.className}}" data-index="{{index}}" bindtap="changemodel" wx:key="{{item.id}}" wx:for="{{barArr}}">{{item.name}}</view>
-  
+  <view class="{{item.className}}" data-index="{{index}}" bindtap="changemodel" wx:key="id" wx:for="{{barArr}}">{{item.name}}</view>
+
 </view>
 <scroll-view class="content" scroll-y="true" style="height:92%">
-  <view class="content-block" bindtap="{{barArr[0].select?'tohousedetails':'toliveserverdetail'}}" wx:for="{{barArr[0].select?house:store}}" wx:key="list" wx:for-item="item" data-id="{{index}}">
+  <view class="content-block" bindtap="{{barArr[0].select?'tohousedetails':'toliveserverdetail'}}" wx:for="{{barArr[0].select?house:store}}" wx:key="id" wx:for-item="item" data-id="{{index}}">
     <view class="block-pic">
       <image src="{{barArr[0].select?item.headingImg:item.headImg}}" style="{{barArr[0].select?'':'width:100%;height:100%'}}"></image>
     </view>
     <view class="sc-details">
       <view class="sc-title">{{barArr[0].select?item.title:item.name}} {{barArr[0].select?item.houseType:''}}</view>
-      <view class="sc-position">{{barArr[0].select?item.area:''}}{{barArr[0].select?'m':''}}<text class="fenge">{{barArr[0].select?'|':''}}</text>{{barArr[0].select?item.orientation:''}}<text class="fenge">{{barArr[0].select?'|':''}}</text>{{barArr[0].select?item.street:''}}</view>
+      <view class="sc-position">{{barArr[0].select?item.area:''}}{{barArr[0].select?'m':''}}
+        <text class="fenge">{{barArr[0].select?'|':''}}</text>{{barArr[0].select?item.orientation:''}}
+        <text class="fenge">{{barArr[0].select?'|':''}}</text>{{barArr[0].select?item.street:''}}</view>
       <view class="house-tag">
-        <text class="tags-sign" wx:for="{{barArr[0].select?house[index].tags:[item.type]}}" wx:key="{{item.index}}" wx:for-item="tag">{{tag}}</text>
+        <text class="tags-sign" wx:for="{{barArr[0].select?house[index].tags:[item.type]}}" wx:key="" wx:for-item="tag">{{tag}}</text>
         <!-- <text class="tags-sign">押一付一</text>
         <text class="tags-sign">近地铁</text>
         <text class="tags-sign">配套齐全</text> -->
       </view>
-      <view class="{{barArr[0].select?'house-price':'address'}}">{{barArr[0].select?item.cash:item.address}}<text class="per">{{barArr[0].select?'元/月':''}}</text></view>
+      <view class="{{barArr[0].select?'house-price':'address'}}">{{barArr[0].select?item.cash:item.address}}
+        <text class="per">{{barArr[0].select?'元/月':''}}</text>
+      </view>
     </view>
   </view>
 </scroll-view>

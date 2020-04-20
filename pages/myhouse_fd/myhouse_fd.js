@@ -36,17 +36,15 @@ Page({
    */
   onLoad: function(options) {
     let that = this
+    wx.showLoading({
+      title: '加载中',
+    })
     ajax.requestByGet('/user/landload/house', {}, res => {
       console.log(res)
       if (res.data.status == 1) {
         let houses = res.data.data
         let nowlist = []
         for (let item of houses) {
-          if (item.rented == that.data.select) {
-            nowlist.push(item)
-          }
-        }
-        for (let item of nowlist) {
           let tags = item.tags
           if (tags) {
             console.log(tags)
@@ -63,12 +61,15 @@ Page({
             })
             item.tags = tags
           }
+          if (item.rented == that.data.select) {
+            nowlist.push(item)
+          }
         }
-        // wx.hideLoading()
         that.setData({
           nowlist: nowlist,
           houses: houses
         })
+        wx.hideLoading()
       }else {
         wx.showToast({
           title: res.data.message,
@@ -93,7 +94,7 @@ Page({
       if (arr[i].id == id) {
         arr[i].className = "son_text"
         if (arr[i].value == "no") {
-          //为出租
+          //未出租
           that.setData({
             select: 0
           })

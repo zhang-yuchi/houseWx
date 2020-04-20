@@ -56,50 +56,6 @@ Page({
         this.data.barArr[i].select = false;
       }
     }
-    for (let item of this.data.barArr) {
-      if (item.className == "inner-btn select-btn") {
-        if (item.name == "房源信息") {
-          //此时请求房源接口
-          ajax.requestByGet('/user/star/house', {}, function(res) {
-            console.log(res)
-            if(res.data.status == 1){
-              let list = res.data.data
-              for (let i = 0; i < list.length; i++) {
-                list[i].tags = tagsToArr.tagsToArr(list[i].tags);
-              }
-              that.setData({
-                house: list
-              })
-            }else{
-              wx.showToast({
-                title: res.data.message,
-                icon: 'none'
-              })
-            }
-          })
-        } else {
-          //此时请求生活服务接口
-          ajax.requestByGet('/user/star/store', {}, function(res) {
-            console.log(res)
-            if(res.data.status == 1){
-              let list = res.data.data
-              for (let i = 0; i < list.length; i++) {
-                list[i].tags = tagsToArr.tagsToArr(list[i].tags);
-              }
-              that.setData({
-                store: list
-              })
-            }else{
-              wx.showToast({
-                title: res.data.message,
-                icon: 'none'
-              })
-            }
-            
-          })
-        }
-      }
-    }
     this.setData({
       barArr: this.data.barArr
     })
@@ -108,24 +64,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
-    let that = this;
-    ajax.requestByGet('/user/star/house', {}, function(res) {
-      console.log(res)
-      if(res.data.status == 1){
-        let list = res.data.data
-        for (let i = 0; i < list.length; i++) {
-          list[i].tags = tagsToArr.tagsToArr(list[i].tags);
-        }
-        that.setData({
-          house: list
-        })
-      }else{
-        wx.showToast({
-          title: res.data.message,
-          icon:'none'
-        })
-      }
-    })
+    
   },
 
   /**
@@ -145,6 +84,45 @@ Page({
       scrollViewHeight: (app.data.height - 50) + "px"
     });
 
+    wx.showLoading({
+      title: '加载中...',
+    })
+    ajax.requestByGet('/user/star/house', {}, function (res) {
+      console.log(res)
+      if (res.data.status == 1) {
+        let list = res.data.data
+        for (let i = 0; i < list.length; i++) {
+          list[i].tags = tagsToArr.tagsToArr(list[i].tags);
+        }
+        that.setData({
+          house: list
+        })
+
+        ajax.requestByGet('/user/star/store', {}, function (res) {
+          console.log(res)
+          if (res.data.status == 1) {
+            let list = res.data.data
+            for (let i = 0; i < list.length; i++) {
+              list[i].tags = tagsToArr.tagsToArr(list[i].tags);
+            }
+            that.setData({
+              store: list
+            })
+            wx.hideLoading()
+          } else {
+            wx.showToast({
+              title: res.data.message,
+              icon: 'none'
+            })
+          }
+        })
+      } else {
+        wx.showToast({
+          title: res.data.message,
+          icon: 'none'
+        })
+      }
+    })
   },
   tohousedetail: function(e) {
     var that = this;

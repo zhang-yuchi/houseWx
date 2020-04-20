@@ -27,6 +27,9 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
+    wx.showLoading({
+      title: '加载中...',
+    })
     let that = this
     console.log(wx.getStorageSync("token"))
     ajax.requestByGet('/user/sign', {}, function(res) {
@@ -36,7 +39,6 @@ Page({
         for (let item of arr) {
           let date = moment(item.startCreate).format('YYYY-MM-DD')
           // let date = `${d.getFullYear()}-${d.getMonth()}-${d.getDay()}`
-          console.log(date)
           item.startCreate = date
         }
         that.setData({
@@ -52,6 +54,7 @@ Page({
         that.setData({
           nowList: nowList
         })
+        wx.hideLoading()
       }else{
         wx.showToast({
           title: res.data.message,

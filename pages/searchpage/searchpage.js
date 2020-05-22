@@ -28,6 +28,12 @@ Page({
         that.setData({
           houses: []
         })
+        setTimeout(()=>{
+          wx.navigateBack({
+            complete: (res) => {},
+          })
+        },1000)
+
         // wx.hideLoading()
         return
       }

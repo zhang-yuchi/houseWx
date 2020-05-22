@@ -35,7 +35,7 @@ page{
   width: 100%;
   box-sizing: border-box;
   padding: 20rpx;
-  padding-left: 120rpx;
+  padding-left: 50rpx;
   display: flex;
   align-items: center;
   height: 10%;

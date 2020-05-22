@@ -1,5 +1,6 @@
 var app = getApp();
 var ajax = require('../../utils/ajax.js')
+console.log(app.data.requestHost)
 Page({
   data: {
     userInfo: {},
@@ -129,6 +130,7 @@ Page({
             }
           },
           fail: res => {
+            console.log(res)
             wx.showModal({
               title: '登陆失败',
               content: '请重试!',

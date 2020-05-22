@@ -2,7 +2,7 @@
 <!-- 跳转房东 -->
 <block wx:if="{{isFd==2}}">
 <!--pages/fd_mime/fd_mime.wxml-->
-<View class="container">
+<View class="{{lock?'container':'container lock'}}" >
   <View class="topBox">
     <View class="topBox_left">
       <View class="topBox_left_name">{{nickName}}</View>
@@ -107,7 +107,7 @@
 
 <!-- 跳转用户 -->
 <block wx:else>
-<View class="container">
+<View class="{{lock?'container lock':'container'}}">
   <View class="UtopBox"></View>
   <image src="{{imagePic}}" class="UheadPic"></image>
   <View class="UnameBox">{{nickName}}</View>

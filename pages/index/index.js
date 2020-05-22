@@ -157,8 +157,14 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
+  onLoad: async function (options) {
+      // const success = await app.verifyLogin()
+      // console.log(success)
     
+    
+    wx.navigateTo({
+      url: '/pages/price/price',
+    })
   },
   totips(){
     wx.showToast({
@@ -255,26 +261,28 @@ Page({
   /**
    * 生命周期函数--监听页面显示
    */
-  onShow: function () {
-    // console.log(wx.getStorageSync("userSelect"))
-    // console.log("show")
+  onShow:async function () {
+    await app.verifyLogin()
     const that = this
-    utils.token()
-    ajax.requestByGet('/user/info', {}, function (res) {
-      console.log(res)
-      wx.setStorageSync("userInfo", res.data.data)
-      // console.log(wx.getStorageSync("userInfo"))
-      that.setData({
-        isFd: res.data.data.landlord,
-        isAuth: res.data.data.isAuth
+    let token = wx.getStorageSync('token')
+    if(token){
+      ajax.requestByGet('/user/info', {}, function (res) {
+        console.log(res)
+        wx.setStorageSync("userInfo", res.data.data)
+        that.setData({
+          isFd: res.data.data.landlord,
+          isAuth: res.data.data.isAuth
+        })
+        // console.log(that.data)
+        // console.log(wx.getStorageSync("userInfo"))
+        // console.log(wx.getStorageSync("citylist"))
+        this.setData({
+        nowcity: wx.getStorageSync("citylist").city ? wx.getStorageSync("citylist").city : ""
+    })
       })
-      // console.log(that.data)
-    })
-    // console.log(wx.getStorageSync("userInfo"))
-    // console.log(wx.getStorageSync("citylist"))
-    this.setData({
-      nowcity: wx.getStorageSync("citylist").city ? wx.getStorageSync("citylist").city : ""
-    })
+    }
+
+
     // wx.setStorageSync("userSelect", null)
     //获取轮播图
     ajax.requestByGet('/banner', {}, function (res) {
@@ -523,49 +531,6 @@ Page({
 
       //获取用户位置来得到市区信息
       utils.initAsDongGuan(this)
-      // new Promise((resolve, reject) => {
-      //   wx.getLocation({
-      //     success: function (res) {
-      //       qqMap.reverseGeocoder({
-      //         location: {
-      //           latitude: res.latitude,
-      //           longitude: res.longitude
-      //         },
-      //         success(res) {
-      //           let addr = res.result.address
-      //           let sheng = addr.indexOf('省')
-      //           let shi = addr.indexOf('市')
-      //           let checkSheng = addr.indexOf('省') != -1
-      //           let checkshi = addr.indexOf('市') != -1
-      //           let citylist = {
-      //             provicename: "",
-      //             city: "",
-      //             same: false
-      //           }
-      //           if (checkSheng && checkshi) {
-      //             //有省也有市
-      //             citylist.city = addr.substring(sheng + 1, shi)
-      //             citylist.provicename = addr.substring(0, sheng)
-      //           } else if (!checkSheng && checkshi) {
-      //             //没有省只有市
-      //             citylist.city = addr.substring(sheng + 1, shi)
-      //             citylist.provicename = city
-      //             citylist.same = true
-      //           }
-      //           wx.setStorageSync("citylist", citylist)
-      //           resolve()
-      //         }
-      //       })
-      //     },
-      //   })
-      // }).then(() => {
-      //   let city = wx.getStorageSync("citylist").city
-      //   this.setData({
-      //     nowcity:city
-      //   })
-      //   //获取城市地铁列表
-      //   utils.initIndex(city, that)
-      // })
     }
     // console.log(wx.getStorageSync("citychanges"))
     if (wx.getStorageSync("citychanges")) {

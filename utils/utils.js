@@ -363,36 +363,36 @@ module.exports = {
     }
     return []
   },
-  token(){
-    let token = wx.getStorageSync("token")
-    // console.log(wx.getStorageSync("userInfo"))
-    let timer = wx.getStorageSync("timer")
-    if(!timer){
-      timer = setInterval(function () {
-        ajax.requestByGet('/user/token/' + token, {}, res => {
-          // console.log(res)
-          if (res.data.data == "token可用" && res.data.status == 1) {
-            // console.log("未过期")
-            return
-          }else{
-            wx.showModal({
-              title: '身份过期',
-              content: '请重新登录',
-            })
-            wx.reLaunch({
-              url: '../wxLogin/wxLogin',
-            })
-            clearInterval(timer)
-            timer=null
-          }
+  // token(){
+  //   let token = wx.getStorageSync("token")
+  //   // console.log(wx.getStorageSync("userInfo"))
+  //   let timer = wx.getStorageSync("timer")
+  //   if(!timer){
+  //     timer = setInterval(function () {
+  //       ajax.requestByGet('/user/token/' + token, {}, res => {
+  //         // console.log(res)
+  //         if (res.data.data == "token可用" && res.data.status == 1) {
+  //           // console.log("未过期")
+  //           return
+  //         }else{
+  //           wx.showModal({
+  //             title: '身份过期',
+  //             content: '请重新登录',
+  //           })
+  //           wx.reLaunch({
+  //             url: '../wxLogin/wxLogin',
+  //           })
+  //           clearInterval(timer)
+  //           timer=null
+  //         }
           
-        })
-      }, 10000)
-      wx.setStorageSync("timer", timer)
-    }
+  //       })
+  //     }, 10000)
+  //     wx.setStorageSync("timer", timer)
+  //   }
     
     
-  },
+  // },
   getMoney_fd(obj,openid,money,wxId){
     //遍历obj 去掉openid 把openid加到最后面 用key作为参数
     let str = ""

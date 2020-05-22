@@ -11,6 +11,7 @@ Page({
     nickName: "",
     imagePic: "",
     isFd: 0,
+    lock:false,
     notifyShowen:false,
     cleanShow:false,
   },
@@ -161,12 +162,14 @@ Page({
   },
   notice(){
     this.setData({
-      notifyShowen:true
+      notifyShowen:true,
+      lock:true,
     })
   },
   cancelNotify(){
     this.setData({
-      notifyShowen: false
+      notifyShowen: false,
+      lock:false,
     })
   },
   

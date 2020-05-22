@@ -162,9 +162,9 @@ Page({
       // console.log(success)
     
     
-    wx.navigateTo({
-      url: '/pages/price/price',
-    })
+    // wx.navigateTo({
+    //   url: '/pages/price/price',
+    // })
   },
   totips(){
     wx.showToast({
@@ -276,7 +276,7 @@ Page({
         // console.log(that.data)
         // console.log(wx.getStorageSync("userInfo"))
         // console.log(wx.getStorageSync("citylist"))
-        this.setData({
+        that.setData({
         nowcity: wx.getStorageSync("citylist").city ? wx.getStorageSync("citylist").city : ""
     })
       })

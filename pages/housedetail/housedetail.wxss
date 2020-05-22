@@ -124,6 +124,9 @@ page {
   width:20%;
   height:90rpx;
   float:left;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 .btnBox_son_left{
   width:50%;
@@ -172,7 +175,7 @@ page {
   font-size:28rpx;
   text-align: center;
   line-height: 80rpx;
-  border-radius: 4rpx;
+  border-radius: 10rpx;
   color:#101010;
   margin-top:10rpx;
 }
@@ -200,7 +203,7 @@ page {
   font-size:24rpx;
   text-align: left;
   line-height: 20rpx;
-  color:gainsboro;
+  color:rgb(88, 88, 88);
 }
 .right{
   width:80rpx;
@@ -222,14 +225,14 @@ page {
   font-size:24rpx;
   text-align: center;
   line-height: 40rpx;
-  color:gainsboro;
+  color:rgb(88, 88, 88);
 }
 .price_new{
   width:95%;
   height:80rpx;
   font-size:38rpx;
-  font-weight: 800;
-  color:red;
+  font-weight: 600;
+  color:rgb(255, 75, 75);
   text-align: left;
   line-height: 80rpx;
   margin:0 auto;
@@ -272,7 +275,10 @@ page {
   text-align: center;
   line-height: 28rpx;
   font-weight: 300;
-  color:gray;
+  color:rgb(88, 88, 88);
+}
+.gray-font{
+  color: rgb(88, 88, 88)
 }
 .firstBox:last-child{
   border:none;

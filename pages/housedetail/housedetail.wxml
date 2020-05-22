@@ -38,28 +38,28 @@
     </View>
     <View class="new_info_box_second">
       <View class="second_left">
-        <View class="left_left" style="color:gray">装修</View>
+        <View class="left_left gray-font">装修</View>
         <View class="left_left" style="text-align:left">{{obj.decoration}}</View>
       </View>
       <View class="second_left">
-        <View class="left_left" style="color:gray">入住</View>
+        <View class="left_left gray-font">入住</View>
         <View class="left_left" style="text-align:left">{{obj.checkInDate}}</View>
       </View>
     </View>
     <View class="new_info_box_third">
     <View class="second_left">
-        <View class="left_left" style="color:gray">看房</View>
+        <View class="left_left gray-font">看房</View>
         <View class="left_left" style="text-align:left">{{obj.inspection}}</View>
       </View>
       <View class="second_left">
-        <View class="left_left" style="color:gray">采光</View>
+        <View class="left_left gray-font">采光</View>
         <View class="left_left" style="text-align:left">{{obj.daylighting?obj.daylighting:"暂无"}}</View>
       </View>
     </View>
   </View>
 
   <View class="titleB">地理位置</View>
-  <map id="map" longitude="{{lng}}" latitude="{{lat}}" scale="14" controls="{{controls}}" bindcontroltap="controltap" markers="{{markers}}" bindmarkertap="markertap" polyline="{{polyline}}" bindregionchange="regionchange" show-location style="width: 95%; height: 100px;margin:0 auto;"></map>
+  <map id="map" longitude="{{lng}}" latitude="{{lat}}" scale="14" controls="{{controls}}" bindcontroltap="controltap" markers="{{markers}}" bindmarkertap="markertap" polyline="{{polyline}}" bindregionchange="regionchange" show-location style="width: 95%; height: 150px;margin:0 auto;"></map>
 
 <View class="titleB">家具配套</View>
 <View class="jjBox">

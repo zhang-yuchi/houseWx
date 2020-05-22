@@ -45,20 +45,19 @@ page{
 }
 .sigleInput{
   width:90%;
-  height:140rpx;
+  height:100rpx;
   margin:0 auto;
   border-bottom:2rpx solid rgb(234,234,234);
+  display: flex;
+  align-items: center
 }
 
 #textArea-box {
-  height: 240rpx;
+  height: 220rpx;
 }
 
 .left{
   width:30%;
-  height:80rpx;
-  margin-top:30rpx;
-  float:left;
   text-align: left;
   font-size: 32rpx;
   color:#333333;
@@ -67,75 +66,60 @@ page{
   font-weight: 700;
 }
 .left::before {
-  content: '*';
+  content: '* ';
   color: red;
 }
 .right{
   width:70%;
   height:80rpx;
   float:left;
-  margin-top:30rpx;
   overflow: hidden;
 }
 #right-textArea{
   height: 180rpx;
-  margin-left: -10px;
 }
 .right-button {
-  float: right;
-  margin-top: 30rpx;
+  width: 200rpx;
   color: rgb(173, 173, 173);
   background-color: rgb(247, 247, 247);
   font-size: 32rpx;
 }
-
+.flex-1{
+  flex: 1;
+}
 .input{
   outline: none;
   background: none;
   display:block;
   width:95%;
-  height:76rpx;
+  height: 100%;
   font-size:30rpx;
   color: rgb(183, 183, 183);
 }
 .middle{
-  width:50%;
-  height:100%;
-  float:left;
-  /* background:red; */
+  flex: 1;
 }
-.new_right{
-  width:20%;
-  height:100%;
-  float:left;
-  /* background:red; */
-}
+
 .newRightPic{
   width:30rpx;
   height:30rpx;
-  float:right;
-  margin-top:55rpx;
 }
 .picker{
   width:100%;
-  height:80rpx;
-  margin-top:15px;
   text-align: left;
-  line-height: 80rpx;
   font-size:30rpx;
-  /* background:red; */
   color:rgb(147,134,130);
 }
 .otherInput{
-  width:90%;
-  height:180rpx;
+  width:100%;
+  height:100%;
   display: block;
-  margin:10rpx auto;
   outline: none;
   background:rgb(245, 245, 245);
   border-radius: 10rpx;
   font-size: 32rpx;
-  padding: 10rpx;
+  box-sizing: border-box;
+  padding: 8rpx;
 }
 
 

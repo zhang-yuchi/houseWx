@@ -17,8 +17,8 @@ Page({
     index:'',
     dateArray:'',
     houseId:[],
-    userId:[]
-    
+    userId:[],
+    upPicFlag:false
   },
 
   /**
@@ -151,6 +151,7 @@ Page({
         }
         that.setData({
           imageSrc: tempFilePaths1,
+          upPicFlag:true,
         });
       }
     })

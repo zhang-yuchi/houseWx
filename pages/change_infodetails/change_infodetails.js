@@ -18,8 +18,8 @@ Page({
    */
   onLoad: function(options) {
     var that = this
-    console.log(wx.getStorageSync("userInfo"));
-    console.log(wx.getStorageSync("userInfo").gender);
+    // console.log(wx.getStorageSync("userInfo"));
+    // console.log(wx.getStorageSync("userInfo").gender);
     this.setData({
       gender: wx.getStorageSync("userInfo").gender,
       city: wx.getStorageSync("userInfo").city
@@ -40,12 +40,12 @@ Page({
   },
   smtChangeInfo: function() {
     let that = this;
-    console.log(that.data.city, that.data.gender)
+    // console.log(that.data.city, that.data.gender)
     ajax.requestByPost('/user/info', {
       city: that.data.city,
       gender: that.data.gender
     }, function(res) {
-      console.log(res)
+      // console.log(res)
       if(res.data.status == 1){
         let userInfo = wx.getStorageSync("userInfo")
         userInfo.gender = that.data.gender

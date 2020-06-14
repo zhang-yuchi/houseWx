@@ -15,7 +15,7 @@ Page({
       count:1,
       success: function(res) {
         let tempFilePaths = res.tempFilePaths
-        console.log(tempFilePaths[0])
+
         wx.uploadFile({
           url: app.data.requestHost+'/image' ,
           filePath: tempFilePaths[0],
@@ -24,10 +24,10 @@ Page({
             imgType:"certificate"
           },
           success(res){
-            console.log(res)
+
             let obj = JSON.parse(res.data)
             let img = obj.data
-            // console.log(img)
+
             that.setData({
               imageSrc: img
             })
@@ -46,7 +46,6 @@ Page({
       })
     }else{
       ajax.requestByPost('/user/landlord/certify', { authImgUrl:that.data.imageSrc},function(res){
-        console.log(res);
         wx.showLoading({
           title: '上传中',
         })

@@ -36,7 +36,7 @@ Page({
     ajax.requestByGet('/user/browse',{
       page:page
     },(res)=>{
-      console.log(res)
+      // console.log(res)
       let houses = res.data.data
       for(let item of houses){
         // console.log(utils.tagsToArr(item.tags))
@@ -54,7 +54,7 @@ Page({
       ajax.requestByGet('/user/browse', {
         page: page + 1
       }, (res) => {
-        console.log(res)
+        // console.log(res)
         if (res.data.status == -1) {
           that.setData({
             isBottom: true
@@ -77,7 +77,7 @@ Page({
         that.setData({
           houses: h
         })
-        console.log(res.data.data)
+        // console.log(res.data.data)
       })
     }
     

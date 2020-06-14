@@ -59,7 +59,7 @@ Page({
     let select = that.data.select
     let nowlist = []
     ajax.requestByGet('/store/search/'+search,{},function(res){
-      console.log(res)
+      // console.log(res)
       that.setData({
         allList:res.data.data
       })

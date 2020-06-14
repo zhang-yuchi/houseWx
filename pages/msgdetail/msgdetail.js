@@ -19,12 +19,12 @@ Page({
   onLoad: function (options) {
     var that = this;
     ajax.requestByGet('/user/notifier/30',{},function(res){
-      console.log(res)
+      // console.log(res)
       that.setData({
         msg:res.data.data,
         tobottom: "msg" + (res.data.data.length-1)
       })
-      console.log(that.data)
+      // console.log(that.data)
     })
     // that.setData({
     //   font:JSON.parse(options.obj).con,

@@ -14,7 +14,7 @@ Page({
     let obj = {}
     let index = e.currentTarget.dataset.index;
     obj = this.data.list[index]
-    console.log(e)
+    // console.log(e)
     wx.navigateTo({
       url: '../moneydetails_yj/moneydetails_yj?obj=' + JSON.stringify(obj),
     })
@@ -41,7 +41,7 @@ Page({
   onLoad: function(options) {
     var that = this;
     ajax.requestByGet('/house/roomer',{},res=>{
-      console.log(res)
+      // console.log(res)
       if(res.data.status==1){
         let arr = []
         for(let item of res.data.data){

@@ -24,7 +24,7 @@ Page({
    */
   onLoad: function (options) {
     ajax.requestByGet('/user/repair',{},res=>{
-      console.log(res)
+      // console.log(res)
       if(res.data.status == 1){
         let that = this;
         let data = res.data.data;

@@ -67,7 +67,7 @@ module.exports = {
             })
           },
           fail(res){
-            console.log(res)
+            // console.log(res)
           }
         })
       }
@@ -76,7 +76,7 @@ module.exports = {
   initSelect(callback){
     wx.getLocation({
       success: function (res) {
-        console.log(res)
+        // console.log(res)
         wx.setStorageSync("userSelect", {
           lat: res.latitude,
           lng: res.longitude,
@@ -278,7 +278,7 @@ module.exports = {
       address:"东莞",
       success(res){
         //获取东莞的坐标
-        console.log(res)
+        // console.log(res)
         let result = res.result.location
         wx.setStorageSync("userSelect", {
           lat: result.lat,
@@ -315,7 +315,7 @@ module.exports = {
             //     break
             //   }
             // }
-            console.log(code)
+            // console.log(code)
             qqMap.getDistrictByCityId({
               id:code,
               success(res){
@@ -324,10 +324,10 @@ module.exports = {
                   select: false,
                   classname: ""
                 }]
-                console.log(res)
+                // console.log(res)
                 // console.log(res.result)
                 for (let item of res.result[0]) {
-                  console.log(item)
+                  // console.log(item)
                   let content = {}
                   content.name = item.fullname
                   content.location = item.location
@@ -400,7 +400,7 @@ module.exports = {
     str+=`money=${money}&`
     str+=`wxId=${wxId}&`
     str+=`key=${openid}`
-    console.log(str)
+    // console.log(str)
     return MD5.hexMD5(str).toUpperCase()
 
   },

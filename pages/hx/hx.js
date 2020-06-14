@@ -61,7 +61,7 @@ Page({
         cx[i].select = false
       }
     }
-    console.log(cx)
+    // console.log(cx)
     that.setData({
       arr: cx
     })

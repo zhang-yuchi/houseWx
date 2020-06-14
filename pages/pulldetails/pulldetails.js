@@ -112,7 +112,7 @@ Page({
   onLoad: function (options) {
     let that = this
     ajax.requestByGet('/pay/withdraw',{},res=>{
-      console.log(res)
+      // console.log(res)
       let bill = res.data.data
       for(let item of bill){
         let date = moment(item.gmtCreate).format('YYYY-MM-DD HH:mm:ss')

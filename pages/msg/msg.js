@@ -72,7 +72,7 @@ Page({
   RunTimer(){
     //需求:启动定时器时执行一次getAllListOnce
     //然后在定时器状态下 返回getAllListOnce
-    console.log(this)
+    // console.log(this)
     this.getAllListOnce()
     return this.getAllListOnce
   },

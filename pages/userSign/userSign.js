@@ -26,13 +26,13 @@ Page({
     endtime:"截至日期"
   },
   bindStartDateChange: function (e) {
-    console.log('picker发送选择改变，携带值为', e.detail.value)
+
     this.setData({
       starttime: e.detail.value
     })
   },
   bindEndDateChange: function (e) {
-    console.log('picker发送选择改变，携带值为', e.detail.value)
+
     this.setData({
       endtime: e.detail.value
     })
@@ -85,12 +85,12 @@ Page({
     
   },
   onLoad: function (options) {
-    console.log(options)
+
 
     var width = app.data.width;
     var logoLeft = 0 + "px"
     var imageLeft = (width * 0.9 * 0.3) / 2 + "px"
-    console.log(logoLeft);
+
     this.setData({
       logoLeft: logoLeft,
       imageLeft:imageLeft,
@@ -98,7 +98,7 @@ Page({
     });
   },
   uploadImageData: function () {
-    console.log("request");
+
   },
   uploadIdcard: function (e) {
     var that = this;
@@ -107,7 +107,7 @@ Page({
       sizeType: ['compressed'],
       success: function (res) {
         var tempFilePaths1 = res.tempFilePaths;
-        console.log("test:" + String(tempFilePaths1));
+
         var pparr = String(tempFilePaths1).split(".")
         if (pparr[pparr.length - 1] == "jpg" || pparr[pparr.length - 1] == "JPG") {
           that.setData({
@@ -129,7 +129,7 @@ Page({
       sizeType: ['compressed'],
       success: function (res) {
         var tempFilePaths1 = res.tempFilePaths;
-        console.log(tempFilePaths1);
+
         var pparr = String(tempFilePaths1).split(".")
         if (pparr[pparr.length - 1] == "jpg" || pparr[pparr.length - 1] == "JPG") {
           that.setData({
@@ -152,7 +152,6 @@ Page({
       var fileArr = [];
       fileArr.push(that.data.imageSrc1[0]);
       fileArr.push(that.data.imageSrc2[0]);
-      console.log(fileArr)
       for (var i = 0; i < fileArr.length; i++) {
         wx.uploadFile({
           url: app.data.requestHost + '/upFdAuthPic', //仅为示例，非真实的接口地址
@@ -168,8 +167,6 @@ Page({
           },
           success: function (res) {
             var data = res.data
-            //do something
-            console.log("1" + data);
           }
         });
       }
@@ -181,9 +178,9 @@ Page({
         showCancel: false,
         success: function (res) {
           if (res.confirm) {
-            // console.log('用户点击确定')
+
           } else if (res.cancel) {
-            // console.log('用户点击取消')
+
           }
         }
       })

@@ -44,7 +44,7 @@ App({
         return
       }
       this.ajaxMethod(`/user/token/${token}`).then(res=>{
-        console.log(res)
+        // console.log(res)
         let tokenStatus = res.data.status
         return new Promise((resolve,reject)=>{
           if(tokenStatus==1){

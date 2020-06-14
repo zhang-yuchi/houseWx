@@ -39,7 +39,7 @@ Component({
             type: String,
             value: "",
             observer: function(newVal, oldVal) {
-                console.log(newVal)
+                // console.log(newVal)
                 this.value = newVal;
                 this.searchMt();
             }

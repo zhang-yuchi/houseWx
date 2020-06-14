@@ -19,7 +19,7 @@ Page({
     ajax.requestByGet('/house',{
       houseInfo:houseinfo
     },res=>{
-      console.log(res)
+      // console.log(res)
       if (res.data.status == -1) {
         wx.showToast({
           title: '未查找到数据',
@@ -42,7 +42,7 @@ Page({
 
         let tags = item.tags
         if (tags) {
-          console.log(tags)
+          // console.log(tags)
           tags = tags.replace("{", "")
           tags = tags.replace("}", "")
 
@@ -51,7 +51,7 @@ Page({
             item = item.replace('\"', '')
             // console.log(item)
             item = item.replace('\"', '')
-            console.log(item)
+            // console.log(item)
             return item
           })
           item.tags = tags

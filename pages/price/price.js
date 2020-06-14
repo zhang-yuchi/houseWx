@@ -52,7 +52,7 @@ Page({
     })
   },
   sx(){
-    console.log(this.data.userselect)
+    // console.log(this.data.userselect)
     let pricelist = this.data.userselect;
     let index = 0;
     for(let item of pricelist){
@@ -77,7 +77,7 @@ Page({
     }
     wx.setStorageSync("pricelist", this.data.userselect)
     wx.setStorageSync("userSelect", select)
-    console.log(select)
+    // console.log(select)
     wx.navigateBack()
   },
   /**

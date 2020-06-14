@@ -12,7 +12,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    console.log(options)
+    // console.log(options)
     options.repaireTime = options.repaireTime.slice(0, options.repaireTime.length - 3)
     this.setData({
       obj: options

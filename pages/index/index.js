@@ -362,7 +362,7 @@ Page({
     let token = wx.getStorageSync('token')
     if (token) {
       ajax.requestByGet('/user/info', {}, function(res) {
-        console.log(res)
+        // console.log(res)
         wx.setStorageSync("userInfo", res.data.data)
         that.setData({
           isFd: res.data.data.landlord,
@@ -429,7 +429,7 @@ Page({
 
             let tags = item.tags
             if (tags) {
-              console.log(tags)
+              // console.log(tags)
               tags = tags.replace("{", "")
               tags = tags.replace("}", "")
 
@@ -438,7 +438,7 @@ Page({
                 item = item.replace('\"', '')
                 // console.log(item)
                 item = item.replace('\"', '')
-                console.log(item)
+                // console.log(item)
                 return item
               })
               item.tags = tags
@@ -449,7 +449,7 @@ Page({
           that.setData({
             houses: houses
           })
-          console.log(that.data)
+          // console.log(that.data)
         })
       })
     } else {
@@ -730,10 +730,10 @@ Page({
     if (wx.getStorageSync("citychanges")) {
       //城市发生改变 重新获取地铁信息
       let city = wx.getStorageSync("citylist").city
-      console.log(city)
+      // console.log(city)
       utils.initIndex(city, that)
       //更新完成后将flag变为false
-      console.log(wx.getStorageSync("arealist"))
+      // console.log(wx.getStorageSync("arealist"))
       wx.setStorageSync("citychanges", false)
     }
   },

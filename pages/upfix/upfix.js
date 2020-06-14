@@ -27,7 +27,7 @@ Page({
   onLoad: function (options) {
     let that = this;
     ajax.requestByGet('/house/user',{},function(res){
-      console.log(res)
+
       var cashArray = [];
       var dateArray = [];
       var houseid = [];
@@ -60,19 +60,19 @@ Page({
     })
   },
   bindDatePickerChange(e){
-    console.log(e.detail.value)
+
     this.setData({
       fixdate: e.detail.value
     })
   },
   bindTimePickerChange(e) {
-    console.log(e.detail.value)
+
     this.setData({
       fixtime: e.detail.value
     })
   },
   bindCashPickerChange: function (e) {
-    console.log(e.detail.value);
+
     if(this.data.cashArray.length > 0){
       this.setData({
         cashType: this.data.cashArray[e.detail.value],
@@ -97,7 +97,7 @@ Page({
           imgType: 'repair'
         },
         success: function (res) {
-          console.log(res)
+
           var obj = JSON.parse(res.data)
           //do something
           if (obj.status == 1) {
@@ -110,9 +110,9 @@ Page({
             dataObj.phone = that.data.phone;
             dataObj.url = obj.data;
             dataObj.repairTime = `${that.data.fixdate} ${that.data.fixtime}:00`
-            console.log(dataObj)
+
             ajax.requestByPut('/user/repair', dataObj, function (res) {
-              console.log(res)
+
               // wx.navigateTo({
               //   url: '../fdAuth_check/fdAuth_check',
               // })
@@ -141,7 +141,7 @@ Page({
       sourceType:['album'],
       success: function (res) {
         var tempFilePaths1 = res.tempFilePaths;
-        console.log("test:" + String(tempFilePaths1));
+
         var pparr = String(tempFilePaths1).split(".")
         if (pparr[pparr.length - 1] == "jpg" || pparr[pparr.length - 1] == "JPG") {
 
@@ -155,7 +155,7 @@ Page({
         });
       }
     })
-    console.log(that.data.imageSrc);
+
   },
   /**
    * 生命周期函数--监听页面初次渲染完成

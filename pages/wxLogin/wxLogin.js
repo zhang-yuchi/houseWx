@@ -97,7 +97,7 @@ Page({
             // console.log(res)
             const userinfo = wx.getStorageSync("userInfo")
             if(res.data.status==-1){
-              console.log(wx.getStorageSync("userInfo"))
+              // console.log(wx.getStorageSync("userInfo"))
               wx.login({
                 success:res=>{
                   let secCode = res.code
@@ -136,7 +136,7 @@ Page({
             }
           },
           fail: res => {
-            console.log(res)
+            
             wx.showModal({
               title: '登陆失败',
               content: '请重试!',
@@ -196,7 +196,7 @@ Page({
     var that = this;
     wx.login({
       success: res => {
-        console.log(res.code);
+
         that.setData({
           code: res.code
         })

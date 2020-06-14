@@ -21,6 +21,7 @@ Page({
    */
   onLoad: function(options) {
     // 登陆
+    var that = this;
     new Promise((resolve) => {
       const token = wx.getStorageSync('token')
       if (!token) {
@@ -29,8 +30,7 @@ Page({
         })
         return
       }
-      this.ajaxMethod(`/user/token/${token}`).then(res => {
-        console.log(res)
+      app.ajaxMethod(`/user/token/${token}`).then(res => {
         let tokenStatus = res.data.status
         return new Promise((resolve, reject) => {
           if (tokenStatus == 1) {
@@ -51,7 +51,7 @@ Page({
         })
     })
 
-    var that = this;
+    
     if (wx.getStorageSync('userInfo')) {
       let userInfo = wx.getStorageSync('userInfo');
       let isFd = userInfo.landlord;
@@ -149,7 +149,7 @@ Page({
   toQuanxian: function() {
     wx.getSetting({
       success(res) {
-        console.log(res.authSetting)
+        // console.log(res.authSetting)
         if (!res.authSetting['scope.userLocation']) {
           wx.showModal({
             title: '提示',

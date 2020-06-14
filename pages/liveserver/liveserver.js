@@ -21,7 +21,7 @@ Page({
     search:""
   },
   search(){
-    console.log(this.data.search)
+    // console.log(this.data.search)
     let search = this.data.search
     wx.navigateTo({
       url: '../livesearch/livesearch?search='+search,
@@ -80,9 +80,9 @@ Page({
     let that = this;
     let index = e.currentTarget.dataset.id;
     let select = that.data.select
-    console.log(index)
+    // console.log(index)
     ajax.requestByGet(`/store/list/${select}`,{},function(res){
-      console.log(res)
+      // console.log(res)
       wx.navigateTo({
         url: '../liveserver_detial/liveserver_detial' + '?index=' + index,
       })

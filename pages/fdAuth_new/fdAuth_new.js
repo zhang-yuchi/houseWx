@@ -21,7 +21,7 @@ Page({
   onLoad: function(options) {
     var width = app.data.width;
     var logoLeft = (width - width * 0.9 * 0.07) / 2 + "px"
-    console.log(logoLeft);
+    // console.log(logoLeft);
     this.setData({
       logoLeft: logoLeft,
       // currentTaskName: options.info,
@@ -29,7 +29,7 @@ Page({
     });
   },
   uploadImageData: function() {
-    console.log("request");
+    // console.log("request");
   },
   uploadIdcard: function(e) {
     var that = this;
@@ -38,13 +38,13 @@ Page({
       sizeType: ['compressed'],
       success: function(res) {
         var tempFilePaths1 = res.tempFilePaths;
-        console.log("test:" + tempFilePaths1[0]);
+        // console.log("test:" + tempFilePaths1[0]);
         var pparr = tempFilePaths1[0].slice(-3)
         if (pparr.toLowerCase() == "jpg") {
           wx.showLoading({
             title: '上传中',
           })
-          console.log(pparr)
+          // console.log(pparr)
           that.setData({
             isIdCardJpg: true
           });
@@ -56,7 +56,7 @@ Page({
               imgType: "auth_img"
             },
             success(res) {
-              console.log(JSON.parse(res.data))
+              // console.log(JSON.parse(res.data))
               let obj = JSON.parse(res.data);
               that.setData({
                 upimgSrc1: obj.data
@@ -93,7 +93,7 @@ Page({
       sizeType: ['compressed'],
       success: function(res) {
         var tempFilePaths1 = res.tempFilePaths;
-        console.log(tempFilePaths1[0]);
+        // console.log(tempFilePaths1[0]);
         var pparr = tempFilePaths1[0].slice(-3)
         if (pparr.toLowerCase() == "jpg") {
           that.setData({
@@ -147,7 +147,7 @@ Page({
         idcardFront: that.data.upimgSrc1,
         idcardBack: that.data.upimgSrc2
       }, function(res) {
-        console.log(res)
+        // console.log(res)
         wx.showToast({
           title: res.data.data,
           icon: 'none'

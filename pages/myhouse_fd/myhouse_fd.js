@@ -40,14 +40,14 @@ Page({
       title: '加载中',
     })
     ajax.requestByGet('/user/landload/house', {}, res => {
-      console.log(res)
+      // console.log(res)
       if (res.data.status == 1) {
         let houses = res.data.data
         let nowlist = []
         for (let item of houses) {
           let tags = item.tags
           if (tags) {
-            console.log(tags)
+            // console.log(tags)
             tags = tags.replace("{", "")
             tags = tags.replace("}", "")
 
@@ -110,7 +110,7 @@ Page({
     }
     for (let item of that.data.houses) {
       if (item.rented == that.data.select) {
-        console.log(item)
+        // console.log(item)
         nowlist.push(item)
       }
     }

@@ -15,11 +15,11 @@ Page({
    */
   onLoad: function (options) {
     var that = this;
-    console.log(options.index);
+    // console.log(options.index);
     var index = options.index
     ajax.requestByGet('/user/bill', {}, function (res) {
       var data = res.data.data[index];
-      console.log(data);
+      // console.log(data);
       var obj = {};
       obj.houseInfo = data.houseInfo;
       obj.houseType = data.houseType;

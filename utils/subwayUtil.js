@@ -40,7 +40,7 @@ module.exports = {
           resolve(page)
         },
         fail(res) {
-          console.log(res)
+          // console.log(res)
         }
       })
     })
@@ -176,7 +176,7 @@ module.exports = {
     wx.showLoading({
       title: '加载中',
     })
-    console.log(this.getAllsubway)
+    // console.log(this.getAllsubway)
     this.getAllsubway(city).then(() => {
       let subway = this.arr
       // console.log(subway)

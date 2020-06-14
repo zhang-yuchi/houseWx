@@ -109,14 +109,14 @@ Page({
   },
   sx(){
     let userselect = wx.getStorageSync("userSelect")
-    console.log(userselect)
+    // console.log(userselect)
     let saixuanlist = wx.getStorageSync("saixuanlist")
     let cx = this.data.cx
     let zf = this.data.zf
     saixuanlist.cx = cx
     saixuanlist.zf = zf
     wx.setStorageSync("saixuanlist", saixuanlist)
-    console.log(saixuanlist)
+    // console.log(saixuanlist)
     for(let item of cx){
       //朝向
       if(item.select){
@@ -132,7 +132,7 @@ Page({
         userselect[item.obj] = ""
       }
     }
-    console.log(userselect)
+    // console.log(userselect)
     wx.setStorageSync("userSelect", userselect)
     wx.switchTab({
       url: '../index/index',

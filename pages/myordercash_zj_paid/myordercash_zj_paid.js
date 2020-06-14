@@ -17,7 +17,7 @@ Page({
     var index = options.index
     ajax.requestByGet('/user/bill', {}, function (res) {
       var data = res.data.data[index];
-      console.log(data);
+      // console.log(data);
       var obj = {};
       obj.houseInfo = data.houseInfo;
       obj.houseType = data.houseType;

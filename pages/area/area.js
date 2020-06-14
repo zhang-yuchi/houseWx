@@ -137,7 +137,7 @@ Page({
       item.classname = ""
       item.select = false
     }
-    console.log(this.data.selectcontent)
+    // console.log(this.data.selectcontent)
      //----------
     let inner = ditielist[i]
     for(let item of inner){
@@ -180,14 +180,14 @@ Page({
     let userselect = wx.getStorageSync("userSelect")
     //判断附近:
     for (let item of this.data.selectcontent[0]){
-      console.log(item)
+      // console.log(item)
       if(item.select){
-        console.log(item.value)
+        // console.log(item.value)
         userselect.distance = item.value
       }
     }
     wx.setStorageSync("fjlist", this.data.selectcontent[0])//修改本地缓存
-    console.log(userselect)
+    // console.log(userselect)
     //改变地区和地铁 地区和地铁反正只有一个坐标 但是 地区 地铁和地铁口 三个状态的缓存要保存
     for (let item of this.data.selectcontent[1]){
       if(item.select&&item.name!=="不限"){
@@ -244,7 +244,7 @@ Page({
       middle_check_son_textleft: (app.data.width / 5 - 37) / 2 + "px",
       btnLeft: (app.data.width - 311) / 2 + "px"
     })
-    console.log(wx.getStorageSync("arealist"))
+    // console.log(wx.getStorageSync("arealist"))
     let sublist = {
       list: [],
       content: []

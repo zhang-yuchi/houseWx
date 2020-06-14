@@ -135,7 +135,7 @@ Page({
     })
   },
   bindMultiPickerChange: function (e) {
-    console.log(e.detail.value)
+    // console.log(e.detail.value)
     this.setData({
       multiIndex: e.detail.value
     })
@@ -150,8 +150,8 @@ Page({
   },
   submit:function(){
     var that = this;
-    console.log(wx.getStorageSync("userInfo"))
-    console.log(that.data)
+    // console.log(wx.getStorageSync("userInfo"))
+    // console.log(that.data)
     if (that.data.hx != "" && that.data.street != "" && that.data.streetNum != "" && that.data.deco != "" &&that.data.addr != "" && that.data.cash != "" && that.data.time != "" && that.data.cashType != "请选择押金方式" && that.data.areaWidth != "" && that.data.caig != "请选择采光程度" && that.data.caox != "请选择朝向" && that.data.diant != "请选择是否有电梯" && that.data.looktime != "" && that.data.intime != "单行输入" && that.data.textarea != "" && that.data.imageSrc != "" && that.data.floor != "" &&that.data.boyShared != "是否为男生合租"&&that.data.girlShared!="是否为女生合租"){
       var dataObj = {
         decoration:that.data.deco,
@@ -190,16 +190,12 @@ Page({
         title:that.data.time,
         textarea:that.data.textarea,
       };
-      console.log("1111")
-      console.log(dataObj)
-      console.log(that.data.address)
       //得到city和province
       let addr = that.data.addr
       //县级市
       if (addr.indexOf('省') == -1 && addr.indexOf("自治区") == -1) {
         //省市相同
         let index = addr.indexOf('市')
-        console.log(addr.substring(0, index))
         dataObj.city = dataObj.province = addr.substring(0, index)
       } else if (addr.indexOf('省') == -1 && addr.indexOf("自治区") != -1) {
         //自治区
@@ -241,9 +237,9 @@ Page({
       if (that.data.girlShared == "是") {
         dataObj.girlShared = 1
       }
-      console.log(dataObj)
+
       ajax.requestByPost("/house",dataObj,res=>{
-        console.log(res)
+
         wx.showToast({
           title: '提交成功!',
         })
@@ -266,7 +262,7 @@ Page({
       sizeType: ['compressed'],
       success: function (res) {
         var tempFilePaths1 = res.tempFilePaths;
-        console.log("test:" + String(tempFilePaths1));
+        // console.log("test:" + String(tempFilePaths1));
         var pparr = String(tempFilePaths1).split(".")
         if (pparr[pparr.length - 1] == "jpg" || pparr[pparr.length - 1] == "JPG") {
           that.setData({
@@ -289,13 +285,13 @@ Page({
               title: '上传成功',
             })
             let img = JSON.parse(res.data).data
-            console.log(JSON.parse(res.data))
+            // console.log(JSON.parse(res.data))
             that.setData({
               imageSrc: img,
             });
           },
           fail(err){
-            console.log(res)
+            // console.log(res)
             wx.hideLoading()
             wx.showToast({
               title: '上传失败',
@@ -310,7 +306,7 @@ Page({
   },
   //
   watchPassWord: function (event) {
-    console.log(event.detail.value);
+    // console.log(event.detail.value);
   },
   getAddr:function(event){
     this.setData({
@@ -348,25 +344,25 @@ Page({
     })
   },
   bindCashPickerChange:function(e){
-    console.log(this.data.cashArray[e.detail.value]);
+    // console.log(this.data.cashArray[e.detail.value]);
     this.setData({
       cashType: this.data.cashArray[e.detail.value]
     })
   },
   bindCgPickerChange:function(e){
-    console.log(this.data.cgArr[e.detail.value]);
+    // console.log(this.data.cgArr[e.detail.value]);
     this.setData({
       caig: this.data.cgArr[e.detail.value]
     })
   },
   bindCxPickerChange:function(e){
-    console.log(this.data.cxArr[e.detail.value]);
+    // console.log(this.data.cxArr[e.detail.value]);
     this.setData({
       caox: this.data.cxArr[e.detail.value]
     })
   },
   bindDtPickerChange:function(e){
-    console.log(this.data.elArr[e.detail.value]);
+    // console.log(this.data.elArr[e.detail.value]);
     this.setData({
       diant: this.data.elArr[e.detail.value]
     })
@@ -383,7 +379,7 @@ Page({
     this.setData({
       streetNum: e.detail.value
     })
-    console.log(this.data)
+    // console.log(this.data)
    },
   getdecoration(e) {
     this.setData({

@@ -19,7 +19,7 @@ Page({
     // obj.payDate = payDate.getFullYear() + '-' + (payDate.getMonth() + 1) + '-' + payDate.getDate()
     obj.month = moment(obj.gmtCreate).format('MM')
     // obj.month = gmtDate.getMonth()
-    console.log(obj)
+    // console.log(obj)
     this.setData({
       obj: obj
     })

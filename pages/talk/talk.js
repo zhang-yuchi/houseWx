@@ -106,7 +106,7 @@ Page({
   //发送一条普通文本
   sendtext(e){
     let that = this
-    console.log(this.data.text)
+
     wx.showLoading({
       title: '发送中..',
     })
@@ -116,7 +116,7 @@ Page({
         receiverId: that.data.to,
         type: "message"
       }, res => {
-        console.log(res)
+
         let date = moment(res.data.data.gmtSend).format('MM-DD HH:mm')
         // let date = (d.getMonth() + 1) + "-" + d.getDate() + " " + d.getHours() + ':' + d.getMinutes()
         res.data.data.gmtSend = date
@@ -148,7 +148,7 @@ Page({
    * 生命周期函数--监听页面隐藏
    */
   onHide: function () {
-    console.log(timer)
+
     if(timer){
       clearInterval(timer)
     }
@@ -158,7 +158,7 @@ Page({
    * 生命周期函数--监听页面卸载
    */
   onUnload: function () {
-    console.log(timer)
+
     if (timer) {
       clearInterval(timer)
     }

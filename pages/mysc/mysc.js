@@ -31,7 +31,7 @@ Page({
   tohousedetails(e) {
     let index = e.currentTarget.dataset.id
     let id =  this.data.house[index].id
-    console.log(id)
+    // console.log(id)
     wx.navigateTo({
       url: '../housedetail/housedetail?obj=' + id,
     })
@@ -46,7 +46,7 @@ Page({
   changemodel(e) {
     var that = this;
     let index = e.currentTarget.dataset.index
-    console.log(index)
+    // console.log(index)
     for (let i in this.data.barArr) {
       if (i == index) {
         this.data.barArr[i].className = "inner-btn select-btn"
@@ -88,7 +88,7 @@ Page({
       title: '加载中...',
     })
     ajax.requestByGet('/user/star/house', {}, function (res) {
-      console.log(res)
+      // console.log(res)
       if (res.data.status == 1) {
         let list = res.data.data
         for (let i = 0; i < list.length; i++) {
@@ -99,7 +99,7 @@ Page({
         })
 
         ajax.requestByGet('/user/star/store', {}, function (res) {
-          console.log(res)
+          // console.log(res)
           if (res.data.status == 1) {
             let list = res.data.data
             for (let i = 0; i < list.length; i++) {

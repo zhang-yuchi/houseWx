@@ -56,7 +56,7 @@ Page({
   tocash(){
     //经过一系列判断后:
     let that = this
-    console.log(this.data.givemoney)
+    // console.log(this.data.givemoney)
     if(that.data.givemoney>that.data.canMoney){
       wx.showToast({
         title: '提现金额过多!',
@@ -80,11 +80,11 @@ Page({
     }
 
     let user = wx.getStorageSync("userInfo")
-    console.log(user)
+    // console.log(user)
     let openid = user.openId
-    console.log(openid)
+    // console.log(openid)
     let sign = utils.getMoney_fd(user,openid,that.data.givemoney,that.data.wxId)
-    console.log(sign)
+    // console.log(sign)
     wx.showLoading({
       title: '提交中',
     })
@@ -93,7 +93,7 @@ Page({
       sign:sign,
       wxId:that.data.wxId
     },res=>{
-      console.log(res)
+      // console.log(res)
       if(res.data.sataus==1){
         wx.hideLoading()
         this.setData({
@@ -121,7 +121,7 @@ Page({
     let that = this;
     new Promise(resolve=>{
       ajax.requestByGet('/user/info',{},res=>{
-        console.log(res)
+        // console.log(res)
         that.setData({
           canMoney:res.data.data.money
         })

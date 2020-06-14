@@ -53,7 +53,7 @@ Page({
     let arr = this.data.userselect
     wx.setStorageSync("moneylist", arr)
     for(let item of arr){
-      console.log(item)
+      // console.log(item)
       if(item.select){
         //被选中
         userselect.price = item.value
@@ -71,7 +71,7 @@ Page({
     this.setData({
       userselect: wx.getStorageSync("moneylist")
     })
-    console.log(wx.getStorageSync("moneylist"))
+    // console.log(wx.getStorageSync("moneylist"))
   },
 
   /**

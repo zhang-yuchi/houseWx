@@ -31,9 +31,9 @@ Page({
       title: '加载中...',
     })
     let that = this
-    console.log(wx.getStorageSync("token"))
+    // console.log(wx.getStorageSync("token"))
     ajax.requestByGet('/user/sign', {}, function(res) {
-      console.log(res)
+      // console.log(res)
       if(res.data.status == 1){
         let arr = res.data.data
         for (let item of arr) {

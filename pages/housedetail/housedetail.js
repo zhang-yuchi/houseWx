@@ -151,7 +151,7 @@ Page({
    */
   onLoad: function(options) {
     var that = this;
-    console.log(options)
+    // console.log(options)
     if (!options.fdeditor) {
       options.fdeditor = 0
     }
@@ -254,7 +254,7 @@ Page({
         })
         // console.log(this.data.obj)
       }).catch(err => {
-        console.log(err)
+        // console.log(err)
       })
 
       //配套齐全
@@ -287,7 +287,7 @@ Page({
         ajax.requestByPost('/user/star/house/' + that.data.id, {
           houseId: that.data.id
         }, res => {
-          console.log(res)
+          // console.log(res)
           wx.hideLoading()
           wx.showToast({
             title: '收藏成功',
@@ -304,7 +304,7 @@ Page({
     } else {
       //已收藏
       ajax.requestByDelete('/user/star/house/' + that.data.id, {}, res => {
-        console.log(res)
+        // console.log(res)
         wx.showToast({
           title: '已取消',
           icon: "none"
@@ -325,17 +325,17 @@ Page({
 
   },
   regionchange(e) {
-    console.log(e.type)
+    // console.log(e.type)
   },
   markertap(e) {
-    console.log(e.markerId)
+    // console.log(e.markerId)
   },
   controltap(e) {
-    console.log(e.controlId)
+    // console.log(e.controlId)
   },
   touserSign: function() {
     var that = this
-    console.log(wx.getStorageSync("userInfo"))
+    // console.log(wx.getStorageSync("userInfo"))
     let userinfo = wx.getStorageSync("userInfo")
     app.verifyLogin().then(res => {
       if (userinfo.isAuth == 0) {

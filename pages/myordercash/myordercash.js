@@ -33,7 +33,7 @@ Page({
   onLoad: function(options) {
     var that = this;
     ajax.requestByGet('/user/bill', {}, function(res) {
-      console.log(res);
+      // console.log(res);
       var myordercashUnpaid = [];
       var myordercashPaid = [];
       if (res.data.status != 1) {

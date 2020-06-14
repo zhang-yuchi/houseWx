@@ -60,7 +60,7 @@ Page({
   toQuanxian:function(){
     wx.getSetting({
       success(res){
-        console.log(res.authSetting)
+        // console.log(res.authSetting)
         if(!res.authSetting['scope.userLocation']){
           wx.showModal({
             title: '提示',

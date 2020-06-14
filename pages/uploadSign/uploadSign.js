@@ -61,10 +61,10 @@ Page({
               lease = lease + 1
             }
             if (that.data.starttime == that.data.endtime) {
-              console.log('时间相等')
+
               lease = 1
             }
-            console.log(lease)
+
             pay.pay(that.data.houseid, 'deposit', that.data.house.cash, {
               houseSignNo: that.data.houseSignNo,
               lease: lease
@@ -128,7 +128,7 @@ Page({
     isButtonDown = false;
   },
   cleardraw() {
-    console.log(111)
+
     arrx = [];
     arry = [];
     arrz = [];
@@ -152,7 +152,7 @@ Page({
         wx.showLoading({
           title: '上传中',
         })
-        console.log(res.tempFilePath);
+
         //存入服务器  
         wx.uploadFile({
           url: app.data.requestHost + '/image', //接口地址  
@@ -171,7 +171,7 @@ Page({
             let obj = JSON.parse(res.data)
             // console.log(obj)
             let handWriteImgUrl = obj.data
-            console.log(handWriteImgUrl)
+
             that.setData({
               handWriteImgUrl: handWriteImgUrl
             })
@@ -199,7 +199,7 @@ Page({
             })
           },
           fail: function(res) {
-            console.log(res);
+
             wx.showToast({
               title: '上传失败..',
               icon: "none"
@@ -238,7 +238,7 @@ Page({
     context = wx.createCanvasContext('firstCanvas');
     context.beginPath()
     //数据初始化
-    console.log(obj)
+
     let that = this
     let starttime = moment(obj.starttime).format('YYYY-MM-DD')
     let endtime = moment(obj.endtime).format('YYYY-MM-DD')
@@ -251,7 +251,7 @@ Page({
     })
     ajax.requestByGet('/house/' + that.data.houseid, {}, res => {
       if (res.data.status == 1) {
-        console.log(res.data.data)
+
         that.setData({
           house: res.data.data
         })
@@ -264,13 +264,13 @@ Page({
 
   },
   regionchange(e) {
-    console.log(e.type)
+
   },
   markertap(e) {
-    console.log(e.markerId)
+
   },
   controltap(e) {
-    console.log(e.controlId)
+
   },
   touserSign: function() {
     wx.navigateTo({

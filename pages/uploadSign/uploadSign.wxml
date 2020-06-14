@@ -58,7 +58,7 @@
   <View class="timeBox"><Text style="color:rgb(140,140,140);font-size:15px;font-weight:300">到期日期：</Text>{{endtime}}</View>
 
   <View class="ht">
-    <image mode="scaleToFill" src="https://image.ruankun.xyz/2.jpg"></image>
+    <image mode="scaleToFill" src="{{contractImg}}"></image>
   </View>
   <view class="sign-title">确定合同内容并签名</view>
   <view class="sign-control">

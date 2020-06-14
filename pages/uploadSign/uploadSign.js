@@ -33,6 +33,7 @@ Page({
     endtime: "",
     idCardNum: "",
     houseSignNo: '',
+    contractImg:"",
   },
   paybtn: function() {
     var that = this;
@@ -183,11 +184,10 @@ Page({
               houseId: that.data.houseid,
               idCardNum: that.data.idCardNum,
               userName: that.data.userName,
-              contractImgUrl: "https://image.ruankun.xyz/2.jpg",
+              contractImgUrl: that.data.contractImg,
               endDate: new Date(that.data.endtime),
               houseSignNo: num,
               startDate: new Date(that.data.starttime),
-
             }, res => {
               wx.showToast({
                 title: '上传成功请支付 ',
@@ -231,7 +231,7 @@ Page({
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
-  onLoad: function(options) {
+  onLoad: async function(options) {
     // console.log(111)
     let obj = JSON.parse(options.obj)
     //画布
@@ -251,14 +251,16 @@ Page({
     })
     ajax.requestByGet('/house/' + that.data.houseid, {}, res => {
       if (res.data.status == 1) {
-
         that.setData({
           house: res.data.data
         })
       }
-
     })
-
+    ajax.requestByGet('/house/contract',{},res=>{
+      that.setData({
+        contractImg:res.data.data
+      })
+    })
   },
   onReady: function() {
 

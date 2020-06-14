@@ -262,7 +262,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow:async function () {
-    await app.verifyLogin()
+    // await app.verifyLogin()
     const that = this
     let token = wx.getStorageSync('token')
     if(token){

@@ -10,7 +10,6 @@
     </View>
     <image src="{{imagePic}}" class="topBox_right" />
   </View>
-
   <View class="title" style="margin-bottom:15px;">我的小鱼</View>
   <View class="cardBox">
    <View class="cardBox_son" style="background: rgb(253, 211, 77);" bindtap="tomyhouse_fd">

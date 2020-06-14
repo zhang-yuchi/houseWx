@@ -11,110 +11,142 @@ Page({
     nickName: "",
     imagePic: "",
     isFd: 0,
-    lock:false,
-    notifyShowen:false,
-    cleanShow:false,
+    lock: false,
+    notifyShowen: false,
+    cleanShow: false,
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
-    var that = this;
-    let userInfo = wx.getStorageSync('userInfo');
-    // console.log(userInfo)
-    let isFd = userInfo.landlord;
-    let authImg = wx.getStorageSync("authImg")
-    that.setData({
-      nickName: userInfo.nickName,
-      imagePic: authImg,
-      isFd: isFd
+  onLoad: function(options) {
+    // 登陆
+    new Promise((resolve) => {
+      const token = wx.getStorageSync('token')
+      if (!token) {
+        wx.navigateTo({
+          url: "/pages/wxLogin/wxLogin?status=null&mine=true",
+        })
+        return
+      }
+      this.ajaxMethod(`/user/token/${token}`).then(res => {
+        console.log(res)
+        let tokenStatus = res.data.status
+        return new Promise((resolve, reject) => {
+          if (tokenStatus == 1) {
+            reject(tokenStatus)//验证成功,不进行操作
+          } else {
+            resolve(tokenStatus)
+          }
+        })
+      })
+        .then(tokenStatus => {
+          //验证过期,需要重新登录
+          wx.navigateTo({
+            url: "/pages/wxLogin/wxLogin?status=expired&mine=true"
+          })
+        })
+        .catch(success => {
+          resolve(success)
+        })
     })
+
+    var that = this;
+    if (wx.getStorageSync('userInfo')) {
+      let userInfo = wx.getStorageSync('userInfo');
+      let isFd = userInfo.landlord;
+      let authImg = wx.getStorageSync("authImg")
+      that.setData({
+        nickName: userInfo.nickName,
+        imagePic: authImg,
+        isFd: isFd
+      })
+    }
   },
-  tosurf: function () {
+  tosurf: function() {
     wx.navigateTo({
       url: '../mysurf/mysurf',
     })
   },
-  tomysc: function () {
+  tomysc: function() {
     wx.navigateTo({
       url: '../mysc/mysc',
     })
   },
-  call: function () {
+  call: function() {
     wx.makePhoneCall({
       phoneNumber: '020-202525562' //仅为示例，并非真实的电话号码
     })
   },
-  showConcatBox: function () {
+  showConcatBox: function() {
     this.setData({
       concatBoxDisplay: "block"
     })
   },
-  cancel: function () {
+  cancel: function() {
     this.setData({
       concatBoxDisplay: "none"
     })
   },
-  preClean: function () {
+  preClean: function() {
     this.setData({
       cleanShow: true
     })
   },
-  cancelClean:function(){
+  cancelClean: function() {
     this.setData({
-      cleanShow:false
+      cleanShow: false
     })
   },
-  callClean:function(){
+  callClean: function() {
     wx.makePhoneCall({
       phoneNumber: '020-202525562' //仅为示例，并非真实的电话号码
     })
   },
-  tomyorder: function () {
+  tomyorder: function() {
     wx.navigateTo({
       url: '../myorder/myorder',
     })
   },
-  tomyfixed: function () {
+  tomyfixed: function() {
     wx.navigateTo({
       url: '../myfixed/myfixed',
     })
   },
-  tosc: function () {
+  tosc: function() {
     wx.navigateTo({
       url: '../sc/sc',
     })
   },
-  tomyordercash: function () {
+  tomyordercash: function() {
     wx.navigateTo({
       url: '../myordercash/myordercash',
     })
   },
   fdauth() {
-    if(this.data.isFd==0){
+    if (this.data.isFd == 0) {
       wx.navigateTo({
         url: '../usertofd/usertofd',
       })
-    }else{
+    } else {
       wx.showToast({
         title: '审核中,请耐心等待',
         icon: "none"
       })
     }
-    
+
   },
-  tomyhouse_fd: function () {
+  tomyhouse_fd: function() {
     wx.navigateTo({
       url: '../myhouse_fd/myhouse_fd',
     })
   },
-  tomywallet: function () {
+  tomywallet: function() {
     wx.navigateTo({
       url: '../mywallet_fd/mywallet_fd',
     })
   },
-  toQuanxian: function () {
+  toQuanxian: function() {
     wx.getSetting({
       success(res) {
         console.log(res.authSetting)
@@ -122,10 +154,10 @@ Page({
           wx.showModal({
             title: '提示',
             content: '请求获取位置权限',
-            success: function (res) {
+            success: function(res) {
               if (res.confirm) {
                 wx.openSetting({
-                  success: function (data) {
+                  success: function(data) {
                     if (data.authSetting['scope.userLocation'] === true) {
                       wx.showToast({
                         title: '授权成功',
@@ -150,7 +182,7 @@ Page({
     })
   },
 
-  toChangeInfodetails: function () {
+  toChangeInfodetails: function() {
     wx.navigateTo({
       url: '../change_infodetails/change_infodetails',
     })
@@ -160,69 +192,70 @@ Page({
       url: '../myfixed/myfixed',
     })
   },
-  notice(){
+  notice() {
     this.setData({
-      notifyShowen:true,
-      lock:true,
+      notifyShowen: true,
+      lock: true,
     })
   },
-  cancelNotify(){
+  cancelNotify() {
     this.setData({
       notifyShowen: false,
-      lock:false,
+      lock: false,
     })
   },
-  
+
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
-  onReady: function () {
+  onReady: function() {
 
   },
 
   /**
    * 生命周期函数--监听页面显示
    */
-  onShow: function () {
+  onShow: function() {
     var that = this;
     that.setData({
       nameBoxWidth: (app.data.width * 0.9 - 90) + 'px',
       concatBox_sonBoxwidth: (app.data.height - 146) / 2 + "px",
     })
+    
   },
 
   /**
    * 生命周期函数--监听页面隐藏
    */
-  onHide: function () {
+  onHide: function() {
 
   },
 
   /**
    * 生命周期函数--监听页面卸载
    */
-  onUnload: function () {
+  onUnload: function() {
 
   },
 
   /**
    * 页面相关事件处理函数--监听用户下拉动作
    */
-  onPullDownRefresh: function () {
+  onPullDownRefresh: function() {
 
   },
 
   /**
    * 页面上拉触底事件的处理函数
    */
-  onReachBottom: function () {
+  onReachBottom: function() {
 
   },
 
   /**
    * 用户点击右上角分享
    */
-  onShareAppMessage: function () {
+  onShareAppMessage: function() {
 
   }
 })

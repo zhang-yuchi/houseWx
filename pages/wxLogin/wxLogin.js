@@ -6,10 +6,16 @@ Page({
     userInfo: {},
     code: '',
     authShow: "block",
-    loginShow: "none"
+    loginShow: "none",
+    mine:false,
   },
-  onLoad: function () {
+  onLoad: function (options) {
     var that = this;
+    if(options.mine){ // 如果是从 '我的' 跳转过来
+      that.setData({
+        mine:true
+      })
+    }
     wx.setStorageSync("msgtimer", null)
     wx.setStorageSync("timer", null)
     // wx.setStorageSync("token", null)//清除token
@@ -196,6 +202,14 @@ Page({
         })
       }
     })
-  }
+  },
 
+  onUnload(){
+    if(this.data.mine){
+      wx.reLaunch({
+        url: '../index/index',
+      })
+      return false
+    }
+  }
 })

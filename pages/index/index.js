@@ -13,18 +13,18 @@ Page({
    * 页面的初始数据
    */
   data: {
-    nowcity: wx.getStorageSync("citylist").city ? wx.getStorageSync("citylist").city:"",
-    houses:[],
-    movies:[],
-    requestHost:app.data.requestHost,
-    isFd:0,
-    isAuth:0,
-    page:1,
-    isBottom:false,
-    search:"",
-    tcArr:[]
+    nowcity: wx.getStorageSync("citylist").city ? wx.getStorageSync("citylist").city : "",
+    houses: [],
+    movies: [],
+    requestHost: app.data.requestHost,
+    isFd: 0,
+    isAuth: 0,
+    page: 1,
+    isBottom: false,
+    search: "",
+    tcArr: []
   },
-  init(){
+  init() {
     let that = this
     wx.setStorageSync("fjlist", [
       //没有这个列表则创建一个新的
@@ -57,9 +57,9 @@ Page({
         select: false,
         value: 10000,
         classname: ""
-      }])
-    wx.setStorageSync("pricelist", [
-      {
+      }
+    ])
+    wx.setStorageSync("pricelist", [{
         name: "不限",
         classname: "active",
         select: true,
@@ -80,8 +80,7 @@ Page({
         select: false,
       },
     ])
-    wx.setStorageSync('moneylist', [
-      {
+    wx.setStorageSync('moneylist', [{
         name: "不限",
         value: 0,
         select: true,
@@ -118,75 +117,175 @@ Page({
         classname: ""
       },
     ])
-    wx.setStorageSync("hxlist", [
-      { name: "不限", id: 0, value: "", className: "barBtn barBtnC", select: true },
-      { name: "一室", id: 1, value: "一室", className: "barBtn", select: false },
-      { name: "二室", id: 2, value: "二室", className: "barBtn", select: false },
-      { name: "三室", id: 3, value: "三室", className: "barBtn", select: false }
+    wx.setStorageSync("hxlist", [{
+        name: "不限",
+        id: 0,
+        value: "",
+        className: "barBtn barBtnC",
+        select: true
+      },
+      {
+        name: "一室",
+        id: 1,
+        value: "一室",
+        className: "barBtn",
+        select: false
+      },
+      {
+        name: "二室",
+        id: 2,
+        value: "二室",
+        className: "barBtn",
+        select: false
+      },
+      {
+        name: "三室",
+        id: 3,
+        value: "三室",
+        className: "barBtn",
+        select: false
+      }
     ])
     wx.setStorageSync("saixuanlist", {
-      cx: [
-        { name: "不限", id: 0, value: "", className: "barBtn barBtnC", select: true },
-        { name: "东", id: 1, value: "东", className: "barBtn", select: false },
-        { name: "南", id: 2, value: "南", className: "barBtn", select: false },
-        { name: "西", id: 3, value: "西", className: "barBtn", select: false },
-        { name: "北", id: 4, value: "北", className: "barBtn", select: false },
-        { name: "南北", id: 5, value: "南北", className: "barBtn", select: false },
+      cx: [{
+          name: "不限",
+          id: 0,
+          value: "",
+          className: "barBtn barBtnC",
+          select: true
+        },
+        {
+          name: "东",
+          id: 1,
+          value: "东",
+          className: "barBtn",
+          select: false
+        },
+        {
+          name: "南",
+          id: 2,
+          value: "南",
+          className: "barBtn",
+          select: false
+        },
+        {
+          name: "西",
+          id: 3,
+          value: "西",
+          className: "barBtn",
+          select: false
+        },
+        {
+          name: "北",
+          id: 4,
+          value: "北",
+          className: "barBtn",
+          select: false
+        },
+        {
+          name: "南北",
+          id: 5,
+          value: "南北",
+          className: "barBtn",
+          select: false
+        },
       ],
-      zf: [//多选
-        { name: "押一付一", value: "押一付一", obj: "cashType", id: 1, className: "barBtn", select: false },
-        { name: "配套齐全", value: 1, obj: "hasComplete", id: 2, className: "barBtn", select: false },
-        { name: "可短租", value: 1, obj: "shortRent", id: 3, className: "barBtn", select: false },
-        { name: "女生合租", value: 0, obj: "girlShared", id: 4, className: "barBtn", select: false },
-        { name: "男生合租", value: 0, obj: "boyShared", id: 5, className: "barBtn", select: false },
-        { name: "独立阳台", value: 1, obj: "hasBalcony", id: 6, className: "barBtn", select: false },
+      zf: [ //多选
+        {
+          name: "押一付一",
+          value: "押一付一",
+          obj: "cashType",
+          id: 1,
+          className: "barBtn",
+          select: false
+        },
+        {
+          name: "配套齐全",
+          value: 1,
+          obj: "hasComplete",
+          id: 2,
+          className: "barBtn",
+          select: false
+        },
+        {
+          name: "可短租",
+          value: 1,
+          obj: "shortRent",
+          id: 3,
+          className: "barBtn",
+          select: false
+        },
+        {
+          name: "女生合租",
+          value: 0,
+          obj: "girlShared",
+          id: 4,
+          className: "barBtn",
+          select: false
+        },
+        {
+          name: "男生合租",
+          value: 0,
+          obj: "boyShared",
+          id: 5,
+          className: "barBtn",
+          select: false
+        },
+        {
+          name: "独立阳台",
+          value: 1,
+          obj: "hasBalcony",
+          id: 6,
+          className: "barBtn",
+          select: false
+        },
       ]
     })
-    new Promise(resolve=>{
-      utils.initAsDongGuan(this, function () {
+    new Promise(resolve => {
+      utils.initAsDongGuan(this, function() {
         wx.reLaunch({
           url: '../index/index',
         })
         wx.hideLoading()
-      },true)
+      }, true)
     })
-    
+
     // wx.reLaunch()
-      
+
   },
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: async function (options) {
-      // const success = await app.verifyLogin()
-      // console.log(success)
-    
-    
+  onLoad: async function(options) {
+    // const success = await app.verifyLogin()
+    // console.log(success)
+
+
     // wx.navigateTo({
     //   url: '/pages/price/price',
     // })
   },
-  totips(){
+  totips() {
     wx.showToast({
       title: '审核中,请耐心等待',
-      icon:"none"
+      icon: "none"
     })
   },
-  toRent(){
+  toRent() {
     wx.navigateTo({
       url: '../fd_cz/fd_cz',
     })
   },
-  toPrice:function(){
+  toPrice: function() {
     wx.navigateTo({
       url: '../price2/price2',
     })
   },
-  tonew(){
+  tonew() {
     //分页操作
     let page = this.data.page
     let that = this
-    if(!that.data.isBottom){
+    if (!that.data.isBottom) {
       wx.showLoading({
         title: '加载中',
       })
@@ -201,7 +300,7 @@ Page({
           })
         } else {
           let houses = that.data.houses
-          res.data.data.map(item=>{
+          res.data.data.map(item => {
             item.tags = utils.tagsToArr(item.tags)
             houses.push(item)
           })
@@ -214,59 +313,55 @@ Page({
         }
       })
     }
-    
+
   },
-  toarea(){
+  toarea() {
     wx.navigateTo({
       url: '../area/area',
     })
   },
-  tosort(){
+  tosort() {
     wx.navigateTo({
       url: '../price/price',
     })
   },
-  tohousedetails(e){
+  tohousedetails(e) {
     const id = e.currentTarget.dataset.id
     // console.log(id)
     wx.navigateTo({
       url: `../housedetail/housedetail?obj=${id}`,
     })
-    
-    // wx.navigateTo({
-    //   url: '../housedetail/housedetail',
-    // })
   },
-  check:function(e){
+  check: function(e) {
     var value = e.detail.value;
     var arr = this.data.houseSets;
     var newArr = [];
     var obj = {};
-    for(var i=0;i<allArr.length;i++){
-      if(allArr[i].houseinfo.addr.indexOf(value) != -1){
+    for (var i = 0; i < allArr.length; i++) {
+      if (allArr[i].houseinfo.addr.indexOf(value) != -1) {
         newArr.push(allArr[i]);
       }
     }
     this.setData({
-      houseSets:newArr
+      houseSets: newArr
     })
   },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
-  onReady: function () {
+  onReady: function() {
 
   },
 
   /**
    * 生命周期函数--监听页面显示
    */
-  onShow:async function () {
+  onShow: async function() {
     // await app.verifyLogin()
     const that = this
     let token = wx.getStorageSync('token')
-    if(token){
-      ajax.requestByGet('/user/info', {}, function (res) {
+    if (token) {
+      ajax.requestByGet('/user/info', {}, function(res) {
         console.log(res)
         wx.setStorageSync("userInfo", res.data.data)
         that.setData({
@@ -277,15 +372,15 @@ Page({
         // console.log(wx.getStorageSync("userInfo"))
         // console.log(wx.getStorageSync("citylist"))
         that.setData({
-        nowcity: wx.getStorageSync("citylist").city ? wx.getStorageSync("citylist").city : ""
-    })
+          nowcity: wx.getStorageSync("citylist").city ? wx.getStorageSync("citylist").city : ""
+        })
       })
     }
 
 
     // wx.setStorageSync("userSelect", null)
     //获取轮播图
-    ajax.requestByGet('/banner', {}, function (res) {
+    ajax.requestByGet('/banner', {}, function(res) {
       // console.log(res.data.data)
       that.setData({
         movies: res.data.data
@@ -295,7 +390,7 @@ Page({
 
 
     //获得特色推荐
-    ajax.requestByGet('/user/rcmd', {}, function (res) {
+    ajax.requestByGet('/user/rcmd', {}, function(res) {
       // console.log(res)
       let tcArr = []
       for (let item of res.data.data) {
@@ -306,22 +401,22 @@ Page({
       })
     })
     that.setData({
-      searchBoxInputWidth:(app.data.width-136)+"px",
-      inputWidth: (app.data.width - 136-14-25)+"px",
-      itembox_sonwidth:(app.data.width/3)+"px",
-      middle_check_sonwidth: (app.data.width / 5-5) + "px",
-      middle_check_son_textleft: (app.data.width / 5-37)/2 + "px",
-      scrollViewHeight:(app.data.height*0.745-190)+"px",
-      sx_son_width:(app.data.width*0.95*0.6/4-6)+"px",
-      isBottom:false,
+      searchBoxInputWidth: (app.data.width - 136) + "px",
+      inputWidth: (app.data.width - 136 - 14 - 25) + "px",
+      itembox_sonwidth: (app.data.width / 3) + "px",
+      middle_check_sonwidth: (app.data.width / 5 - 5) + "px",
+      middle_check_son_textleft: (app.data.width / 5 - 37) / 2 + "px",
+      scrollViewHeight: (app.data.height * 0.745 - 190) + "px",
+      sx_son_width: (app.data.width * 0.95 * 0.6 / 4 - 6) + "px",
+      isBottom: false,
     });
     //请求所有房间数据
     // wx.showLoading({
     //   title: '请等候',
     // })
     if (!wx.getStorageSync("userSelect")) {
-      utils.initSelect(function () {//新用户先初始化
-        ajax.requestByGet('/house', wx.getStorageSync("userSelect"), function (res) {
+      utils.initSelect(function() { //新用户先初始化
+        ajax.requestByGet('/house', wx.getStorageSync("userSelect"), function(res) {
           if (res.data.status == -1) {
             that.setData({
               houses: []
@@ -331,9 +426,9 @@ Page({
           }
           let houses = res.data.data
           for (let item of houses) {
-            
+
             let tags = item.tags
-            if(tags){
+            if (tags) {
               console.log(tags)
               tags = tags.replace("{", "")
               tags = tags.replace("}", "")
@@ -348,7 +443,7 @@ Page({
               })
               item.tags = tags
             }
-            
+
           }
           // wx.hideLoading()
           that.setData({
@@ -359,11 +454,11 @@ Page({
       })
     } else {
       // console.log(wx.getStorageSync("userSelect"))
-      ajax.requestByGet('/house', wx.getStorageSync("userSelect"), function (res) {
+      ajax.requestByGet('/house', wx.getStorageSync("userSelect"), function(res) {
         // console.log(res)
-        if(res.data.status==-1){
+        if (res.data.status == -1) {
           that.setData({
-            houses:[]
+            houses: []
           })
           // wx.hideLoading()
           return
@@ -371,7 +466,7 @@ Page({
         let houses = res.data.data
         for (let item of houses) {
           let tags = item.tags
-          if(tags){
+          if (tags) {
             // console.log(tags)
             tags = tags.replace("{", "")
             tags = tags.replace("}", "")
@@ -385,7 +480,7 @@ Page({
             })
             item.tags = tags
           }
-          
+
         }
         // wx.hideLoading()
         that.setData({
@@ -407,7 +502,7 @@ Page({
           {
             name: "不限",
             select: false,
-            value:"",
+            value: "",
             classname: ""
           },
           {
@@ -433,12 +528,12 @@ Page({
             select: false,
             value: 10000,
             classname: ""
-          }])
+          }
+        ])
       }
       if (!wx.getStorageSync("pricelist")) {
         //这个是排序!!!!!!!
-        wx.setStorageSync("pricelist", [
-          {
+        wx.setStorageSync("pricelist", [{
             name: "不限",
             classname: "active",
             select: true,
@@ -460,13 +555,12 @@ Page({
           },
         ])
       }
-      if(!wx.getStorageSync("moneylist")){
-        wx.setStorageSync('moneylist', [
-          {
-            name:"不限",
-            value:0,
-            select:true,
-            classname:"active"
+      if (!wx.getStorageSync("moneylist")) {
+        wx.setStorageSync('moneylist', [{
+            name: "不限",
+            value: 0,
+            select: true,
+            classname: "active"
           },
           {
             name: "1000元以下",
@@ -501,30 +595,130 @@ Page({
         ])
       }
       if (!wx.getStorageSync("hxlist")) {
-        wx.setStorageSync("hxlist", [
-          { name: "不限", id: 0, value:"", className: "barBtn barBtnC", select: true },
-          { name: "一室", id: 1, value: "一室", className: "barBtn", select: false },
-          { name: "二室", id: 2, value: "二室", className: "barBtn", select: false },
-          { name: "三室", id: 3, value: "三室", className: "barBtn", select: false }
+        wx.setStorageSync("hxlist", [{
+            name: "不限",
+            id: 0,
+            value: "",
+            className: "barBtn barBtnC",
+            select: true
+          },
+          {
+            name: "一室",
+            id: 1,
+            value: "一室",
+            className: "barBtn",
+            select: false
+          },
+          {
+            name: "二室",
+            id: 2,
+            value: "二室",
+            className: "barBtn",
+            select: false
+          },
+          {
+            name: "三室",
+            id: 3,
+            value: "三室",
+            className: "barBtn",
+            select: false
+          }
         ])
       }
       if (!wx.getStorageSync("saixuanlist")) {
         wx.setStorageSync("saixuanlist", {
-          cx: [
-            { name: "不限", id: 0, value:"", className: "barBtn barBtnC", select: true },
-            { name: "东", id: 1, value: "东", className: "barBtn", select: false },
-            { name: "南", id: 2, value: "南", className: "barBtn", select: false },
-            { name: "西", id: 3, value: "西", className: "barBtn", select: false },
-            { name: "北", id: 4, value: "北", className: "barBtn", select: false },
-            { name: "南北", id: 5, value: "南北", className: "barBtn", select: false },
+          cx: [{
+              name: "不限",
+              id: 0,
+              value: "",
+              className: "barBtn barBtnC",
+              select: true
+            },
+            {
+              name: "东",
+              id: 1,
+              value: "东",
+              className: "barBtn",
+              select: false
+            },
+            {
+              name: "南",
+              id: 2,
+              value: "南",
+              className: "barBtn",
+              select: false
+            },
+            {
+              name: "西",
+              id: 3,
+              value: "西",
+              className: "barBtn",
+              select: false
+            },
+            {
+              name: "北",
+              id: 4,
+              value: "北",
+              className: "barBtn",
+              select: false
+            },
+            {
+              name: "南北",
+              id: 5,
+              value: "南北",
+              className: "barBtn",
+              select: false
+            },
           ],
-          zf: [//多选
-            { name: "押一付一",value:"押一付一", obj:"cashType", id: 1, className: "barBtn", select: false },
-            { name: "配套齐全", value: 1, obj: "hasComplete",  id: 2, className: "barBtn", select: false },
-            { name: "可短租", value: 1, obj: "shortRent", id: 3, className:   "barBtn", select: false },
-            { name: "女生合租", value: 0, obj: "girlShared", id: 4, className: "barBtn", select: false },
-            { name: "男生合租", value: 0, obj: "boyShared", id: 5, className: "barBtn", select: false },
-            { name: "独立阳台", value: 1, obj: "hasBalcony", id: 6, className: "barBtn", select: false },
+          zf: [ //多选
+            {
+              name: "押一付一",
+              value: "押一付一",
+              obj: "cashType",
+              id: 1,
+              className: "barBtn",
+              select: false
+            },
+            {
+              name: "配套齐全",
+              value: 1,
+              obj: "hasComplete",
+              id: 2,
+              className: "barBtn",
+              select: false
+            },
+            {
+              name: "可短租",
+              value: 1,
+              obj: "shortRent",
+              id: 3,
+              className: "barBtn",
+              select: false
+            },
+            {
+              name: "女生合租",
+              value: 0,
+              obj: "girlShared",
+              id: 4,
+              className: "barBtn",
+              select: false
+            },
+            {
+              name: "男生合租",
+              value: 0,
+              obj: "boyShared",
+              id: 5,
+              className: "barBtn",
+              select: false
+            },
+            {
+              name: "独立阳台",
+              value: 1,
+              obj: "hasBalcony",
+              id: 6,
+              className: "barBtn",
+              select: false
+            },
           ]
         })
       }
@@ -543,49 +737,50 @@ Page({
       wx.setStorageSync("citychanges", false)
     }
   },
-  search(){
+  search() {
     //搜索
     let that = this
     wx.navigateTo({
-      url: '../searchpage/searchpage?houseinfo='+that.data.search,
+      url: '../searchpage/searchpage?houseinfo=' + that.data.search,
     })
   },
-  listeninput(e){
+  listeninput(e) {
     this.setData({
-      search:e.detail.value
+      search: e.detail.value
     })
-    
+
   },
-  toCity:function(){
+  toCity: function() {
     wx.navigateTo({
       url: '../city/city',
     })
   },
-  toHx:function(){
+  toHx: function() {
     wx.navigateTo({
       url: '../hx/hx',
     })
   },
-  tosaixuan:function(){
+  tosaixuan: function() {
     wx.navigateTo({
       url: '../saixuan/saixuan',
     })
   },
-  toliveserver:function(){
+  toliveserver: function() {
     var that = this;
     wx.navigateTo({
       url: '../liveserver/liveserver',
     })
   },
-  toupfix:function(){
-    var that = this;
-    wx.navigateTo({
-      url: '../upfix/upfix',
+  toupfix: function() {
+    app.verifyLogin().then(res => {
+      wx.navigateTo({
+        url: '../upfix/upfix',
+      })
     })
   },
-  tofdauth:function(){
+  tofdauth: function() {
     var that = this;
-    if(wx.getStorageSync('isFd')=="yes"){
+    if (wx.getStorageSync('isFd') == "yes") {
       wx.navigateTo({
         url: '../fd_cz/fd_cz',
       })
@@ -593,46 +788,48 @@ Page({
         title: '您已是房东',
         icon: 'none'
       })
-    }else{
-      wx.navigateTo({
-        url: '../fdAuth_new/fdAuth_new',
+    } else {
+      app.verifyLogin().then(res => {
+        wx.navigateTo({
+          url: '../fdAuth_new/fdAuth_new',
+        })
       })
     }
-    
+
   },
 
   /**
    * 生命周期函数--监听页面隐藏
    */
-  onHide: function () {
+  onHide: function() {
 
   },
 
   /**
    * 生命周期函数--监听页面卸载
    */
-  onUnload: function () {
+  onUnload: function() {
 
   },
 
   /**
    * 页面相关事件处理函数--监听用户下拉动作
    */
-  onPullDownRefresh: function () {
+  onPullDownRefresh: function() {
 
   },
 
   /**
    * 页面上拉触底事件的处理函数
    */
-  onReachBottom: function () {
+  onReachBottom: function() {
 
   },
 
   /**
    * 用户点击右上角分享
    */
-  onShareAppMessage: function () {
+  onShareAppMessage: function() {
 
   }
 })

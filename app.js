@@ -23,8 +23,6 @@ App({
     var height = 0;
     wx.getSystemInfo({
       success: function (res) {
-        // console.log(res.windowWidth)
-        // console.log(res.windowHeight)
         width = res.windowWidth;
         height = res.windowHeight;
       }

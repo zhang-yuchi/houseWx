@@ -27,7 +27,7 @@
   </view>
 
 </view>
-<block wx:for="{{getmsg}}">
+<block wx:for="{{getmsg}}" wx:key='index'>
 <view class="timer"><text>{{item.gmtSend}}</text></view>
   <view class="mine"  id="getmsg{{index}}" wx:if="{{item.senderId==mine}}">
     <view class="user"><image src="../../images/user.png"></image></view>

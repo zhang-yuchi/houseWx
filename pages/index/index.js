@@ -300,6 +300,7 @@ Page({
           })
         } else {
           let houses = that.data.houses
+          
           res.data.data.map(item => {
             item.tags = utils.tagsToArr(item.tags)
             houses.push(item)

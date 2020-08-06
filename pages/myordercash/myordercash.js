@@ -37,6 +37,7 @@ Page({
       var myordercashUnpaid = [];
       var myordercashPaid = [];
       if (res.data.status != 1) {
+        console.log(res)
         wx.showToast({
           title: res.data.message,
           icon: 'none'

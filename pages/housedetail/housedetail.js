@@ -186,6 +186,7 @@ Page({
     //房屋详情
     ajax.requestByGet(`/house/${options.obj}`, {}, (res) => {
       const details = res.data.data
+      console.log(details)
       that.setData({
         userId: details.userId
       })
@@ -360,7 +361,7 @@ Page({
         return
       }
       wx.navigateTo({
-        url: '../userSign/userSign?houseid=' + that.data.id,
+        url: '../userSign/userSign?houseid=' + that.data.id + '&checkInDate=' + that.data.obj.checkInDate,
       })
     })
   },

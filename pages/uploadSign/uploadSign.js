@@ -34,6 +34,7 @@ Page({
     idCardNum: "",
     houseSignNo: '',
     contractImg:"",
+    checkInDate:""
   },
   paybtn: function() {
     var that = this;
@@ -164,10 +165,10 @@ Page({
           },
           success: function(res) {
             // that.data.isLoad = true
+            wx.hideLoading();
             wx.showToast({
               title: '上传成功',
             })
-            wx.hideLoading()
             // console.log(res);
             let obj = JSON.parse(res.data)
             // console.log(obj)
@@ -235,6 +236,7 @@ Page({
     // console.log(111)
     let obj = JSON.parse(options.obj)
     //画布
+    console.log(obj)
     context = wx.createCanvasContext('firstCanvas');
     context.beginPath()
     //数据初始化
@@ -247,7 +249,8 @@ Page({
       idCardNum: obj.idCard,
       userName: obj.name,
       starttime: starttime,
-      endtime: endtime
+      endtime: endtime,
+      checkInDate: obj.checkInDate
     })
     ajax.requestByGet('/house/' + that.data.houseid, {}, res => {
       if (res.data.status == 1) {

@@ -23,7 +23,8 @@ Page({
       { name: '长久', value: '长久' }
     ],
     starttime:"开始日期",
-    endtime:"截至日期"
+    endtime:"截至日期",
+    checkInDate:"",
   },
   bindStartDateChange: function (e) {
 
@@ -65,6 +66,7 @@ Page({
         obj.starttime = new Date(that.data.starttime);
         obj.endtime = new Date(that.data.endtime);
         obj.houseid = that.data.houseid
+        obj.checkInDate = that.data.checkInDate
         wx.navigateTo({
           url: '../uploadSign/uploadSign?obj=' + JSON.stringify(obj),
         })
@@ -86,7 +88,8 @@ Page({
   },
   onLoad: function (options) {
 
-
+    console.log(options.checkInDate)
+    this.data.checkInDate = options.checkInDate
     var width = app.data.width;
     var logoLeft = 0 + "px"
     var imageLeft = (width * 0.9 * 0.3) / 2 + "px"

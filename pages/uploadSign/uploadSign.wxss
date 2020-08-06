@@ -199,7 +199,7 @@ page {
   font-size:24rpx;
   text-align: left;
   line-height: 20rpx;
-  color:gainsboro;
+  color:rgb(214, 214, 214);
 }
 .right{
   width:80rpx;
